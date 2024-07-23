@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          uv pip install -r requirements.txt --system
+          uv pip install -r requirements.lock --system
 
       - name: Fetch gh-pages
         run: git fetch origin gh-pages --depth=1
