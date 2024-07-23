@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Python Language Summit 2023: What is the Standard Library for? - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-python-language-summit-2023-what-is-the-standard-library-for">
+<h1>The Python Language Summit 2023: What is the Standard Library for?<a class="headerlink" href="#the-python-language-summit-2023-what-is-the-standard-library-for" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language-summit-2023-what-is.html">here</a>.</p>
+<blockquote>
+<div><p>Brett Cannon came to the <a href="#id1"><span class="problematic" id="id2">`</span></a>Python Language</p>
+</div></blockquote>
+<p>Summit &lt;<a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language">https://pyfound.blogspot.com/2023/05/the-python-language</a>-
+summit-2023_29.html&gt;`_ this year with a fundamental question for the assembled
+core developers: What is the standard library for?</p>
+<p>According to a quick <cite>python -c “import sys;
+print(len(sys.stdlib_module_names))”</cite> call on my laptop, the standard library
+in Python 3.11 consists of 305 importable modules. Many of these are
+implementation details that, if you’re a good citizen, you really _shouldn’<a href="#id20"><span class="problematic" id="id21">t_</span></a>
+be importing – but the point stands that the Python standard library is
+perhaps now larger than it should be.</p>
+<p>But the goal of his question, Cannon explained, wasn’t to decide which modules
+to get _rid_  of. Instead, it was to create guidelines on when and why _new_
+modules should be accepted into the standard library.</p>
+<p>&gt; “We need to audit the standard library, and not _deprecate_  it, but decide
+&gt; which bits should probably not have been added if we had perfect hindsight.</p>
+<p>&gt; -- _Guido van Rossum, CPython Core Developer and former <a href="#id22"><span class="problematic" id="id23">BDFL_</span></a></p>
+<p>Carol Willing agreed that the core dev team shouldn’t be looking to remove
+modules _en <a href="#id24"><span class="problematic" id="id25">masse_</span></a> , but should decide what kinds of modules they wanted to
+admit in the future. Łukasz Langa agreed, and pointed out that it was often
+hard removing modules even when we wanted to, due to the fact that “the
+standard library is a huge import cycle”.</p>
+<section id="where-do-we-go-now">
+<h2>Where do we go now?<a class="headerlink" href="#where-do-we-go-now" title="Link to this heading">¶</a></h2>
+<p>Cannon himself put forward two possible answers to his question, before
+tossing it out to the audience:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The standard library should contain everything required to bootstrap an installer.</p></li>
+<li><p>The standard library should make it easy for beginners to be able to write scripts without installing anything.</p></li>
+</ol>
+</div></blockquote>
+<p>The conversation was free-flowing, but a common point of consensus among the
+attendees was that the standard library should focus on tools and utilities
+that allow users to write better Python code. Hynek Schlawack cited
+<a href="#id3"><span class="problematic" id="id4">``</span></a>dataclasses` &lt;<a class="reference external" href="https://docs.python.org/3/library/dataclasses.html">https://docs.python.org/3/library/dataclasses.html</a>&gt;`_ as an
+example of a module that made writing classes much less painful, and generally
+led to them writing better code as a result. (Schlawack is the author of the
+<a class="reference external" href="https://www.attrs.org/en/stable/">attrs</a> library, the third-party inspiration
+for <cite>dataclasses</cite>, which itself is still going strong.) Filipe Laíns agreed,
+arguing that the core dev team should focus on building business
+implementations for third-party libraries to build on top of.</p>
+<p>&gt; “The default answer for ‘Should this be in the standard library?’ should be
+&gt; ‘No’, but we should bless smaller utilities that help people write better
+&gt; Python code”</p>
+<p>&gt; -- _Antonio Cuni, HPy Core <a href="#id26"><span class="problematic" id="id27">Developer_</span></a></p>
+<p>There was a certain amount of regret in the air about modules that perhaps
+should never have been added to the standard library, and had proved
+themselves to be significant maintenance burdens in the years since, but could
+now never be removed.
+<a href="#id5"><span class="problematic" id="id6">``</span></a>tkinter` &lt;<a class="reference external" href="https://docs.python.org/3/library/tkinter.html">https://docs.python.org/3/library/tkinter.html</a>&gt;`_, it was
+universally agreed, was the primary example here; possibly
+<a href="#id7"><span class="problematic" id="id8">``</span></a>multiprocessing` &lt;<a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">https://docs.python.org/3/library/multiprocessing.html</a>&gt;`_
+also.</p>
+<p>Guido van Rossum pondered whether
+<a href="#id9"><span class="problematic" id="id10">``</span></a>asyncio` &lt;<a class="reference external" href="https://docs.python.org/3/library/asyncio.html">https://docs.python.org/3/library/asyncio.html</a>&gt;`_ should ever have
+been added to the standard library, remarking that it had been difficult to
+evolve <cite>asyncio</cite> while it was in the standard library, and had possibly been
+added before it was “fully baked”. The <cite>ssl</cite> integration had probably been a
+mistake, he said, and should have been left to third parties.</p>
+<p>Łukasz Langa noted that modules such as <cite>asyncio</cite> and
+<a href="#id11"><span class="problematic" id="id12">``</span></a>typing` &lt;<a class="reference external" href="https://docs.python.org/3/library/typing.html">https://docs.python.org/3/library/typing.html</a>&gt;`_, which had continued
+to evolve rapidly after being added to the standard library, had helped spur
+new syntax changes to Python that had been to the language’s betterment.
+Without <cite>asyncio</cite> in the standard library, Langa argued, we would probably
+never have adopted the <cite>async</cite>/<cite>await</cite> syntax that is now the foundation of
+asynchronous Python programming.</p>
+<p>Zac Hatfield-Dods, maintainer of several prominent third-party packages, said
+that different standard-library packages had different impacts on the Python
+ecosystem. <a class="reference external" href="https://docs.pytest.org/en/7.3.x/">Pytest</a>, one of the libraries
+he maintains, had managed to flourish and find success despite the existence
+of <a href="#id13"><span class="problematic" id="id14">``</span></a>unittest` &lt;<a class="reference external" href="https://docs.python.org/3/library/unittest.html">https://docs.python.org/3/library/unittest.html</a>&gt;`_ in the
+standard library. But another library he helps out with, the asynchronous
+<a class="reference external" href="https://trio.readthedocs.io/en/stable/">Trio</a> framework, had struggled to
+attract users while <cite>asyncio</cite> had been part of the standard library. “Nobody
+supports alternative async implementations,” he complained, despite Trio’s
+development often being years ahead of where <cite>asyncio</cite> is. (In the coffee
+break afterwards, Hatfield-Dods was keen to emphasise that he is, in fact, a
+fan of <cite>asyncio</cite> and the work of the <cite>asyncio</cite> maintainers.)</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNHMtg7BSQza8aOAebA4arhofrKFaaX0MulKsXjgTFBc--7H5bWHuumjdw-DMOHN_eGH1cBA4sZzumqMPp0caSMVZv2aySrlwd7R9jMgjwwsMEpluO89sKCEsbAiHli5fg_i65HkN2OJoXnCqlKQiCA9HBlICEB_NUcFOsN3WcCPKOAbU/s320/image_2023-05-27_223251699.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNHMtg7BSQza8aOAebA4arhofrKFaaX0MulKsXjgTFBc">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNHMtg7BSQza8aOAebA4arhofrKFaaX0MulKsXjgTFBc</a>
+–7H5bWHuumjdw-
+DMOHN_eGH1cBA4sZzumqMPp0caSMVZv2aySrlwd7R9jMgjwwsMEpluO89sKCEsbAiHli5fg_i65HkN2OJoXnCqlKQiCA9HBlICEB_NUcFOsN3WcCPKOAbU/s959/image_2023-05-27_223251699.png)
+—
+Zac Hatfield-Dods (left), speaking at the Language Summit
+(Photo by Hugo van Kemenade)</p>
+<p>Cannon brought up the question of whether a module like
+<a href="#id16"><span class="problematic" id="id17">``</span></a>pathlib` &lt;<a class="reference external" href="https://docs.python.org/3/library/pathlib.html">https://docs.python.org/3/library/pathlib.html</a>&gt;`_ belonged. “It’s
+just sugar,” he remarked – i.e., hardly a “core utility” or a protocol that
+allowed people to write better code. But it has nonetheless been one of the
+more popular additions to the standard library in recent years. Langa again
+pushed back, arguing that without the addition of <cite>pathlib</cite> to the standard
+library, we would never have added
+<a href="#id18"><span class="problematic" id="id19">``</span></a>os.PathLike` &lt;<a class="reference external" href="https://docs.python.org/3/library/os.html#os.PathLike">https://docs.python.org/3/library/os.html#os.PathLike</a>&gt;`_, a
+protocol that had allowed a common interface for describing file-system paths
+in Python. “A third-party PyPI package wouldn’t have convinced us to make that
+change,” Langa argued.</p>
+<p>Several attendees noted that adding a module to the standard library often
+made it hard for users to use features added to the module in newer versions
+of Python, due to CPython’s slow development cycle. One solution could be to
+provide third-party versions of standard-library modules on PyPI, backporting
+the latest features of a module to older versions of Python. Thomas Wouters
+argued that previous attempts at providing these backport modules had often
+been disastrous. However, Jelle Zijlstra noted that
+<a class="reference external" href="https://github.com/python/typing_extensions">typing_extensions</a>, which
+backports features from the latest version of the <cite>typing</cite> module, had been
+incredibly successful (though it was sometimes hard to maintain).</p>
+<p>Overall, there was agreement that the original motivations for a large,
+“batteries-included” standard library no longer held up to scrutiny. “In the
+good old days,” Ned Deily reminisced, “We said ‘batteries-included’ because we
+didn’t have a good story for third-party installation.” But in 2023,
+installing third-party packages from PyPI is much easier.</p>
+<p>Often, Thomas Wouters noted, people preferred using standard-library modules
+in a corporate setting due to the fact that the installation of any third-
+party package would require approval from their company’s IT department. But,
+he noted, this was hardly Python’s problem.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2023-05-the-python-language-summit-2023-towards.html">
+      
+      <span>The Python Language Summit 2023: Towards Native Profiling for Python</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2023-05-thinking-about-running-for-python.html">
+      <span>Thinking about running for the Python Software Foundation Board of Directors? Let’s talk!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

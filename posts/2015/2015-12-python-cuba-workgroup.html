@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Python-Cuba Workgroup - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="python-cuba-workgroup">
+<h1>Python-Cuba Workgroup<a class="headerlink" href="#python-cuba-workgroup" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/12/python-cuba-workgroup.html">here</a>.</p>
+<p>Today I’d like to report on some of the progress that has been made as a
+result of last years’ controversy over an April 1st joke post about a
+(fictional) PyCon to be held in Cuba. As you may recall, the joke fell flat
+for many–nonetheless, the intent to instigate a real movement toward greater
+communication with Cuban Pythonistas, and perhaps to someday hold a conference
+on the island, was fulfilled beyond the authors’ expectations!</p>
+<p>The first step occurred in May with the formation of a Python-Cuba Workgroup,
+which was recognized in June by the PSF board as an official workgroup with a
+<a class="reference external" href="https://wiki.python.org/psf/PythonCubaWG/Charter">charter</a>. Since some group
+members already had contacts with Cuban programmers, the workgroup was able to
+begin a healthy collaboration. In addition, several Cuban Pythonistas made
+contact with us after the April 1st newsblog post. Discussion and analysis of
+issues, including internet access in Cuba, how to accommodate a multi-lingual
+group, governmental involvement and obstacles, etc., began in earnest over the
+summer.</p>
+<p>Thanks to the hard work of many, including Kirby Unger, David Mertz, Roberto
+Rosario, Steve Holden, Luciano Ramalho, Pablo Celayes in Argentina, Olemis
+Lang in Cuba, and dozens of other supporters and members, the group has
+recently gotten off the ground, and it looks like great things are about to
+happen!</p>
+<p>Pablo Celayes deserves special mention for his efforts in involving his
+recently formed Python meet-up group in Cordoba, Argentina in the Python-Cuba
+effort (<a class="reference external" href="http://www.meetup.com/Cordoba-Python-Meetup/events/226908468/">Cordoba, Argentina meet-up</a>). Cuban developer, Alejandro Zamora Fonesca, is
+planning to visit Pablo and the rest of this group in Argentina this month to
+further discuss the growth of Python in Cuba. We look forward to hearing about
+that meeting on the Python Cuba mail list. In addition, Pablo will be
+traveling to Cuba in January, and again in March,  and hopes to have some sort
+of Python event organized for that time.</p>
+<p>Indeed, Python events were already happening in Cuba prior to the formation of
+our group, and those of us in the US found that there were many Cuban Python
+developers eager to get more involved (for example, see
+<a class="reference external" href="https://twitter.com/pythoncuba/status/618580757028605953">Twitter</a>). Newer
+groups, such as the <a class="reference external" href="http://www.meetup.com/merchise/events/226033248/">Merchise Start Up
+Circle</a> in Havana, are
+quickly growing and are busy planning future events. And plans are also
+underway to offer workshops on Python and Django  as part of the <a class="reference external" href="http://www.cubaconf.org/">Cuba Free
+Software Conference</a>, to take place April 25 - 27.
+This large, international event, sponsored by The User Group of Free
+Technologies in Cuba (GUTL) and The Best of Open Techonologies in Germany
+(BOOT), is currently looking for speakers and mentors, so if you’re
+interested, please contact Pablo Mestre (pmdcuba at gmail.com).</p>
+<p>These are just a few of the many ideas that are beginning to take form, and
+I’ve mentioned only a few of the many people involved. But the excitement and
+momentum are truly building. The Python-Cuba work group communicates by
+<a class="reference external" href="https://mail.python.org/pipermail/python-cuba/">mailman listserv</a>. Please
+read the archives and subscribe to the list if you’d like to help.</p>
+<p>_I would love to hear from readers. Please send feedback, comments, or blog
+ideas to me at  <a class="reference external" href="mailto:msushi&#37;&#52;&#48;gnosis&#46;cx">msushi<span>&#64;</span>gnosis<span>&#46;</span>cx</a>._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2015-12-google-summer-of-codeterri-oda-gets-csa.html">
+      
+      <span>Google Summer of Code–Terri Oda gets CSA award!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="../2016/2016-01-2015-community-service-awartd-goes-to.html">
+      <span>2015 Community Service Award  goes to Berker Peksağ</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

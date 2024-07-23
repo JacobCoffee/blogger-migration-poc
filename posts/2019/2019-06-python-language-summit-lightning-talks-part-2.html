@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Python Language Summit Lightning Talks, Part 2 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="python-language-summit-lightning-talks-part-2">
+<h1>Python Language Summit Lightning Talks, Part 2<a class="headerlink" href="#python-language-summit-lightning-talks-part-2" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/06/python-language-summit-lightning-talks-part-2.html">here</a>.</p>
+<p>The Summit concluded with a second round of lightning talks, which speakers
+had signed up for that day. These talks were therefore more off-the-cuff than
+the morning’s talks, and several of them were direct responses to earlier
+presentations.</p>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a><em>Read more 2019 Python Language Summit
+coverage</em> &lt;<a class="reference external" href="https://pyfound.blogspot.com/2019/05/the-2019-python-language">https://pyfound.blogspot.com/2019/05/the-2019-python-language</a>-
+summit.html&gt;`_*.*</p>
+<section id="christian-heimes">
+<h2>Christian Heimes<a class="headerlink" href="#christian-heimes" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="ssl-module-updates">
+<h1>SSL Module Updates<a class="headerlink" href="#ssl-module-updates" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-3GlX7QBH795bYbwyaaJZp7lkLc-Sv6oRJFKLP406Oc5-ZlXRMpBkBLPzQnGfIGl9AgH1f3Q_xXPVjdNSQOwOmLt0jwqhZ-AdZffhgj3SVoM_n8gE64e9oOZ6793RLVezhw/s640/heimes.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-3GlX7QBH795bYbwyaaJZp7lkLc">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-3GlX7QBH795bYbwyaaJZp7lkLc</a>-
+Sv6oRJFKLP406Oc5-ZlXRMpBkBLPzQnGfIGl9AgH1f3Q_xXPVjdNSQOwOmLt0jwqhZ-
+AdZffhgj3SVoM_n8gE64e9oOZ6793RLVezhw/s1600/heimes.jpg)</p>
+<p>Python’s ssl module depends on OpenSSL. On Linux, Python uses the system
+OpenSSL, but on Mac and Windows it ships its own. Christian Heimes explained
+to the Language Summit that Python 3.7 must upgrade its included version of
+OpenSSL to 1.1.1 to receive long-term support, but he warned that this change
+might cause unexpected issues for Python programmers on Mac and Windows.</p>
+<p>Heimes wants to deprecate support for TLS 1.1 as soon as possible. Recent
+Linux distributions and browsers already prohibit the old protocol for
+security reasons. In Python 3.8 he plans to document that TLS 1.1 “may work”,
+depending on the underlying OpenSSL version, and in Python 3.9 it will be
+explicitly banned. Larry Hastings asked whether this change could be spread
+over two Python releases, in the way that most features are first deprecated
+and then removed. Heimes replied that OpenSSL itself is moving this quickly.</p>
+<p>Python has poor support for the root certificate authority files included in
+the operating system. On Linux and BSD, <cite>ssl.create_default_context()</cite> uses
+the root CAs correctly. On Windows, according to Heimes, root CAs are partly
+broken despite “a hack I added a couple years ago that does not work for
+technical reasons.” And on macOS there is no support without installing the
+<cite>certifi</cite> package. Heimes proposed to rely more on the operating system: on
+Mac and Windows in particular, the interpreter should ask the OS to verify
+certificates against its known CAs, instead of asking OpenSSL.</p>
+<p>It has been several years since Heimes and Cory Benfield began drafting <a class="reference external" href="https://www.python.org/dev/peps/pep-0543/">PEP
+543</a>. This PEP would decouple
+Python’s API from the specifics of the OpenSSL library, so it could use OS-
+provided TLS libraries on macOS, Windows, and elsewhere. Heimes told the
+Language Summit that he and Paul Kehrer would work on PEP 543 during the post-
+PyCon sprints.</p>
+<section id="larry-hastings">
+<h2>Larry Hastings<a class="headerlink" href="#larry-hastings" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="lets-argue-about-clinic">
+<h1>Let’s Argue About Clinic<a class="headerlink" href="#lets-argue-about-clinic" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8FSdF1DvOuZXp2u68yDLlmaZ1cHpD6438CN5yBe87T1PMeQXqnFDilF7Rco_m8ii8V_7qFIt8KDLharOPmXtooBWWcA4trXcTMLevpoITbdic8y6I_NOlJE_jIzJBr_zGeA/s320/hastings.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8FSdF1DvOuZXp2u68yDLlmaZ1cHpD6438CN5yBe87T1PMeQXqnFDilF7Rco_m8ii8V_7qFIt8KDLharOPmXtooBWWcA4trXcTMLevpoITbdic8y6I_NOlJE_jIzJBr_zGeA/s1600/hastings.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8FSdF1DvOuZXp2u68yDLlmaZ1cHpD6438CN5yBe87T1PMeQXqnFDilF7Rco_m8ii8V_7qFIt8KDLharOPmXtooBWWcA4trXcTMLevpoITbdic8y6I_NOlJE_jIzJBr_zGeA/s1600/hastings.jpg</a>)</p>
+<p><a class="reference external" href="https://docs.python.org/3/howto/clinic.html">Argument Clinic</a> is a tool used
+in the implementation of CPython to generate argument-parsing code for C
+functions that are used from Python; i.e., “builtin” functions. (It is named
+for <a class="reference external" href="https://en.wikipedia.org/wiki/Argument_Clinic">a Monty Python sketch</a>.)
+Since its original intent was to create C functions that handle their
+arguments like Python functions do, it only handles Python-like function
+signatures.</p>
+<p>Larry Hastings addressed the Language Summit to ask whether Argument Clinic
+ought to be extended to handle argument parsing more generally, including
+function signatures that would not be possible in pure Python. For example,
+some builtin functions have parameters with a default value of NULL, which is
+representable in C but not in Python. Hastings said he had observed developers
+wanting to use Argument Clinic for all builtin functions because it is
+convenient to use and generates fast code.</p>
+<section id="eric-snow">
+<h2>Eric Snow<a class="headerlink" href="#eric-snow" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="the-c-api">
+<h1>The C API<a class="headerlink" href="#the-c-api" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhq2XQHhqYRzRPtaJuX4c-MG6xV2WHbZfl38JhSAEgdPnUD00kjS3-xZCfvR4mdj-g_wKC0qrGb0jzp75r7wL9ZQFPTCjQ2BggzElCQ3VUk3YOBWvorTxNUr9OYlfmnyMnuzQ/s640/snow-1.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhq2XQHhqYRzRPtaJuX4c-MG6xV2WHbZfl38JhSAEgdPnUD00kjS3-xZCfvR4mdj">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhq2XQHhqYRzRPtaJuX4c-MG6xV2WHbZfl38JhSAEgdPnUD00kjS3-xZCfvR4mdj</a>-
+g_wKC0qrGb0jzp75r7wL9ZQFPTCjQ2BggzElCQ3VUk3YOBWvorTxNUr9OYlfmnyMnuzQ/s1600/snow-1.jpg)</p>
+<p>One of the reasons for CPython’s success is its powerful C API, which permits
+C extensions to interact with the interpreter at a low level for the sake of
+performance or flexibility. But, according to Eric Snow, the C API has become
+a hindrance to progress because it is so tightly coupled to CPython’s
+implementation details. He identified several problems with the current
+CPython implementation, such as the GIL, but said, “we can’t go very far
+fixing those problems without breaking the C API.”</p>
+<p>One solution is to split the C API into four categories. The CPython header
+files would be split into four directories to make it more obvious to core
+developers and extension authors which category each type or function belongs
+to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>“internal” — “Do not touch!”</p></li>
+<li><p>“private” — “Use at your own risk!”</p></li>
+<li><p>“unstable” — “Go for it (but rebuild your extension each Python release)!”</p></li>
+<li><p>“stable” — “Worry-free!”</p></li>
+</ul>
+</div></blockquote>
+<p>There are a number of other solutions proposed or in progress:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>It might be possible to <a class="reference external" href="https://mail.python.org/archives/list/capi-sig&#64;python.org/thread/ZV3IQWW7XL6MHZAJARHW62WNZDCX3A4M/">use CFFI in place of the C API</a> to achieve a “better C API”, or <a class="reference external" href="https://mail.python.org/archives/list/capi-sig&#64;python.org/thread/NSREULQDHSJ6SZTOY5YVSNX4U4AYJOI6/">to use Cython</a>.</p></li>
+<li><p>Victor Stinner has <a class="reference external" href="https://pythoncapi.readthedocs.io/roadmap.html">a longstanding project to improve the C API</a> by removing bad features and providing a second-generation API that is less coupled to CPython internals.</p></li>
+<li><p>Steve Dower has <a class="reference external" href="https://mail.python.org/archives/list/capi-sig&#64;python.org/thread/B2VDVLABM4RQ4ATEJXFZYWEGTBZPUBKW/">a higher-level proposal to describe what an ideal C API would look like</a>, if Python could ever get there. Snow said, “Really great proposal, I think we should continue with that one.”</p></li>
+<li><p>Petr Viktorin spoke earlier in the day about <a class="reference external" href="http://pyfound.blogspot.com/2019/05/petr-viktorin-extension-modules-and.html">isolating subinterpreters</a>, and Snow has proposed to enable parallelism by <a class="reference external" href="https://github.com/ericsnowcurrently/multi-core-python">giving each subinterpreter its own GIL</a>.</p></li>
+<li><p>PEP 432 will <a class="reference external" href="https://www.python.org/dev/peps/pep-0432/">restructure CPython’s initialization and finalization sequence</a>.</p></li>
+</ul>
+</div></blockquote>
+<p>Snow finished by inviting interested people to join him on the <a class="reference external" href="https://mail.python.org/mailman3/lists/capi-sig.python.org/">C API special
+interest group mailing list</a>.</p>
+<section id="steve-dower">
+<h2>Steve Dower<a class="headerlink" href="#steve-dower" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="python-in-the-windows-store">
+<h1>Python in the Windows Store<a class="headerlink" href="#python-in-the-windows-store" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2WF2jThu9j8Rj65GSt3GCviyXsN2xXESAqqij5Mi6rvi6A7gkGT7gUXkzJ-Fhoyhu8DBNVbpDk240im-reagfEvfIDllBu9Ry4YjelTcM_Ad_77tRTMDdg3p3d6hHvQw6og/s640/dower-2.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2WF2jThu9j8Rj65GSt3GCviyXsN2xXESAqqij5Mi6rvi6A7gkGT7gUXkzJ">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2WF2jThu9j8Rj65GSt3GCviyXsN2xXESAqqij5Mi6rvi6A7gkGT7gUXkzJ</a>-
+Fhoyhu8DBNVbpDk240im-
+reagfEvfIDllBu9Ry4YjelTcM_Ad_77tRTMDdg3p3d6hHvQw6og/s1600/dower-2.jpg)</p>
+<p>When a Windows user types <cite>python</cite> in the command shell on a clean system, the
+shell typically responds, “python is not recognized as an internal or external
+command”. After <a class="reference external" href="https://mail.python.org/pipermail/python-dev/2019-May/157586.html">the May Windows update this will
+change</a>:
+Typing <cite>python</cite> in the shell will now open the Microsoft Store and offer to
+install Python. When Steve Dower showed the install screen to the Language
+Summit the audience broke into applause.
+<em>screenshot</em></p>
+<p>The package is owned by the Python core developers; Microsoft’s contribution
+was to add the <cite>python</cite> command stub that opens the install page. Compared to
+the installer that users can download from python.org, said Dower, “the
+Microsoft Store is a more controlled environment.” Its distribution of Python
+is easier to install and upgrade, at the cost of some inconsistencies with the
+full Python install. “It’s not going to work for everyone.” Advanced
+developers and those who want multiple versions of Python will prefer to
+install it themselves, but the Microsoft Store will satisfy programmers who
+simply need Python available. “Everyone with a Windows machine in any of the
+tutorial rooms right now should probably be using this,” he said.</p>
+<p>It had not been possible to install Python so conveniently on Windows, until
+recent changes to the Microsoft Store. For example, Store apps were originally
+prohibited from accessing their current working directory, but apps are now
+permitted virtually the same permissions as regular programs.</p>
+<p>Carol Willing asked whether the Store version of Python could be used for
+reproducing data science results. “There are a number of situations where I
+would say don’t use this package,” responded Dower. Since the Microsoft Store
+will automatically update its version of Python whenever there is a new
+release, data scientists who care about reproducibility should install Python
+themselves.</p>
+<section id="nathaniel-smith">
+<h2>Nathaniel Smith<a class="headerlink" href="#nathaniel-smith" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="bors-how-rust-handles-buildbots-and-merge-workflow">
+<h1>Bors: How Rust Handles Buildbots and Merge Workflow<a class="headerlink" href="#bors-how-rust-handles-buildbots-and-merge-workflow" title="Link to this heading">¶</a></h1>
+<section id="or-one-way-to-solve-pablos-problems">
+<h2>_(Or: One way to solve Pablo’s problems)_<a class="headerlink" href="#or-one-way-to-solve-pablos-problems" title="Link to this heading">¶</a></h2>
+<p>In response to <a class="reference external" href="https://pyfound.blogspot.com/2019/05/pablo-galindo-salgado-nights-watch-is.html">Pablo Galindo Salgado’s earlier
+talk</a> about the pain caused by test failures, Nathaniel Smith whipped up a
+talk about the Rust language’s test system. The Rust community observes what
+they call the <a class="reference external" href="https://graydon2.dreamwidth.org/1597.html">Not Rocket Science
+Rule</a>: “Automatically maintain a
+repository of code that always passes all the tests.” Although it is obvious
+that all projects ought to adhere to this rule, most fail to, including
+Python. How does Rust achieve it?</p>
+<p>When a Rust developer approves a pull request, the “bors” bot tests it and, if
+the tests pass, merges the pull request to master.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZoZIvGnBDbS-Vlmo6Y5EIBrfa_n161oEbG2QuD0jcvds8vJObyvo5S84FQ5OGH-hxzy5Nf_SJPSh_1v0LhYoLzwq271WT_pS-WdfbHh7rqhhi92Ou6M483s8pbwUHUiFtEg/s640/Bors_-how-Rust-handles-buildbots-and-merge-workflow-1.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZoZIvGnBDbS">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiZoZIvGnBDbS</a>-
+Vlmo6Y5EIBrfa_n161oEbG2QuD0jcvds8vJObyvo5S84FQ5OGH-
+hxzy5Nf_SJPSh_1v0LhYoLzwq271WT_pS-
+WdfbHh7rqhhi92Ou6M483s8pbwUHUiFtEg/s1600/<a href="#id11"><span class="problematic" id="id12">Bors_</span></a>-how-Rust-handles-buildbots-and-
+merge-workflow-1.png)</p>
+<p>This seems quite elementary, as Smith acknowledged. But there are two unusual
+details of the bors system that enforce the Not Rocket Science Rule. The first
+is that bors tests pull requests in strict sequence. It finds the next
+approved pull request, merges it together with master, tests that version of
+the code, and if the tests pass bors makes that version the new master,
+otherwise it rejects the pull request. Then, bors moves to the next pull
+request in the queue. Compared to the typical system of testing pull requests
+_before_ merging, bors’s algorithm tests the version of the code that will
+actually be published.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0cOpJN9F9w1YbJYEYHK_6dhzAo7vvBlGyjXnq0u5BCDHBtr1dHPO5DlLPFumDCoP3KblWdGDHXIt_KG0qCdWyVnq_yAV5-CscBD9VDjBQyps1RvvCHcENjv_9vzko2ZTAQg/s320/smith-1.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0cOpJN9F9w1YbJYEYHK_6dhzAo7vvBlGyjXnq0u5BCDHBtr1dHPO5DlLPFumDCoP3KblWdGDHXIt_KG0qCdWyVnq_yAV5-CscBD9VDjBQyps1RvvCHcENjv_9vzko2ZTAQg/s1600/smith-1.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0cOpJN9F9w1YbJYEYHK_6dhzAo7vvBlGyjXnq0u5BCDHBtr1dHPO5DlLPFumDCoP3KblWdGDHXIt_KG0qCdWyVnq_yAV5-CscBD9VDjBQyps1RvvCHcENjv_9vzko2ZTAQg/s1600/smith-1.jpg</a>)</p>
+<p>The second way the Rust community enforces the Not Rocket Science Rule is by
+requiring the bors process for all pull requests. “They do this for
+everything,” said Smith. “This is how you merge. There’s no green button.”
+Taken together, bors’s algorithm and the workflow requirement ensure that Rust
+always passes its tests on master.</p>
+<p>Smith described some conveniences that improve the Rust developer experience.
+First, bors can be triggered on a pull request before approving it, as a spot
+check to see whether the code passes the test suite as-is. Second, since bors
+must test pull requests one at a time, it has an optimization to prevent it
+from falling behind. It can jump ahead in the queue, merging a large batch of
+pull requests together and testing the result. If they pass, they can all be
+merged; otherwise, bors bisects the batch to find the faulty change, alerts
+its author, and merges all the pull requests before it.</p>
+<p>The Rust project currently uses a successor to bors called
+<a class="reference external" href="https://github.com/servo/homu">Homu</a>, written in Python. <a class="reference external" href="https://forum.bors.tech/t/other-apps-that-implement-the-nrsrose/51">There are several
+other implementations</a>, including <a class="reference external" href="https://bors.tech/">bors-ng</a>, which is available
+as a public service for any GitHub repository.</p>
+</section>
+<section id="victor-stinner">
+<h2>Victor Stinner<a class="headerlink" href="#victor-stinner" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="status-of-stable-api-and-stable-abi-in-python-3-8">
+<h1>Status of stable API and stable ABI in Python 3.8<a class="headerlink" href="#status-of-stable-api-and-stable-abi-in-python-3-8" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigcBrAdTVk4mLl1mi6aSSES3_VFdPlyAVMiO1WGrd6kQ2SMo9dxqt5oxgqfNwRRf5f3iFsBIL-URjkkjClBKGkkQkMH8WXfPe1ms4Dud1yd4zUH3b-PycutworFBhc5jf4Vg/s640/stinner.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigcBrAdTVk4mLl1mi6aSSES3_VFdPlyAVMiO1WGrd6kQ2SMo9dxqt5oxgqfNwRRf5f3iFsBIL">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigcBrAdTVk4mLl1mi6aSSES3_VFdPlyAVMiO1WGrd6kQ2SMo9dxqt5oxgqfNwRRf5f3iFsBIL</a>-
+URjkkjClBKGkkQkMH8WXfPe1ms4Dud1yd4zUH3b-PycutworFBhc5jf4Vg/s1600/stinner.jpg)</p>
+<p>Python 3.8 will improve the long-term stability of the C API and ABI for
+extension authors. Some of the details are settled, but Victor Stinner’s
+presentation to the Language Summit showed there are still many unanswered
+questions.</p>
+<p>As Eric Snow had mentioned, C header files in Python 3.8 will be split into
+directories for the public stable APIs, the unstable CPython-specific API, and
+the internal API. Afterwards there will be less risk of exposing an internal
+detail in the public API by mistake, since it will be obvious whenever a pull
+request changes a public header.</p>
+<p>CPython’s internal API headers were not installed by “make install” in the
+past, but it could be useful for a debugger or other low-level tool to inspect
+the interpreter’s internal data structures. Thus, in Python 3.8 the internal
+headers will be installed in a special subdirectory.</p>
+<p>In the course of Stinner’s regular work at RedHat he often debugs problems
+with customers’ third-party C extension modules. A debug build of the
+extension module might not be available, but Stinner could gather some useful
+information by loading the extension module with a debug build of Python.
+Today, this is impossible: debug builds of Python only work with debug builds
+of extension modules and vice versa. <a class="reference external" href="https://lists.gt.net/python/dev/1418042">The debug build of Python 3.8, however,
+will be ABI compatible with the release
+build</a>, so the same extension modules
+will work with both.</p>
+<p>Another motivation for updating the C API is isolation of subinterperters.
+Stinner referred to Petr Viktorin’s talk about removing process-wide global
+state for the sake of proper isolation, and possibly giving each
+subinterpreter its own GIL.</p>
+<p>Attaining a clean, stable API and ABI may require breaking the current one;
+the core developers’ discussion focused on how much to break backwards
+compatibility and what techniques might minimize the impact on extension
+authors. The shape of Python 3.8’s C API and ABI are not yet settled. When
+Steve Dower asked whether Stinner was proposing a new stable ABI, Stinner
+answered, “I’m not sure what I’m proposing.”</p>
+<section id="yarko-tymciurak">
+<h2>Yarko Tymciurak<a class="headerlink" href="#yarko-tymciurak" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="cognitive-encapsulation">
+<h1>Cognitive Encapsulation<a class="headerlink" href="#cognitive-encapsulation" title="Link to this heading">¶</a></h1>
+<section id="the-anchor-of-working-together">
+<h2>_The Anchor of Working <a href="#id13"><span class="problematic" id="id14">Together_</span></a><a class="headerlink" href="#the-anchor-of-working-together" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgREnoMNtP4d47Cny5EoLHFCNV4EY9QbTnYVGCKvEhwFXA51Leeq2b9bck8ai9hPe_3VaaypAAvuNfLSAWCHA_yAQ72evhwtiOQed4Q90iv0GhSa9uIqju2susDgRDHXVW_1Q/s640/tymciurak-2.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgREnoMNtP4d47Cny5EoLHFCNV4EY9QbTnYVGCKvEhwFXA51Leeq2b9bck8ai9hPe_3VaaypAAvuNfLSAWCHA_yAQ72evhwtiOQed4Q90iv0GhSa9uIqju2susDgRDHXVW_1Q/s1600/tymciurak-2.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgREnoMNtP4d47Cny5EoLHFCNV4EY9QbTnYVGCKvEhwFXA51Leeq2b9bck8ai9hPe_3VaaypAAvuNfLSAWCHA_yAQ72evhwtiOQed4Q90iv0GhSa9uIqju2susDgRDHXVW_1Q/s1600/tymciurak-2.jpg</a>)</p>
+<p>Tymciurak began his lightning talk by complimenting the Language Summit
+participants. “In terms of communication skills, you do such a great job that
+I’m shocked sometimes.”</p>
+<p>The factors that contribute to collaboration, he said, begin with a diversity
+of skills. <a class="reference external" href="https://pyfound.blogspot.com/2019/05/python-core-developer-mentorship.html">As Victor Stinner had mentioned in his mentorship
+talk</a>, a team with mixed skill sets and skill levels has advantages
+over a team of homogenous experts. Members of high-performing teams are also
+enthusiastic about common goals, they are personally committed to their
+teammates, and they show strong interpersonal skills.</p>
+<p>Tymciurak credited Guido van Rossum for establishing the importance of
+teamwork from the beginning. Nevertheless, he said, “sometimes things may go
+off track.” The cause of irreconcilable disagreements or emotional blowups are
+not always obvious, but Tymciurak claimed that to him, “it’s immediately
+obvious and really simple to fix.”</p>
+<p>Cognitive encapsulation is the awareness that one’s experience of reality is
+not reality itself. “It’s your own mental model,” said Tymciurak. When we
+communicate, if explicitly share with others what we think, see, or hear, then
+we are respecting cognitive encapsulation. As Tymciurak describes it, “That’s
+being aware that my thoughts are my own.” On the other hand, if we assume that
+others already agree with us, or we represent our personal experience as if it
+is the only possible experience for the whole group, then encapsulation is
+violated and we are likely to cause conflict.</p>
+<p>As an example of cognitive encapsulation at work, Tymciurak contrasted two
+types of communication. One is transactional. Someone asks, “Where’s the
+meeting?” You answer by saying which room it is in. Another type is control
+communication. If an instructor commands students to “turn to page 47,” then
+control communication is appropriate and the students will accept it. But when
+a team member uses control communication without the team’s acceptance,
+conflict arises. Tymciurak said, “When you tell someone else what to do,
+you’re breaking the encapsulation. Be careful. There’s times when it’s
+appropriate. But be aware of when it’s not.”</p>
+<p>Another key practice that preserves cognitive encapsulation is to truly
+listen. Especially when the speaker is a junior teammate, it is crucial to be
+able to listen without agreeing, disagreeing, or correcting. Tymciurak
+described the outcome of a team that works together this way. Individuals know
+that they understand each others’ views, and they can advocate for their own
+views, speaking from their own experience. “Then you can speak with authority
+and power. And that’s part of the magic of encapsulation.”</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-06-python-language-summit-lightning-talks.html">
+      
+      <span>Python Language Summit Lightning Talks, Part 1</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-06-2019-board-of-directors-election-voting.html">
+      <span>2019 Board of Directors Election - Voting is Open</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

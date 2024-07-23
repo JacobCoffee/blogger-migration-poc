@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GSOC Student Applications Open - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="gsoc-student-applications-open">
+<h1>GSOC Student Applications Open<a class="headerlink" href="#gsoc-student-applications-open" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2011/03/gsoc-student-applications-open.html">here</a>.</p>
+<p>Students who want to participate in the Google Summer of Code project this
+year should <a class="reference external" href="http://socghop.appspot.com/gsoc/org/google/gsoc2011/python">apply online
+now</a>! The deadline
+for applications is April 8, but the load on the servers increases as that
+date approaches, so apply _now_ to avoid the rush and make sure your
+application is received in time.</p>
+<section id="google-summer-of-code">
+<h2>Google Summer of Code<a class="headerlink" href="#google-summer-of-code" title="Link to this heading">¶</a></h2>
+<p>Since 2005, the Python Software Foundation has been sponsoring Google Summer
+of Code (GSoC) projects to pair students with mentors from Python-based
+projects for real-world development experience. Students who are accepted into
+the program will spend the summer working on an open source project in Python,
+and be paid US$5,000 if the project is completed.</p>
+</section>
+<section id="projects">
+<h2>Projects<a class="headerlink" href="#projects" title="Link to this heading">¶</a></h2>
+<p>In addition to the mentors from the core Python team, several umbrella teams
+are already involved with the PSF for GSoC. Details about the proposed project
+ideas and prospective mentors can be found on <a class="reference external" href="http://wiki.python.org/moin/SummerOfCode/2011">the
+wiki</a>.</p>
+</section>
+<section id="increasing-diversity">
+<h2>Increasing Diversity<a class="headerlink" href="#increasing-diversity" title="Link to this heading">¶</a></h2>
+<p>The PSF is committed to increasing the diversity of the Python community. One
+way we are working toward that goal is by encouraging women and other
+minorities to apply to participate in GSoC through one of the PSF-sponsored
+projects. The <a class="reference external" href="http://www.list.org">Mailman</a>, <a class="reference external" href="http://www.scipy.org/">SciPy</a>,
+and <a class="reference external" href="http://www.pysoy.org/">PySoy</a> projects are especially active in seeking
+minority applicants this year.</p>
+</section>
+<section id="important-dates">
+<h2>Important Dates<a class="headerlink" href="#important-dates" title="Link to this heading">¶</a></h2>
+<p>Student application deadline: 8 April</p>
+<p>Students and Mentors paired up: 22 April</p>
+<p>Announce accepted Students: 25 April</p>
+<p>For more details about the schedule, see the <a class="reference external" href="http://socghop.appspot.com/document/show/gsoc_program/google/gsoc2011/timeline">GSoC
+timeline</a>
+on the project web site.</p>
+<p><em>Updated:</em> The original version of this post incorrectly stated that
+students could earn US$4,500 instead of US$5,000.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2011-03-funding-python-miro-community.html">
+      
+      <span>Funding the Python Miro Community</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2011-04-europython-2011-call-for-presentations.html">
+      <span>EuroPython 2011 Call for Presentations</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

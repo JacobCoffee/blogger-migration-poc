@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Python Language Summit 2024: Limiting Yield in Async Generators - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-python-language-summit-2024-limiting-yield-in-async-generators">
+<h1>The Python Language Summit 2024: Limiting Yield in Async Generators<a class="headerlink" href="#the-python-language-summit-2024-limiting-yield-in-async-generators" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2024/06/python-language-summit-2024-limiting-yield-in-async-generators.html">here</a>.</p>
+<p>Zac Hatfield-Dodds came to the Language Summit to present on a fundamental
+incompatability between the popular async programming paradigm “<a class="reference external" href="https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful">structured
+concurrency</a>” and <a class="reference external" href="https://peps.python.org/pep-0525/">asynchronous
+generators</a>, specifically when it came to
+exception handling when the two were mixed together.</p>
+<section id="id1">
+<h2>Structured Concurrency<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>Structured concurrency is becoming more popular for Python async programming
+like with <a class="reference external" href="https://trio.readthedocs.io">Trio</a> “nurseries” and in the Python
+standard library with the addition of
+<a class="reference external" href="https://docs.python.org/3/library/asyncio-task.html#task-groups">asyncio.TaskGroup</a> in Python 3.11.</p>
+<p>When using structured concurrency, active tasks can be thought of as a tree-
+like structure where sub-tasks of a parent task have to exit before the parent
+task itself can proceed past a pre-defined scope. This exit can come through
+all the tasks completing successfully or from an exception being raised either
+internally or externally (for example, in the case of a timeout on time-
+bounded work).</p>
+<p>The mechanism which allows a parent task and its sub-tasks to cooperate in
+this way is called a “cancel scope” which Trio makes a <a class="reference external" href="https://trio.readthedocs.io/en/stable/reference-core.html#trio.CancelScope">top-level
+concept</a> but is implicitly used in asyncio.TaskGroup and
+asyncio.timeout.</p>
+<p>Async programs that are structured with this paradigm can rely on exceptions
+behaving in a much more recognizable way. There’s no more danger of a spawned
+sub-task silently swallowing an exception because all sub-tasks are guaranteed
+to be checked for their status before the parent task can exit.</p>
+</section>
+<section id="the-problem-with-yields">
+<h2>The problem with yields<a class="headerlink" href="#the-problem-with-yields" title="Link to this heading">¶</a></h2>
+<p>The fundamental issue is that
+<a class="reference external" href="https://docs.python.org/3/reference/expressions.html#yield-expressions">yields</a> suspend the current call frame, in effect “returning” a value,
+and then the generator needs to be “called” again for execution to be resumed.
+This suspension doesn’t play well with structured concurrency because
+execution can’t be suspended in the same call frame as a cancel scope,
+otherwise that scope can’t process exceptions from its child tasks.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWtaKiTPJWFEv1diOaZHdyHIGqG98xfoACzbLVRN_Yi7v-f789hOQDH_zEfdlGO19RGb1gCgcA__rtD46ocU7e6XrT4CjMdHSlWnosWERYTOUu5f8YJPi5mpGf0MgMMKUE0TsR7gdfmM_XBfWFQ78op7vRku1CcTkYygheYLPwEN0VNCs1iA/s320/20240515_155647.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWtaKiTPJWFEv1diOaZHdyHIGqG98xfoACzbLVRN_Yi7v-f789hOQDH_zEfdlGO19RGb1gCgcA__rtD46ocU7e6XrT4CjMdHSlWnosWERYTOUu5f8YJPi5mpGf0MgMMKUE0TsR7gdfmM_XBfWFQ78op7vRku1CcTkYygheYLPwEN0VNCs1iA/s4000/20240515_155647.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWtaKiTPJWFEv1diOaZHdyHIGqG98xfoACzbLVRN_Yi7v-f789hOQDH_zEfdlGO19RGb1gCgcA__rtD46ocU7e6XrT4CjMdHSlWnosWERYTOUu5f8YJPi5mpGf0MgMMKUE0TsR7gdfmM_XBfWFQ78op7vRku1CcTkYygheYLPwEN0VNCs1iA/s4000/20240515_155647.jpg</a>)
+—
+Zac leading a “fun game of ‘why is this code broken?’”
+(Photo credit: Hugo van Kemenade)</p>
+<p>Zac presented some innocuous looking code samples that suffered from the
+described issue:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>async def iter_with_timeout(ait, max_time):</dt><dd><dl class="simple">
+<dt>try:</dt><dd><dl class="simple">
+<dt>while True:</dt><dd><dl class="simple">
+<dt>with asyncio.timeout(max_time):</dt><dd><p>yield await anext(ait)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dt>except StopAsyncIteration:</dt><dd><p>return</p>
+</dd>
+</dl>
+</dd>
+<dt>async def fn():</dt><dd><dl class="simple">
+<dt>async for elem in iter_with_timeout(ait, max_time=1.0):</dt><dd><p>await do_something_with(elem)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>In this example, asyncio.timeout() could expire while the yield had suspended
+the generator and before the generator was resumed. This scenario would result
+in the cancellation exception being raised _in the outer <a href="#id3"><span class="problematic" id="id4">task_</span></a> outside of the
+asyncio.timeout() cancel scope. If things had gone to plan and the generator
+wasn’t suspended the cancellation would be caught by asyncio.timeout() instead
+and execution would proceed.</p>
+<p>Zac presented the following fix to the iter_with_timeout() function:</p>
+<blockquote>
+<div><dl>
+<dt>async def iter_with_timeout(ait, max_time):</dt><dd><blockquote>
+<div><dl>
+<dt>try:</dt><dd><dl>
+<dt>while True:</dt><dd><dl class="simple">
+<dt>with asyncio.timeout(max_time):</dt><dd><p>tmp = await anext(ait)</p>
+</dd>
+</dl>
+<p>yield tmp  # Move yield outside the cancel scope!</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>except StopAsyncIteration:</dt><dd><p>return</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>By moving the yield outside the cancellation scope it means that the
+suspension of the frame isn’t happening when execution is inside a
+cancellation scope. This means that propagation of cancellation errors can’t
+be subverted by a suspended call frame for this program.</p>
+<p>If you’re still having trouble understanding the problem: you are not alone.
+There was a refrain of “still with me?” coming from Zac throughout this talk.
+I recommend looking at the <a class="reference external" href="https://peps.python.org/pep-0789/#problem-statement">problem
+statement</a> and
+<a class="reference external" href="https://peps.python.org/pep-0789/#motivating-examples">motivating examples</a>
+in the PEP for more information.</p>
+</section>
+<section id="where-to-go-from-here">
+<h2>Where to go from here<a class="headerlink" href="#where-to-go-from-here" title="Link to this heading">¶</a></h2>
+<p>Zac and Nathaniel Smith have coauthored <a class="reference external" href="https://peps.python.org/pep-0789">PEP
+789</a> with their proposed solution of
+disallowing yield statements within context managers that behave like cancel
+scopes. Attempting to yield within these scopes would instead raise a
+RuntimeError.</p>
+<p>The mechanism would be using a new function “sys.prevents_yields()” which
+would be used by authors of async frameworks to annotate context managers
+which can’t be suspended safely. Users of async frameworks wouldn’t need to
+change their code unless it contained the unwanted behavior.</p>
+<p>The language would need to support this feature by adding metadata to call
+frames to track whether the current frame should allow yields to occur.</p>
+<p>Mark Shannon was concerned that the solution was “lots of machinery to handle
+the exception being raised in the wrong place” and sought clarification that
+there would be overhead added to every call and return. Zac confirmed this
+would be the case, but that it could be done with “one integer [member on call
+frames] that you increment and decrement, but it would do some operation on
+every frame call and return”.</p>
+<p>Irit Katriel asked why a “runtime error” was being used “instead of something
+static”. Zac explained that users might define their own context managers
+which have a “cancel scope property” and the runtime “wouldn’t know statically
+whether a given context manager should raise an error or not”.</p>
+<p>Łukasz Langa asked whether adding a type annotation to context managers would
+be sufficient to avoid adding runtime overhead. Zac responded that “there are
+still many users that don’t use static type checking”, and that “there’s no
+intention to make it required by default”. Łukasz was concerned that the
+proposal “would be contentious for runtime performance” due to the impact
+being “non-trivial”.</p>
+<p>Pablo Galindo Salgado wanted to explore other big ideas to avoid the
+performance penalty like adding new syntax or language feature, such as “with
+noyield” to provide a static method of avoiding the issue. Zac agreed that
+changing the context manager protocol could also be a solution.</p>
+<p>Guido van Rossum lamented that this was “yet another demonstration that async
+generators were a bridge too far. Could we have a simpler PEP that proposes to
+deprecate and eventually remove from the language asynchronous generators,
+just because they’re a pain and tend to spawn more complexity”.</p>
+<p>Zac had no objections to a PEP deprecating async generators¹. Zac continued,
+“while static analysis is helpful in some cases, there are inevitably cases
+that it misses which kept biting us… until we banned all async generators in
+our codebase”.</p>
+<p>¹ Editors note: after the summit <a class="reference external" href="https://peps.python.org/pep-0789/#deprecate-async-generators-entirely">an update to PEP
+789</a>
+would describe how the problem doesn’t exist _solely_ in async generators and
+thus removal of the feature wouldn’t solve the problem, either.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2024-06-python-language-summit-2024-lightning-talks.html">
+      
+      <span>The Python Language Summit 2024: Lightning Talks</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2024-06-python-language-summit-2024-c-api.html">
+      <span>The Python Language Summit 2024: Native Interface and Limited C API</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

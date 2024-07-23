@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2021 Python Language Summit: Fuzzing and Testing Python With Properties - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2021-python-language-summit-fuzzing-and-testing-python-with-properties">
+<h1>The 2021 Python Language Summit: Fuzzing and Testing Python With Properties<a class="headerlink" href="#the-2021-python-language-summit-fuzzing-and-testing-python-with-properties" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2021/06/the-2021-python-language-summit-fuzzing.html">here</a>.</p>
+<p>At the <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit.html">2021 Python Language
+Summit</a>, <a class="reference external" href="https://zhd.dev/">Zac Hatfield-Dodds</a> gave a presentation about
+fuzzing and testing with Python properties. This presentation tied in with the
+<a class="reference external" href="https://pyfound.blogspot.com/2020/05/lightning-talks-part-2.html">one he gave</a> at the <a class="reference external" href="https://pyfound.blogspot.com/2020/04/the-2020-python-language-summit.html">2020 Python Language
+Summit</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKtdffuvntbo8hWwBSBkCqm4gNPMwbU1rJaU9QXYQj9I5tBqEy45AaWOSXCCJsJJAsVElhJ0wdrWd9MdoPt3pT5u5JewQzrXF8xGaPVMiRwzU312f9vZInStr2ycUNrykIeOE/s16000/zhd.png">![Zac Hatfield-
+Dodds</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKtdffuvntbo8hWwBSBkCqm4gNPMwbU1rJaU9QXYQj9I5tBqEy45AaWOSXCCJsJJAsVElhJ0wdrWd9MdoPt3pT5u5JewQzrXF8xGaPVMiRwzU312f9vZInStr2ycUNrykIeOE/s460/zhd.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKtdffuvntbo8hWwBSBkCqm4gNPMwbU1rJaU9QXYQj9I5tBqEy45AaWOSXCCJsJJAsVElhJ0wdrWd9MdoPt3pT5u5JewQzrXF8xGaPVMiRwzU312f9vZInStr2ycUNrykIeOE/s460/zhd.png</a>)</p>
+<section id="what-is-testing">
+<h2>What Is Testing?<a class="headerlink" href="#what-is-testing" title="Link to this heading">¶</a></h2>
+<p>For the purposes of this talk, he defined testing as the art and science of
+running code and then checking if it did what it was supposed to do. He added
+that, although assertions, type checkers, linters, and code review are good,
+they are not testing.</p>
+<p>There are two general reasons why we might have tests:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><em>For correctness:</em></p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The goal is to validate software and determine that they are no bugs.</p></li>
+<li><p>Nondeterminism is acceptable.</p></li>
+<li><p>Finding any fault is a success.</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p><em>For software engineering (programming, over time, in teams):</em></p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>The goal is to validate changes or detect regressions.</p></li>
+<li><p>Nondeterminism is bad.</p></li>
+<li><p>Bugs should be in only the diff.*</p></li>
+</ol>
+</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li></li>
+</ul>
+<p>When these two reasons for testing aren’t distinguished, there can be
+miscommunications.</p>
+</section>
+<section id="what-is-property-based-testing">
+<h2>What Is Property-Based Testing?<a class="headerlink" href="#what-is-property-based-testing" title="Link to this heading">¶</a></h2>
+<p>There are <a class="reference external" href="https://www.hillelwayne.com/a-bunch-of-tests/">many types of tests</a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Unit tests</p></li>
+<li><p>Integration tests</p></li>
+<li><p>Snapshot tests</p></li>
+<li><p>Parameterized tests</p></li>
+<li><p>Fuzz tests</p></li>
+<li><p>Property-based tests</p></li>
+<li><p>Stateful model tests</p></li>
+</ul>
+</div></blockquote>
+<p>The speaker then walked the summit attendees through an example to explain
+going from traditional unit tests through to parameterized tests and then
+seeing how that plays into property-based tests.</p>
+<p>Imagine that you needed to test the sorted() builtin. With a traditional set
+of unit tests, you can write a bunch of cases with the expected inputs and
+outputs:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhY3vHpWqXh4KT5x8ylsX89guxbjO87LDb0U4hM4rqim7eIKR4KNmlpfsKxpsQWHdxol0hHF_wHMKwYaPguQyaaqrOT1DeBAALov3ZJPt-9VztMMdpGoUhbtzm8kUmbSj6V6GY/s16000/test-1.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhY3vHpWqXh4KT5x8ylsX89guxbjO87LDb0U4hM4rqim7eIKR4KNmlpfsKxpsQWHdxol0hHF_wHMKwYaPguQyaaqrOT1DeBAALov3ZJPt-9VztMMdpGoUhbtzm8kUmbSj6V6GY/s500/test-1.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhY3vHpWqXh4KT5x8ylsX89guxbjO87LDb0U4hM4rqim7eIKR4KNmlpfsKxpsQWHdxol0hHF_wHMKwYaPguQyaaqrOT1DeBAALov3ZJPt-9VztMMdpGoUhbtzm8kUmbSj6V6GY/s500/test-1.png</a>)</p>
+<p>If you want to avoid repeating yourself, you can write a list of inputs and
+outputs:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjp5BBuAdNGEKI5MCcWMmwdBHCmEegFg78BS3jqYmd0Ihfw410tWgtBiVEZEWdQxHZ3-duwh_2BMakt3N7gAj-cZxz4xmZSKKPBGETo-sCGfjLHLX_TSa03EJhKXu4w2WUEVII/s16000/test-2.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjp5BBuAdNGEKI5MCcWMmwdBHCmEegFg78BS3jqYmd0Ihfw410tWgtBiVEZEWdQxHZ3-duwh_2BMakt3N7gAj">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjp5BBuAdNGEKI5MCcWMmwdBHCmEegFg78BS3jqYmd0Ihfw410tWgtBiVEZEWdQxHZ3-duwh_2BMakt3N7gAj</a>-
+cZxz4xmZSKKPBGETo-sCGfjLHLX_TSa03EJhKXu4w2WUEVII/s500/test-2.png)</p>
+<p>If you don’t have a known good result, then you can still write tests using
+only the input argument. One option would be to compare to another reference
+implementation:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMZxWYUBG25NSYt3614YU7DBMJzjZ6-kzFCvlBteNlA6fbPy88SJjusrU8nx3ZDe7Ci-m_5MxC0M9bRoh3n-ZSK4X2C7oGdPs0Ql6iey9AUJ2C_0KS6yM7PJ6ChYMDfdC5e0Q/s16000/test-3.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMZxWYUBG25NSYt3614YU7DBMJzjZ6-kzFCvlBteNlA6fbPy88SJjusrU8nx3ZDe7Ci">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMZxWYUBG25NSYt3614YU7DBMJzjZ6-kzFCvlBteNlA6fbPy88SJjusrU8nx3ZDe7Ci</a>-
+m_5MxC0M9bRoh3n-ZSK4X2C7oGdPs0Ql6iey9AUJ2C_0KS6yM7PJ6ChYMDfdC5e0Q/s500/test-3.png)</p>
+<p>However, comparing with another reference implementation might not be an
+option, so you could just test if the output seems to be right:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjpd3xuIRIcPvKvvVAKJJa0useeuwaX93VU9eNQvEXsRPXymtEsNe5r1Y0pk5WWI0Flng1l42tL-3r75GlvhWSFhSUneHmZVol-nGyUSqeaKrMk9v3iOObCUCC0vtu2lqo9W8/s16000/test-4.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjpd3xuIRIcPvKvvVAKJJa0useeuwaX93VU9eNQvEXsRPXymtEsNe5r1Y0pk5WWI0Flng1l42tL-3r75GlvhWSFhSUneHmZVol">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjjpd3xuIRIcPvKvvVAKJJa0useeuwaX93VU9eNQvEXsRPXymtEsNe5r1Y0pk5WWI0Flng1l42tL-3r75GlvhWSFhSUneHmZVol</a>-
+nGyUSqeaKrMk9v3iOObCUCC0vtu2lqo9W8/s500/test-4.png)</p>
+<p>In order to improve on this test, you might want to add another property that
+you can test. You could check that the length of the output is the same as the
+length of the input and that you have the same set of elements:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKGbpjMmK6BFA83i3lb3smOUkb0F0ca-4rO0WyGLaen8idCzOju75v6-Y5h_Lydz8c2ADAiKAlRjXqZz3okUKre72tY2ZMVLnlubNG5WaA56TSGnbHUkfdjtHF6uZciIMuRkY/s16000/test-5.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKGbpjMmK6BFA83i3lb3smOUkb0F0ca-4rO0WyGLaen8idCzOju75v6-Y5h_Lydz8c2ADAiKAlRjXqZz3okUKre72tY2ZMVLnlubNG5WaA56TSGnbHUkfdjtHF6uZciIMuRkY/s500/test-5.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKGbpjMmK6BFA83i3lb3smOUkb0F0ca-4rO0WyGLaen8idCzOju75v6-Y5h_Lydz8c2ADAiKAlRjXqZz3okUKre72tY2ZMVLnlubNG5WaA56TSGnbHUkfdjtHF6uZciIMuRkY/s500/test-5.png</a>)</p>
+<p>This would pass on the incorrect sorted([1, 2, 1]) -&gt; [1, 2, 2].  A brute-
+force approach using itertools.permutations() would detect that too:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAlB6pynaaFOXQC83_ElJ6X2NOY3O9EAkW0P1b0BmzDdzqV3xnterd1ogLxNMTNVlMuDAocGxvOlV7OuLBqnPDzSx7EEot00axlp1OrfQT8ddDffxB1sPIGLsBr1a1bkFSrns/s16000/test-6.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAlB6pynaaFOXQC83_ElJ6X2NOY3O9EAkW0P1b0BmzDdzqV3xnterd1ogLxNMTNVlMuDAocGxvOlV7OuLBqnPDzSx7EEot00axlp1OrfQT8ddDffxB1sPIGLsBr1a1bkFSrns/s500/test-6.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAlB6pynaaFOXQC83_ElJ6X2NOY3O9EAkW0P1b0BmzDdzqV3xnterd1ogLxNMTNVlMuDAocGxvOlV7OuLBqnPDzSx7EEot00axlp1OrfQT8ddDffxB1sPIGLsBr1a1bkFSrns/s500/test-6.png</a>)</p>
+<p>But the best solution is collections.Counter():</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkjaQzYaWZgRxaGlRD6maIwmeEe1d2-s69K8mychnhn8oZcr9o0BkN5kuafQh50dq-QW4M6kmkid50631yev6vLo9m0aes3WgJ-q6WJAeW_tzHKOrWgZVfTBGdFpTtdQGYzhw/s16000/test-7.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkjaQzYaWZgRxaGlRD6maIwmeEe1d2-s69K8mychnhn8oZcr9o0BkN5kuafQh50dq">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkjaQzYaWZgRxaGlRD6maIwmeEe1d2-s69K8mychnhn8oZcr9o0BkN5kuafQh50dq</a>-
+QW4M6kmkid50631yev6vLo9m0aes3WgJ-q6WJAeW_tzHKOrWgZVfTBGdFpTtdQGYzhw/s500/test-7.png)</p>
+<p>This last test uses property-based testing:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYZ5NSERiTlwBJaDBSpi6jhFYxI_iNJrqWQ2BHP7SwTrlxBz-dg2pRizJyTpqWOHPNNOsbjrefQkhYRLoKCeyM9dflxhBIwbuHaoT_pKNuYvPoJTWXLxo3rbGO9v5BP4tRqoQ/s16000/test-8.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYZ5NSERiTlwBJaDBSpi6jhFYxI_iNJrqWQ2BHP7SwTrlxBz">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYZ5NSERiTlwBJaDBSpi6jhFYxI_iNJrqWQ2BHP7SwTrlxBz</a>-
+dg2pRizJyTpqWOHPNNOsbjrefQkhYRLoKCeyM9dflxhBIwbuHaoT_pKNuYvPoJTWXLxo3rbGO9v5BP4tRqoQ/s500/test-8.png)</p>
+<p>Instead of having a specific list of inputs, you could use Hypothesis:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZcoVo1ym2096_jiNGb7dyfpm9sH9Je8uZGqPn_FoYUY8GxgKLJ7PbrH6muiZ2qG1i6kWlExUNi50ZmcI1aV3-Oe3lhSXLbHFuEEtSsc-Ke0RYhXtV_fB2SP_oFJGgtU1WAGc/s16000/test-9.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZcoVo1ym2096_jiNGb7dyfpm9sH9Je8uZGqPn_FoYUY8GxgKLJ7PbrH6muiZ2qG1i6kWlExUNi50ZmcI1aV3-Oe3lhSXLbHFuEEtSsc">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgZcoVo1ym2096_jiNGb7dyfpm9sH9Je8uZGqPn_FoYUY8GxgKLJ7PbrH6muiZ2qG1i6kWlExUNi50ZmcI1aV3-Oe3lhSXLbHFuEEtSsc</a>-
+Ke0RYhXtV_fB2SP_oFJGgtU1WAGc/s500/test-9.png)</p>
+<p>That test will fail because NaN compares unequal to itself, so any list
+containing NaN will appear to not be in sorted order. So it could be good to
+have specified behavior for the ordering on NaN elements in the sorting
+algorithm:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQhR3C2fmOmpzIxVkHXP3vso-IipkUoCbrWX_8VG2Xzkv3nYXsVVzydnkG93m0EUZ6uWrks-_2S9aXtEbyc-PCttD6_HdS_qTIU2_dM3H4SQZjCBBmYzUNvR6pISLFIozqc_E/s16000/test-10.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQhR3C2fmOmpzIxVkHXP3vso">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQhR3C2fmOmpzIxVkHXP3vso</a>-
+IipkUoCbrWX_8VG2Xzkv3nYXsVVzydnkG93m0EUZ6uWrks-_2S9aXtEbyc-
+PCttD6_HdS_qTIU2_dM3H4SQZjCBBmYzUNvR6pISLFIozqc_E/s500/test-10.png)</p>
+<p>He said that one of the big advantages of using something like Hypothesis
+rather than a list of handwritten examples is that is will raise conceptual
+issues that you may not have already thought through yourself.</p>
+<p>In summary, property-based testing lets you:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Generate input data that you might not have thought of yourself</p></li>
+<li><p>Check that the result isn’t wrong, even without the right answer</p></li>
+<li><p>Discover bugs in your understanding rather than just in your code</p></li>
+</ul>
+</div></blockquote>
+<p>Often, you don’t even need assertions in the test. Generating unusual input
+data is surprisingly effective. It can give you the sort of feedback you could
+get from real users, but you don’t need to ship before getting the feedback.</p>
+<p>A common concern is that, if you have randomized testing, then are things
+flaky? How do you deal with determinism? Hypothesis has been working on that
+for years, so they have solid answers to these kinds of questions:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisjPkSl9nZdYkkkeLBQMUASuahJHONVgnXHb5UKO9710Kc_2vFYuaAQshMjpRECqv8eSelJJ088XwGJIESQeLyV2-mltQMum7V3aRJhmV62NDdBZjadAXHLL2-S5eAEIooxsM/s16000/test-11.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisjPkSl9nZdYkkkeLBQMUASuahJHONVgnXHb5UKO9710Kc_2vFYuaAQshMjpRECqv8eSelJJ088XwGJIESQeLyV2-mltQMum7V3aRJhmV62NDdBZjadAXHLL2-S5eAEIooxsM/s500/test-11.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisjPkSl9nZdYkkkeLBQMUASuahJHONVgnXHb5UKO9710Kc_2vFYuaAQshMjpRECqv8eSelJJ088XwGJIESQeLyV2-mltQMum7V3aRJhmV62NDdBZjadAXHLL2-S5eAEIooxsM/s500/test-11.png</a>)</p>
+<p>If that’s not enough, then you also have other options:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjleB4RKcQci4ncJAYE3RvomIKuBhVrCEkKNeSK4WD2KPZyNjfrDtv49thU_MwEhyV9cms5jZBbzk-5Fv9C-U7Rv1HGUcmad5fH3g7yOuis_BZBhQgaGeLxUhPf10F2PU78CCY/s16000/test-12.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjleB4RKcQci4ncJAYE3RvomIKuBhVrCEkKNeSK4WD2KPZyNjfrDtv49thU_MwEhyV9cms5jZBbzk-5Fv9C-U7Rv1HGUcmad5fH3g7yOuis_BZBhQgaGeLxUhPf10F2PU78CCY/s500/test-12.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjleB4RKcQci4ncJAYE3RvomIKuBhVrCEkKNeSK4WD2KPZyNjfrDtv49thU_MwEhyV9cms5jZBbzk-5Fv9C-U7Rv1HGUcmad5fH3g7yOuis_BZBhQgaGeLxUhPf10F2PU78CCY/s500/test-12.png</a>)</p>
+<p>The Hypothesis database is a collection of files on disk that represent the
+various examples. Since it’s a key-value store, it’s easy to implement your
+own custom one:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJqp-whRbgtHcrNnNjMmhtztw5lQw2XftdxYE_gVNlzedAbTxP5BoXXPGVvEGCJTsyLc-kRuKz2igZBLCT1NoEsx0yMSGmroGR0gwUDIfHkgKx_CC8pa1Z5mNTHq6PuEjkp6w/s16000/test-13.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJqp">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJqp</a>-
+whRbgtHcrNnNjMmhtztw5lQw2XftdxYE_gVNlzedAbTxP5BoXXPGVvEGCJTsyLc-
+kRuKz2igZBLCT1NoEsx0yMSGmroGR0gwUDIfHkgKx_CC8pa1Z5mNTHq6PuEjkp6w/s500/test-13.png)</p>
+<p>In this example, you have a local database on disk. You can also have a shared
+network database on something like Redis, for example.</p>
+<p>Coverage-guided fuzzing takes this to the next level:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrJeghoDJ4pOxAmEL2dLSg1SRe8Ko2Y3guI2bsC4lI76Oj1j8gYsIEOd637LutQh_j0EO7yxHWczHlGyM5XfnvLXgggpIG2r-moGExwq2REjVTNLhwFfwntbVmf3eKMRXtw74/s16000/test-14.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrJeghoDJ4pOxAmEL2dLSg1SRe8Ko2Y3guI2bsC4lI76Oj1j8gYsIEOd637LutQh_j0EO7yxHWczHlGyM5XfnvLXgggpIG2r-moGExwq2REjVTNLhwFfwntbVmf3eKMRXtw74/s500/test-14.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjrJeghoDJ4pOxAmEL2dLSg1SRe8Ko2Y3guI2bsC4lI76Oj1j8gYsIEOd637LutQh_j0EO7yxHWczHlGyM5XfnvLXgggpIG2r-moGExwq2REjVTNLhwFfwntbVmf3eKMRXtw74/s500/test-14.png</a>)</p>
+</section>
+<section id="what-s-new">
+<h2>What’s New?<a class="headerlink" href="#what-s-new" title="Link to this heading">¶</a></h2>
+<p>At the 2020 Python Language Summit, when he said that we would find more bugs
+if we used property-based testing for CPython and the standard library, the
+response was positive, but then not much happened. Since then, Paul Ganssle
+has opened a PR on CPython to add some Hypothesis tests for the zoneinfo
+library. Zac Hatfield-Dodds said that CPython is doing very well on unit
+testing and has a strong focus on regressions but that it would be quite
+valuable to add some of the tools that have been developed for testing for
+correctness.</p>
+<p>These tools don’t only find existing bugs. They’re good at finding regressions
+where someone checked in new code with what turned out to be inadequate test
+coverage:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5hZIEf3jAQUIXPoXXYcqNOS9L0DMCy8DVrdWepTC6kW5J_W1x9RqfipT3SLF_D2SlnkSMNsgLbv7h4LkwlvVyvnMPTKulBFOF9xA8ETWYq6ThzxP1b-hyeHZ1KqqwAUthv4I/s16000/test-15.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5hZIEf3jAQUIXPoXXYcqNOS9L0DMCy8DVrdWepTC6kW5J_W1x9RqfipT3SLF_D2SlnkSMNsgLbv7h4LkwlvVyvnMPTKulBFOF9xA8ETWYq6ThzxP1b-hyeHZ1KqqwAUthv4I/s500/test-15.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5hZIEf3jAQUIXPoXXYcqNOS9L0DMCy8DVrdWepTC6kW5J_W1x9RqfipT3SLF_D2SlnkSMNsgLbv7h4LkwlvVyvnMPTKulBFOF9xA8ETWYq6ThzxP1b-hyeHZ1KqqwAUthv4I/s500/test-15.png</a>)</p>
+<p>There is a pace at which we find and fix bugs that were preexisting in
+addition to the ongoing rate of introducing new bugs that then get detected by
+fuzzing instead of lasting for too long:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvPVnQ3L8WoTQ1RIpkh6oR_3C-ziNlj6lk0I7rBhFKqoXJHrEcj6_4OdAHXuUYnkq_QwPtNibQ6fubw7o9DnO9lUgZE__UH1LvBtU9pHlc60SrPZxzhyhOLupxeahge3p85w/s16000/test-16.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvPVnQ3L8WoTQ1RIpkh6oR_3C-ziNlj6lk0I7rBhFKqoXJHrEcj6_4OdAHXuUYnkq_QwPtNibQ6fubw7o9DnO9lUgZE__UH1LvBtU9pHlc60SrPZxzhyhOLupxeahge3p85w/s500/test-16.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjOvPVnQ3L8WoTQ1RIpkh6oR_3C-ziNlj6lk0I7rBhFKqoXJHrEcj6_4OdAHXuUYnkq_QwPtNibQ6fubw7o9DnO9lUgZE__UH1LvBtU9pHlc60SrPZxzhyhOLupxeahge3p85w/s500/test-16.png</a>)</p>
+</section>
+<section id="what-s-next">
+<h2>What’s Next?<a class="headerlink" href="#what-s-next" title="Link to this heading">¶</a></h2>
+<p>There is a three-step plan:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Merge Paul Ganssle’s PR or come up with an alternative proposal to get Hypothesis into CPython’s CI in order to unblock ongoing incremental work</p></li>
+<li><p>Merge some tests</p></li>
+<li><p>Run them in CI and on OSS-Fuzz</p></li>
+</ol>
+</div></blockquote>
+<p>For interested parties, you can see and engage in the follow-ups to this work
+on the <a class="reference external" href="https://github.com/python/steering-council/issues/65">Python Steering Council’s issue
+tracker</a>.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2021-06-the-2021-python-language-summit-what.html">
+      
+      <span>The 2021 Python Language Summit: What Should I Work on as a Core Dev?</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2021-06-the-2021-python-language-summit.html">
+      <span>The 2021 Python Language Summit: Lightning Talks, Round 2</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>New pip resolver to roll out this year - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="new-pip-resolver-to-roll-out-this-year">
+<h1>New pip resolver to roll out this year<a class="headerlink" href="#new-pip-resolver-to-roll-out-this-year" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2020/03/new-pip-resolver-to-roll-out-this-year.html">here</a>.</p>
+<p>The developers of pip are in the process of developing a new resolver for pip
+(as <a class="reference external" href="https://pyfound.blogspot.com/2019/12/moss-czi-support-pip.html">we announced on the PSF blog</a> last year). We aim to roll it out later this year.
+(_Updated 29 <a href="#id1"><span class="problematic" id="id2">September_</span></a> to add: <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#resolver-changes-2020">see our migration
+guide</a>.) As
+part of that work, there will be some major changes to how pip determines what
+to install, based on package requirements. In this post we share:</p>
+<p><em>What will change</em>
+<em>What you can do to help</em>
+<em>When this will be happening</em></p>
+<p>To understand what pip does and why we’re working on it, please read <a class="reference external" href="https://pyfound.blogspot.com/2019/12/moss-czi-support-pip.html">our
+earlier overview post</a>.</p>
+<section id="what-will-change">
+<h2>What will change<a class="headerlink" href="#what-will-change" title="Link to this heading">¶</a></h2>
+<p>The most significant changes to the resolver will be:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>It will <em>reduce inconsistency</em> : it will _no longer install a combination of packages that is mutually <a href="#id3"><span class="problematic" id="id4">inconsistent_</span></a>. At the moment, it is possible for pip to install a package which does not satisfy the declared requirements of another installed package. For example, right now, <cite>pip install “six&lt;1.12” “virtualenv==20.0.2”</cite> does the wrong thing, “successfully” installing <cite>six==1.11</cite>, even though <cite>virtualenv==20.0.2</cite> requires <cite>six&gt;=1.12.0,&lt;2</cite> (<a class="reference external" href="https://github.com/pypa/virtualenv/blob/20.0.2/setup.cfg#L42-L50">defined here</a>). The new resolver would, instead, outright reject installing anything if it got that input.</p></li>
+<li><p>It will be <em>stricter</em> - if you ask pip to install two packages with incompatible requirements, it will refuse (rather than installing a broken combination, like it does now).</p></li>
+</ul>
+</div></blockquote>
+<p>Also, this is <em>a major change to a key part of pip</em> - it’s quite possible
+there will initially be bugs. We would like to make sure that those get caught
+_before_ people start using the new version in production.</p>
+<p>(For deep technical details, see <a class="reference external" href="https://github.com/pypa/pip/projects/5">this in-progress GitHub
+milestone</a>.)</p>
+</section>
+<section id="what-you-can-do-to-help">
+<h2>What you can do to help<a class="headerlink" href="#what-you-can-do-to-help" title="Link to this heading">¶</a></h2>
+<p>We recognize that everyone’s work is being disrupted by the COVID-19 pandemic,
+and that many data scientists and medical researchers use Python and pip in
+their work. We want to make the upgrade process as smooth and bug-free as
+possible for our users; if you can help us, you’ll be helping each other.</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>First and most fundamentally, <a class="reference external" href="https://bit.ly/pip-ux-studies">please help us understand how you use pip by *talking with our user experience researchers*</a>. You can do this right now! You can take a survey, or have a researcher interview you over a video call. <a class="reference external" href="https://bit.ly/pip-ux-studies">Please sign up and spread the word</a> to anyone who uses pip (even a little bit).</p></li>
+<li><p>Right now, even before we release the new resolver as a beta, you can help by <em>running`pip check` on your current environment</em>. This will report if you have any inconsistencies in your set of installed packages. Having a clean installation will make it much less likely that you will hit issues when the new resolver is released (and may address hidden problems in your current environment!). If you run <cite>pip check</cite> and run into stuff you can’t figure out, please <a class="reference external" href="https://pip.pypa.io/">ask for help in our issuetracker or chat</a>.</p></li>
+<li><p>Please make time to <em>_test_ the new version of pip, probably in May</em> (see below). While we have tried to make sure that pip’s test suite covers as many cases as we can, we are very aware that there are people using pip with many different workflows and build processes, and we will not be able to cover all of those without your help.</p>
+<ul class="simple">
+<li><p>If you use pip to install your software, try out the new resolver and let us know if it works for you.</p></li>
+<li><p>If you have a build pipeline that depends on pip installing your dependencies for you, check that the new resolver does what you need.</p></li>
+<li><p>Run your project’s CI (test suite, build process, etc.) using the new resolver, and let us know of any issues.</p></li>
+<li><p>If you have encountered resolver issues with pip in the past, check whether the new resolver fixes them. Also, let us know if the new resolver has issues with any workarounds you put in to address the current resolver’s limitations. We’ll need to ensure that people can transition off such workarounds smoothly.</p></li>
+</ul>
+</li>
+</ol>
+</div></blockquote>
+<p>As you and your colleagues plan for the next few months, please set aside
+time, ideally in May, to test the new resolver and <a class="reference external" href="https://tools.simplysecure.org/survey/index.php?r=survey/index&amp;sid=989272&amp;lang=en">tell us whether it breaks
+anything for your setup by filling out this
+survey</a>.
+If you maintain an open source project or use pip at your job, you can make a
+ticket now and put it in your backlog.</p>
+<blockquote>
+<div><ol class="arabic simple" start="4">
+<li><p><em>Spread the word!</em> If you know of other people who rely on pip, who might not have seen this message, let them know. You can do this right now.</p></li>
+<li><p>And if you develop or support a tool that wraps pip or uses it to deliver part of your functionality, please make time to <em>test your integration with our beta in May</em> , and sure that the new resolver doesn’t cause you any issues. (It shouldn’t, as the resolver is an internal component of pip and shouldn’t be visible to people embedding pip, but we’d like to be sure of that.)</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="when-this-will-be-happening">
+<h2>When this will be happening<a class="headerlink" href="#when-this-will-be-happening" title="Link to this heading">¶</a></h2>
+<p>We intend to release the new resolver early in the second half of 2020. We
+will provide <em>alpha and beta releases</em> before that point as the work
+progresses (probably starting in <em>May</em>), and we’ll provide a GitHub issue
+tracker and an email address where you can report bugs. We would appreciate as
+much feedback as we can get on the betas when they become available.</p>
+<p>(We were already working as a distributed team. The COVID-19 pandemic and
+related disruptions are affecting us – for instance, we were aiming to meet,
+work together, and test and discuss our work at PyCon US. But we still
+anticipate releasing the new resolver in the second half of 2020.)</p>
+<p>To find out when the new beta is available for testing, and how to report
+problems, <em>`subscribe to the pypi-announce mailing
+list &lt;https://mail.python.org/mailman3/lists/pypi-announce.python.org/&gt;`_</em>.
+It’s very low-traffic.</p>
+<p>(Why now? The Python Software Foundation’s Packaging Working Group <a class="reference external" href="https://pyfound.blogspot.com/2019/12/moss-czi-support-pip.html">obtained
+funding for this work</a> because it’s sorely needed; <a class="reference external" href="https://wiki.python.org/psf/Fundable%20Packaging%20Improvements#Finish_dependency_resolver_for_pip">many other features and tools are
+blocked waiting for this
+fix</a>.
+We’ve spent years addressing technical debt in pip so we can properly untie
+this knot and refurbish the resolver. We started this chunk of donor-funded
+work on pip a few months ago and it’s now gotten far enough that we can make
+this pre-announcement.)</p>
+<p>Thank you to the pip and PyPA maintainers, to the PSF and the Packaging WG,
+and to all the contributors and volunteers who work on or use Python packaging
+tools. And thank you to <a class="reference external" href="https://www.mozilla.org/en-US/moss/">Mozilla (through its Mozilla Open Source Support
+Awards)</a> and to <a class="reference external" href="https://chanzuckerberg.com/eoss/">the Chan Zuckerberg
+Initiative</a> DAF, an advised fund of Silicon
+Valley Community Foundation, for funding enabling this work!</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2020-03-debora-azevedo-awarded-psf-community.html">
+      
+      <span>Débora Azevedo Awarded the PSF Community Service Award for Q4 2019</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2020-03-psfs-projected-2020-financial-outcome.html">
+      <span>PSF’s Projected 2020 Financial Outcome</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

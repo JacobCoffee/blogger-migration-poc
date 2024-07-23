@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Python Brasil – People &gt; Technology - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="python-brasil-people-technology">
+<h1>Python Brasil – People &gt; Technology<a class="headerlink" href="#python-brasil-people-technology" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/02/python-brasil-people-technology.html">here</a>.</p>
+<p>It’s October 17th, 2018. I’ve arrived at Natal, a beautiful coastal city in
+Brazil’s northeast region. Known for its beaches and hotness, it’s surprising
+how I’m not thinking about all the
+<a class="reference external" href="https://en.wikipedia.org/wiki/Caipirinha">Caipirinhas</a> I’m going to drink at
+the shore after the conference. My excitement is because I’m going to attend
+[Python Brasil[14]](<a class="reference external" href="https://www.blogger.com/">https://www.blogger.com/</a>)!</p>
+<p>After six months out of my home country, I’m thrilled to once again join this
+conference, now as an attendee and speaker. It’s only my second edition – out
+of prior fourteen – but enough to know how great Python Brasil is. Full of
+amazing people, talks, tutorials and evening happy hours, this is possibly the
+most fun Python conference in the world. Seriously.</p>
+<section id="it-s-big">
+<h2>It’s big<a class="headerlink" href="#it-s-big" title="Link to this heading">¶</a></h2>
+<p>Lasting for 6 days, 784 people attended the event. Out of that, 153 were women
+and about 120 students. Within 4 different tracks, there were about 120 talks,
+30 lightning talks and 6 keynotes, being the first Python Brasil to
+<a class="reference external" href="https://www.facebook.com/pg/pythonbrasil/videos/">livestream</a> the whole main
+conference.</p>
+<p>Additionally, 5 tutorials, 1 sprint day and 1 independently organized Django
+Girls were held for those wanting more practical hands on. All of this was
+possible due to an outstanding organization team and the <a class="reference external" href="https://2018.pythonbrasil.org.br/patrocinadores">support and
+sponsorship</a> from 8 entities.</p>
+<p>It’s incredible how the biggest Python Brasil ever still feels so much like a
+family.</p>
+</section>
+<section id="a-beginner-friendly-conference">
+<h2>A beginner friendly conference<a class="headerlink" href="#a-beginner-friendly-conference" title="Link to this heading">¶</a></h2>
+<p>Welcoming beginners is one of the pillars in this community. To make it
+happen, the organization team created a specially priced ticket pack for the
+IFRN (Federal Institute of Rio Grande do Norte), allowing them to bring over
+120 young students from 3 different cities. It was beautiful to see all these
+students around, watching talks, talking to the speakers and enjoying every
+moment of the conference.</p>
+<p>During the sprints, a group of students learned about data scraping. In a
+world where it is very hard to capture the attention of youths, it was
+fascinating to witness how they were so focused on learning. It demonstrates
+how a small gesture – like discounts on a ticket – can change people’s lives.</p>
+<p>To express their gratitude, one of the students wrote and
+<a class="reference external" href="https://twitter.com/gabubellon/status/1054126829483761670">presented</a> during
+the lighting talks a Python Brasil themed
+<a class="reference external" href="https://en.wikipedia.org/wiki/Cordel_literature">Cordel</a> – a pamphlet with
+novels, poems and songs, very popular in that region – bringing some of the
+attendees to tears.</p>
+<p><a class="reference external" href="https://3.bp.blogspot.com/-AXc4n-DOH6Q/XFrdIWm4BHI/AAAAAAAB0fU/GSTeTG2kJNMB-e5rqn3Ew2-PRANQNbG3gCLcBGAs/s320/kids.jpg">![</a>](<a class="reference external" href="https://3.bp.blogspot.com/-AXc4n-DOH6Q/XFrdIWm4BHI/AAAAAAAB0fU/GSTeTG2kJNMB-e5rqn3Ew2-PRANQNbG3gCLcBGAs/s1600/kids.jpg">https://3.bp.blogspot.com/-AXc4n-DOH6Q/XFrdIWm4BHI/AAAAAAAB0fU/GSTeTG2kJNMB-e5rqn3Ew2-PRANQNbG3gCLcBGAs/s1600/kids.jpg</a>)</p>
+<p>Student presenting the Cordel</p>
+</section>
+<section id="financial-aid">
+<h2>Financial Aid<a class="headerlink" href="#financial-aid" title="Link to this heading">¶</a></h2>
+<p>Besides the support for the students cited above, tickets were granted for
+people unable to pay for them. To justify the concession, the person needed to
+tell their history. After reviewing the applications, 6 out of 7 tickets were
+donated.</p>
+</section>
+<section id="let-s-talk-about-open-data">
+<h2>Let’s talk about Open Data<a class="headerlink" href="#let-s-talk-about-open-data" title="Link to this heading">¶</a></h2>
+<p>A different keynote was presented on the second day: a panel about Open Data
+and Civic Technologies. Mediated by Mário Sérgio, five participants discussed
+topics like what is open data, how our legislation is currently dealing with
+it, tackling fake news, and what the expectations for the future are. In the
+light of Brazil’s last election – which also happened in October – it was a
+perfect moment to create a debate and demystify the subject.</p>
+<p><a class="reference external" href="https://1.bp.blogspot.com/-zLbnG9ZYS7A/XFrdq1IY_qI/AAAAAAAB0fc/xSIxoOWzx3US7nc3ZiLxW8pAoQ4gCryIACLcBGAs/s320/painel.jpg">![</a>](<a class="reference external" href="https://1.bp.blogspot.com/-zLbnG9ZYS7A/XFrdq1IY_qI/AAAAAAAB0fc/xSIxoOWzx3US7nc3ZiLxW8pAoQ4gCryIACLcBGAs/s1600/painel.jpg">https://1.bp.blogspot.com/-zLbnG9ZYS7A/XFrdq1IY_qI/AAAAAAAB0fc/xSIxoOWzx3US7nc3ZiLxW8pAoQ4gCryIACLcBGAs/s1600/painel.jpg</a>)</p>
+<p>From left to right: <a class="reference external" href="https://twitter.com/queirozMario21/">Mario Sérgio</a>,
+<a class="reference external" href="https://twitter.com/turicas">Álvaro “Turicas”</a>, <a class="reference external" href="https://twitter.com/juditecypreste">Judite
+Cypreste</a>, <a class="reference external" href="https://twitter.com/leleportella">Letícia
+Portella</a>, <a class="reference external" href="https://twitter.com/cuducos">Eduardo
+Cuducos</a> and <a class="reference external" href="https://twitter.com/fmasanori">Fernando
+Massanori</a></p>
+</section>
+<section id="pyladiesbrconf">
+<h2>PyLadiesBRConf<a class="headerlink" href="#pyladiesbrconf" title="Link to this heading">¶</a></h2>
+<p>The first PyLadiesBRConf was organized to celebrate the PyLadies Brasil 5 year
+anniversary. The motto of the conference was to help more women become active
+members of the Python community, inspiring those who were recently getting
+involved.</p>
+<p>Independently organized by the PyLadies, the conference happened one day
+before Python Brasil. The event was totally free, receiving about 120 women,
+with 8 speakers and ending in a fishbowl discussion. Likewise, the whole
+organization committee was formed only by women volunteers.</p>
+<p>The main organizer, <a class="reference external" href="https://twitter.com/pydebb">Débora Azevedo</a>, said that it
+was five years cultivating the community, involving a lot of hard work to get
+them to this point.</p>
+<p><a class="reference external" href="https://4.bp.blogspot.com/-4Z5zC3mlQIw/XFreJbwB6cI/AAAAAAAB0fw/03w_iRdcqosExHmYT9hJ4aq985clcCxowCPcBGAYYCw/s320/pyladies%2Bconf.jpeg">![</a>](<a class="reference external" href="https://4.bp.blogspot.com/-4Z5zC3mlQIw/XFreJbwB6cI/AAAAAAAB0fw/03w_iRdcqosExHmYT9hJ4aq985clcCxowCPcBGAYYCw/s1600/pyladies%2Bconf.jpeg">https://4.bp.blogspot.com/-4Z5zC3mlQIw/XFreJbwB6cI/AAAAAAAB0fw/03w_iRdcqosExHmYT9hJ4aq985clcCxowCPcBGAYYCw/s1600/pyladies%2Bconf.jpeg</a>)</p>
+<p>PyLadiesBRConf official photo</p>
+<p><a class="reference external" href="https://2.bp.blogspot.com/-aNABGPQzpqs/XFreJpT-AsI/AAAAAAAB0f0/ZXFo4Sl3wE8nHhI6fXPv4Sg7I2G5wq_xQCPcBGAYYCw/s320/pyladies.jpg">![</a>](<a class="reference external" href="https://2.bp.blogspot.com/-aNABGPQzpqs/XFreJpT">https://2.bp.blogspot.com/-aNABGPQzpqs/XFreJpT</a>-
+AsI/AAAAAAAB0f0/ZXFo4Sl3wE8nHhI6fXPv4Sg7I2G5wq_xQCPcBGAYYCw/s1600/pyladies.jpg)</p>
+<p>PyLadies at Python Brasil</p>
+</section>
+<section id="dorneles-tremea-award">
+<h2>Dorneles Treméa Award<a class="headerlink" href="#dorneles-tremea-award" title="Link to this heading">¶</a></h2>
+<p>Named after the founder of the Python Brasil Association, <a class="reference external" href="https://python.org.br/premio-dorneles-tremea/">the
+award</a> is a tribute to Dorneles
+Treméa, a developer, community member, and open source leader, always willing
+to help and share his knowledge, who sadly passed away in a car accident in
+2011. The award is given to the member or members of the Python Brazilian
+community who keep alive the spirit of collaboration, entrepreneurship, and
+commitment.</p>
+<p>In this edition of Python Brasil, it was given to <a class="reference external" href="https://twitter.com/FilipeCifali">Filipe
+Cifali</a>, <a class="reference external" href="https://twitter.com/humrochagf">Humberto
+Rocha</a> and <a class="reference external" href="https://twitter.com/rudaporto">Rudá Porto
+Filgueiras</a>, for their incredible work at
+running and maintaining the Python Brasil and the Python Brasil Association
+online infrastructure.</p>
+<p><a class="reference external" href="https://2.bp.blogspot.com/-XDu4g4VZCJI/XFrer2-klYI/AAAAAAAB0f4/S_XSUYVX8xA33lwDplDTONbGOXQtXwcuACLcBGAs/s320/award.jpg">![</a>](<a class="reference external" href="https://2.bp.blogspot.com/-XDu4g4VZCJI/XFrer2-klYI/AAAAAAAB0f4/S_XSUYVX8xA33lwDplDTONbGOXQtXwcuACLcBGAs/s1600/award.jpg">https://2.bp.blogspot.com/-XDu4g4VZCJI/XFrer2-klYI/AAAAAAAB0f4/S_XSUYVX8xA33lwDplDTONbGOXQtXwcuACLcBGAs/s1600/award.jpg</a>)</p>
+<p>Filipe Cifali receiving the Dorneles Treméa Award</p>
+</section>
+<section id="the-challenges-and-the-future-by-the-staff">
+<h2>The Challenges and the Future, by the Staff<a class="headerlink" href="#the-challenges-and-the-future-by-the-staff" title="Link to this heading">¶</a></h2>
+<p>According to the organization committee, scalability and inclusiveness were
+the biggest challenges for running the conference this year.</p>
+<p>Ítalo Rossi, the Big Kahuna (chair):</p>
+<p>&gt; _”The conference was initially planned for 400 attendees, but we ended up
+&gt; with it with 784. Adapting the budget, venues, and logistics was a big
+&gt; challenge.”_</p>
+<p>Ítalo Monteiro:</p>
+<p>&gt; _”The challenge was to promote the best infrastructure for the biggest
+&gt; Python Brasil in history, making it a safe space for everyone, not accepting
+&gt; any kind of prejudice or intolerance.”_</p>
+<p>When asked about the future of the conference and the community, all of the
+organizers said they wanted to improve the diversity of the event even
+further. Having more women attending and speaking, more participation of
+beginners and more involvement of minorities. Additionally, they all want to
+have a bigger and more united community, believing in its growth, visibility,
+and engagement.</p>
+</section>
+<section id="people-technology">
+<h2>People &gt; Technology<a class="headerlink" href="#people-technology" title="Link to this heading">¶</a></h2>
+<p>My first contact with the Python community was at Python Brasil in 2016 and it
+changed my life.
+A lot of the experiences and opportunities that I had – personally and
+professionally – came from being part of it. It’s not just about the
+technology, it’s about the people.</p>
+<p>Of course, this wasn’t the _whole_ conference, there’s no way to cover every
+amazing thing that happened there. At least, I hope to get you excited to go
+to the next one!</p>
+<p>I’d like to say thanks to all the organization committee and everyone involved
+in putting together this superb conference and helping me with this article.</p>
+<p><a class="reference external" href="https://1.bp.blogspot.com/-PfyrUsdvSTI/XFrfLOEEXcI/AAAAAAAB0gE/xVe5UMy3H_kWsCqySV6ylDOok9XAOlragCLcBGAs/s320/oficial.jpg">![</a>](<a class="reference external" href="https://1.bp.blogspot.com/-PfyrUsdvSTI/XFrfLOEEXcI/AAAAAAAB0gE/xVe5UMy3H_kWsCqySV6ylDOok9XAOlragCLcBGAs/s1600/oficial.jpg">https://1.bp.blogspot.com/-PfyrUsdvSTI/XFrfLOEEXcI/AAAAAAAB0gE/xVe5UMy3H_kWsCqySV6ylDOok9XAOlragCLcBGAs/s1600/oficial.jpg</a>)</p>
+<p>Python Brasil official photo.</p>
+<p>The sign represents Python in BSL (Brazilian Sign Language),</p>
+<p>made by Amanda and Sávio at Python Sul 2018</p>
+<p>You can take a peek at this wonderful conference’s
+<a class="reference external" href="https://www.flickr.com/photos/pythonbrasil/albums/72157674858185438">photos</a>
+and
+<a class="reference external" href="https://www.youtube.com/watch?v=xqXYEL0SmyM&amp;list=PLDC3uVLxaEQ3Jd6ZNeNyEoCNkp05vRujQ">videos</a>.</p>
+<p>_The Python Brasil[15] will happen at Ribeirão Preto, in São Paulo. Date still
+to be confirmed._</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-02-python-developers-survey-2018-results.html">
+      
+      <span>Python Developers Survey 2018 Results: Learn about the community</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-02-the-steady-leader-of-python-community.html">
+      <span>A Steady Leader of the Python Community, Alex Gaynor, Receives Community Service Award</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

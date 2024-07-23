@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Russell Keith-Magee: Python On Other Platforms - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="russell-keith-magee-python-on-other-platforms">
+<h1>Russell Keith-Magee: Python On Other Platforms<a class="headerlink" href="#russell-keith-magee-python-on-other-platforms" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/05/russell-keith-magee-python-on-other.html">here</a>.</p>
+<p>Russell Keith-Magee spoke in his capacity as the founder and “Benevolent
+Dictator For Now” of the BeeWare Project. The project’s slogan is “Write once.
+Deploy everywhere.” The goal of the BeeWare Project is to run Python
+applications on Android, iOS, in the browser, even on smart watches, and to
+distribute Python applications using platform-specific channels like app
+stores. Keith-Magee described a number of obstacles to this goal, and
+expressed his hope that the core team would consider these problems when they
+plan Python’s future.</p>
+<p><a class="reference external" href="https://pyfound.blogspot.com/2019/05/the-2019-python-language-summit.html">Read more 2019 Python Language Summit
+coverage</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfABvHQyiSdS_y22gMs5qtBmDtas_Tntz734BD8yjOlkzkgTVKSgTgFMZZfwH3iYYk2LYgZL5NSOBDYk_tZvM-1YHQ2SRjBzyhrTTApzLSkhb6AXfaK2dk24bHK7f-upESyg/s1600/russell-keith-magee.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfABvHQyiSdS_y22gMs5qtBmDtas_Tntz734BD8yjOlkzkgTVKSgTgFMZZfwH3iYYk2LYgZL5NSOBDYk_tZvM-1YHQ2SRjBzyhrTTApzLSkhb6AXfaK2dk24bHK7f-upESyg/s1600/russell">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfABvHQyiSdS_y22gMs5qtBmDtas_Tntz734BD8yjOlkzkgTVKSgTgFMZZfwH3iYYk2LYgZL5NSOBDYk_tZvM-1YHQ2SRjBzyhrTTApzLSkhb6AXfaK2dk24bHK7f-upESyg/s1600/russell</a>-
+keith-magee.jpg)</p>
+</section>
+<section id="cross-compilation-is-supported-and-tested-poorly">
+<h1>Cross-Compilation Is Supported And Tested Poorly<a class="headerlink" href="#cross-compilation-is-supported-and-tested-poorly" title="Link to this heading">¶</a></h1>
+<p>On the server side, x86-64 dominates, but mobile architectures are varied and
+rapidly changing. iOS alone has encompassed six architectures in recent
+memory: i386, x86-64, arm6, arm7, arm7s and arm64.</p>
+<p>To make matters worse, anyone deploying Python to these architectures must
+cross-compile, using a desktop or server machine to compile Python and its C
+extensions, but designating a mobile architecture as the target. “The good
+news,” said Keith-Magee, is that CPython uses Autoconf, and “Autoconf has
+really good support for cross compilation baked in. The bad news is that
+CPython doesn’t so much.” Cross compilation is not tested continuously, and so
+it is broken occasionally in CPython’s build configuration. There is a
+vendored copy of libffi in the Python source tree, apparently only for
+supporting the ctypes module on PowerPC, which makes compilation for iOS even
+more difficult.</p>
+<p>Distutils and pip present a tougher challenge. They do not support cross-
+compilation at all, and assume that the machine on which they run is the
+target architecture of the C extensions they compile. Neither do they support
+the “fat binary” format required to support multiple iOS architectures in a
+single extension module.</p>
+</section>
+<section id="os-differences-break-the-test-suite">
+<h1>OS Differences Break The Test Suite<a class="headerlink" href="#os-differences-break-the-test-suite" title="Link to this heading">¶</a></h1>
+<p>Python’s assumptions about system calls are violated, in a variety of ways, on
+mobile and web. The most dangerous pitfalls are fork and spawn — they are
+provided on iOS but any program that calls them will hang. Large amounts of
+code in the Python standard library assume the existence of fork and spawn,
+and even more in the test suite.</p>
+<p>Some years ago Keith-Magee provided a patch to fix or disable tests as needed
+for iOS, but as he recalled, core developer Ned Deily found them “too
+invasive.” Instead of changing the test suite so pervasively, a new approach
+might be to skip large chunks of the test suite based on platform limitations.</p>
+</section>
+<section id="python-applications-must-include-a-python-installation">
+<h1>Python Applications Must Include a Python Installation<a class="headerlink" href="#python-applications-must-include-a-python-installation" title="Link to this heading">¶</a></h1>
+<p>Each Python application on a phone or table OS must ship an entire Python
+installation with it, since Python is not available as a system library, and
+applications cannot install it in a shared location. “If you’ve got ten Python
+apps on your phone,” says Keith-Magee, “you are going to have ten installs of
+Python.” Python for iOS is a fat binary that supports multiple architectures,
+weighing around 100 MB in total. Python’s size handicaps browser applications,
+too, which cannot begin running until the Python runtime has been loaded.</p>
+<p>The Javascript community uses “tree shaking”: Javascript applications are
+distributed with the minimum subset of all their dependencies that are
+actually required. Keith-Magee proposes a tool that would automatically apply
+this technique to the Python standard library. Python builtins or portions of
+the interpreter itself could be jettisoned, too. For example, if an
+application is distributed as bytecode, then the parser and compiler could be
+removed. Keith-Magee said, “While I’m sure that someone has written code that
+uses Python’s complex number data type, I am not that person, and in all my
+apps, the code for complex number handling is dead code.” To write a tool that
+would remove such components, however, would require some public API for
+editing the runtime and standard library.</p>
+</section>
+<section id="asyncio-does-not-integrate-with-mobile-gui-events">
+<h1>asyncio Does Not Integrate With Mobile GUI Events<a class="headerlink" href="#asyncio-does-not-integrate-with-mobile-gui-events" title="Link to this heading">¶</a></h1>
+<p>Mobile applications are GUIs, and GUI programming is event-based. Python’s
+asyncio is a natural framework for GUI programming, but it must be adapted to
+run atop the GUI environment’s own event loop. According to Keith-Magee this
+is relatively easy on Unix platforms like Linux, macOS, and iOS, with poll-
+based APIs. He estimates it requires a few hundred lines of code. On Android,
+Windows, and the web, however, the event model is entirely different, and
+asyncio integration has been an open bug for years. Keith-Magee said he does
+not know asyncio internals well enough to propose a solution but welcomes any
+suggestions.</p>
+</section>
+<section id="only-cpython-can-use-c-standard-library-modules">
+<h1>Only CPython Can Use C Standard Library Modules<a class="headerlink" href="#only-cpython-can-use-c-standard-library-modules" title="Link to this heading">¶</a></h1>
+<p>Keith-Magee has been experimenting with alternatives to CPython for mobile and
+web. Replacing the core language implementation is “relatively achievable,” he
+said, “but the standard library’s another thing.” The C modules in the
+standard library are only compatible with CPython. Some, like the decimal
+module, have recently been ported from Python to C, which accelerates them but
+presents more hindrances for non-CPython interpreters.</p>
+<p>Keith-Magee asked the core developers to maintain pure-Python implementations
+of all standard library modules, for the sake of alternative interpreters. But
+recognizing how burdensome that would be, he requested as a fallback that the
+C interface for each extension module be clearly defined.</p>
+</section>
+<section id="setup-py-cannot-build-app-store-bundles">
+<h1>Setup.py Cannot Build App Store Bundles<a class="headerlink" href="#setup-py-cannot-build-app-store-bundles" title="Link to this heading">¶</a></h1>
+<p>An application packaged for a mobile app store requires various metadata, such
+as a bundle identifier, that is not currently expressible in setup.py. Keith-
+Magee described his confusion about how to proceed, given his confusion about
+the direction of Python packaging in general. Should the metadata be in the
+pyproject.toml file specified by PEP 518? Should he adapt pip or use a custom
+build tool? He felt that if the core team has any clear vision for the future
+of Python packaging, “I can tell you from down in the trenches that message
+isn’t getting through.” He requested more information and more opinions about
+packaging from the core team.</p>
+</section>
+<section id="wish-list">
+<h1>Wish List<a class="headerlink" href="#wish-list" title="Link to this heading">¶</a></h1>
+<p>The talk concluded with a wish list for adapting Python to mobile and web:</p>
+<p>1. Host/target separation testing in CI</p>
+<p>2. Host/target separation in distutils/pip</p>
+<p>3. Feature gating (especially in the test suite)</p>
+<p>4. Unvendoring libffi for macOS</p>
+<p>5. Tree (and/or root) shaking</p>
+<p>6. AsyncIO support for other eventing styles</p>
+<p>7. Reference implementation of modules (or a clear native interface)</p>
+<p>8. Clearer communications on packaging</p>
+<p>Keith-Magee claims that Python faces an “existential risk” if mobile and web
+support does not improve. His son, who uses only an iPad for school, asked
+him, “When can I learn to program like you?” Unless students like him can
+program Python on their devices, Python risks being left behind by the next
+generation of programmers.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-05-paul-ganssle-time-zones-in-standard.html">
+      
+      <span>Paul Ganssle: Time Zones In The Standard Library</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-05-the-2019-python-language-summit.html">
+      <span>The 2019 Python Language Summit</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

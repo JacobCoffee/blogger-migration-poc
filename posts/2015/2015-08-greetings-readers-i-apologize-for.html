@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CSA Awards to Tollervey, Stinner, and Storchaka - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="csa-awards-to-tollervey-stinner-and-storchaka">
+<h1>CSA Awards to Tollervey, Stinner, and Storchaka<a class="headerlink" href="#csa-awards-to-tollervey-stinner-and-storchaka" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/08/greetings-readers-i-apologize-for.html">here</a>.</p>
+<p>Greetings Readers,</p>
+<p>I apologize for the hiatus I’ve taken recently from writing this blog – other
+commitments temporarily got in the way. But during this time the PSF has been
+hard at work, and I intend to catch you up on their activities in the next few
+posts.</p>
+<p>First of all, the Community Service Awards have been given out for both the
+second and third quarters of 2015. I am extremely happy to announce that the
+second quarter award went to our good friend, Nicholas Tollervey, for his
+excellent work in education and outreach. You can read more about Nick in a
+recent previous post to this blog
+(<a class="reference external" href="http://pyfound.blogspot.com/2015/06/nicholas-tollervey-and-python-in.html">Tollervey</a>), so I’ll forgo saying more about him here, other than
+“congratulations,”  and will turn to telling you about our third quarter award
+recipients.</p>
+<p>&gt; RESOLVED, that the Python Software Foundation award the 2015 3rd Quarter
+&gt; Community Service Award to Victor Stinner and Serhiy Storchaka (<a class="reference external" href="https://www.python.org/community/awards/psf-awards/">PSF
+&gt; CSA</a>).</p>
+<p>Both Stinner and Storchaka are extremely active Python core developers. In the
+past three years, Serhiy has contributed well over 2000 commits, while Victor
+comes in a close second with almost 2000. Their hard work and dedication have
+helped increase Python’s vitality, relevance, and amazing growth – a fact
+that the PSF wishes to recognize with this award.</p>
+<p>In addition, Serhiy Storchaka is active on the Python tracker, taking the time
+to help other contributors by reviewing and committing their patches.</p>
+<p>Victor Stinner’s work additionally includes 20 PEPs (see
+<a class="reference external" href="https://www.python.org/dev/peps/">PEPs</a>) as well as active participation in
+the Python community. You can view his PyCon 2014 talk
+<a class="reference external" href="http://www.pyvideo.org/speaker/180/victor-stinner">here</a>. He is also one of
+the developers of the
+<a class="reference external" href="https://docs.python.org/3/library/asyncio.html">tulip/asyncio</a> project which
+provides asynchronous I/O support to Python. It was Victor who ported
+tulip/asyncio to Python 2; its usefulness has resulted in its recently being
+included as part of the Python 3.4 standard library.</p>
+<p><a class="reference external" href="https://julien.danjou.info/media/images/books/vstinner.png">![</a>](<a class="reference external" href="https://julien.danjou.info/media/images/books/vstinner.png">https://julien.danjou.info/media/images/books/vstinner.png</a>)
+—
+Victor Stinner</p>
+<p>Please join me in congratulating our latest CSA recipients and in thanking
+them for their important work.</p>
+<p>_I would love to hear from readers. Please send feedback, comments, or blog
+ideas to me at  <a class="reference external" href="mailto:msushi&#37;&#52;&#48;gnosis&#46;cx">msushi<span>&#64;</span>gnosis<span>&#46;</span>cx</a>._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2015-08-jessica-mckellar-receives-2015-frank.html">
+      
+      <span>Jessica McKellar receives 2015 Frank Willison Award</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2015-09-new-psf-community-mailing-list.html">
+      <span>New PSF Community Mailing List</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

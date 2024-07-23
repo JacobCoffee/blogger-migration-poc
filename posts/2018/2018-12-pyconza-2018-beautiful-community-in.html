@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PyConZA 2018 – a beautiful community in South Africa - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="pyconza-2018-a-beautiful-community-in-south-africa">
+<h1>PyConZA 2018 – a beautiful community in South Africa<a class="headerlink" href="#pyconza-2018-a-beautiful-community-in-south-africa" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2018/12/pyconza-2018-beautiful-community-in.html">here</a>.</p>
+<p>This year I attended my second <a class="reference external" href="https://za.pycon.org/">PyConZA</a>, which is held
+in Johannesburg, South Africa. It is the annual gathering of the South African
+Python community that uses and develops the open source Python programming
+language. It’s organized by the community for the community, fostering unique
+solutions to the challenges faced in Africa. For the curious: ZA stands for
+Zuid-Afrika, a Dutch abbreviation for South Africa.</p>
+<p>I keep coming back to South Africa to attend PyConZA. I am from Brazil but I
+struggle to resist a trip to South Africa to visit amazing friends, the
+beautiful mountains, beaches, wine farms, great food, safaris, and more.</p>
+<p>The South African conference, a conference ran entirely by a team of dedicated
+volunteers, reached its eighth edition this year. As an added success this
+year the conference reached an outstanding number of attendees.</p>
+<section id="the-numbers">
+<h2>The Numbers<a class="headerlink" href="#the-numbers" title="Link to this heading">¶</a></h2>
+<p>Over five days – which included tutorials, main conference and sprints – the
+conference received 255 attendees, boasting 100% growth compared to the last
+time it was held in Johannesburg in 2015.</p>
+<p>The main event counted three simultaneous tracks – plus daily open space
+sessions. Collectively the conference had 41 speakers, 34 talks, 13 lightning
+talks and 3 keynotes. The Data Science and Typing tutorials gathered 36
+people. Roughly 15 attendees with hacker spirits joined the sprints and ate
+pizza whilst working on various projects.</p>
+<p><a class="reference external" href="http://womenintech.co.za/blog/">Women in Tech ZA</a> &amp; PyConZA gathered 13
+attendees for their beginners friendly workshop “Python for Everyone”.</p>
+<p>Sponsored by 11 entities – including companies such as Microsoft and Oracle –
+the event had   lunch daily, a lounge with _really good <a href="#id4"><span class="problematic" id="id5">coffee_</span></a> , juices and
+mocktails – freshly made by professionals and available at all times – a
+speaker’s dinner and lots of swag in the Birchwood Hotel Conference Center.</p>
+<p>If a Python conference wasn’t enough, Johannesburg hosted at the same week and
+venue, <a class="reference external" href="https://linuxconf.co.za/">LinuxConf</a> and
+<a class="reference external" href="https://postgresconf.org/conferences/SouthAfrica2018">PostgresConf</a>, bringing
+in yet more attendees, diversity and people walking around with three
+different badges.</p>
+<p><a class="reference external" href="https://2.bp.blogspot.com/-iSe40cq3Xcw/XA5FRx54FEI/AAAAAAABxiM/GMbwqbOVnMwoTtw_NymB-HWcdU2SBV8UQCLcBGAs/s320/43655770310_77bec2c598_k.jpg">![</a>](<a class="reference external" href="https://2.bp.blogspot.com/-iSe40cq3Xcw/XA5FRx54FEI/AAAAAAABxiM/GMbwqbOVnMwoTtw_NymB">https://2.bp.blogspot.com/-iSe40cq3Xcw/XA5FRx54FEI/AAAAAAABxiM/GMbwqbOVnMwoTtw_NymB</a>-
+HWcdU2SBV8UQCLcBGAs/s1600/43655770310_77bec2c598_k.jpg)</p>
+<p>_Speakers photo &lt;<a href="#id6"><span class="problematic" id="id7">3_</span></a></p>
+</section>
+<section id="running-a-conference-ain-t-easy">
+<h2>Running a Conference Ain’t Easy!<a class="headerlink" href="#running-a-conference-ain-t-easy" title="Link to this heading">¶</a></h2>
+<p>Here is what the conference organizers had to say about this year’s
+conference:</p>
+<p>David Sharpe, chair of the PyConZA 2017, said:</p>
+<p>&gt; _PyConZA is a conference made for the community and by the community.
+&gt; Getting people involved with it is relatively easy – getting people up to
+&gt; speed with how to run a conference is the hard part. The same team has been
+&gt; running the conference for the past seven years, and now our biggest
+&gt; challenge is to spread this knowledge and show other people the ropes,
+&gt; having redundancy in the committee and enabling PyConZA to move around the
+&gt; country more._</p>
+<p>Adam Piskorski, chair of this year’s edition, completed:</p>
+<p>&gt; _Finding volunteers and chasing sponsors has been especially difficult when
+&gt; most of the organizers are based in Cape Town – a city near the south most
+&gt; part of the country. For the next year, we want a larger conference with
+&gt; more optimized planning and execution._</p>
+</section>
+<section id="afrodjango">
+<h2>AfroDjango<a class="headerlink" href="#afrodjango" title="Link to this heading">¶</a></h2>
+<p>The talk “<a class="reference external" href="https://2018.za.pycon.org/talks/74-python-community-development-in-east-africa/">Python Community Development in East
+Africa</a>” is proof of how the Python programming language and community
+is changing the world’s landscape and people’s life.  I’d encourage you to
+take 40 minutes of your time and watch this, it’s inspirational.</p>
+<p><a class="reference external" href="https://www.linkedin.com/in/joshua-kato-3b09966a">Joshua Kato</a> (PSF Python
+Ambassador in East Africa), <a class="reference external" href="https://twitter.com/linuswamanya">Linus Wamanya</a>
+and <a class="reference external" href="https://www.facebook.com/buwembo.murshid">Buwembo Murshid</a> showed us how
+they are empowering the community in East Africa through training and
+mentoring kids, students, and people with intellectual or physical
+disabilities and refugees.</p>
+<p><a class="reference external" href="http://www.afrodjangoinitiative.org/">AfroDjango</a> already has trained more
+than 3000 people since 2015, from basic digital literacy to professional
+software development. Projects such as home automation, online learning
+platforms and an online market for hardware and sensors are being currently
+developed by their students.</p>
+<p>Today, AfroDjango has support from a variety of partners, including the PSF.
+All of this amazing work has been recognized as “Promoting ICT practical
+skills” by Uganda’s Head of State.</p>
+</section>
+<section id="financial-aid">
+<h2>Financial Aid<a class="headerlink" href="#financial-aid" title="Link to this heading">¶</a></h2>
+<p>Financial assistance is provided for those who might otherwise not be able to
+attend the conference. Those potentially eligible were attendees with accepted
+talks, attendees from South Africa and other African countries (especially
+those from underprivileged backgrounds) and volunteers helping the conference.</p>
+<p>This year, PyConZA was able to provide an amount of R40.000 (about US$2.700)
+as financial aid for 7 attendees – 2 from South Africa, 3 from Mozambique, 1
+from Nigeria and 1 from Uganda, 4 of them being women and 5 being speakers.
+The organizing team used a points system to reward speakers, giving priority
+to people from Africa and South Africa. They also wanted to choose people from
+disadvantaged backgrounds, but the committee mentioned it proved difficult to
+fairly ascertain that.</p>
+</section>
+<section id="the-video-team">
+<h2>The Video Team<a class="headerlink" href="#the-video-team" title="Link to this heading">¶</a></h2>
+<p>Another highlight shared by all three events was the video recording crew.
+Everything seemed magical and seamless. The video infrastructure organization
+was led by Carl Karsten, a really cool Pythonista wearing hawaiian shorts from
+Chicago, and the <a class="reference external" href="http://www.nextdayvideo.com/">Next Day Video</a> team.</p>
+<p>They were able to record and livestream three simultaneous tracks using open
+source software and even open source hardware. The recording interface was so
+simple that volunteers (including me) could help with the job after just a two
+minutes tutorial. On top of that, the videos were released on
+<a class="reference external" href="http://archive.org/">Archive.org</a> and
+<a class="reference external" href="https://www.youtube.com/playlist?list=PLGjWYNrNnSuc78h5x23A5mLAzWlCl9LGf">Youtube</a>
+in couple of _hours_ , with minimal manual intervention.</p>
+</section>
+<section id="the-python-software-society-of-south-africa">
+<h2>The Python Software Society of South Africa<a class="headerlink" href="#the-python-software-society-of-south-africa" title="Link to this heading">¶</a></h2>
+<p>The PyConZA organizing committee created <a class="reference external" href="http://pss-sa.org/">PSSSA</a> – a non-
+profit organization – in May 2017. The objective is to support and grow the
+Python community and events across the country, as well as manage and run
+PyConZA.</p>
+<p>Today it’s being used mainly as a legal and financial entity to support the
+conference infrastructure, but the plans are to spread its influence and
+facilitate Python groups throughout South Africa.</p>
+<p><a class="reference external" href="https://4.bp.blogspot.com/-8ouEoZKpMAs/XA5FR4RhqqI/AAAAAAABxiI/Ua7WCIj0gugMXOvwjMesPfHNCNUADrJ8QCLcBGAs/s320/44558817075_8c16d6f509_k.jpg">![</a>](<a class="reference external" href="https://4.bp.blogspot.com/-8ouEoZKpMAs/XA5FR4RhqqI/AAAAAAABxiI/Ua7WCIj0gugMXOvwjMesPfHNCNUADrJ8QCLcBGAs/s1600/44558817075_8c16d6f509_k.jpg">https://4.bp.blogspot.com/-8ouEoZKpMAs/XA5FR4RhqqI/AAAAAAABxiI/Ua7WCIj0gugMXOvwjMesPfHNCNUADrJ8QCLcBGAs/s1600/44558817075_8c16d6f509_k.jpg</a>)</p>
+<p>_PyConZA is awesome!_</p>
+<p>I’d like to say thanks to the PyConZA organizing committee for helping me
+gather all the information necessary to put this article together. It is
+always a pleasure to hang out with you folks.</p>
+<p>PyConZA 2019 is expected to be hosted once again in Johannesburg, in October
+2019. I hope to see you there!</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2018-12-november-2018-board-meeting-summary.html">
+      
+      <span>November 2018 board meeting summary</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2018-12-evangelizing-python-in-africa-chukwudi_65.html">
+      <span>Evangelizing Python in Africa: Chukwudi Nwachukwu, Q2 CSA Recipient</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

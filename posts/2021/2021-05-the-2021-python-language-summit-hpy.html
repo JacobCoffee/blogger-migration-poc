@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2021 Python Language Summit: HPy — Present and Future - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2021-python-language-summit-hpy-present-and-future">
+<h1>The 2021 Python Language Summit: HPy — Present and Future<a class="headerlink" href="#the-2021-python-language-summit-hpy-present-and-future" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit-hpy.html">here</a>.</p>
+<p>At the <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit.html">2021 Python Language
+Summit</a>, <a class="reference external" href="https://twitter.com/antocuni">Antonio Cuni</a> gave a presentation
+about <a class="reference external" href="https://hpyproject.org/">HPy</a>. He also gave a <a class="reference external" href="https://pyfound.blogspot.com/2020/04/hpy-future-proof-way-of-extending.html">presentation about
+HPy</a> at the <a class="reference external" href="https://pyfound.blogspot.com/2020/04/the-2020-python-language-summit.html">2020 Python Language
+Summit</a>, so this year he shared updates on how the project has evolved
+since then.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0Vl5V51ib3_WGTnoZDpyzf7WaLfWQDxPZMXNPxD2CIMUcm6hhHrGf6n2hsmIFLjd6GoIlYtWgo1ZZKqG_RypgOjVxV6nzaJ6W3y1WAENlnfkXhZ37af37XMP5g6B31-IT3_Q/w320-h320/antonio-cuni.png">![Antonio
+Cuni</a>
+](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0Vl5V51ib3_WGTnoZDpyzf7WaLfWQDxPZMXNPxD2CIMUcm6hhHrGf6n2hsmIFLjd6GoIlYtWgo1ZZKqG_RypgOjVxV6nzaJ6W3y1WAENlnfkXhZ37af37XMP5g6B31-IT3_Q/s460/antonio">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0Vl5V51ib3_WGTnoZDpyzf7WaLfWQDxPZMXNPxD2CIMUcm6hhHrGf6n2hsmIFLjd6GoIlYtWgo1ZZKqG_RypgOjVxV6nzaJ6W3y1WAENlnfkXhZ37af37XMP5g6B31-IT3_Q/s460/antonio</a>-
+cuni.png)</p>
+<section id="what-is-hpy">
+<h2>What Is HPy?<a class="headerlink" href="#what-is-hpy" title="Link to this heading">¶</a></h2>
+<p>HPy is an alternative API for writing C extensions. Although the current
+Python C API shows CPython implementation details, HPy hides all the
+implementation details that would otherwise be exposed. Antonio Cuni said
+that, if everyone used HPy, then it would help Python evolve in the long term.</p>
+<p>Using HPy extensions will make it easier to support alternative
+implementations. HPy is designed to be GC friendly and isn’t build on top of
+ref counting. It is also designed to have zero overhead on CPython, so you can
+port an existing module from the Python C API to HPy without any performance
+loss. In addition, it allows incremental migration, allowing you to port your
+existing extension one function at a time, or even one method at a time. HPy
+is also faster than the existing Python C API on alternative implementation
+such as <a class="reference external" href="https://www.pypy.org/">PyPy</a> and
+<a class="reference external" href="https://www.graalvm.org/python/">GraalPython</a>.</p>
+</section>
+<section id="what-s-new-with-hpy">
+<h2>What’s New With HPy?<a class="headerlink" href="#what-s-new-with-hpy" title="Link to this heading">¶</a></h2>
+<p>In the past year since Antonio Cuni last shared an update at a Python Language
+Summit, HPy has continued to make progress. It now has:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Support for Windows</p></li>
+<li><p>Support for creating custom types in C</p></li>
+<li><p>A debug mode to help you find mistakes in your C code</p></li>
+<li><p>Setup tools integration to make it easier to compile HPy extensions</p></li>
+</ul>
+</div></blockquote>
+<p>There has also been work on a very early port of some parts of NumPy to HPy.
+The feedback from the NumPy team has been positive so far. Soon, the HPy team
+will start writing a Cython backend so that all Cython extensions will be able
+to automatically use HPy as well.</p>
+<p>The HPy team has made a lot of progress with building community and getting
+funding. There is now a <a class="reference external" href="https://hpyproject.org/">site for HPy</a> as well as a
+<a class="reference external" href="https://hpyproject.org/blog/">blog</a>, and there has been a lot of interest and
+involvement from the Python community. For example, someone independently
+started <a class="reference external" href="https://github.com/cklein/Pillow-hpy">porting Pillow</a>. Oracle, IBM,
+and Quansight Labs have provided some funding, but there has still been plenty
+of non-funded open source development, as usual.</p>
+</section>
+<section id="how-do-the-cpython-abi-and-the-universal-abi-compare">
+<h2>How Do the CPython ABI and the Universal ABI Compare?<a class="headerlink" href="#how-do-the-cpython-abi-and-the-universal-abi-compare" title="Link to this heading">¶</a></h2>
+<p>There are some differences between the CPython ABI and the Universal ABI:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrZ9gWAzFZXxeciJBc4TXu0eY6jnsngxo1cEejQ17MewvmwjGEalnwbb1VqggNjdzpyB-BslOFCnxKYoMVPj-twkomD9MFDwl1Lg-El_WGpEnafnrrRltGxxbagsuO-SLg0GQ/s16000/HPy-comparison.png">![CPython ABI vs Universal
+ABI</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrZ9gWAzFZXxeciJBc4TXu0eY6jnsngxo1cEejQ17MewvmwjGEalnwbb1VqggNjdzpyB">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgrZ9gWAzFZXxeciJBc4TXu0eY6jnsngxo1cEejQ17MewvmwjGEalnwbb1VqggNjdzpyB</a>-
+BslOFCnxKYoMVPj-twkomD9MFDwl1Lg-El_WGpEnafnrrRltGxxbagsuO-SLg0GQ/s500/HPy-
+comparison.png)</p>
+<p>On the Universal ABI side, there is no way to support wheels.</p>
+</section>
+<section id="how-does-debug-mode-work">
+<h2>How Does Debug Mode Work?<a class="headerlink" href="#how-does-debug-mode-work" title="Link to this heading">¶</a></h2>
+<p>HPy’s debug mode may be useful to you even if you aren’t concerned about the
+problems that HPy is intended to solve because it can help you find common
+problems in your C code, such as memory leaks. Here’s an example of an HPy
+function that takes an object and increments it by one:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFGXRXFMSpSt5kF7TiYgTPd75Oi_FTRozH3bMMUCRfW4eH9tEhzxUqQ84T8w5eIdt2Vry0MIrkKgrivBs67VVSXBp313_6ZBn_RGunMC0NftF5yMPc5aunYuhLpoq1o2mgBt0/s16000/debug-1.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFGXRXFMSpSt5kF7TiYgTPd75Oi_FTRozH3bMMUCRfW4eH9tEhzxUqQ84T8w5eIdt2Vry0MIrkKgrivBs67VVSXBp313_6ZBn_RGunMC0NftF5yMPc5aunYuhLpoq1o2mgBt0/s500/debug-1.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFGXRXFMSpSt5kF7TiYgTPd75Oi_FTRozH3bMMUCRfW4eH9tEhzxUqQ84T8w5eIdt2Vry0MIrkKgrivBs67VVSXBp313_6ZBn_RGunMC0NftF5yMPc5aunYuhLpoq1o2mgBt0/s500/debug-1.png</a>)</p>
+<p>HPy_Close() isn’t called on the object that was created, so you have a memory
+leak. If you want to compile this file into an extension, then you can use
+setup.py:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhegRSp6zdBadudofVL1Zy5gNOB47O9SZh8yB0clFjlexk6WKkNBIWqj3DfkY-l0Li4m-oM6B62hxLpeh72cDfd-nX4loAOSy4eM43HUm4nq26eZrdqIbP2jJkktFa1DCRjXYU/s16000/debug-2.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhegRSp6zdBadudofVL1Zy5gNOB47O9SZh8yB0clFjlexk6WKkNBIWqj3DfkY-l0Li4m-oM6B62hxLpeh72cDfd">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhegRSp6zdBadudofVL1Zy5gNOB47O9SZh8yB0clFjlexk6WKkNBIWqj3DfkY-l0Li4m-oM6B62hxLpeh72cDfd</a>-
+nX4loAOSy4eM43HUm4nq26eZrdqIbP2jJkktFa1DCRjXYU/s500/debug-2.png)</p>
+<p>Now, you can load the module and debug:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXElirVP1Xv0-IL3k9-5JRFTbrjVB41bc3h-_IJxn4vfdMxPaa0gB0grjF01XAVm1OhkWrCwZ-XWnf3RSKttg54VAqasJL3jySPJvjJRxcIjWWd8F6fVEmHu-VDBv-b7_tHi8/s16000/debug-3.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXElirVP1Xv0-IL3k9-5JRFTbrjVB41bc3h-_IJxn4vfdMxPaa0gB0grjF01XAVm1OhkWrCwZ">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXElirVP1Xv0-IL3k9-5JRFTbrjVB41bc3h-_IJxn4vfdMxPaa0gB0grjF01XAVm1OhkWrCwZ</a>-
+XWnf3RSKttg54VAqasJL3jySPJvjJRxcIjWWd8F6fVEmHu-VDBv-b7_tHi8/s500/debug-3.png)</p>
+</section>
+<section id="what-does-the-future-hold">
+<h2>What Does the Future Hold?<a class="headerlink" href="#what-does-the-future-hold" title="Link to this heading">¶</a></h2>
+<p>Antonio Cuni closed his presentation by asking the CPython developers at the
+summit if it would be possible to make HPy a semi-official API in the future,
+with first-class support for importing modules and distributing wheels. Some
+attendees suggested writing a PEP to make that happen.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2021-05-the-2021-python-language-summit-making.html">
+      
+      <span>The 2021 Python Language Summit: Making CPython Faster</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2021-05-the-2021-python-language-summit_22.html">
+      <span>The 2021 Python Language Summit: Lightning Talks, Round 1</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

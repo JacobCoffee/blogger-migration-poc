@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2022 Python Language Summit: Dealing with CPython’s issue and PR backlog - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2022-python-language-summit-dealing-with-cpython-s-issue-and-pr-backlog">
+<h1>The 2022 Python Language Summit: Dealing with CPython’s issue and PR backlog<a class="headerlink" href="#the-2022-python-language-summit-dealing-with-cpython-s-issue-and-pr-backlog" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit-dealing.html">here</a>.</p>
+<p>&gt; “Any noise annoys an oyster, but a noisy noise annoys an oyster most.”
+&gt;
+&gt; – Tongue twister, _author <a href="#id2"><span class="problematic" id="id3">unknown_</span></a></p>
+<p>As the Python programming language continues to grow in popularity, so too
+does the accumulation of issues and pull requests (“PRs”) on the CPython
+GitHub repository. At time of writing (morning of 7th May, 2022), the total
+stands at 7,027 <a class="reference external" href="https://github.com/python/cpython/issues">open issues</a>, and
+1,471 <a class="reference external" href="https://github.com/python/cpython/pulls">pull requests</a>. At <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit_01678898482.html">the 2022
+Python Language Summit</a>, CPython Core Developer Irit Katriel gave a
+talk on possible ways forward for dealing with the backlog.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Historically, there has been reluctance among CPython’s team of core
+developers to close issues or PRs that may be of dubious worth. BPO-539907 was
+presented to the audience as an issue that had remained open on the issue
+tracker for over 20 years. The example is an extreme one, but represents a
+pattern that anybody who has scrolled through the CPython issue tracker will
+surely have seen before:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfmyxKVWCxGVu8bDOqripPODzPu4TZ-R_B-7kVi4NPMfXb54aDre8seaOZWkKfgaE_gacSbimQUu74yNDCLfXzrwBnEp4Er3818hcRDohbI1AkSe1GvGVsmreydutt5LEjAchdnVnS3SjMnuFA5vFv50mwlwTXwtgimCKH_v8L_kOWwDo/w400-h225/Irit%20-%20PR%20issue%20and%20backlog-page-003.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfmyxKVWCxGVu8bDOqripPODzPu4TZ">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgfmyxKVWCxGVu8bDOqripPODzPu4TZ</a>-
+R_B-7kVi4NPMfXb54aDre8seaOZWkKfgaE_gacSbimQUu74yNDCLfXzrwBnEp4Er3818hcRDohbI1AkSe1GvGVsmreydutt5LEjAchdnVnS3SjMnuFA5vFv50mwlwTXwtgimCKH_v8L_kOWwDo/s3000/Irit%20-%20PR%20issue%20and%20backlog-
+page-003.jpg)</p>
+<p>Anyone with experience in triaging issue trackers in open source will know
+that it is not always easy to close an issue. People on the internet do not
+always take kindly to being told that something they believe to be a bug is,
+in fact, intended behaviour.</p>
+<p>Low-quality feature requests can be even harder to tackle, and can be broadly
+split into three buckets. The first bucket holds feature requests that simply
+make no sense, or else would have actively harmful impacts – these can be
+fairly easily closed. The second bucket holds feature requests that would add
+maintenance costs, but would realistically add little value to end users.
+These can often lead to tiresome back-and-forths – something one person may
+see as a large problem in a piece of software may, ultimately, cause few
+problems for the majority of users.</p>
+<p>The feature requests that can linger on an issue tracker for twenty years,
+however, are usually those in the third bucket: features that everybody can
+agree might be nice if, in an ideal world, they were implemented – but that
+nobody, ultimately, has the time or motivation to work on.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Katriel’s contention is that leaving an issue open on the tracker for 20 years
+serves no one and that, instead, we should think harder about what an issue
+tracker is actually _for_.</p>
+<p>If the proposed <cite>tkinter</cite> lock from BPO-539907 is ever implemented, Katriel,
+argues, “it’s not because of the twenty-year-old issue – it’s because somebody
+will discover the need for it.” Rather than only closing issues that have
+obvious defects, we should flip the script, and become far more willing to
+close issues if they serve no obvious purpose. Issues should only be kept
+_open_ if they serve an obvious purpose in helping further CPython’s
+development. Instead of asking “Why should we close this?”, we should instead
+ask, “Why should we keep this open?”</p>
+<p>Citing a <a class="reference external" href="https://sundaylettersfromsam.substack.com/p/bonus-post-noisy-monitors?s=r">recent blog post</a> by Sam Schillace, Katriel argues that not only do
+issues such as BPO-539907 (newly renamed as GH-36387, for those keeping tabs)
+serve little purpose – they also do active harm to the CPython project.
+Schillace argues that the problem of the “noisy monitor” – a term he uses for
+any kind of feedback system where it becomes impossible to tell the signal
+from the noise – is “one of the most pernicious, and common, patterns that
+engineering teams fall prey to”. Leaving low-quality issues on a tracker,
+Shillace argues, wastes the time of developers and triagers, and “obscures
+both newer quality issues as well as the overall drift of the product.”</p>
+<p>&gt; “It’s far better… to keep the tool clean for the things that matter.”
+&gt;
+&gt; – Sam Schillace, _Noisy <a href="#id4"><span class="problematic" id="id5">Monitors_</span></a></p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>No one has done more work than Katriel over the past few years to keep the
+issue tracker healthy, and her presentation was well received by the audience
+of core devs and triagers. The question of where now to proceed, however, is
+harder to tackle.</p>
+<p>Pablo Galindo Salgado, an expert on CPython’s PEG parser, and the chief
+architect behind the “Better error messages” project in recent years, noted
+that he received “many, many issues” relating to possible changes to the
+parser and improvements to error messages. “Every time you close an issue,” he
+said, “People demand an explanation.” Arguing that maintainer time is “the
+most valuable resource” in open-source software, Salgado said that the easiest
+option was often just to leave it open.</p>
+<p>However, hard though it may be to close an issue, ignoring open issues for an
+extended period of time also does a disservice to contributors. Itamar
+Ostricher – not a CPython core developer, but an experienced software engineer
+who has worked for many years at Meta – said that the contributor experience
+was “often confusing”. “Is this an issue where a PR would be accepted if I
+wrote one? Does a core dev want to work on it?” Ostricher asked. Or is it just
+a bad idea?</p>
+<p>Ned Deily, release manager for Python 3.6 and 3.7, agreed, and argued that
+CPython needed to become more consistent in how core devs treat issues and
+PRs. Some modules, like <cite>tkinter</cite>, have been “ownerless” for a long time,
+Deily argued. This can create a chicken-and-egg problem. If a module has no
+maintainer, the solution is to add more maintainers. But a contributor can
+only become a maintainer if they demonstrate their worth through a series of
+merged PRs. And if a module has no active maintainer, there may be no core
+devs who feel they have sufficient expertise to review and merge a PR relating
+to the unmaintained module. So the contributor can never become a core
+developer (as their PRs will never be merged), and the module will never gain
+a new maintainer.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="where-now">
+<h2>Where now?<a class="headerlink" href="#where-now" title="Link to this heading">¶</a></h2>
+<p>Various solutions were proposed to improve the situation. Katriel thought it
+would be good to introduce a new “Accepted” label, that could be added by a
+triager or a core developer. The idea is that the presence of the label
+signifies that the core developer team is not waiting for any further
+information from the issue filer: the bug report (or feature request) has been
+acknowledged as valid.</p>
+<p>Many attendees noted that the problem was in many ways a social problem rather
+than a technical problem: the core development team needed a fundamental
+change in mindset if they were to seriously tackle the issue backlog. Senthil
+Kumaran argued that we should “err on the side of closing things”. Jelle
+Zijlstra similarly argued that we needed to reach a place where it was
+understood to be “okay” to close a feature request that had been open for many
+years with no activity.</p>
+<p>There was also, however, interest in improving workflow automation. Christian
+Heimes discussed the difficulty of closing an issue or PR if you are a core
+developer with English as a second language. Crafting the nuances of a
+rejection notice so that it is polite but also clear can be a challenging
+task. Ideas around automated messages from bots or canned responses were
+discussed.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>The enormity of the task at hand is clear. Unfortunately, there is probably
+not one easy fix that will solve the problem.</p>
+<p>Things are already moving in a better direction, however, in many respects.
+Łukasz Langa, CPython’s <a class="reference external" href="https://pyfound.blogspot.com/2021/07/ukasz-langa-is-inaugural-cpython.html">Developer-In-
+Residence</a>, has been having a huge impact in stabilising the number of open
+issues. The CPython triage team, a group of volunteers helping the core
+developers maintain CPython, <a class="reference external" href="https://discuss.python.org/t/six-new-triagers/">has also been significantly
+expanded</a> in recent months,
+increasing the workforce available to triage and close issues and PRs.</p>
+<p><a class="reference external" href="https://peps.python.org/pep-0594/">PEP 594</a>, deprecating several standard-
+library modules that have been effectively unmaintained for many years, also
+led to a large number of issues and PRs being closed in recent months. And the
+transition to GitHub issues itself, which only took place a few weeks ago,
+appears to have imbued the triage team with a new sense of energy.</p>
+<p>Discussion continues on Discourse about further potential ways forward:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://discuss.python.org/t/proposal-canned-explanations-for-issue-pr-closure-decisions-language-summit-follow-up/">Proposal: canned explanations for issue/PR closure decisions (Language Summit follow up)</a></p></li>
+<li><p><a class="reference external" href="https://discuss.python.org/t/gaps-in-maintenance-coverage-language-summit-follow-up/">Gaps in maintenance coverage (Language Summit follow up)</a></p></li>
+<li><p><a class="reference external" href="https://discuss.python.org/t/triaging-reviewing-fixing-issues-and-prs/">Triaging/reviewing/fixing issues and PRs</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2022-05-the-2022-python-language-summit_11.html">
+      
+      <span>The 2022 Python Language Summit: Achieving immortality</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2022-05-the-2022-python-language-summit-f.html">
+      <span>The 2022 Python Language Summit: F-Strings in the grammar</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

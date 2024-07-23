@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Capital One - Lessons From Adopting Python as a Team - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="capital-one-lessons-from-adopting-python-as-a-team">
+<h1>Capital One - Lessons From Adopting Python as a Team<a class="headerlink" href="#capital-one-lessons-from-adopting-python-as-a-team" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2020/05/capital-one-lessons-from-adopting.html">here</a>.</p>
+<p>By Akshay Prabhu, Software Engineering Manager, Capital One</p>
+<section id="rewriting-legacy-etl-jobs-in-python-when-youre-not-python-devs">
+<h2>Rewriting Legacy ETL Jobs in Python When You’re Not Python Devs<a class="headerlink" href="#rewriting-legacy-etl-jobs-in-python-when-youre-not-python-devs" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidfEZ_EqLnq3wzvLL2jcI6-wiEDoFZ_zBS1yTRLtBw6uTTTYpsokrDScCTNnwMmx4jWTueD6d83yVUftCw6ukIZ8QSYz9cToYTSN2so64OyQCNUY57ML9QKGq_tSCf9x1DzQ/s400/PythonHeaderFINAL+copy.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidfEZ_EqLnq3wzvLL2jcI6-wiEDoFZ_zBS1yTRLtBw6uTTTYpsokrDScCTNnwMmx4jWTueD6d83yVUftCw6ukIZ8QSYz9cToYTSN2so64OyQCNUY57ML9QKGq_tSCf9x1DzQ/s1600/PythonHeaderFINAL+copy.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEidfEZ_EqLnq3wzvLL2jcI6-wiEDoFZ_zBS1yTRLtBw6uTTTYpsokrDScCTNnwMmx4jWTueD6d83yVUftCw6ukIZ8QSYz9cToYTSN2so64OyQCNUY57ML9QKGq_tSCf9x1DzQ/s1600/PythonHeaderFINAL+copy.jpg</a>)</p>
+<p>So how does a team of six engineers - heavily experienced in web development
+in languages like ReactJS, NodeJs, and Java - go about adopting Python into
+their work?</p>
+<p>The application development and cloud computing technology landscape is always
+changing and an important part of our role as engineers is to stay up to date
+on those changes. Sometimes it is through solo work - such as learning a new
+framework or skill. But sometimes it is through team-based work - such as
+adopting and migrating a whole project to a new language.</p>
+<p>Like most other engineers, I’ve experienced this kind of team-based work
+multiple times in my career, and I recently went through it in my current role
+as a Software Engineering Manager at Capital One. In my role I am working on
+leading a team of engineers to develop highly scalable web applications,
+including both API and UI layers. As part of our journey to migrate
+applications to the cloud, we were also involved in rewriting a lot of legacy
+<a class="reference external" href="https://en.wikipedia.org/wiki/Extract,_transform,_load">ETL</a> jobs originally
+built using licensed tools. Most of my past engineering experience before
+these re-write efforts for ETL was around NodeJS, Java, and Ruby on Rails; and
+until a year ago I had not worked with Python. The same was true with most of
+the engineers on my team.</p>
+<p>_In fact, our entire team consisted of experienced engineers who have
+delivered multiple web and distributed applications in the cloud, but none had
+exposure to ETL or data-driven projects._</p>
+<p>About one month into the rewrite efforts we were hitting limitations around
+using Java to migrate legacy system code. We wanted to be able to achieve
+simple File Operations, as well as complicated queries using Spark, but with
+dynamically typed language and minimal bootstrap code. This was one of our
+reasons for considering whether it was time to switch languages.</p>
+</section>
+<section id="why-did-we-decide-on-python">
+<h2>Why Did We Decide On Python?<a class="headerlink" href="#why-did-we-decide-on-python" title="Link to this heading">¶</a></h2>
+<p>For our project, we faced the huge task of re-writing multiple jobs running on
+a legacy ETL platform. This involved enterprise API integrations, as well as
+complex data analysis and refinement.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsXPMMzaLWjzNVDXvujbMmjp34heeojwGblYFd9V1gq1CXrznfg3a6BEI7svVMgB8z5blrR00ofyubrKRANAMvhLZD-A8UFAfAzQCGnyJod3zs-ZP24za7aF2pjjrKNTw5HA/s400/AkshayDiagram1.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsXPMMzaLWjzNVDXvujbMmjp34heeojwGblYFd9V1gq1CXrznfg3a6BEI7svVMgB8z5blrR00ofyubrKRANAMvhLZD-A8UFAfAzQCGnyJod3zs">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsXPMMzaLWjzNVDXvujbMmjp34heeojwGblYFd9V1gq1CXrznfg3a6BEI7svVMgB8z5blrR00ofyubrKRANAMvhLZD-A8UFAfAzQCGnyJod3zs</a>-
+ZP24za7aF2pjjrKNTw5HA/s1600/AkshayDiagram1.jpg)</p>
+<p><em>Inflexibility of Existing Languages</em></p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>Due to the nature of these jobs, none of the languages we were most
+experienced with were a great choice. That’s because they were:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Static typed languages like Java</p></li>
+<li><p>Involved heavy bootstrap code</p></li>
+<li><p>Lacked extensive support for data manipulation libraries such as Pandas</p></li>
+<li><p>Lacked extensive external community support for Spark integrations or data analysis</p></li>
+</ul>
+</div></blockquote>
+<p><em>Flexibility with Python: API Integration, Data Analysis, and Others</em></p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>Python seemed to be a good choice for us as it was flexible enough to support
+a wide array of use cases. It also fit in well as it was:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Dynamically typed</p></li>
+<li><p>Supported re-writing Bash based or ETL jobs in fewer lines of code</p></li>
+<li><p>Had a well supported REST interface</p></li>
+<li><p>Had excellent support for data manipulation libraries such as Pandas and Spark</p></li>
+</ul>
+</div></blockquote>
+<p>There were a few other areas that really cemented our use of Python - these
+were _File Operations and Community Support._</p>
+<p><em>File Operations</em></p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>File Operations were key to our project as our process involved reading
+multiple source files</p>
+<p>in parquet format, extracting, refining, and producing new files. We needed a
+language that could easily integrate with <a class="reference external" href="https://spark.apache.org/docs/latest/api/python/index.html">SPARK on
+HDFS</a> for
+complicated and larger datasets, as well as an equally powerful library for
+smaller datasets like <a class="reference external" href="https://pypi.org/project/pandas/">Pandas</a>. Hence, File
+Operations were at the center of our re-write.</p>
+<p>Python worked well in both cases, including:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Well suited for simple file manipulations using Pandas</p></li>
+<li><p>Worked in complex scenarios using Spark Queries on HDFS</p></li>
+<li><p>Needed significantly fewer lines of code to accomplish this than in Java or NodeJS</p></li>
+<li><p>Could work for File Operations in memory when source files are few MBs</p></li>
+<li><p>Simple enough to make API calls for various Enterprise Layers</p></li>
+</ul>
+</div></blockquote>
+<p><em>Community Support</em></p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>As we were assessing adopting a new language, Community Support both within
+Capital One and without was a key for us. We wanted a language which was well
+supported by an active open source community that:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Constantly updates security enhancements</p></li>
+<li><p>Resolves outstanding questions or issues</p></li>
+<li><p>Actively merges new feature requests from engineers</p></li>
+</ul>
+</div></blockquote>
+<p>Outside of Capital One</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Python has a much more extensive community of engineers in the Data Analysis space as compared to Java</p></li>
+<li><p>PySpark has much better support than Spark Integration with Java</p></li>
+</ul>
+</div></blockquote>
+<p><em>Within Capital One</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Capital One has a very active community of Python engineers and experts to help teams get started and maintain their Python projects</p></li>
+<li><p>This internal community allowed us to seek guidance, as well as go through multiple code reviews</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="how-we-got-started-with-python">
+<h2>How We Got Started with Python<a class="headerlink" href="#how-we-got-started-with-python" title="Link to this heading">¶</a></h2>
+<p>Like any other programming language, we started by defining our source of
+truth for standards. We went with
+<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP8</a> which is the standard that
+defines Coding Style Guides for Python.</p>
+<p>We went through the below key stages from Planning to Production.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8Ly1mjdC70pxE3kTMSiD5Dynk4lG-NG_QmdQPtIdfZmntpTU4qAIEO9edWJkJFOjnDcTNdYUDroLID-RWnnM86lIyH1T_E_b-XIHomZ-fJGwOP-XfBsBavdTz0m0qWi3mow/s400/AkshayDiagram2.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8Ly1mjdC70pxE3kTMSiD5Dynk4lG">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi8Ly1mjdC70pxE3kTMSiD5Dynk4lG</a>-
+NG_QmdQPtIdfZmntpTU4qAIEO9edWJkJFOjnDcTNdYUDroLID-RWnnM86lIyH1T_E_b-XIHomZ-
+fJGwOP-XfBsBavdTz0m0qWi3mow/s1600/AkshayDiagram2.jpg)</p>
+<p>_Key to learning and adopting a new language was putting in time for
+foundational work; automating compliance with PEP8 and adopting Py Tooling
+like Black and Flake8._</p>
+<p>Let’s go through some of the key elements to these stages.</p>
+<p><em>Define Standards and Automating Adoption</em></p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>As our team was new to Python, we spent the first initial few days defining
+standards on how we would code to comply with PEP8. But in addition to
+adoption, we needed to automate our workflow to comply with these standards.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Added a Pre-Commit Hook for Black which automatically formats code on local commits.</p></li>
+<li><p>Black didnt catch all violations, which is where Flake8 came in.</p></li>
+<li><p>Flake 8 installed as a Pre-Commit hook stopped any code commits where there were outstanding compliance errors with PEP8.</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggQa0w49iTZI4pfThdwZ0xrX7zGgUOceW9I50Up7M8Bh75h6eDtzdBW0BO4lHIh6bP_hDWEKOSd4NXa52JZrP3UMsm4kqTZEhfgApjGoiT2iwF42TJTm5HjbFAssn7m_2vWw/s400/AkshayDiagram3.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggQa0w49iTZI4pfThdwZ0xrX7zGgUOceW9I50Up7M8Bh75h6eDtzdBW0BO4lHIh6bP_hDWEKOSd4NXa52JZrP3UMsm4kqTZEhfgApjGoiT2iwF42TJTm5HjbFAssn7m_2vWw/s1600/AkshayDiagram3.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggQa0w49iTZI4pfThdwZ0xrX7zGgUOceW9I50Up7M8Bh75h6eDtzdBW0BO4lHIh6bP_hDWEKOSd4NXa52JZrP3UMsm4kqTZEhfgApjGoiT2iwF42TJTm5HjbFAssn7m_2vWw/s1600/AkshayDiagram3.jpg</a>)</p>
+<p>After automating our workflow to comply with standards and a base repo, we
+started with the core dev work.</p>
+<p><em>Logging</em></p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>This was key given Python is dynamically typed; logging was our solution to
+better track problems.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>As a Team we Decided on a common Logging format:</p></li>
+</ul>
+</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a>` Code Block</p>
+<p>requestid - machine_instanceid</p>
+<p>timestamp -    YYYY-MM-DD HH:MM:SS,milliseconds</p>
+<p>loglevel    - INFO, ERROR</p>
+<p>modulename    - function_name</p>
+<p>state -    START/END/INPROGRESS</p>
+<p>type -    SCRIPT/EXTERNAL_API/etc.</p>
+<p>modresponse -    Success/Error</p>
+<p>duration - Tracking External API calls</p>
+<p>message -   custom message as needed</p>
+<p>errormessage - err message</p>
+<p><a href="#id7"><span class="problematic" id="id8">``</span></a><a href="#id9"><span class="problematic" id="id10">`</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>We leveraged the <a class="reference external" href="https://www.elastic.co/elastic-stack?ultron=%255BEL%255D-%255BB%255D-%255BAMER%255D-US+CA-Exact&amp;blade=adwords-s&amp;Device=c&amp;thor=elk%2520stack&amp;gclid=CjwKCAiAhc7yBRAdEiwAplGxX7QiZed0XB7pdALZx5FOKZo_IiRGXsWi48uOBUUQ12g6eRy9Y5uC0xoCLO4QAvD_BwE">ELK</a> stack (Elasticsearch, Logstash, and Kibana) for logging.</p></li>
+<li><p>By using Kibana as the Web Application UI for our logs, we could see our execution details as well as trace down exceptions in Kibana.</p></li>
+</ul>
+</div></blockquote>
+<p><em>Critical takeaways</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Adopting a simple library called <a class="reference external" href="https://realpython.com/python-requests/">requests</a> to handle our API calls.</p></li>
+<li><p>Spark v/s Pandas: When you perform operations on a dataframe in Spark, a new dataframe/reference is created which is by design. This works well with large datasets but is a hindrance when the dataset is smaller. Hence for filtered smaller datasets under 5MB, we decided to go with Pandas for quick data frame manipulations.</p></li>
+<li><p>Automation for compliance to coding standards was a huge time saver as most of our team was new to Python.</p></li>
+<li><p>We quickly realized for us to test along with all the dev work, we needed a TDD approach where` pytest &lt;<a class="reference external" href="https://docs.pytest.org/en/latest/">https://docs.pytest.org/en/latest/</a>&gt;`_ came into our workspace. This proved extremely helpful.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="was-it-worth-the-effort">
+<h2>Was it Worth the Effort?<a class="headerlink" href="#was-it-worth-the-effort" title="Link to this heading">¶</a></h2>
+<p>_In addition to being the right choice of tool for our job, exploring and
+learning Python allowed the team to work more closely together and bond more
+than ever.  _</p>
+<p>_We as a team learned something new together and solved multiple issues as we
+hit walls; which took our team bonding to great heights!_</p>
+<p>Given the nature of our project, Python did fit in very well. It’s dynamically
+typed and the libraries are feature-rich, working for both simple API calls as
+well as complex operations around data transformation and filtering. As
+engineers, we worked together as a team to “learn how to learn” and adopt a
+new language the right way. With the help of Capital One’s Python Gurus, we
+adopted all the best practices for developing a working production application
+and delivered this project before the committed deadline. I am lucky to be
+part of such an awesome team, as well as to work with Capital One Python
+experts like <a class="reference external" href="https://medium.com/capital-one-tech/search?q=steven%2520lott">Steven Lott</a>, which was critical for getting us across the
+finish line.</p>
+<p>I hope this has been helpful and would love to learn what languages you and
+your team have adopted recently; especially in data-driven projects like this,
+let me know in the comments!</p>
+<p>Resources</p>
+<p><a class="reference external" href="https://spark.apache.org/docs/latest/api/python/index.html">PySpark</a></p>
+<p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p>
+<p><a href="#id12"><span class="problematic" id="id13">**</span></a></p>
+<p>_These opinions are those of the author. Unless noted otherwise in this post,
+Capital One is not affiliated with, nor is it endorsed by any of the companies
+mentioned. All trademarks and other intellectual property used or displayed
+are the ownership of their respective owners. This article is © 2020 Capital
+One._</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2020-05-call-for-volunteers-python-github.html">
+      
+      <span>Call for Volunteers! Python GitHub Migration Work Group</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2020-05-lightning-talks-part-2.html">
+      <span>Lightning Talks Part 2 - Python Language Summit 2020</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>White House recommends use of memory-safe languages like Python - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="white-house-recommends-use-of-memory-safe-languages-like-python">
+<h1>White House recommends use of memory-safe languages like Python<a class="headerlink" href="#white-house-recommends-use-of-memory-safe-languages-like-python" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2024/02/white-house-recommends-.html">here</a>.</p>
+<p>Earlier this week the White House <a class="reference external" href="https://www.whitehouse.gov/oncd/briefing-room/2024/02/26/press-release-technical-report/">published a
+report</a> recommending the use of memory-safe programming
+languages to eliminate an entire class of vulnerabilities affecting software.
+The report quotes claims from large software producers like Google and
+Microsoft which estimate that <em>70% of vulnerabilities affecting software are
+due to memory-safety issues.</em></p>
+<p>Back in December of 2023, the Cybersecurity and Infrastructure Security Agency
+(CISA) <a class="reference external" href="https://www.nsa.gov/Press-Room/Press-Releases-Statements/Press-Release-View/Article/3608324/us-and-international-partners-issue-recommendations-to-secure-software-products/">published a report</a> that included a list of
+memory-safe programming languages, <em>among them was the Python programming
+language</em>.</p>
+<p>The Python Software Foundation’s <a class="reference external" href="https://www.regulations.gov/comment/ONCD-2023-0002-0107">response to the US Government’s Request for
+Information</a> noted
+Python’s memory-safety and ability to wrap code written in C, C++, and Rust
+among other systems languages. Part of Python’s popularity stems from the
+large number of community-maintained packages using this feature for
+performance, wrapping existing libraries, and low-level API access.</p>
+<p><a class="reference external" href="https://github.com/pyca/cryptography">Cryptography</a> is one of the most
+depended on Python libraries for cryptographic primitives, installed nearly 10
+million times per day. <a class="reference external" href="https://mail.python.org/pipermail/cryptography-dev/2020-December/000998.html">Cryptography started migrating from using C to
+Rust</a> for security reasons in 2020 and made the first
+release with Rust binary extensions in 2021. You can listen to maintainers
+Paul Kehrer and Alex Gaynor <a class="reference external" href="https://www.youtube.com/watch?v=z_Eiy2W0APU">discuss this non-trivial migration in their PyCon
+2022 talk</a>.</p>
+<p>The migration of the cryptography library included tools like
+<a class="reference external" href="https://pyo3.rs">PyO3</a> and <a class="reference external" href="https://github.com/PyO3/setuptools-rust">setuptools-
+rust</a> that enable easier adoption of
+Rust binary extensions. There’s already plenty of buzz for using Rust and
+Python together, the adoption of Rust in Python packages is <em>`steadily
+increasing &lt;https://sethmlarson.dev/security-developer-in-residence-weekly-
+report-18#querying-the-dataset&gt;`_ from the single digits in 2020 to today with
+hundreds of packages using Rust.</em></p>
+<p>There are many opportunities to learn about writing Python binary extensions
+using Rust, for example, at <a class="reference external" href="https://us.pycon.org/2024">PyCon US 2024</a> there
+will be a <a class="reference external" href="https://us.pycon.org/2024/schedule/presentation/113/">tutorial about getting started with
+PyO3</a> and a <a class="reference external" href="https://us.pycon.org/2024/schedule/presentation/89/">talk on
+PyO3 and maturin</a>, a <a class="reference external" href="https://github.com/PyO3/maturin">PEP
+517 build backend for Rust</a> by a maintainer
+of the PyO3 project.</p>
+<p>Historically Python binary extensions were built mostly using C and C++
+meaning there are many projects which, for reasons like backwards
+compatibility or lack of resources and time, cannot or do not want to migrate
+to Rust. For these projects, the use of compiler options can harden binaries
+against some memory safety issues. The OpenSSF Best Practices working group
+has <a class="reference external" href="https://best.openssf.org/Compiler-Hardening-Guides/Compiler-Options-Hardening-Guide-for-C-and-C++">published a list of compiler options</a> to consider
+adopting in order to harden builds of C and C++ code.</p>
+<p>There is still much work to be done to secure the Python ecosystem and it
+can’t be done without our amazing community of contributors and maintainers.
+We look forward to more investment in this area as part of the industries’
+adoption of memory-safe programming languages. If you are interested in being
+part of conversations around improving security in Python, we invite you to
+open a thread on <a class="reference external" href="https://discuss.python.org/">discuss.python.org</a>.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2024-02-software-bill-of-materials-now-available-for-cpython.html">
+      
+      <span>Software Bill-of-Materials documents are now available for CPython</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2024-03-announcing-pypi-support-specialist.html">
+      <span>Announcing a PyPI Support Specialist</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

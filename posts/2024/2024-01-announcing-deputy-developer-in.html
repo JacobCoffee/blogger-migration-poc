@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Announcing the Deputy Developer in Residence and the Supporting Developer in Residence - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="announcing-the-deputy-developer-in-residence-and-the-supporting-developer-in-residence">
+<h1>Announcing the Deputy Developer in Residence and the Supporting Developer in Residence<a class="headerlink" href="#announcing-the-deputy-developer-in-residence-and-the-supporting-developer-in-residence" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2024/01/announcing-deputy-developer-in.html">here</a>.</p>
+<p>We’re very happy to welcome Petr Viktorin as the Deputy Developer in
+Residence! Better yet, he is joined by Serhiy Storchaka as the Supporting
+Developer in Residence. This transforms the residency program into a full
+blown team! We couldn’t be happier.</p>
+<p>It’s exciting to be able to begin to realize the full vision of the Developers
+in Residence program, with special thanks to Bloomberg for making it possible
+for us to bring Petr on board. The initial idea behind the Developer in
+Residence was to have three to five people hired directly by the Python
+Software Foundation to help with developer efficiency at CPython, where most
+of the contributors are volunteers. Three to five people is a good amount to
+allow for handling both day-to-day tasks, as well as planning and executing on
+larger-scale projects.</p>
+<p>We were only able to start with a single Developer in Residence, initially
+sponsored by Google for the initial year, and by Meta for the following two
+years. We were <a class="reference external" href="https://pyfound.blogspot.com/2023/02/the-case-for-second-developer-in.html">clear that adding more developers in residence would multiply
+the impact of the role</a> but, of course, the big question is funding.
+Fortunately, the success of the initial one-person program allowed for a new
+sponsor to participate, interested in extending the program with another
+developer. Thank you, Bloomberg!</p>
+<p>We <a class="reference external" href="https://lukasz.langa.pl/40b601fc-2b24-4629-91d9-3b32c58365c6/">announced</a>
+the job opening back in July, and the interview process was extensive. The
+Foundation received close to 100 applications, and it was a very tough
+decision, as most were excellent candidates. One surprise in particular was
+that despite the Deputy role being described as targeting programmers of
+various experience levels, we received many more applications from Python core
+developers than during the initial Developer in Residence job opening.</p>
+<p>Naturally, the core developers bubbled up in the interview process. We were
+especially impressed by Petr Viktorin’s experience with maintaining Python at
+Red Hat, his interest in the C API, and his long-term existing contributions
+to Python. Given the transformative recent developments inside the interpreter
+in terms of performance and scalability, Petr’s skillset was the perfect
+match. We’re excited he accepted the offer!</p>
+<p>However, there was one more person who we were also ready to hire on the spot:
+Serhiy Storchaka, a rare example of a core developer generalist, with plenty
+of C experience and contributions across the entire codebase. Consistently one
+of the top most prolific contributors to Python, we felt like we needed to
+secure him as a member for the Residents team. Unexpectedly, a generous
+anonymous donation allowed us to hire Serhiy as well. Thank you!</p>
+<p>We are calling the role the Supporting Developer in Residence to make it clear
+the funding level here isn’t as high as in the Deputy case. Please contact us
+if your organization can help sponsor Serhiy to bump him to the Deputy salary.
+Serhiy sure deserves it!</p>
+<p>After an initial meeting with the Steering Council, the Residents team is now
+ready to take on a more active role in shaping the development of the
+language. The Council advised that while every team member is expected to
+prioritize unblocking other contributors and keeping the developer experience
+smooth, with three people on the team each Resident can now also spend a
+percentage of their time on feature work aligned with their interests.</p>
+<p>There are some exciting times ahead for Python!</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2024-01-announcing-python-software-foundation.html">
+      
+      <span>Announcing Python Software Foundation Fellow Members for Q3 2023! 🎉</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2024-01-kicking-off-2024-strong.html">
+      <span>Kicking off 2024 strong, thanks to our community!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

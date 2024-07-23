@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Nicholas Tollervey and Python in Education - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="nicholas-tollervey-and-python-in-education">
+<h1>Nicholas Tollervey and Python in Education<a class="headerlink" href="#nicholas-tollervey-and-python-in-education" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/06/nicholas-tollervey-and-python-in.html">here</a>.</p>
+<p>As many of you know, the use of Python in education has grown tremendously in
+the past several years (see <a class="reference external" href="http://pyfound.blogspot.com/2015/03/world-domination-one-student-at-time.html">PSF
+Newsblog</a>).  The Python community celebrates this trend, and continues to
+strengthen our connections to the world of education. PyCon’s first education
+summit at PyCon 2013, initiated by Naomi Cedar (who was recently elected to
+the PSF <a href="#id1"><span class="problematic" id="id2">_`</span></a>Board of
+Directors &lt;<a class="reference external" href="http://pyfound.blogspot.com/2015_06_01_archive.html">http://pyfound.blogspot.com/2015_06_01_archive.html</a>&gt;`__), has been
+followed globally by many Python conferences holding education tracks and
+getting involved with community teachers and education leaders.</p>
+<p>Recently <a class="reference external" href="http://www.pyconuk.org/education/">PyCon UK</a> and
+<a class="reference external" href="https://ep2015.europython.eu/en/events/educational-summit/">EuroPython</a>
+announced their upcoming education tracks.</p>
+<p>After attending the Education Summit at <a class="reference external" href="https://us.pycon.org/2015/events/edusummit/">PyCon2015 in
+Montreal</a>, I was inspired to read
+Nicholas Tollervey’s wonderful booklet, _Python in <a href="#id4"><span class="problematic" id="id5">Education_</span></a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggWiU3VcyI1mN9TFg5_tLWACgKAbKOTSnhhobM-Ws0ay3Dl4rPEpsrD-3wQ8l9tS6-s58uiabf1wuXl6vZtQDxPlwMq53xYTny2GSwjGgIk1J-WQfJvvg-aDs3C71iO4LkM_g/s320/Reading2.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggWiU3VcyI1mN9TFg5_tLWACgKAbKOTSnhhobM">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEggWiU3VcyI1mN9TFg5_tLWACgKAbKOTSnhhobM</a>-
+Ws0ay3Dl4rPEpsrD-3wQ8l9tS6-s58uiabf1wuXl6vZtQDxPlwMq53xYTny2GSwjGgIk1J-WQfJvvg-
+aDs3C71iO4LkM_g/s1600/Reading2.jpg)</p>
+<p>(MAS reading and learning)</p>
+<p>Here Tollervey summarizes and explains Python’s use in education, recounts the
+history of the Python programming language, provides a case study of the
+amazing _Raspberry <a href="#id6"><span class="problematic" id="id7">Pi_</span></a> , and describes the important role played by the Python
+community in the language’s popularity and ability to meet and adapt to users’
+needs.</p>
+<p>After reading his booklet, I had some questions for Nicholas:</p>
+<p>Q: What was your motivation for writing this book?</p>
+<p>&gt; NT: during my 20s I was a senior secondary school teacher in the UK - I
+&gt; taught music to teenagers growing up in areas of great poverty and
+&gt; deprivation. As a result I’m passionate about teaching and learning -
+&gt; especially as a vehicle for emancipation. Unsurprisingly, I see programming
+&gt; and technical literacy as such vehicles. This is reinforced because I also
+&gt; have three school aged children.</p>
+<p>Q: How long were you thinking about and/or writing the book?</p>
+<p>&gt; NT: I’ve been thinking about programming and Python in education for quite a
+&gt; number of years. Given all that’s happening regarding computing education in
+&gt; the UK at the moment, I’ve also had a lot of opportunity to discuss the
+&gt; subject with a large number of teachers and developers and develop my
+&gt; outlook as a result (a process that is ongoing). The first draft of the
+&gt; report only took a weekend to write - although I made time during the
+&gt; following weeks for tidying up and editing (re-reading with fresh eyes is
+&gt; such a useful thing to do).</p>
+<p>Q: Did you have the book’s contents in mind or did you discover it via
+research?</p>
+<p>&gt; NT: The philosophical “outlook” was very much the result of the discussions
+&gt; mentioned in the previous point. I also spent a day at “Raspberry Pi
+&gt; Towers”chatting with Eben, Carrie Anne and Ben <a class="reference external" href="http://pyfound.blogspot.com/2015_06_01_archive.html">_Editor’s Note: Eben Upton,
+&gt; Carrie Anne Philbin, and Ben Nuttall of the Raspberry Pi Foundation; Carrie
+&gt; Anne was recently elected to the PSF  [Board of
+&gt; Directors</a>].
+&gt;
+&gt; The case study in the second section is the result. The rest of the book
+&gt; just wrote itself (as it were) and I, of course, was very careful to ensure
+&gt; I was reporting the correct information while referencing others.</p>
+<p>Q: Can you tell us a bit about your background in Python in education?</p>
+<p>&gt; NT: I was a senior teacher. I also have an MA in Philosophy of Education and
+&gt; a PGCE (Post Graduate Certificate in Education). For the last 4-5 years I’ve
+&gt; organised the PyconUK education track: last year we had 50 teachers and 90
+&gt; kids turn up. This year will be bigger still. I also founded and help to run
+&gt; the London Python Code Dojo where developers come together to teach and
+&gt; learn from each other (see: &lt;<a class="reference external" href="http://ntoll.org/article/how-to-run-an-awesome">http://ntoll.org/article/how-to-run-an-awesome</a>-
+&gt; code-dojo&gt; for details of what a dojo is). I also collaborate with teachers
+&gt; on an ad hoc basis - for example, tomorrow I’m at a school in
+&gt; Nottinghamshire to help teach teachers to teach programming. This will be
+&gt; followed by some practical workshops helping a bunch of kids take their
+&gt; first steps as the “tame programmer in the room” along with all these
+&gt; hopefully newly enthused teachers. ;-)</p>
+<p>Q: Anything else…?</p>
+<p>&gt; NT: YES! I always try to imagine who I’m writing for. In this case it was
+&gt; programmers who need an easy to remember source of arguments in favour of
+&gt; Python in education and teachers, students, parents and school board types
+&gt; (i.e. policy makers) who know nothing about computing but who need
+&gt; information in an easy to digest format. I wanted to write a kind of
+&gt; manifesto (but without explicitly calling it one because that has all sorts
+&gt; of connotations) that would expose all the amazing work and progress the
+&gt; Python community has made in the world of education. It’s all about helping
+&gt; people join the dots, make connections and collaborate. By the end of the
+&gt; book I want the reader to want to teach and learn Python. ;-)</p>
+<p>An e-copy of Nicholas’s book can be obtained for free from
+<a class="reference external" href="http://www.oreilly.com/programming/free/python-in-education.csp">O’Reilly</a>. I
+highly recommend reading it, giving it to others as an introduction to this
+increasingly important topic, and getting involved in the education tracks at
+PyCons and in CS education activities in your communities.</p>
+<p>_I would love to hear from readers. Please send feedback, comments, or blog
+ideas to me at  <a class="reference external" href="mailto:msushi&#37;&#52;&#48;gnosis&#46;cx">msushi<span>&#64;</span>gnosis<span>&#46;</span>cx</a>._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2015-06-mark-hammond-receives-distinguished.html">
+      
+      <span>Mark Hammond Receives Distinguished Service Award</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2015-06-csa-goes-to-psf-brochure-creators.html">
+      <span>CSA goes to PSF Brochure Creators</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

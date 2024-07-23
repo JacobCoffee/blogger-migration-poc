@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Happy Medium: Distinguished Service Award Winner Tim Peters - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-happy-medium-distinguished-service-award-winner-tim-peters">
+<h1>The Happy Medium: Distinguished Service Award Winner Tim Peters<a class="headerlink" href="#the-happy-medium-distinguished-service-award-winner-tim-peters" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2018/07/the-happy-medium-distinguished-service.html">here</a>.</p>
+<p>When Tim Peters started working on Python, his first advice for Guido van
+Rossum was that programmers want to add ints and floats. From the beginning,
+Python had both kinds of numbers, just like today, but adding them together
+then required a cumbersome type-cast. Peters argued that Python should
+implicitly convert ints to floats, like most other languages, for programmers’
+sake: “That is a very common operation for anyone who works with floating
+point numbers,” Van Rossum recalls him saying, “so you’ve got to do it this
+way.”</p>
+<p>Ever since, Peters has pushed the language in this direction. He insists that
+Python should be a practical language that caters to the needs of programmers,
+and he has a knack for guiding design debates to achieve this goal. In
+recognition of his contributions, the PSF presented Tim Peters with <a class="reference external" href="https://www.python.org/community/awards/psf-distinguished-awards/#id1">the 2017
+Distinguished Service Award</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2GJYy9vq2yRVMQd3_TlCKYwNrqC9ud-9cu55z12hUFQpQhS9ssxy2CtvE3ac-mfUhMBUrr6RLf7C7dDwqL5SB7Nr2gvo0TTMxsgeR1cb-MyTgiCdNREkrlegt8KFowIp4Og/s320/il_fullxfull.1085926058_n0xl.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2GJYy9vq2yRVMQd3_TlCKYwNrqC9ud-9cu55z12hUFQpQhS9ssxy2CtvE3ac">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2GJYy9vq2yRVMQd3_TlCKYwNrqC9ud-9cu55z12hUFQpQhS9ssxy2CtvE3ac</a>-
+mfUhMBUrr6RLf7C7dDwqL5SB7Nr2gvo0TTMxsgeR1cb-
+MyTgiCdNREkrlegt8KFowIp4Og/s1600/il_fullxfull.1085926058_n0xl.jpg)</p>
+<p><em>A Realist Algorithm</em></p>
+<p>“Timsort is Tim’s grand opus,” says Van Rossum. The algorithm is not only the
+standard sort for Python; when Java developer Joshua Bloch saw its merit for
+sorting real-world data, he incorporated it into the Java standard library as
+well. The genius of Timsort is to recognize how data naturally occurs in
+everyday programs: it’s less likely to be randomly ordered than to be partly
+ordered, or ordered in reverse. Programmers usually throw such data at a
+sorting function anyway, and a theoretically elegant algorithm like Quicksort
+won’t recognize the shortcuts it could take to save work. <a class="reference external" href="https://en.wikipedia.org/wiki/Timsort">Timsort is designed
+to recognize such opportunities</a> and
+deploy efficient tricks for them.</p>
+<p>Timsort is optimized for the world not as we imagine it, but as it is. This
+realism is characteristic of the Python language as a whole. It flows from Van
+Rossum’s taste in design, which Peters <a class="reference external" href="https://mail.python.org/pipermail/python-list/1999-June/001951.html">distilled into a poem in
+1999</a>.</p>
+<p><em>The Zen of Python</em></p>
+<p>It’s only 19 lines. But this short list of precepts has influenced the
+language and the programs written in it profoundly. It is a shared literature
+for Python programmers, in the same way that most English speakers know
+certain lines of Shakespeare. Python’s designers quote the Zen of Python in
+PEP debates, and programmers reviewing code in their own Python projects use
+the Zen to support their opinions.</p>
+<p>Guido van Rossum says, “You can use it to motivate a design choice, but it’s
+not scripture. It can’t be the only reason to choose a particular design. You
+still have to put your thinking cap on.” Just like the Zen Buddhist sayings
+that inspired it, Peters’s text isn’t dogma. Indeed, for every commandment the
+Zen of Python hands down, there is also a joke or a contradiction to remind us
+to take it lightly.</p>
+<p>Core developer Carol Willing summarizes the Zen of Python’s message like this:
+“We’re going to meet constraints in a way that makes good common sense first,
+so you can maintain the code and people can understand the code.” It’s this
+commonsense approach that makes Python a joy to use. Willing began coding on a
+mainframe at Bell Labs when she was in fifth grade in 1976; in all her years
+as a programmer the most enjoyable have been her years with Python. She says,
+“Every day I get to use it makes me feel like a kid again.” Now, when she
+teaches Project Jupyter interns each summer, one of her first instructions is
+to type “<a class="reference external" href="https://www.wefearchange.org/2010/06/import-this-and-zen-of-python.html">import this</a>”.</p>
+<p>Willing extends Python’s Zen to its community, too. She says that “Beautiful
+is better than ugly” is a good guide for talking with our colleagues. “There’s
+an ugly way of saying things, and a more respectful, nicer way of saying
+things. Maybe we should err on the side of being respectful and nice.”</p>
+<p>![](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQDRPRgTHrA">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQDRPRgTHrA</a>-
+Rilb8IR_uYAkaLREiTA9ES9myEJUGA6Y1Lx2SKhL2ICVY92WSRtS8yglcoRCYdZo8zg0kS6dCSD-
+<a href="#id2"><span class="problematic" id="id3">G_RshCi_W6DtqtK9-7IAt-a9H3i-lFd-8k_</span></a>-F6XOsbAA/s320/Kuniyoshi_108_Suikoden_Matsui_Tamijiro_Snake.jpg)</p>
+<p><em>A Happy Medium</em></p>
+<p>In Guido van Rossum’s estimation, Peters’s biggest contribution to the
+community has been his years of answering questions and guiding debates on the
+Python mailing list, writing each message precisely and cheerfully. PSF
+director Thomas Wouters agrees: “Tim is just never flustered. He always takes
+it in good humor and it definitely has an effect on everyone else, as well.”
+Even an experienced developer like Carol Willing says that when she sees a
+post from Peters on a topic she knows, she’ll take the time to read it for new
+insights or new ways of explaining.</p>
+<p>In design debates, Peters invented a notion of “channeling Guido” to free Van
+Rossum from the overflow of emails. He claimed to act like a spirit medium
+speaking with Van Rossum’s voice, but this understates Peters’s influence. “He
+was a mentor for me,” says Van Rossum. “He combines incredible technical
+skills with insight into what the person he’s communicating with is missing or
+needs to see, with a patient way of explaining. He showed me that style of
+communicating which I strive for but can’t always do.”</p>
+<p>Recently, in the wake of <a class="reference external" href="https://lwn.net/Articles/757713/">contentious
+debate</a> over the “:=” operator, Guido van
+Rossum resigned as BDFL. Tim Peters, too, is less active on Python mailing
+lists than before. The Python community can no longer rely on one individual
+and his channeler for guidance. As Brett Cannon
+<a class="reference external" href="https://mail.python.org/pipermail/python-committers/2018-July/005671.html">wrote</a>, “a key asset that Guido has provided for us
+as a BDFL is consistency in design/taste.” As a summary of Van Rossum’s
+thinking, the Zen of Python is now more important than ever.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Images: Utagawa Kuniyoshi (1797-1861), 108 Heroes of the Popular Suikoden.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2018-07-ophidia-in-urbe-pylondinium-arrives.html">
+      
+      <span>Ophidia in Urbe - PyLondinium Arrives</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2018-07-the-psf-jobs-volunteer-team-community.html">
+      <span>The PSF Jobs Volunteer Team: Community Service Award Q1 2018 Recipient</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

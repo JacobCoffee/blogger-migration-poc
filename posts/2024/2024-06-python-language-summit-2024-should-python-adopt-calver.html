@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Python Language Summit 2024: Should Python adopt Calendar Versioning? - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-python-language-summit-2024-should-python-adopt-calendar-versioning">
+<h1>The Python Language Summit 2024: Should Python adopt Calendar Versioning?<a class="headerlink" href="#the-python-language-summit-2024-should-python-adopt-calendar-versioning" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2024/06/python-language-summit-2024-should-python-adopt-calver.html">here</a>.</p>
+<p>Hugo van Kemenade, the newly announced Release Manager for Python 3.14 and
+3.15, started the Language Summit with a proposal to change Python’s
+versioning scheme.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgevXJM98NYphNBC0AcVShwBbfBqtvfOb8aIw6kp9WX2P_2rW-7LNg36nD07WGR1SQs4Tv9IBGk4MhleYDWHSuvTyPHN5lndv69uDDCug0BJM4DHSWa-SFDvcKOMmq1XDmkM7484eA0Jfqr4N7klgdFeGhUMB8wqKbtEaU2Gvj2W9q9tFxXRQ/s320/20240515_094529.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgevXJM98NYphNBC0AcVShwBbfBqtvfOb8aIw6kp9WX2P_2rW-7LNg36nD07WGR1SQs4Tv9IBGk4MhleYDWHSuvTyPHN5lndv69uDDCug0BJM4DHSWa">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgevXJM98NYphNBC0AcVShwBbfBqtvfOb8aIw6kp9WX2P_2rW-7LNg36nD07WGR1SQs4Tv9IBGk4MhleYDWHSuvTyPHN5lndv69uDDCug0BJM4DHSWa</a>-
+SFDvcKOMmq1XDmkM7484eA0Jfqr4N7klgdFeGhUMB8wqKbtEaU2Gvj2W9q9tFxXRQ/s4000/20240515_094529.jpg)
+—
+Hugo’s view of kicking off the language summit!
+(Photo credit: Hugo van Kemenade)</p>
+<p>The goal of Hugo’s proposal was to make expectations around versioning,
+backwards compatibility, and support timelines clearer for Python users.</p>
+<p>On the surface, Python’s versioning might appear to be <a class="reference external" href="https://semver.org/">Semantic
+Versioning</a> (SemVer) due to its three-part version and
+infamous set of backwards incompatible changes known as Python 3. Hugo noted
+that the publication of Python 1.0.0 (1994) and what would become the Python
+versioning scheme predates the publication of SemVer by at <a class="reference external" href="https://github.com/semver/semver.org/releases/tag/v0.1.0">around 15
+years</a> (2009).</p>
+<p>The perception of Python using semantic versioning is a source of confusion
+for users who don’t expect backwards incompatible changes when upgrading to
+new versions of Python. In reality almost all new feature releases of Python
+include backwards incompatible changes such as the removal of “dead batteries”
+where <a class="reference external" href="https://peps.python.org/pep-0594/">PEP 594</a> marked 19 modules for
+removal in <a class="reference external" href="https://docs.python.org/3.13/whatsnew/3.13.html">Python 3.13</a>.</p>
+<p><a class="reference external" href="https://calver.org/">Calendar Versioning</a> (CalVer) encompasses a wide array
+of different versioning schemes that have one property in common: using the
+release date as part of a release’s version. Calendar-based versions vary
+quite widely, but typically include a two or four digit year (YY or YYYY) and
+sometimes a month or day (MM and DD).</p>
+<p>Using years in versions is quite common amongst other programming languages,
+operating systems like Ubuntu, and tools like Black, pip, and PyCharm.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC7NO1SkrzswpiTqFuaxDEFbLFFtk5pn9pUbwvQF3xZD8WZdio1rvmZ7C4nY07gRlW3S7GXCqrfKQeCOn9zCvaxgI1mlhVvY53Gc5CeDM_WAnon6pGiDvA-CXTPa7RmohDZhBQz-S5k6QvDZMCmYH5NAwPAxXfbovgiovLJb-MZS0gUC4-Yw/w400-h225/images.012.jpg">![Examples of other programming languages using calendar-based versioning
+like Ada, Algol, C, C++, Fortran, and
+JavaScript</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC7NO1SkrzswpiTqFuaxDEFbLFFtk5pn9pUbwvQF3xZD8WZdio1rvmZ7C4nY07gRlW3S7GXCqrfKQeCOn9zCvaxgI1mlhVvY53Gc5CeDM_WAnon6pGiDvA">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiC7NO1SkrzswpiTqFuaxDEFbLFFtk5pn9pUbwvQF3xZD8WZdio1rvmZ7C4nY07gRlW3S7GXCqrfKQeCOn9zCvaxgI1mlhVvY53Gc5CeDM_WAnon6pGiDvA</a>-
+CXTPa7RmohDZhBQz-S5k6QvDZMCmYH5NAwPAxXfbovgiovLJb-
+MZS0gUC4-Yw/s1920/images.012.jpg)
+—
+Slide from Hugo’s presentation showing programming languages using calendar-
+based versioning like Ada, Algol, C, C++, Fortran, and JavaScript</p>
+<p>Since 2019, Python has made releases according to the new yearly cadence from
+<a class="reference external" href="https://peps.python.org/pep-0602/">PEP 602</a>. Moving to annual releases made
+it possible for downstream distributors to rely on when a new Python version
+appears, which brings newer Python versions to users faster.</p>
+<p>Each minor release receives 5 years of security fixes. Using the release year
+of 2026 as an example, users could add 5 years and know they’ll receive
+security fixes on that minor release until 2031. Figuring out this information
+from “3.15” in the existing versioning scheme would require another lookup,
+typically to the release schedule PEP.</p>
+<p>If the year were baked into the version, one wouldn’t need to see the release
+schedule to know when support was ending, instead one could add 5 years to the
+year encoded in the version (e.g. for “3.26”, 26 + 5 = 31, therefore security
+support ends in 2031).</p>
+<p>Hugo offered multiple proposed versioning schemes, including:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Using the release year as minor version (3.YY.micro, “3.26.0”)</p></li>
+<li><p>Using the release year as major version (YY.0.micro, “26.0.0”)</p></li>
+<li><p>Using the release year and month as major and minor version (YY.MM.micro, “26.10.0”)</p></li>
+</ul>
+</div></blockquote>
+<p>There were discussions about other options beyond these amongst attendees.</p>
+<p>Thomas Wouters, release manager for 3.12 and 3.13, questioned the value-add
+for adopting a new versioning system. Thomas noted that while the current
+system is confusing, changing the system in any way also adds confusion for
+users. Hugo responded that clarity, especially support for security fix and
+end-of-life dates, was the biggest motivation.</p>
+<p>Barry Warsaw wondered if there was a way to test potential new versioning
+scheme ahead of time to find potential problems. Hugo referenced the
+<a class="reference external" href="https://github.com/deadsnakes">deadsnakes project</a> which builds distributions
+of CPython for Ubuntu. The deadsnakes project previously created a build of
+Python 3.9 that modified the version to be “3.10” to help discover breakages
+in projects assuming a single-digit minor version. Hugo also had experience
+using static code analysis to find other version assumptions in Python
+projects.</p>
+<p>“Python 3 is a brand at this point, and we should stick to it” said Guido van
+Rossum after sharing concerns that changes to the major version would break
+the ecosystem more than changes to the minor version. Others voiced concerns
+about changing the major version “3” including in the “python3” binary and for
+packaging such as “abi3” tag.</p>
+<p>Carol Willing noted that many projects are relying on Python’s versioning
+system and already have those versions “baked in” to warnings in existing
+releases. Hugo confirmed this is a problem, including Python itself, which had
+a few deprecation warnings and messages that reference future Python versions
+like 3.15. Hugo’s plan would be to update these versions for Python, give
+plenty of time before the new versioning scheme took affect.</p>
+<p>Donghee Na offered up Rust’s use of “<a class="reference external" href="https://doc.rust-lang.org/nightly/edition-guide/editions/index.html">yearly editions</a>” in the branding of their
+releases, where the version number is completely separate from the branding of
+the release. Hugo was concerned that this would add another layer of confusion
+and would mostly repeat information already found in the release schedule.</p>
+<p>Overall the proposal to use the current year as the minor version was well-
+received, Hugo mentioned that he’d be <a class="reference external" href="https://github.com/python/peps/pull/3834">drafting up a
+PEP</a> for this change.</p>
+<p>Carl Meyer cautioned against making any changes to the version scheme before
+2026 in order to preserve the 3.14 “π”-thon release which received approval
+and laughter from the room. Sounds like whatever happens we’ll get to have our
+pie and eat it too. 🥧</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2024-06-python-language-summit-2024-python-security-model-after-xz.html">
+      
+      <span>The Python Language Summit 2024: Python’s security model after the xz-utils backdoor</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2024-06-python-language-summit-2024-pyrepl-new-pdb.html">
+      <span>The Python Language Summit 2024: Should we make pdb better?</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

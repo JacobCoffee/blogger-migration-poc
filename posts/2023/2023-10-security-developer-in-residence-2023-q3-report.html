@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Security Developer-in-Residence 2023 Q3 Report - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="security-developer-in-residence-2023-q3-report">
+<h1>Security Developer-in-Residence 2023 Q3 Report<a class="headerlink" href="#security-developer-in-residence-2023-q3-report" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2023/10/security-developer-in-residence-2023-q3-report.html">here</a>.</p>
+<p>It’s been three months since I was first hired as the inaugural Security
+Developer-in-Residence. I’m quite proud of what I’ve accomplished so far and
+think it shows the value of investing into the security of Open Source through
+hiring folks to work full-time in roles like “Developer-in-Residence”
+programs. I’m thankful to the <a class="reference external" href="https://alpha-omega.dev/">Alpha-Omega project at OpenSSF</a> for funding this work. Let’s review all of the accomplishments in
+the first quarter of this role and what to look forward to in the next
+quarter.</p>
+<p>If you’d like to follow along with my work more closely you can subscribe to
+my <a class="reference external" href="https://sethmlarson.dev/blog#archive">personal blog</a> where I publish
+<a class="reference external" href="https://sethmlarson.dev/security-developer-in-residence-weekly-report-13">weekly updates</a> about the work I’m doing. If you have questions or thoughts
+about what I’m working on you can contact me via email:
+<a class="reference external" href="mailto:seth&#37;&#52;&#48;python&#46;org">seth<span>&#64;</span>python<span>&#46;</span>org</a>.</p>
+<section id="the-python-software-foundation-authorized-as-a-cve-numbering-authority">
+<h2>The Python Software Foundation authorized as a CVE Numbering Authority<a class="headerlink" href="#the-python-software-foundation-authorized-as-a-cve-numbering-authority" title="Link to this heading">¶</a></h2>
+<p>(CNA)</p>
+<p>Back in late August the Python Software Foundation received notice that we’d
+successfully completed onboarding and had been <a class="reference external" href="https://pyfound.blogspot.com/2023/08/psf-authorized-as-cna.html">authorized by CVE as a CVE
+Numbering Authority</a> or “CNA”. The <a class="reference external" href="https://www.cve.org/PartnerInformation/ListofPartners/partner/PSF">Python Software Foundation CNA
+scope</a>
+covers Python and pip, two projects which are fundamental to the rest of the
+Python ecosystem.</p>
+<p>Being a CNA means that the PSF can offer staffing to improve the
+sustainability and responsiveness of coordination and vulnerability disclosure
+work for covered projects. The PSF CNA also provides <a class="reference external" href="https://osv.dev/vulnerability/PSF-2023-8">rich metadata for CVE
+records and advisories</a>, including
+remediation information, so upgrading or patching for vulnerabilities is as
+straightforward as possible for downstream users of Python.</p>
+</section>
+<section id="cpython-vulnerability-advisories-available-in-open-source-vulnerability">
+<h2>CPython vulnerability advisories available in Open Source Vulnerability<a class="headerlink" href="#cpython-vulnerability-advisories-available-in-open-source-vulnerability" title="Link to this heading">¶</a></h2>
+<p>database</p>
+<p>The Python Software Foundation now hosts a <a class="reference external" href="https://github.com/psf/advisory-database">vulnerability database on
+GitHub</a> using the <a class="reference external" href="https://ossf.github.io/osv-schema/">Open Source
+Vulnerability format</a> (OSV). This database
+contains vulnerability information for CPython in addition to vulnerabilities
+getting published to the <a class="reference external" href="mailto:security-announce&#37;&#52;&#48;python&#46;org">security-announce<span>&#64;</span>python<span>&#46;</span>org</a> mailing list. The
+historical vulnerability information was sourced from Victor Stinner’s
+“<a class="reference external" href="https://python-security.readthedocs.io/">python-security</a>” project in order
+to provide a complete history of vulnerabilities in CPython.</p>
+<p>By using the OSV format the vulnerabilities can be ingested and processed by
+the Open Source Vulnerability database which can be searched or <a class="reference external" href="https://google.github.io/osv.dev/api/">queried using
+an API</a> for machine-consumable
+vulnerability information.</p>
+<p>Having vulnerability information in a machine-consumable format enables tools
+that scan software deployments for vulnerabilities to easily provide accurate
+and automatically updated reports for CPython. The Open Source Vulnerability
+database also is more discoverable compared to the CVE database, having a
+readily available public API to query for vulnerabilities, products, and
+versions.</p>
+</section>
+<section id="python-security-response-team">
+<h2>Python Security Response Team<a class="headerlink" href="#python-security-response-team" title="Link to this heading">¶</a></h2>
+<p>I have been helping coordinate reports to the <a class="reference external" href="https://www.python.org/dev/security/">Python Security Response
+Team</a> (PSRT) since joining the role.
+This work includes reviewing all reports, gathering information from
+reporters, discussing timelines, and working with core developers to create
+and release fixes and advisories in a coordinated manner. I also worked with
+CVE to get CVE IDs assigned on behalf of reports before the PSF was designated
+as a CNA.</p>
+<p>I revitalized the <a class="reference external" href="https://mail.python.org/mailman3/lists/security-announce.python.org/">security-announce&#64;python.org mailing
+list</a> to
+use for future advisory announcements so interested parties can be notified as
+soon as new vulnerabilities are published (subscribe to the linked list if
+you’d like to receive these). I coordinated the two recent vulnerabilities
+affecting CPython (<a class="reference external" href="https://osv.dev/vulnerability/PSF-2023-8">CVE-2023-40217</a>
+and <a class="reference external" href="https://osv.dev/vulnerability/PSF-2023-9">CVE-2023-41105</a>) end-to-end
+from report to published advisory.</p>
+<p>Doing this coordination work frees up volunteers on the PSRT to focus on
+determining whether a report is a vulnerability and working on fixes. I’m also
+working to further reduce the manual coordination work required by PSRT by
+moving the reporting and triage process to GitHub using GitHub Security
+Advisories.</p>
+</section>
+<section id="openssf-day-europe-2023">
+<h2>OpenSSF Day Europe 2023<a class="headerlink" href="#openssf-day-europe-2023" title="Link to this heading">¶</a></h2>
+<p>I co-presented a talk titled “<a class="reference external" href="https://sched.co/1P6TW">We Make Python Safer than
+Ever</a>” at OpenSSF Day Europe 2023 with PSF Board
+Member and OpenSSF Community Manager Cheuk Ting-Ho. The <a class="reference external" href="https://static.sched.com/hosted_files/openssfdayeu2023/a3/Final%20-%20OpenSSF%20Day%20Europe%202023.pdf">slides are available
+for
+download</a>
+and the <a class="reference external" href="https://www.youtube.com/watch?v=jhzv5RU56V4">talk recording is available to watch on
+YouTube</a>.</p>
+<p>The talk introduced the Security Developer-in-Residence role, went over the
+challenges that are unique to securing Open Source and Python ecosystems,
+described completed and future projects to make the Python ecosystem more
+secure, and gave a list of items that viewers themselves could do right away
+to make their own usage of Python more secure.</p>
+</section>
+<section id="sigstore-signatures-for-python-release-artifacts">
+<h2>Sigstore signatures for Python release artifacts<a class="headerlink" href="#sigstore-signatures-for-python-release-artifacts" title="Link to this heading">¶</a></h2>
+<p>Python releases include signatures from the Release Managers using the signing
+tool “<a class="reference external" href="https://www.sigstore.dev/">Sigstore</a>”. These signatures mean you can be
+sure that a given release artifact wasn’t tampered with and was created and
+vetted by the Release Manager for a given Python release.</p>
+<p>I did an audit of existing signatures and <a class="reference external" href="https://github.com/sigstore/sigstore-python/issues/600#issuecomment-1634961707">found some
+discrepancies</a> between the documented identities
+and providers and what was published for each release. I worked with Release
+Managers to fix the discrepancies and <a class="reference external" href="https://github.com/python/release-tools/pull/51">added extra
+safeguards</a> to release
+tooling to ensure signatures are verifiable as documented. I also was able to
+back-fill the <a class="reference external" href="https://github.com/python/pythondotorg/issues/2300">new Sigstore signature
+format</a> from existing
+verification materials to make verifying signatures even easier!</p>
+<p>&gt; $ python -m sigstore verify identity &gt;     --bundle Python-3.12.0.tgz.sigstore &gt;     --cert-identity <a class="reference external" href="mailto:thomas&#37;&#52;&#48;python&#46;org">thomas<span>&#64;</span>python<span>&#46;</span>org</a> &gt;     --cert-oidc-issuer <a class="reference external" href="https://accounts.google.com">https://accounts.google.com</a> &gt;     Python-3.12.0.tgz</p>
+<p>Having consistent artifact signatures is important because any discrepancies
+while consuming these signatures should raise red flags for downstream users
+and redistributors. This also helps build confidence in the new signing method
+over existing methods like GPG.</p>
+</section>
+<section id="adoption-of-system-trust-stores-via-truststore">
+<h2>Adoption of system trust stores via Truststore<a class="headerlink" href="#adoption-of-system-trust-stores-via-truststore" title="Link to this heading">¶</a></h2>
+<p>There are three packaging tools (pip, PDM, and Conda) that are important to
+the Python ecosystem that are at various stages of adopting “Truststore”, a
+library that I authored prior to joining the PSF to enable Python projects to
+use system trust stores for verifying HTTPS certificates instead of relying on
+certifi for certificates.</p>
+<p>PDM has started using Truststore by default starting in
+<a class="reference external" href="https://github.com/pdm-project/pdm/releases/tag/2.9.0">v2.9.0</a>, Conda plans
+to release <a class="reference external" href="https://github.com/conda/conda/milestone/63">optional support for Truststore in
+v23.9.0</a>, and pip already has
+<a class="reference external" href="https://pip.pypa.io/en/stable/topics/https-certificates/#using-system-certificate-stores">optional support for Truststore</a> since v22.2 but has recently
+bundled Truststore into pip to remove the need to “bootstrap” into Truststore
+by pre-installing the library.</p>
+<p>Using the system trust store is important because any removals to a trust
+store (<a class="reference external" href="https://osv.dev/vulnerability/PYSEC-2023-135">like for e-Tugra root
+certificates</a>) must be
+propagated to all end systems in order to avoid “monster-in-the-middle”
+attacks. Further challenging this propagation is that some tools like pip
+bundle certifi as a means of bootstrapping, which means that you need to
+upgrade both certifi and pip in order to completely propagate updates to
+certifi’s certificate bundle.</p>
+<p>This propagation is better suited to a centralized system like an OS package
+manager or an automatic centralized authority or IT department keeping the
+trust bundles up-to-date, which can only happen through using system trust
+stores.</p>
+<p>Recently the Python implementation PyPy added support for Python 3.10, thus
+enabling PyPy to also use Truststore. I <a class="reference external" href="https://github.com/sethmlarson/truststore/pull/113">subsequently added support and
+backwards compatibility tests for PyPy to
+Truststore</a> to ensure all
+compliant implementations of Python can take advantage of the benefits.</p>
+</section>
+<section id="future-projects-and-challenges">
+<h2>Future Projects and Challenges<a class="headerlink" href="#future-projects-and-challenges" title="Link to this heading">¶</a></h2>
+<section id="software-bills-of-materials-for-cpython">
+<h3>Software Bills-of-Materials for CPython<a class="headerlink" href="#software-bills-of-materials-for-cpython" title="Link to this heading">¶</a></h3>
+<p>Software Bill-of-Materials (SBOMs) are a hot topic in the world of software
+security due to new government requirements and improved software and
+vulnerability management tooling. Many tools generate or consume SBOMs as a
+universal format for describing software and its components and then matching
+those components to known vulnerabilities.</p>
+<p>I’ve started working on an authoritative SBOM for the CPython project, you can
+follow along in <a class="reference external" href="https://github.com/sethmlarson/cpython-sbom">this GitHub
+repository</a> if you are
+interested. This project is early and this will not be the final product or
+place where this information is published, this is only a place to experiment
+and get feedback on the approach and outputs before putting the final
+infrastructure in place.</p>
+<p>I started with the most straightforward release artifact, the source tarball,
+and I am planning to tackle the binary installers later since they’ll require
+more research into the release processes. There is a work-in-progress SBOM
+file for Python-3.12.0.tgz available in the <a class="reference external" href="https://github.com/sethmlarson/cpython-sbom/blob/main/sboms">sboms/ directory on the
+repository</a>.</p>
+<p>Using vulnerability scanning tools I was able to see not only vulnerabilities
+in CPython, but <em>crucially in the bundled subcomponents like expat and pip</em>.
+Without an SBOM the subcomponents to a project like CPython likely wouldn’t
+get detected properly and thus would be not covered by vulnerability
+management tooling.</p>
+<p>The challenges here will be integrating the creation and maintenance of the
+SBOMs into the CPython development and release processes while minimally
+disrupting other core developers workflows and avoiding the need to develop
+and maintain custom tooling for CPython’s specific use-case.</p>
+</section>
+<section id="tracking-bundled-dependencies-in-python-packages">
+<h3>Tracking bundled dependencies in Python packages<a class="headerlink" href="#tracking-bundled-dependencies-in-python-packages" title="Link to this heading">¶</a></h3>
+<p>Python is the premier “glue” language, meaning that Python is often used
+alongside many other programming languages like C, C++, Rust, Go, and more
+thanks to Python C API. This benefit also means that Python packages can
+include projects and source code from sources both within and external to the
+Python ecosystem.</p>
+<p>Those projects and source code from outside the Python ecosystem present a
+problem for vulnerability scanners <em>which typically rely on explicit metadata
+about projects and dependencies in order to find vulnerabilities in software
+manifests</em>. Without a clear way to encode this information into packaging
+metadata it’s impossible to signal these dependencies even if a maintainer of
+a project wants to do so.</p>
+<p>C and C++ projects in particular pose additional issues due to their existence
+outside of a programming language packaging ecosystem like Python with PyPI or
+JavaScript and NPM. This makes tracking usage and vulnerabilities in these
+projects difficult and relies on other identification schemes like CPEs or
+redistributions in other packaging ecosystems like RPM/DEB. Without this
+information scanners today miss vulnerable components bundled in Python
+packages, meaning developers won’t know how or when their Python deployments
+are vulnerable.</p>
+<p>Solving this issue completely will be a multi-step process, starting with
+being able to encode information about bundled projects into Python
+distributions which will require a new packaging PEP. After the standard has
+been decided, next is getting bundled project metadata automatically captured
+to avoid needing an entire ecosystem to manually annotate every project.
+Concurrently to this I’ll collaborate with SBOM generation tooling to add
+support for consuming the new standard and adding that information to SBOMs
+generated from Python environments.</p>
+</section>
+<section id="cpython-and-pip-release-process-improvements">
+<h3>CPython and pip release process improvements<a class="headerlink" href="#cpython-and-pip-release-process-improvements" title="Link to this heading">¶</a></h3>
+<p>CPython and pip are two of the most important projects in the Python ecosystem
+and each have non-trivial release processes. In an effort to increase the
+integrity of these projects’ releases I’ve <a class="reference external" href="https://sethmlarson.dev/security-developer-in-residence-weekly-report-9">researched and documented their
+release process</a> and with <a class="reference external" href="https://slsa.dev/spec/v1.0/threats-overview">SLSA’s list of historical supply chain attacks
+against software projects</a> have
+been making suggestions and implementing improvements.</p>
+<p>These improvements include reproducibility of built artifacts, extra
+guarantees on the integrity of inputs, automating the build processes to
+reduce attack surface area to only services like GitHub Actions and Azure
+Pipelines instead of individuals’ computers, and making it so that in the
+event of an attack that it would need to be publicly detectable and traceable.</p>
+<p>By improving the integrity of these processes I am hoping to prevent disaster
+scenarios such as malware being injected into Python or pip at the “last mile”
+before being published to python.org. <em>Injection of malware during build time
+has happened to multiple other Open Source projects with disastrous results
+for users</em>. This work means users can be even more confident in their usage
+of Python and upgrade early and often to take advantage of Python’s latest
+features.</p>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2023-09-python-developers-survey-numbers-for.html">
+      
+      <span>Python Developers Survey Numbers for 2022!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2023-10-september-october-board-votes.html">
+      <span>September & October Board Votes</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

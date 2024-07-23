@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Python Language Summit 2023: Lightning Talks - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-python-language-summit-2023-lightning-talks">
+<h1>The Python Language Summit 2023: Lightning Talks<a class="headerlink" href="#the-python-language-summit-2023-lightning-talks" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language-summit-2023.html">here</a>.</p>
+<p>The <a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language-summit-2023_29.html">Python Language Summit 2023</a> closed off with a trio of lightning talks
+from Dong-hee Na, Carl Meyer and Amethyst Reese.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="dong-hee-na-lets-support-llvm-bolt-as-an-official-feature">
+<h2>Dong-hee Na: Let’s support LLVM-BOLT as an official feature<a class="headerlink" href="#dong-hee-na-lets-support-llvm-bolt-as-an-official-feature" title="Link to this heading">¶</a></h2>
+<p>CPython Core Developer Dong-hee Na gave a short presentation on the LLVM-BOLT
+optimiser, arguing that we should support it as a standard feature of CPython.</p>
+<p>LLVM-BOLT is a “post link time binary optimiser” that was adopted by <a class="reference external" href="https://github.com/pyston">the
+Pyston project</a>, a performance-oriented fork of
+CPython 3.8. The Pyston team had reported that use of the optimiser resulted
+in performance gains of 2-4% on their benchmarks, although the <a class="reference external" href="https://devblogs.microsoft.com/python/python-311-faster-cpython-team/">Faster CPython
+team</a>
+and Dong-hee Na <a class="reference external" href="https://github.com/faster-cpython/ideas/issues/224">had reported smaller returns</a> when they had applied the optimiser to Python 3.11.</p>
+<p>Dong-hee Na showed benchmark results that showed significant speedups in some
+areas with LLVM-BOLT applied to Python 3.12, but noted that LLVM-BOLT also
+caused regressions in some other areas due to overly aggressive optimisations.
+He announced that he had added support for LLVM-BOLT to CPython as an optional
+compile-time flag, <cite>–enable-bolt</cite>, to allow experimentation with the feature.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/a/AVvXsEi0d1JAcXu962gjfuEKscZMczSxI7IAnt7EvD_MLu7BoMClEYxIl1fzdlnSbnYa0XzvfM-gOLOia2dIUewL6JFgbyjeBtYUUKR9Mpshg_7U0fwqXhY9Mkeg-uV3D5Ru-uKyUOswg2hySU6kGflLpBWY-kJ3gC3960SODPRsmASkuiavjbU">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/a/AVvXsEi0d1JAcXu962gjfuEKscZMczSxI7IAnt7EvD_MLu7BoMClEYxIl1fzdlnSbnYa0XzvfM">https://blogger.googleusercontent.com/img/a/AVvXsEi0d1JAcXu962gjfuEKscZMczSxI7IAnt7EvD_MLu7BoMClEYxIl1fzdlnSbnYa0XzvfM</a>-
+gOLOia2dIUewL6JFgbyjeBtYUUKR9Mpshg_7U0fwqXhY9Mkeg-uV3D5Ru-
+uKyUOswg2hySU6kGflLpBWY-kJ3gC3960SODPRsmASkuiavjbU)
+—
+A slide from Dong-hee Na’s talk on LLVM-Bolt</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="carl-meyer-lazy-imports-the-sequel">
+<h2>Carl Meyer: Lazy Imports – the sequel<a class="headerlink" href="#carl-meyer-lazy-imports-the-sequel" title="Link to this heading">¶</a></h2>
+<p>Carl Meyer instigated a short discussion on proposals to introduce a mechanism
+enabling lazy imports in Python. Following <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit.html">Meyer’s lightning talk on the same
+subject last year</a>, Meyer – along with his colleague, Germán Méndez Bravo
+(who, according to Meyer, deserves “most of the credit”) – had written <a class="reference external" href="https://peps.python.org/pep-0690/">PEP
+690</a>, proposing a compile-time flag that
+would make imports in Python lazy by default. The PEP, however, was <a class="reference external" href="https://discuss.python.org/t/pep-690-lazy-imports-again/19661/26">rejected
+by the Steering Council</a> in December 2022, due to concern that the new flag would have
+created a split in the community between programmers who used Python with lazy
+imports enabled, and those who used Python with eager imports.</p>
+<p>Meyer’s question to the audience was: where next for lazy imports? Was it
+worth modifying the proposal and trying again, or was the whole idea doomed?
+Meyer noted that the team at Instagram, where he worked, had seen start-up
+time improvements of 50-80%, and 40-90% reductions in memory usage, by
+adopting lazy imports in the <a class="reference external" href="https://github.com/facebookincubator/cinder">fork of
+CPython</a> they used for the
+Instagram web server.</p>
+<p>Meyer floated a series of possible changes (some mutually exclusive) that
+could be made to the PEP. For each possible change, he asked if the change
+would make attendees more or less likely to support adding support for lazy
+imports to Python:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Explicit opt-in syntax marking a specific import as lazy (e.g. <cite>lazy import inspect</cite>).</p></li>
+<li><p>A clear roadmap detailed in the PEP, outlining the timeframe in which it was expected that lazy-import behaviour would become the default in Python.</p></li>
+<li><p>A promise that the implementation of lazy imports would not lead to any changes being made to the <cite>dict</cite> data structure.</p></li>
+<li><p>Generalised support of “lazy names”, rather than just support for lazy _imports_ specifically.</p></li>
+</ol>
+</div></blockquote>
+<p>The room unanimously agreed that change (3) would make them more likely to
+support the PEP, and largely agreed that change (4) would make them less
+likely to support it. The room was (frustratingly, for Meyer) split on whether
+proposals (1) and (2) would make them more or less likely to give the PEP
+their support.</p>
+<p>On the bright side, only one attendee said they thought they could never
+support a proposal for lazy imports in Python. _Unfortunately_ for Meyer, the
+attendee in question was Thomas Wouters, currently serving on the Steering
+Council.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="amethyst-reese-can-we-call-modules">
+<h2>Amethyst Reese: Can we <cite>__call__</cite> modules?<a class="headerlink" href="#amethyst-reese-can-we-call-modules" title="Link to this heading">¶</a></h2>
+<p>Amethyst Reese presented on an idea that has since become <a class="reference external" href="https://peps.python.org/pep-0713/">PEP
+713</a>: a proposal to add a mechanism
+allowing developers to easily create callable modules.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/a/AVvXsEiY5RbnRYMXpHo5AYTKNrKuRGJH9uwQ8158ypEk9tb09F7AK_XpST-9SfY9Prn6Rw8fd1syzEqVRTCzuPVrTAjYn8VGJmJbIjhaxwWjG8STo6SU9m4ais2PKwQPlHJ_ByqK20J9uWbojLt2ojf3LgSeFVy7RG1L4UjCF7Ol1i3hGYZ7Wyw">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/a/AVvXsEiY5RbnRYMXpHo5AYTKNrKuRGJH9uwQ8158ypEk9tb09F7AK_XpST-9SfY9Prn6Rw8fd1syzEqVRTCzuPVrTAjYn8VGJmJbIjhaxwWjG8STo6SU9m4ais2PKwQPlHJ_ByqK20J9uWbojLt2ojf3LgSeFVy7RG1L4UjCF7Ol1i3hGYZ7Wyw">https://blogger.googleusercontent.com/img/a/AVvXsEiY5RbnRYMXpHo5AYTKNrKuRGJH9uwQ8158ypEk9tb09F7AK_XpST-9SfY9Prn6Rw8fd1syzEqVRTCzuPVrTAjYn8VGJmJbIjhaxwWjG8STo6SU9m4ais2PKwQPlHJ_ByqK20J9uWbojLt2ojf3LgSeFVy7RG1L4UjCF7Ol1i3hGYZ7Wyw</a>)
+—
+Amethyst Reese at the Python Language Summit
+(Photo by Hugo van Kemenade)</p>
+<p>Strictly speaking, it’s _possible_ to create a callable module today, but it’s
+not exactly easy. The example given in the PEP looks something like the
+following:</p>
+<blockquote>
+<div><p>import sys
+import types</p>
+<dl class="simple">
+<dt>def fancy(…):</dt><dd><p>…</p>
+</dd>
+<dt>class FancyModule(types.ModuleType):</dt><dd><dl class="simple">
+<dt>def __call__(self, …):</dt><dd><p>return fancy(…)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>sys.modules[__name__].__class__ = FancyModule</p>
+</div></blockquote>
+<p>Reese proposes that we provide a simpler mechanism to create callable modules:
+simply provide special recognition for module-level <cite>__call__</cite> functions,
+similar to the way that <a class="reference external" href="https://peps.python.org/pep-0562/">PEP 562</a> added
+special recognition of module-level <cite>__getattr__</cite> and <cite>__dir__</cite> functions.
+With the semantics specified in <a class="reference external" href="https://peps.python.org/pep-0713/">PEP 713</a>,
+<cite>fancy.py</cite> could be rewritten as follows:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>def fancy(…):</dt><dd><p>…</p>
+</dd>
+</dl>
+<p>__call__ = fancy</p>
+</div></blockquote>
+<p>With a module, <cite>fancy.py</cite>, defined like the above, users would simply be able
+to do the following:</p>
+<blockquote>
+<div><p>import fancy
+fancy()</p>
+</div></blockquote>
+<p>This would allow users of Python to avoid constructs which often feel
+unnecessarily verbose and involve frustrating amounts of boilerplate, such as:</p>
+<blockquote>
+<div><p>import datetime
+import pprint
+import dis</p>
+<p>d = datetime.datetime()
+pprint.pprint(…)
+dis.dis(…)</p>
+</div></blockquote>
+<p>It would also allow users to create callable modules in a way that would be
+easier for type checkers to support, as dynamically inserting custom objects
+into <cite>sys.modules</cite> can cause issues for these tools.</p>
+<p>The proposal was met with curiosity by attendees of the Language Summit.
+Thomas Wouters said that he had originally opposed the addition of module-
+level <cite>__getattr__</cite> and <cite>__dir__</cite>, introduced by PEP 562. However, now they
+had been introduced to Python, he was of the opinion that it might make sense
+to add support for module-level dunder methods including <cite>__call__</cite>, but also
+others such as <cite>__setattr__</cite>.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2023-05-the-python-language-summit-2023-burnout.html">
+      
+      <span>The Python Language Summit 2023: Burnout is Real</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2023-05-the-python-language-summit-2023-making.html">
+      <span>The Python Language Summit 2023: Making the Global Interpreter Lock Optional</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

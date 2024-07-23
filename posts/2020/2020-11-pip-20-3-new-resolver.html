@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Releasing pip 20.3, featuring new dependency resolver - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="releasing-pip-20-3-featuring-new-dependency-resolver">
+<h1>Releasing pip 20.3, featuring new dependency resolver<a class="headerlink" href="#releasing-pip-20-3-featuring-new-dependency-resolver" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2020/11/pip-20-3-new-resolver.html">here</a>.</p>
+<p>On behalf of the <a class="reference external" href="https://www.pypa.io">Python Packaging Authority</a> and the pip
+team, I am pleased to announce that <em>we have just released pip 20.3</em> , a new
+version of pip. You can install it by running <cite>python -m pip install –upgrade
+pip</cite>.</p>
+<p>This is an important and disruptive release – we <a class="reference external" href="https://pyfound.blogspot.com/2019/12/moss-czi-support-pip.html">explained why in a blog
+post last year</a>. We’ve even made <a class="reference external" href="https://www.youtube.com/watch?v=B4GQCBBsuNU">a video about
+it</a>.</p>
+<section id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>DISRUPTION</em> : Switch to the new dependency resolver by default. Watch out for changes in handling editable installs, constraints files, and more: &lt;<a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#changes-to-the-pip-dependency-resolver-in-20-3-2020">https://pip.pypa.io/en/latest/user_guide/#changes-to-the-pip-dependency-resolver-in-20-3-2020</a>&gt;</p></li>
+<li><p><em>DEPRECATION</em> : Deprecate support for Python 3.5 (to be removed in pip 21.0).</p></li>
+<li><p><em>DEPRECATION</em> : pip freeze will stop filtering the pip, setuptools, distribute and wheel packages from pip freeze output in a future version. To keep the previous behavior, users should use the new <cite>–exclude</cite> option.</p></li>
+<li><p>Substantial improvements in new resolver for performance, output and error messages, avoiding infinite loops, and support for constraints files.</p></li>
+<li><p>Support for PEP 600: Future <cite>manylinux</cite> Platform Tags for Portable Linux Built Distributions.</p></li>
+<li><p>Documentation improvements: Resolver migration guide, quickstart guide, and new documentation theme.</p></li>
+<li><p>Add support for MacOS Big Sur compatibility tags.</p></li>
+</ul>
+</div></blockquote>
+<p>The new resolver is now _on by <a href="#id3"><span class="problematic" id="id4">default_</span></a> for Python 3 users. It is
+significantly stricter and more consistent when it receives incompatible
+instructions, and reduces support for certain kinds of constraints files, so
+some workarounds and workflows may break. Please see <a class="reference external" href="https://pip.pypa.io/en/latest/user_guide/#changes-to-the-pip-dependency-resolver-in-20-3-2020">our guide on how to test
+and migrate, and how to report
+issues</a>. You can use the deprecated (old) resolver,
+using the flag <cite>–use-deprecated=legacy-resolver</cite>, until we remove it in the
+pip 21.0 release in January 2021.</p>
+<p>You can find more details (including deprecations and removals) <a class="reference external" href="https://pip.pypa.io/en/stable/news/">in the
+changelog</a>.</p>
+</section>
+<section id="coming-soon-end-of-python-2-7-support">
+<h2>Coming soon: end of Python 2.7 support<a class="headerlink" href="#coming-soon-end-of-python-2-7-support" title="Link to this heading">¶</a></h2>
+<p>We aim to release pip 21.0 in January 2021, per our <a class="reference external" href="https://pip.pypa.io/en/latest/development/release-process/#release-cadence">release
+cadence</a>. At that time, pip will <a class="reference external" href="https://pip.pypa.io/en/latest/development/release-process/#python-2-support">stop supporting Python
+2.7</a> and will therefore stop supporting Python 2
+entirely.</p>
+<p>When users use pip 20.3 in a Python 2 environment, the old dependency resolver
+is still the default.</p>
+</section>
+<section id="for-more-info-or-to-contribute">
+<h2>For more info or to contribute:<a class="headerlink" href="#for-more-info-or-to-contribute" title="Link to this heading">¶</a></h2>
+<p>We run this project as transparently as possible, so you can:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>read and participate in <a class="reference external" href="https://github.com/pypa/pip/projects/6">GitHub issues</a></p></li>
+<li><p>contribute to <a class="reference external" href="https://pip.pypa.io/en/stable/ux_research_design/">our user experience work</a>: <a class="reference external" href="https://bit.ly/pip-ux-studies">sign up to become a member of the UX Studies group</a> (after you join, we’ll notify you about future UX surveys and interviews)</p></li>
+<li><p>contact us in the <cite>Discourse &lt;https://discuss.python.org/t/an-update-on-pip-and-dependency-resolution/1898&gt;`_</cite> forum &lt;<a class="reference external" href="https://discuss.python.org/t/an-update-on-pip-and-dependency-resolution/1898">https://discuss.python.org/t/an-update-on-pip-and-dependency-resolution/1898</a>&gt;`_ or <a class="reference external" href="https://python.zulipchat.com/#narrow/stream/218659-pip-development">Zulip chat</a></p></li>
+<li><p>read <a class="reference external" href="https://wiki.python.org/psf/PackagingWG#Dependency_resolver_and_user_experience_improvements_for_pip">our meeting notes</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="thank-you">
+<h2>Thank you<a class="headerlink" href="#thank-you" title="Link to this heading">¶</a></h2>
+<p>Thanks to our contractors on this project: <a class="reference external" href="https://simplysecure.org/">Simply
+Secure</a> (specifically Georgia Bullen, Bernard
+Tyers, Nicole Harris, Ngọc Triệu, and Karissa McKelvey), <a class="reference external" href="https://changeset.nyc/">Changeset
+Consulting</a> (Sumana Harihareswara),
+<a class="reference external" href="https://www.atos.net">Atos</a> (Paul F. Moore), <a class="reference external" href="https://uranusjr.com">Tzu-ping
+Chung</a>, <a class="reference external" href="https://pradyunsg.me/">Pradyun Gedam</a>, and Ilan
+Schnell. Thanks also to Ernest W. Durbin III at the Python Software Foundation
+for liaising with the project.</p>
+<p>This award continues our relationship with Mozilla, which supported Python
+packaging tools with <a class="reference external" href="https://pyfound.blogspot.com/2017/11/the-psf-awarded-moss-grant-pypi.html">a Mozilla Open Source Support Award in 2017 for
+Warehouse</a>. Thank you, Mozilla! (MOSS has a number of types of awards, which
+are open to different sorts of open source/free software projects. If your
+project will seek financial support in 2021, do check <a class="reference external" href="https://www.mozilla.org/en-US/moss/">the MOSS
+website</a> to see if you qualify.)</p>
+<p>This is new funding from the Chan Zuckerberg Initiative. This project is being
+made possible in part by a grant from the Chan Zuckerberg Initiative DAF, an
+advised fund of Silicon Valley Community Foundation. Thank you, CZI! (If your
+free software/open source project is seeking funding and is used by
+researchers, check <a class="reference external" href="https://investinopen.org/blog/jrost-rapid-response-fund/">the Joint Roadmap for Open Science Tools Rapid Response
+Fund</a> and consider
+applying.)</p>
+<p>The <a class="reference external" href="https://pyfound.blogspot.com/2019/12/moss-czi-support-pip.html">funding for pip’s overhaul</a> will end at the end of 2020; if your organization wants
+to help continue <a class="reference external" href="https://github.com/psf/fundable-packaging-improvements/">improvements in Python
+packaging</a>, please
+join <a class="reference external" href="https://pyfound.blogspot.com/2020/04/sponsoring-python-packaging.html">the sponsorship
+program</a>.</p>
+<p>As with all pip releases, a significant amount of the work was contributed by
+pip’s user community. Huge thanks to all who have contributed, whether through
+code, documentation, issue reports and/or discussion. Your help keeps pip
+improving, and is hugely appreciated. Thank you to the pip and
+<a href="#id1"><span class="problematic" id="id2">`</span></a>PyPA &lt;<a class="reference external" href="https://www.pypa.io/">https://www.pypa.io/</a>&gt;`_[](<a class="reference external" href="https://www.blogger.com/">https://www.blogger.com/</a>) maintainers, to the
+PSF and the Packaging WG, and to all the contributors and volunteers who work
+on or use Python packaging tools.</p>
+<p>_-Sumana Harihareswara, pip project <a href="#id5"><span class="problematic" id="id6">manager_</span></a></p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2020-11-pypi-receives-aws-credits-for-open.html">
+      
+      <span>PyPI receives AWS credits for open source projects</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2020-12-help-psf-raise-60000-usd-by-december.html">
+      <span>Help the PSF raise $60,000 USD by December 31st!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

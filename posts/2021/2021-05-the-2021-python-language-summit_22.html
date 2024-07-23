@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2021 Python Language Summit: Lightning Talks, Round 1 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2021-python-language-summit-lightning-talks-round-1">
+<h1>The 2021 Python Language Summit: Lightning Talks, Round 1<a class="headerlink" href="#the-2021-python-language-summit-lightning-talks-round-1" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit_22.html">here</a>.</p>
+<p>The first day of the <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit.html">2021 Python Language
+Summit</a> finished with a series of lightning talks from <a class="reference external" href="https://twitter.com/EnCuKou">Petr
+Viktorin</a>, <a class="reference external" href="https://twitter.com/loooorenanicole">Lorena
+Mesa</a>, <a class="reference external" href="https://twitter.com/tannewt">Scott
+Shawcroft</a>, and <a class="reference external" href="https://github.com/jeff5">Jeff
+Allen</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz6bG0qGtvuAFKP6Gvm4DBlYoC8K0L9SCndFs_iM7jwcBYsjnMUkp9RNq97wbNWqIdWDPuwg_zmCrt1QaN2MNO4L0EJA8UZNgm-Xb7e6A2OKlP5Nz4j-DKGjlhQNVFO7eDDbA/s16000/lightning-1.png">![Petr Viktorin, Lorena Mesa, and Scott
+Shawcroft</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz6bG0qGtvuAFKP6Gvm4DBlYoC8K0L9SCndFs_iM7jwcBYsjnMUkp9RNq97wbNWqIdWDPuwg_zmCrt1QaN2MNO4L0EJA8UZNgm">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz6bG0qGtvuAFKP6Gvm4DBlYoC8K0L9SCndFs_iM7jwcBYsjnMUkp9RNq97wbNWqIdWDPuwg_zmCrt1QaN2MNO4L0EJA8UZNgm</a>-
+Xb7e6A2OKlP5Nz4j-DKGjlhQNVFO7eDDbA/s500/lightning-1.png)</p>
+<section id="the-stable-abi-and-limited-c-api">
+<h2>The Stable ABI and Limited C API<a class="headerlink" href="#the-stable-abi-and-limited-c-api" title="Link to this heading">¶</a></h2>
+<p>Petr Viktorin spoke about the stable ABI and limited C API. The stable ABI is
+a way to compile a C extension on Python 3.x and run it on Python 3.x+. It was
+introduced in 2009 with <a class="reference external" href="https://www.python.org/dev/peps/pep-0384/">PEP 384</a>.
+You can use it to simplify extension maintenance, and it will allow you to
+support more versions. But it does have lower performance, and you can’t do
+everything with it that you could with the full API.</p>
+<p>Petr Viktorin would like to see it used for bindings and embeddings. If Python
+is just a small part of your application and you don’t want to invest a lot of
+maintainer time into supporting Python, then that would be a good use case.
+You could also use it to support unreleased Python versions.</p>
+<p>If you limit yourself to the subset of the limited C API, then you will get an
+extension that conforms to the stable ABI. The limited C API aims to avoid
+implementation details and play well with:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Alternate Python implementations</p></li>
+<li><p>Extension languages other than C</p></li>
+<li><p>New features, such as isolated subinterpreters</p></li>
+</ul>
+</div></blockquote>
+<p>However, the limited C API is not stable.</p>
+<p>The limited C API and the stable ABI are now defined in Misc/stable_abi.txt.
+There are already tests, and soon there will be documentation as well. To
+learn more, check out:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://devguide.python.org/c-api/">The dev guide</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3.11/c-api/stable.html">The user guide</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="promoting-pyladies-in-cpython-development">
+<h2>Promoting PyLadies in CPython Development<a class="headerlink" href="#promoting-pyladies-in-cpython-development" title="Link to this heading">¶</a></h2>
+<p>Lorena Mesa spoke about <a class="reference external" href="https://pyladies.com/">PyLadies</a>, which is an
+international mentorship group with a focus on helping more women become
+active participants and leaders in the Python open-source community.</p>
+<p>Most of the growth in the PyLadies community has been coming from outside the
+USA and Europe. South America has the most active chapters, with Brazil in the
+lead. In order to help chapters better support their members, PyLadies is
+working on a centralized mandate and a global governance model.</p>
+<p>While PyLadies has been working on education and outreach, it has been
+challenging to quantify how the group is helping women become active
+participants and leaders in the OSS community. In order to address this issue,
+they are preparing a survey about the challenges their members face in open
+source. Members may be having difficulty with:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Language barriers</p></li>
+<li><p>Technical expertise</p></li>
+<li><p>Support</p></li>
+</ul>
+</div></blockquote>
+<p>PyLadies will be launching a video series on how to be a contributor and would
+like to hear from core developers who could:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Submit a recording of their workflow to publish on YouTube</p></li>
+<li><p>Offer feedback</p></li>
+</ul>
+</div></blockquote>
+<p>If you’d like to participate, you can <a class="reference external" href="https://forms.gle/6eCucMpQXNnLo9ke9">get in
+touch</a>.</p>
+</section>
+<section id="circuitpython-a-subset-of-cpython">
+<h2>CircuitPython: A Subset of CPython<a class="headerlink" href="#circuitpython-a-subset-of-cpython" title="Link to this heading">¶</a></h2>
+<p>CircuitPython is a much smaller version of Python that runs on
+microcontrollers. Scott Shawcroft compared what’s included in CircuitPython
+and CPython to give a sense of what is central to users’ experience of Python.</p>
+<p>Although CircuitPython is 650 kilobytes compared to CPython’s 29 megabytes, it
+still feels like Python. It is intended to be a strict subset of CPython that
+allows people to learn Python on microcontrollers and then graduate to CPython
+on a Linux computer without having to rework too much of their code.</p>
+<p>Scott Shawcroft compared lists of modules and built-ins in CircuitPython and
+CPython to show that CircuitPython doesn’t need to have much to still feel
+like Python. You need to have the built-ins and the syntax, but not
+necessarily all of the standard library. This is great news because, with a
+smaller core, you can bring Python to smaller devices.</p>
+<p>However, CPython users who have come to CircuitPython have asked for NumPy,
+f-strings, pandas, Jupyter, pdb, and asyncio to be added. Interestingly, even
+though some of their requests go beyond core Python, users still associate
+them with their experience of Python. If that’s the case, then maybe we don’t
+need to be afraid to take elements of core Python and move them into packages
+because, at the end of the day, people still consider them to be Python.</p>
+</section>
+<section id="jython-3-something-completely-different">
+<h2>Jython 3: Something Completely Different?<a class="headerlink" href="#jython-3-something-completely-different" title="Link to this heading">¶</a></h2>
+<p>Jeff Allen shared the approach he’s advancing for the Jython 3 core, which is
+quite different from Jython 2. He’s been slowly working on his ideas outside
+of the official repo and wanted feedback to help identify potential problem
+areas before he starts working in the official repo.</p>
+<p>He has already solved some more daunting problems, such as:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Inheritance</p></li>
+<li><p>Descriptors</p></li>
+<li><p>Built-in methods, but not yet their call sites</p></li>
+<li><p>An interpreter for a subset of CPython bytecode</p></li>
+</ul>
+</div></blockquote>
+<p>There is still a lot to do, but he hasn’t had to go back to square one
+recently. However, there may still be bigger problems with Java integration,
+exceptions, and async. He asked for feedback about any other potential
+pitfalls he may not have seen yet.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2021-05-the-2021-python-language-summit-hpy.html">
+      
+      <span>The 2021 Python Language Summit: HPy — Present and Future</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2021-05-the-2021-python-language-summit_23.html">
+      <span>The 2021 Python Language Summit: The Challenges of Packaging Python for a Linux Distro</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

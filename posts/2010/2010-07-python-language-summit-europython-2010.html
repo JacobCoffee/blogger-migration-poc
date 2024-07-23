@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Python Language Summit EuroPython 2010 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="python-language-summit-europython-2010">
+<h1>Python Language Summit EuroPython 2010<a class="headerlink" href="#python-language-summit-europython-2010" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2010/07/python-language-summit-europython-2010.html">here</a>.</p>
+<p>_This summary was written by Tim Golden._</p>
+<p>Before the main events of EuroPython 2010 a Python Language Summit took place
+at the Conference venue in Birmingham. Present were (in the order they sat
+around the table):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Brett Cannon</p></li>
+<li><p>Guido van Rossum</p></li>
+<li><p>Holger Krekel</p></li>
+<li><p>Amaury Forgeot D’Arc</p></li>
+<li><p>Georg Brandl</p></li>
+<li><p>Péter Szabó</p></li>
+<li><p>Ezio Melotti</p></li>
+<li><p>Michael Foord</p></li>
+<li><p>Mark Dickinson</p></li>
+<li><p>Martin von Loewis</p></li>
+<li><p>Ronald Oussoren</p></li>
+<li><p>Tim Golden</p></li>
+<li><p>Marc-André Lemburg</p></li>
+<li><p>Richard Jones</p></li>
+</ul>
+</div></blockquote>
+<section id="implementation-status-reports">
+<h2>Implementation Status Reports<a class="headerlink" href="#implementation-status-reports" title="Link to this heading">¶</a></h2>
+<p>Michael initiated a round-up of current and prospective Python versions for
+various implementations. CPython and <a class="reference external" href="http://ironpython.net/">IronPython</a> have
+both just released v2.7 with IronPython offering some Python 3 compatibility
+via a command-line switch. The recent/current migration of
+<a class="reference external" href="http://numpy.scipy.org/">Numpy</a> and <a class="reference external" href="http://www.scipy.org/">SciPy</a> to Python
+3 should give a boost to uptake.</p>
+<p>Amaury confirmed that <a class="reference external" href="http://codespeak.net/pypy/">PyPy</a> currently supports
+2.5.2 but is looking to target 2.7. The PyPy guys also announced a C API
+bridging layer which should enable a range of Python extension modules to work
+directly with PyPy. This is only a stepping stone by way of broadening
+support.</p>
+<p>Brett suggested that the <a class="reference external" href="http://code.google.com/p/unladen-swallow/">Unladen Swallow</a> merge to trunk was waiting for some work to complete on the JIT
+compiler and Georg, as release manager for 3.2, confirmed that Unladen Swallow
+would not be merged before 3.3.</p>
+</section>
+<section id="email-module">
+<h2>email Module<a class="headerlink" href="#email-module" title="Link to this heading">¶</a></h2>
+<p>The email module needs some work in Python 3. David Murray has been given some
+money by the PSF but needs more from other sources to complete the work. This
+is hampered by the legalities around commercial organisations making donations
+to not-for-profits when those donations are earmarked. Various suggestions
+were put forward with no-one sure of the legal issues. Guido suggested that we
+should move forward rather than stall for want of legal advice.</p>
+</section>
+<section id="wsgi-update">
+<h2>WSGI Update<a class="headerlink" href="#wsgi-update" title="Link to this heading">¶</a></h2>
+<p>A broad discussion arose concerning the issues debated on <a class="reference external" href="http://www.python.org/community/sigs/current/web-sig/">web-
+sig</a> concerning the
+<a class="reference external" href="http://wsgi.org/">WSGI</a> protocol and the bytes vs string issues. Marc-André
+brought up the <em>cgi</em> module which has similar issues under Python 3 and
+other examples were given, including <em>ftplib</em> , <em>urllib</em> , and some <em>os</em>
+functions.</p>
+<p>Various solutions were put forward including a hybrid bytes-with-encoding
+object. This proposal was widely unpopular, but two proposals met with broad
+approval: that certain stdlib functions might be polymorphic, returning the
+type of their input as output; and that the encoding string should include its
+error-handling. An example of the first would be that <cite>os.getenv(“HOME”)</cite>
+would return <cite>“/home/tjg”</cite> while <cite>os.getenv(b”HOME”)</cite> would return
+<cite>b”/home/tjg”</cite>. An example of the latter would be <cite>“utf8:strict”</cite>. Something
+of the sort already works for PYTHONIOENCODING.</p>
+<p>The issue of a <cite>__format__</cite> equivalent for bytes was also raised as was the
+idea of object methods to render an object as string or bytes, which could be
+used in the polymorphic functions above.</p>
+</section>
+<section id="stable-application-binary-interface">
+<h2>Stable Application Binary Interface<a class="headerlink" href="#stable-application-binary-interface" title="Link to this heading">¶</a></h2>
+<p>Martin spoke about the state of the stable ABI PEP
+(<a class="reference external" href="http://www.python.org/dev/peps/pep-0384/">PEP-384</a>), indicating that he was
+targeting 3.2. This work would reduce the need to recompile extension modules
+separately on Windows for every version of Python – something especially
+pertinent when code has been orphaned but is still useful.</p>
+<p>The versioned .so files PEP (<a class="reference external" href="http://python.org/dev/peps/pep-3149/">PEP-3149</a>)
+being worked out by Barry Warsaw overlaps with PEP 384, and would only be
+useful for extensions which don’t target the stable ABI.</p>
+</section>
+<section id="garbage-collection">
+<h2>Garbage Collection<a class="headerlink" href="#garbage-collection" title="Link to this heading">¶</a></h2>
+<p>A messy discussion turned on the question of garbage collection of module
+objects, and the order in which finalisers are called if at all, especially
+when reference cycles exist. Marc-André was proposing a <cite>__cleanup__</cite> magic
+function for Python modules, which would enable the implementer to define the
+order in which resources are released / closed down. This is quite a subtle
+area and raised the issue of unfinalised objects in a reference cycle whose
+memory has been freed out from under them but which still exist. Martin
+described the Java approach where finalisers are called once and then flagged
+so they are not called again, even if their object is resurrected. This
+sounded like a useful approach for Python, but would break code which expected
+to be able to resurrect an object during its <cite>__del__</cite> method, which is not
+expected to account for much code.</p>
+<p>Guido pointed out that no-one can be expected to hold enough of the
+complexities of this area of Python’s implementation in their head, and that
+an implementation of some sort would need to be written so that the corner-
+cases could emerge.</p>
+</section>
+<section id="mac-os-x">
+<h2>Mac OS X<a class="headerlink" href="#mac-os-x" title="Link to this heading">¶</a></h2>
+<p>Ronald described the issues around the version and architecture differences on
+Mac OS X and especially around Tkinter (and therefore IDLE). It was agreed
+that two installers could be provided: one targeting OS 10.3 on 32-bit
+Intel/PPC; the other targeting 10.6 on 32 and 64-bit Intel. This latter would
+then be able to use the system’s Tk 8.5. The 10.6 binary would also work for
+10.5, which would be indicated in the install docs.</p>
+</section>
+<section id="mercurial-migration">
+<h2>Mercurial Migration<a class="headerlink" href="#mercurial-migration" title="Link to this heading">¶</a></h2>
+<p>The Mercurial migration should move forward once Dirkjan has finished work on
+his thesis. Martin insisted that a for-real repository would have to be set up
+so that people can really see how it would work. An outstanding issue in hg-
+svn prevents the Python history from being imported, but it should be fixable.
+Martin &amp; Tim brought up the issue of externals, which the buildbots use on
+Windows to bring in and build slightly patched versions of external libraries
+such as OpenSSL and sqlite3.</p>
+<p>Brett confirmed that he would like to see the stdlib broken out into its own
+repository which could then be shared between the different Python
+implementations.</p>
+</section>
+<section id="python-package-index">
+<h2>Python Package Index<a class="headerlink" href="#python-package-index" title="Link to this heading">¶</a></h2>
+<p>A discussion on the <a class="reference external" href="http://pypi.python.org/">Cheeseshop / Package Index</a>
+highlighted the fact that the packaging infrastructure has become increasingly
+important, especially since
+<a class="reference external" href="http://pypi.python.org/pypi/setuptools">setuptools</a>,
+<a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">buildout</a>, and
+<a class="reference external" href="http://pypi.python.org/pypi/pip">pip</a> all download from it. Richard produced
+graphs showing the increase in package downloads over time, and attributed the
+recent slight tail-off to the fact that the tool-chains are now becoming more
+canny with respect to caching and mirroring.</p>
+<p>Martin &amp; Richard confirmed that mirrors are now in place, and Marc-André
+confirmed that he would be putting together a proposal to have
+<a class="reference external" href="http://pypi.python.org/">PyPI</a> hosted in the cloud. Guido pointed out that if
+an AppEngine implementation were desirable, he was sure that AppEngine team
+would support it with resources as needed. Martin didn’t feel that there was a
+problem with loading on the box in question; it’s the uptime that’s behind
+people’s concern as it’s now so essential to installing and deploying Python
+applications.</p>
+<p>Several people outlined the recent heated discussion over the addition of a
+checkbox to the PyPI user-registration pages. Tarek has already undertaken to
+patch PyPI to move the checkbox back one step, allowing existing distutils
+users to register from the command line. At the same time, Brett advised
+removing that functionality from distutils2 as signing up on a web page is no
+great hardship.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2010-07-pycon-india-2010-grant.html">
+      
+      <span>PyCon India 2010 Grant</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2010-07-frank-willison-memorial-award-recipient.html">
+      <span>Frank Willison Memorial Award Recipient Selected</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

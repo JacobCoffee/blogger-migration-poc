@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PuPPy Presents its 1st Annual Benefit featuring Guido van Rossum - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="puppy-presents-its-1st-annual-benefit-featuring-guido-van-rossum">
+<h1>PuPPy Presents its 1st Annual Benefit featuring Guido van Rossum<a class="headerlink" href="#puppy-presents-its-1st-annual-benefit-featuring-guido-van-rossum" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/03/puppy-presents-its-1st-annual-benefit_27.html">here</a>.</p>
+<p>PuPPy Presents its <a class="reference external" href="http://bdfl-gift.pspython.com/">1st Annual Benefit</a></p>
+<p>A historic discussion of programming language creators about</p>
+<p>the past and future of language design.</p>
+<p>April 2, 2019, 5:30 - 9:30 PM</p>
+<p>The Collective Seattle</p>
+<p>400 Dexter Ave N.</p>
+<p>Seattle, WA 98109</p>
+<p>Featuring Language Creators</p>
+<p><em>James Gosling - Java</em></p>
+<p><em>Anders Hejlsberg - Turbo Pascal, C#, TypeScript</em></p>
+<p><em>Guido van Rossum - Python</em></p>
+<p><em>Larry Wall - Perl</em></p>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.pspython.com/app/">PuPPy</a>, Seattle’s Puget Sound Programming
+Python user group, presents its 1st annual charity event. The event will
+feature the creators of C#, Java, Perl, Python, and TypeScript in a
+conversation about programming language design.</p>
+<p>The charity event brings together this unique group of computer science
+pioneers, unlike any event held before. These great minds come together for
+what will surely be a fantastic night of discussion, as the panel delves into
+the past and future of programming language creation. The event will attract
+innovators and engineers from Seattle, the nation’s fastest growing technology
+hub.</p>
+<p>The event is a benefit for <a class="reference external" href="https://www.csforall.org/">CSforALL</a>, a non-profit
+organization that represents more than 500 members who are educators, content
+providers, funders and researchers who share a vision for all students in the
+U.S. to learn computer science. CSforALL provides leadership and guidance that
+helps the K-12 education community implement computer science initiatives,
+draw from best practices and connect with national organizations to expand
+access to all students in the U.S.</p>
+<p>The event follows in the spirit and culture of PuPPy, the producers of this
+benefit, as an inclusive community. The very first PuPPy meeting 54 months ago
+was a mini-conference that featured discussions on allyship and helping more
+women join the ranks of software professionals.</p>
+<p>Event tickets and further details are available at: <a class="reference external" href="http://bdfl-gift.pspython.com/">http://bdfl-
+gift.pspython.com</a>.</p>
+</section>
+<section id="speakers">
+<h2>Speakers<a class="headerlink" href="#speakers" title="Link to this heading">¶</a></h2>
+<section id="cyrus-habib-washington-state-lieutenant-governor-opening-remarks">
+<h3>Cyrus Habib - Washington State Lieutenant Governor - Opening remarks<a class="headerlink" href="#cyrus-habib-washington-state-lieutenant-governor-opening-remarks" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="http://www.ltgov.wa.gov/biography/">Cyrus Habib</a> was elected Washington
+State’s 16th Lieutenant Governor in November 2016 at the age of 35. He had
+previously been elected to the State House of Representatives in 2012 and the
+State Senate in 2014, where he was Democratic Whip and a member of the
+Democratic leadership team. As Lt. Governor, he is President of the State
+Senate, serves as Acting Governor whenever Governor Inslee leaves the state,
+and oversees an agency whose key issues include economic development, trade,
+and higher education.</p>
+<p>A three-time cancer survivor, Lt. Governor Habib has been fully blind since
+age eight. His parents immigrated to the U.S. from Iran before he was born,
+and he is the first and only Iranian-American to hold statewide elected office
+in the United States.</p>
+</section>
+<section id="carol-willing-moderator">
+<h3>Carol Willing - Moderator<a class="headerlink" href="#carol-willing-moderator" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://www.willingconsulting.com/">Carol Willing</a> serves as a Steering
+Council member for Project Jupyter. She received the 2017 ACM Software System
+Award for Jupyter’s development. She is also a member of the inaugural Python
+Steering Council, a Python Software Foundation Fellow and former Director; a
+core developer on CPython, Jupyter, nteract, AnitaB.org’s open source
+projects, and PyLadies; a co-organizer of PyLadies San Diego and San Diego
+Python User Group; an independent developer of hardware and software. Weaving
+her love of art, music, and nature with wearable soft circuits, she is
+developing an open hardware project to assist an in-home caregiver with
+gentle, compassionate support of a loved one with Alzheimer’s.</p>
+</section>
+<section id="james-gosling-java">
+<h3><em>James Gosling - Java</em><a class="headerlink" href="#james-gosling-java" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="http://nighthacks.com/jag/bio/index.html">James A. Gosling</a>, O.C., Ph.D.
+(born May 19, 1955, near Calgary, Alberta, Canada) is a famous software
+developer, best known as the father of the Java programming language.</p>
+<p>In 1977, James Gosling received a B.Sc in Computer Science from the University
+of Calgary. In 1983, he earned a Ph.D. in Computer Science from Carnegie
+Mellon University, and his doctoral thesis was titled “The Algebraic
+Manipulation of Constraints”. While working towards his doctorate, he wrote a
+version of emacs (gosmacs), and before joining Sun Microsystems he built a
+multi-processor version of Unix[1] while at Carnegie Mellon University, as
+well as several compilers and mail systems. Since 1984, Gosling has been with
+Sun Microsystems.</p>
+<p>He is generally credited as the inventor of the Java programming language in
+1991. He did the original design of Java and implemented its original compiler
+and virtual machine. For this achievement, he was elected to the United States
+National Academy of Engineering. He has also made major contributions to
+several other software systems, such as NeWS and Gosling Emacs. He also co-
+wrote the “bundle” program, a utility thoroughly detailed in Brian Kernighan
+and Rob Pike’s book, “The Unix Programming Environment”.</p>
+</section>
+<section id="anders-hejlsberg-turbo-pascal-c-typescript">
+<h3><em>Anders Hejlsberg - Turbo Pascal, C#, TypeScript</em><a class="headerlink" href="#anders-hejlsberg-turbo-pascal-c-typescript" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://github.com/ahejlsberg">Anders Hejlsberg</a> is a Microsoft Technical
+Fellow and has been designing and implementing programming languages and
+development tools for over 35 years. Anders is the lead architect of the
+TypeScript open-source project and the original designer of the C# programming
+language. Before joining Microsoft in 1996, Anders was a Principal Engineer at
+Borland International. As one of the first employees of Borland, he was the
+original author of Turbo Pascal and later worked as the Chief Architect of the
+Delphi product line. Anders studied Engineering at the Technical University of
+Denmark.</p>
+</section>
+<section id="guido-van-rossum-python">
+<h3><em>Guido van Rossum - Python</em><a class="headerlink" href="#guido-van-rossum-python" title="Link to this heading">¶</a></h3>
+<p><a href="#id1"><span class="problematic" id="id2">`</span></a>Guido van Rossum  &lt;<a class="reference external" href="https://gvanrossum.github.io/">https://gvanrossum.github.io/</a>&gt;`_is the creator of Python,
+one of the major programming languages on and off the web. Recently Guido
+retired as Benevolent Dictator For Life (“BDFL”) of Python, a title seemingly
+stolen from a Monty Python skit. Details of his decision were featured in an
+Economist article. Guido thankfully has joined the Python Steering Council.
+This five-person group will give guidance to the future roadmap of the Python
+programming language.</p>
+<p>Van Rossum moved from the Netherlands to the USA, in 1995. He met his wife
+after his move. Until July 2003 they lived in the northern Virginia suburbs of
+Washington, DC with their son Orlijn, who was born in 2001. They then moved to
+Silicon Valley where Guido worked for a variety of companies including Google
+in the past and currently at Dropbox (spending 50% of his time on Python!).</p>
+<ul class="simple">
+<li></li>
+</ul>
+</section>
+<section id="larry-wall-perl">
+<h3><em>Larry Wall - Perl</em><a class="headerlink" href="#larry-wall-perl" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="http://www.wall.org/~larry/">Larry Wall</a> was educated at various places
+including the Cornish School of Music, the Seattle Youth Symphony, Seattle
+Pacific University, Multnomah School of the Bible, SIL International, U.C.
+Berkeley, and UCLA. Though trained primarily in music, chemistry, and
+linguistics, Larry has been working with computers for the last 40 years or
+so. He is most famous for writing rn, patch, and the Perl programming
+language, but prefers to think of himself as a cultural hacker whose vocation
+in life is to bring a bit of joy into the dreary existence of programmers. For
+various definitions of “work for”, Larry has worked for Seattle Pacific,
+MusiComedy Northwest, System Development Corporation, Burroughs, Unisys, the
+NSA, Telos, ConTel, GTE, JPL, NetLabs, Seagate, Tim O’Reilly, the Perl
+Foundation, Broadcom, and himself. He is currently serving as Artist in
+Residence for Craigslist.</p>
+</section>
+<section id="about-csforall">
+<h3>About CSforAll<a class="headerlink" href="#about-csforall" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgvWHHgFZNF7Q10ZdefWiiqo8fzL1WP1nxi9MIn-Nep0aebjBVuNSQfmIJXFXrun6e8ywGFf8QF2G5e07xoCYekI6rSdlVLpr-ZiNlFAPyY_vl-sKwMT-gKzlR0LhyXUTAew/s320/CSforALL-logo.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgvWHHgFZNF7Q10ZdefWiiqo8fzL1WP1nxi9MIn">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgvWHHgFZNF7Q10ZdefWiiqo8fzL1WP1nxi9MIn</a>-
+Nep0aebjBVuNSQfmIJXFXrun6e8ywGFf8QF2G5e07xoCYekI6rSdlVLpr-ZiNlFAPyY_vl-sKwMT-
+gKzlR0LhyXUTAew/s1600/CSforALL-logo.png)
+—
+<a class="reference external" href="https://www.csforall.org/media-faq/">https://www.csforall.org/media-faq/</a></p>
+<p><a class="reference external" href="https://www.csforall.org/media-faq/">CSforALL</a>, shorthand for “Computer
+Science for All,” is the central hub for the K-12 national computer science
+education movement. CSforALL is the community organizer of school districts,
+nonprofits, government agencies and corporations that share the goal of
+rigorous, inclusive and sustainable CS education in the U.S.</p>
+</section>
+<section id="about-puppy">
+<h3>About PuPPy<a class="headerlink" href="#about-puppy" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglwZX0d3dUFY3eSZf_cs7NR8_gtWvTmHK0A-BnJ9OVaYbontbwtqZdyfOjqcDYJP0f9X2zQsnLWQC4rZ_ZPrC_3At8eNx39cmx10zXnG2xzwxfxhw5D01Jj70NS0yR6xg4Qw/s1600/puppy.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglwZX0d3dUFY3eSZf_cs7NR8_gtWvTmHK0A-BnJ9OVaYbontbwtqZdyfOjqcDYJP0f9X2zQsnLWQC4rZ_ZPrC_3At8eNx39cmx10zXnG2xzwxfxhw5D01Jj70NS0yR6xg4Qw/s1600/puppy.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEglwZX0d3dUFY3eSZf_cs7NR8_gtWvTmHK0A-BnJ9OVaYbontbwtqZdyfOjqcDYJP0f9X2zQsnLWQC4rZ_ZPrC_3At8eNx39cmx10zXnG2xzwxfxhw5D01Jj70NS0yR6xg4Qw/s1600/puppy.png</a>)
+—
+<a class="reference external" href="https://www.pspython.com/app/">https://www.pspython.com/app/</a></p>
+<p><a class="reference external" href="https://www.pspython.com/app/">PuPPy</a> is a fun and friendly user group
+dedicated to proliferating a diverse and talented Python community in the
+Puget Sound region. We are devoted to exploring Python-based programming
+knowledge, embracing new and experienced members from all walks of life, and
+helping those members to achieve their professional goals.</p>
+</section>
+<section id="event-leadership">
+<h3>Event Leadership<a class="headerlink" href="#event-leadership" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://www.linkedin.com/in/ruthefarmer/">Ruthe Farmer</a> – Event Chair - Chief
+Evangelist for CSforALL</p>
+<p><a class="reference external" href="https://www.willingconsulting.com/">Carol Willing</a> – Moderator – Steering
+Council member and developer for Project Jupyter and Python</p>
+<p><a class="reference external" href="http://lorenamesa.com/">Lorena Mesa</a>– Vice Chair – GitHub Data Engineer - Software Intelligence Systems | PyLadies Chicago Organizer | Python Software Foundation Director</p>
+<p><a class="reference external" href="https://www.linkedin.com/in/eloeliasds/">Eloisa Tran</a> -- Fundraising Chair
+– Founder of the Women in Data Science WiDS, Data Scientist for City of
+Bellevue</p>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-03-commencing-security-accessibility-and.html">
+      
+      <span>Commencing Security, Accessibility, and Internationalization Improvements to PyPI for 2019</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-04-update-on-python-in-education-proposal.html">
+      <span>Update on the Python in Education Proposal Phase</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PyGotham: a Python Conference at the United Nations - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="pygotham-a-python-conference-at-the-united-nations">
+<h1>PyGotham: a Python Conference at the United Nations<a class="headerlink" href="#pygotham-a-python-conference-at-the-united-nations" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2016/07/pygotham-python-conference-at-united.html">here</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBY0AgJK6ImRqqXgBHSTxUHnDvPj8xB8-LZBviUr0JPV4gExE7zsaM61xdVDSAzEU8IfnsYdF1PxyyFuRuQOAiKXhw08QOf5yQ4j-cBpy3qDpvetKxlBFplYYYdeX3eRA4ZQ/s640/North_by_Northwest_movie_trailer_screenshot_%252813%2529.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBY0AgJK6ImRqqXgBHSTxUHnDvPj8xB8-LZBviUr0JPV4gExE7zsaM61xdVDSAzEU8IfnsYdF1PxyyFuRuQOAiKXhw08QOf5yQ4j-cBpy3qDpvetKxlBFplYYYdeX3eRA4ZQ/s1600/North_by_Northwest_movie_trailer_screenshot_%252813%2529.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBY0AgJK6ImRqqXgBHSTxUHnDvPj8xB8-LZBviUr0JPV4gExE7zsaM61xdVDSAzEU8IfnsYdF1PxyyFuRuQOAiKXhw08QOf5yQ4j-cBpy3qDpvetKxlBFplYYYdeX3eRA4ZQ/s1600/North_by_Northwest_movie_trailer_screenshot_%252813%2529.jpg</a>)
+—
+<a href="#id2"><span class="problematic" id="id3">`_United Nations
+Headquarters_ &lt;https://commons.wikimedia.org/wiki/File:North_by_Northwest_movie_trailer_screenshot_\(13\&gt;`_</span></a>.jpg)</p>
+<p>I’ve never had to take my belt off to get into a Python conference before.</p>
+<p>This is the fifth year I attended PyGotham, here in New York City. In past
+years we held the conference in a standard convention center or, memorably, on
+a couple boats moored in the Hudson River. But this year PyGotham gathered in
+the United Nations.</p>
+<p>What first struck me about the new venue was its vigilant security, of course.
+Guards in blue uniforms sent us through metal detectors and x-rayed our bags.
+Once I got through security and put my belt on, I entered the UN Conference
+Building. The lobby is full of inspiring posters about anti-poverty summits,
+scientific committees, global peace initiatives. In the conference rooms
+themselves every seat has its own microphone and an earpiece for simultaneous
+translation. Sound-proof booths surround and overlook each room, with signs in
+their thick glass windows saying “English”, “French”, “German”. Along a
+hallway stands old-fashioned gray communications gear. There are rows of plug
+boards, analog meters, tape-to-tape reels, cathode ray tube screens surrounded
+by switches, buttons, and dials.</p>
+<p>I turned my attention from the conference environment to the people there, and
+I was struck by a second novel impression: demographics! I’ve come to expect
+Python conferences to include many women and people of color, but at <a class="reference external" href="https://2016.pygotham.org/">PyGotham
+2016</a> women of color were particularly well-
+represented, and there were teenage coders and even a few pre-teens.</p>
+<p>PyGotham is a production of <a class="reference external" href="http://bigapplepy.org/">Big Apple Py</a>. Our spot
+in the UN is the outcome of a new partnership: PyGotham has joined <a class="reference external" href="http://opencamps.org/about.html">Open
+Camp</a>, a giant UN-sponsored series of
+technology conferences that focus on technology’s humanitarian uses.</p>
+<p>I interviewed Big Apple Py’s Jon Banafato, and Open Camp coordinator Forest
+Mars, to learn more about why this PyGotham was so different from the past.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>PyGotham started in 2011 as a conference for the New York City Python
+community. The conference has grown a lot since then. This year, we had over
+500 attendees from around the world, but PyGotham still remains a tight-knit
+community of New Yorkers at heart.</p>
+<p>The organizing team strives for a diverse speaker list and audience. This
+year’s conference would not have been the same without the help of the Python
+Software Foundation, who funded 50 diversity scholarship tickets.</p>
+<p>A half-dozen community groups helped us get tickets into the right hands: <a class="reference external" href="http://www.meetup.com/NYC-PyLadies/">NYC
+PyLadies</a>, <a class="reference external" href="https://www.girldevelopit.com/">Girl Develop
+It</a>, <a class="reference external" href="https://djangogirls.org/nyc/">Django Girls
+NYC</a>, <a class="reference external" href="http://www.writespeakcode.com/">Write Speak
+Code</a>, and <a class="reference external" href="http://wimlds.org/">Women in Machine Learning and Data
+Science</a>.</p>
+<p>Working with Open Camps and the United Nations this year let us make 2016 the
+most affordable and largest PyGotham to date. We hope this better accomplishes
+our goals of promoting open source software and making Python education more
+accessible to all.</p>
+<p>— Jon Banafato</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Open Camp is a community-organized open source technology conference, which
+also happens to be one of the largest open source conferences in the world.
+This year (our 5th) nearly 6,000 individuals attended over the course of 10
+days.</p>
+<p>Open Camps is “mission-driven”: we’re distinguished from other conferences by
+our focus on how technology is used, its impact on the world, and its
+alignment with humanitarian ideals. Rather than proscribe, however, Open Camps
+provides a forum where these topics can be discussed.</p>
+<p>At the start we were on the campuses of Columbia University and NYU. For the
+past three years we’ve been graciously hosted by the United Nations at their
+world headquarters in New York. <a class="reference external" href="http://www.un.org/press/en/2016/pi2160.doc.htm">Open Camps at the UN is a
+collaboration</a> of the United
+Nations Open Source Innovation Initiative (Unite Open Source), the Open Camps
+organizing team and dozens of open-source communities.</p>
+<p>Open Camps is dedicated to the principles of inclusiveness and diversity, and
+has always been free for anyone to attend. Our 2013 theme was “Get Off the
+Island”—we wanted to combat isolationism in communities of technology. Our
+first year at the UN we chose the theme “Women in Technology” featuring two
+keynote addresses by influential women in tech, and a panel discussion.</p>
+<p>Since the beginning, we’ve included the “Next Generation” initiative for youth
+in technology. We work with <a class="reference external" href="http://www.csnyc.org/">CSNYC</a> and
+<a class="reference external" href="https://www.scripted.org/">ScriptEd</a>. Open Camp speakers have been as young
+as 11 years old. The Next Gen program is also ongoing, and we have hosted
+numerous hands-on workshops teaching youth how to use open source technology.</p>
+<p>Long terms goals for Open Camps include a “tech assembly”: we want to bring
+together thought leaders from around the globe to engage in a broader
+conversation. We’ll discuss consensus-driven tech, and technology transfer of
+open source tools and best practices between the “technology haves” and the
+technology “have nots”.</p>
+<p>We care about giving back. Each year we host programs ranging from “Coding for
+a Cause” to “Hacking for Humanity.” Last year we had a ground-breaking event:
+not just the first Hackathon at the UN, but the first 24 hour hackathon. This
+year, our Unite For Humanity Hackathon drew 20 teams, again to spend 24 hours
+building solutions for the UN’s 17 Sustainable Development Goals. The winning
+team will then work with the UN to develop their hackathon project into an
+application.</p>
+<p>— Forest Mars</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIg5iaD9F955CINkvKbZ3Tp8CzxV2vc1OY_OW2J7LLB6hFkRsT3_MRIHV0mbFRmzrFnJ17fbeLU9-zwjl_WIg1PtffkTspyz0hu87GvS1aHZDyC1YruFwibmDKGo8ANFFXhA/s400/IMG_2134.jpg">![Image description: man posing in front of old-fashioned gray communications
+gear. There are analog meters, a tape-to-tape reel, a cathode-ray tube screen
+surrounded by switches, buttons, and dials. Directly behind the man is a
+plugboard with dozens of
+sockets.</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIg5iaD9F955CINkvKbZ3Tp8CzxV2vc1OY_OW2J7LLB6hFkRsT3_MRIHV0mbFRmzrFnJ17fbeLU9-zwjl_WIg1PtffkTspyz0hu87GvS1aHZDyC1YruFwibmDKGo8ANFFXhA/s1600/IMG_2134.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIg5iaD9F955CINkvKbZ3Tp8CzxV2vc1OY_OW2J7LLB6hFkRsT3_MRIHV0mbFRmzrFnJ17fbeLU9-zwjl_WIg1PtffkTspyz0hu87GvS1aHZDyC1YruFwibmDKGo8ANFFXhA/s1600/IMG_2134.jpg</a>)
+—
+_Your correspondent, standing in front of vintage United Nations
+communications gear._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2016-06-psf-success.html">
+      
+      <span>The PSF’s Growing Success</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2016-08-avoiding-curse-of-knowledge-ned-batchelder.html">
+      <span>“Avoiding the Curse of Knowledge”: Community Service Award Recipient Ned Batchelder</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

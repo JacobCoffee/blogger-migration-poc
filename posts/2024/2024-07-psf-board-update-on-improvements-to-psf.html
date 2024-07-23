@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PSF Board update on improvements to the PSF Grants program - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="psf-board-update-on-improvements-to-the-psf-grants-program">
+<h1>PSF Board update on improvements to the PSF Grants program<a class="headerlink" href="#psf-board-update-on-improvements-to-the-psf-grants-program" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2024/07/psf-board-update-on-improvements-to-psf.html">here</a>.</p>
+<p>In December 2023 we received <a class="reference external" href="https://pythonafrica.blogspot.com/2023/12/an-open-letter-to-python-software_5.html">an open
+letter</a> from a coalition of organizers from the pan-African Python
+community asking the PSF to address concerns and frustrations around our
+Grants Program. The letter writers agreed to meet with us in December and
+January to go into more detail and share more context from the pan-African
+community. Since then, we have been doing a lot of listening and discussing
+how to better serve the community with the input that was offered.</p>
+<p>The PSF Board takes the open letter from the pan-African delegation seriously,
+and we began to draft a plan to address everything in the letter. We also set
+up improved two-way communications so that we can continue the conversation
+with the community. The writers of the open letter have now met several times
+with members of the PSF board. We are thankful for their insight and guidance
+on how we can work together and be thoroughly and consistently supportive of
+the pan-African Python community.</p>
+<p>We care a lot about building consensus and ensuring that we are promising
+solutions that have support and a realistic workflow. Building an achievable
+plan that meets the needs of the community has involved work for the PSF’s
+small staff. It also included additional conversations with and input from the
+volunteers who serve on the Board and in our working groups, especially the
+Grants Working Group. We are grateful for the input as well as the opportunity
+to improve.</p>
+<section id="plans-and-progress-on-the-grants-program">
+<h2>Plans and progress on the Grants Program<a class="headerlink" href="#plans-and-progress-on-the-grants-program" title="Link to this heading">¶</a></h2>
+<p>Here is what’s already been done:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Set up <a class="reference external" href="https://pyfound.blogspot.com/2024/02/introducing-psf-grants-office-hours.html">Grants Program Office Hours</a> to open up a line of casual sustained communication between the community and our staff members who support the grants program. Several sessions have already taken place.</p></li>
+<li><p>The PSF contracted Carol Willing to do a retrospective on the DjangoCon Africa review and approval and make suggestions for improvements or changes. We <a class="reference external" href="https://pyfound.blogspot.com/2024/03/djangocon-africa-grant-process.html">published her report</a> in March.</p></li>
+<li><p>We <a class="reference external" href="https://pyfound.blogspot.com/2024/05/psf-grants-program-2022-2023.html">published a transparency report</a> for our grants numbers from the last two years, and plan to publish a report on our grants work for every year going forward so we can continue to work in the open on continually improving the grants program.</p></li>
+<li><p>In May, the board voted that we will not override or impose any country-specific human rights regulation for Python communities when deciding whether or not to fund community-run Python or Python-related events. The Grants Program will use the same criteria for all grant requests, no matter their country of origin. This does not affect our criteria for choosing a specific US state for PyCon US and it does not change our ability to fund events in countries that are sanctioned by the US government (where the PSF is based.) Finally, the Grants Working Group will still require a robust and enforceable code of conduct and we expect local organizers to choose what is appropriate for their local community when drafting their code of conduct.</p></li>
+</ul>
+</div></blockquote>
+<p>What is on our roadmap:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>With community input, we’ll be overhauling the grant application process and requirements for applications. Our goal is to make the process inclusive and the administrative requirements as lightweight as possible, while not creating additional legal or administrative work.</p></li>
+<li><p>We’re conducting a thorough examination of our grant priorities by subject matter and location. We hope to make requesting and reviewing grants for activities beyond events easier.</p></li>
+<li><p>Continuing to reimagine the PSF Board’s responsibility within the community. Please read on for our thought process and work in this area.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="reevaluating-psf-board-member-communications-and-conduct-norms-and">
+<h2>Reevaluating PSF Board member communications and conduct norms and<a class="headerlink" href="#reevaluating-psf-board-member-communications-and-conduct-norms-and" title="Link to this heading">¶</a></h2>
+<p>standards</p>
+<p>We discussed Board member conduct and communications norms – both past and
+future – at our retreat in January. We realize that some things were said by
+past and current Board members that did not reflect the PSF’s outlook or
+values. We are working to ensure current and future Board members understand
+the power their communications have on our community. Understanding the
+expectations and responsibilities that come with service on the PSF Board is
+part of orientation for service. Going forward we plan to invest more time
+into this topic during our PSF Board orientations.</p>
+<p>The Board has agreed to hold each other accountable and use the position of
+PSF Board member responsibly in communications with the community. We
+acknowledge that PSF Board members have not always recognized the impact that
+their comments have had on community members, either in private or in public.
+Going forward, community members can report board and board-delegated working
+group members’ conduct to individuals who do not serve on the board. Two
+members of the PSF’s Code of Conduct Working Group (Jeff Triplett
+(<a class="reference external" href="mailto:jeff&#46;triplett&#37;&#52;&#48;pyfound&#46;org">jeff<span>&#46;</span>triplett<span>&#64;</span>pyfound<span>&#46;</span>org</a>) and Tereza Iofciu (email is coming)) have
+volunteered to receive these reports and handle them separately. At a time
+that Jeff or Tereza are unable to receive these reports, other non-board
+members of the Code of Conduct working group will be nominated to manage such
+reports.</p>
+</section>
+<section id="moving-forward-together">
+<h2>Moving forward together<a class="headerlink" href="#moving-forward-together" title="Link to this heading">¶</a></h2>
+<p>Moving forward, the PSF Board and Staff will continue to prioritize
+transparency through the form of the Grants Office Hours and yearly reports.
+Our focus will move from response to charter, process, and documentation
+improvements based on the findings we have made. The PSF Board will continue
+to conduct annual orientations and ad hoc check-ins on our communication and
+conduct standards. We welcome you to send your questions, comments, and
+suggestions for the Grants Program to <a class="reference external" href="mailto:grants&#37;&#52;&#48;pyfound&#46;org">grants<span>&#64;</span>pyfound<span>&#46;</span>org</a>.</p>
+<p>As the great Maya Angelou has said, “Do the best you can until you know
+better. Then, when you know better, do better.” We want to thank the pan-
+African community for showing us that we can do better and we look forward to
+being a community partner that can be counted on to hear criticism and
+continually make changes that improve our service to the Python community.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2024-07-announcing-2024-psf-board-election.html">
+      
+      <span>Announcing the 2024 PSF Board Election & Proposed Bylaw Change Results!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

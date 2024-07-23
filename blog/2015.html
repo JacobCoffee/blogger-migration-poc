@@ -1,0 +1,8327 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Posted in 2015 - Python Blog</title><link rel="shortcut icon" href="../_static/badge.svg"/><link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+<link
+  rel="alternate"
+  type="application/atom+xml"
+  href="../blog/atom.xml"
+  title="Posted in 2015"
+/>
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+
+<div class="section ablog__collection">
+  <h1>
+    
+      <span>Posted in
+      
+    2015
+    
+  </span>
+  </h1>
+  
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-12-python-cuba-workgroup.html">Python-Cuba Workgroup</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>22 December 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/conference.html">conference</a>
+  
+  
+  
+  
+  
+  <a href="tag/diversity.html">diversity</a>
+  
+  
+  
+  
+  
+  <a href="tag/open-source.html">open source</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/outreach.html">outreach</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/cuba.html">Cuba</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/12/python-cuba-workgroup.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-12-python-cuba-workgroup.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-12-google-summer-of-codeterri-oda-gets-csa.html">Google Summer of Code–Terri Oda gets CSA award!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>11 December 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/mentoring.html">mentoring</a>
+  
+  
+  
+  
+  
+  <a href="tag/students.html">students</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/outreach.html">outreach</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/google-summer-of-code.html">Google Summer of Code</a>
+  
+  
+  
+  
+  
+  <a href="tag/community-service-awards.html">community service awards</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/12/google-summer-of-codeterri-oda-gets-csa.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-12-google-summer-of-codeterri-oda-gets-csa.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-11-meet-coulson-tough-elementary-python.html">Meet the Coulson Tough Elementary Python Club</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>19 November 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/diversity.html">diversity</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/coding-literacy.html">coding literacy</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/children.html">children</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/11/meet-coulson-tough-elementary-python.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-11-meet-coulson-tough-elementary-python.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-11-pycon-japan-2015-success.html">PyCon Japan 2015: A Success</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>12 November 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/diversity.html">diversity</a>
+  
+  
+  
+  
+  
+  <a href="tag/pycon.html">pycon</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/japan.html">Japan</a>
+  
+  
+  
+  
+  
+  <a href="tag/asia-pacific.html">Asia-Pacific</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/11/pycon-japan-2015-success.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-11-pycon-japan-2015-success.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-11-first-ever-pycaribbean-coming-this.html">First-Ever PyCaribbean Coming This February!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>05 November 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/conference.html">conference</a>
+  
+  
+  
+  
+  
+  <a href="tag/call-for-proposals.html">Call for Proposals</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/python.html">python</a>
+  
+  
+  
+  
+  
+  <a href="tag/caribbean.html">Caribbean</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/11/first-ever-pycaribbean-coming-this.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-11-first-ever-pycaribbean-coming-this.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-11-register-now-for-pycon-2016.html">Register Now for PyCon 2016!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>02 November 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/conference.html">conference</a>
+  
+  
+  
+  
+  
+  <a href="tag/pycon.html">pycon</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/11/register-now-for-pycon-2016.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-11-register-now-for-pycon-2016.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-10-django-girls-seoul-great-success.html">Django Girls Seoul: A Great Success!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>29 October 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/events.html">events</a>
+  
+  
+  
+  
+  
+  <a href="tag/django-girls.html">Django Girls</a>
+  
+  
+  
+  
+  
+  <a href="tag/coding-literacy.html">coding literacy</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/10/django-girls-seoul-great-success.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-10-django-girls-seoul-great-success.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-10-twisted-trial-ported-to-python-3.html">Twisted Trial Ported to Python 3!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>23 October 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/psf-funding.html">PSF funding</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/ecosystem.html">ecosystem</a>
+  
+  
+  
+  
+  
+  <a href="tag/porting.html">porting</a>
+  
+  
+  
+  
+  
+  <a href="tag/python3.html">python3</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/10/twisted-trial-ported-to-python-3.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-10-twisted-trial-ported-to-python-3.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-10-bbcs-microbit-project-open-sourced-today.html">BBC’s micro:bit project open-sourced today!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>20 October 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/open-source.html">open source</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/bbc.html">BBC</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/uk.html">uk</a>
+  
+  
+  
+  
+  
+  <a href="tag/children.html">children</a>
+  
+  
+  
+  
+  
+  <a href="tag/development.html">development</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/10/bbcs-microbit-project-open-sourced-today.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-10-bbcs-microbit-project-open-sourced-today.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-10-python-in-cameroon-success.html">Python in Cameroon a Success!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>02 October 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/10/python-in-cameroon-success.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-10-python-in-cameroon-success.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-09-new-psf-community-mailing-list.html">New PSF Community Mailing List</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>15 September 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/09/new-psf-community-mailing-list.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-09-new-psf-community-mailing-list.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-08-greetings-readers-i-apologize-for.html">CSA Awards to Tollervey, Stinner, and Storchaka</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>31 August 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/contributions.html">contributions</a>
+  
+  
+  
+  
+  
+  <a href="tag/csa.html">CSA</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/award.html">award</a>
+  
+  
+  
+  
+  
+  <a href="tag/community-service-awards.html">community service awards</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/08/greetings-readers-i-apologize-for.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-08-greetings-readers-i-apologize-for.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-08-jessica-mckellar-receives-2015-frank.html">Jessica McKellar receives 2015 Frank Willison Award</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>13 August 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/board-of-directors.html">Board of Directors</a>
+  
+  
+  
+  
+  
+  <a href="tag/diversity.html">diversity</a>
+  
+  
+  
+  
+  
+  <a href="tag/open-source.html">open source</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/outreach.html">outreach</a>
+  
+  
+  
+  
+  
+  <a href="tag/oscon.html">oscon</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/award.html">award</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/08/jessica-mckellar-receives-2015-frank.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-08-jessica-mckellar-receives-2015-frank.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-07-pyohio-young-coders-to-receive-psf.html">PyOhio Young Coders to receive PSF Funding</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>13 July 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/psf-funding.html">PSF funding</a>
+  
+  
+  
+  
+  
+  <a href="tag/pycon.html">pycon</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/pyohio.html">PyOhio</a>
+  
+  
+  
+  
+  
+  <a href="tag/young-coders.html">Young Coders</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/07/pyohio-young-coders-to-receive-psf.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-07-pyohio-young-coders-to-receive-psf.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-07-correction-to-microbit-post-no-internal.html">Correction to Micro:bit post: no internal battery!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>08 July 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/07/correction-to-microbit-post-no-internal.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-07-correction-to-microbit-post-no-internal.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-07-bbc-microbit-successfully-launched.html">BBC Micro:bit successfully  launched!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>07 July 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/open-source.html">open source</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/bbc.html">BBC</a>
+  
+  
+  
+  
+  
+  <a href="tag/outreach.html">outreach</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/coding-literacy.html">coding literacy</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/07/bbc-microbit-successfully-launched.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-07-bbc-microbit-successfully-launched.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-07-pycon-singapore.html">PyCon Singapore</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>02 July 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/pycon.html">pycon</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/asia-pacific.html">Asia-Pacific</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/python.html">python</a>
+  
+  
+  
+  
+  
+  <a href="tag/sponsorship.html">sponsorship</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/07/pycon-singapore.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-07-pycon-singapore.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-06-csa-goes-to-psf-brochure-creators.html">CSA goes to PSF Brochure Creators</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>30 June 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/public-relations.html">public relations</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/award.html">award</a>
+  
+  
+  
+  
+  
+  <a href="tag/community-service-awards.html">community service awards</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/06/csa-goes-to-psf-brochure-creators.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-06-csa-goes-to-psf-brochure-creators.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-06-nicholas-tollervey-and-python-in.html">Nicholas Tollervey and Python in Education</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>12 June 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/board-of-directors.html">Board of Directors</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/europython.html">europython</a>
+  
+  
+  
+  
+  
+  <a href="tag/edu-sig.html">edu-sig</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/06/nicholas-tollervey-and-python-in.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-06-nicholas-tollervey-and-python-in.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-06-mark-hammond-receives-distinguished.html">Mark Hammond Receives Distinguished Service Award</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>09 June 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/06/mark-hammond-receives-distinguished.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-06-mark-hammond-receives-distinguished.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-06-sponsor-election-results.html">Sponsor Election Results!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>08 June 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/06/sponsor-election-results.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-06-sponsor-election-results.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-06-the-election-process-and-new-psf.html">The Election Process and the new PSF Election Administrator</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>05 June 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/board-of-directors.html">Board of Directors</a>
+  
+  
+  
+  
+  
+  <a href="tag/election.html">election</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/democracy.html">democracy</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/06/the-election-process-and-new-psf.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-06-the-election-process-and-new-psf.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-06-congratualations-to-new-board-of.html">Congratulations to the new Board of Directors!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>02 June 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/board-of-directors.html">Board of Directors</a>
+  
+  
+  
+  
+  
+  <a href="tag/e-vote.html">e-vote</a>
+  
+  
+  
+  
+  
+  <a href="tag/election.html">election</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/democracy.html">democracy</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/06/congratualations-to-new-board-of.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-06-congratualations-to-new-board-of.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-05-read-docs-growing-with-little-help-from.html">Read the Docs: growing with a little help from its friends at the PSF (and elsewhere)</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>17 May 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/ecosystem.html">ecosystem</a>
+  
+  
+  
+  
+  
+  <a href="tag/job-board.html">job board</a>
+  
+  
+  
+  
+  
+  <a href="tag/documentation.html">documentation</a>
+  
+  
+  
+  
+  
+  <a href="tag/development.html">development</a>
+  
+  
+  
+  
+  
+  <a href="tag/award.html">award</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/05/read-docs-growing-with-little-help-from.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-05-read-docs-growing-with-little-help-from.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-05-psf-funds-development-armin-rigos-cffi.html">PSF funds development: Armin Rigo’s CFFI 1.0</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>08 May 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/open-source.html">open source</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/c.html">C</a>
+  
+  
+  
+  
+  
+  <a href="tag/python.html">python</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/development.html">development</a>
+  
+  
+  
+  
+  
+  <a href="tag/pypy.html">pypy</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/05/psf-funds-development-armin-rigos-cffi.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-05-psf-funds-development-armin-rigos-cffi.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-05-new-board-election-important-please-read.html">New Board Election! Important! Please Read!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>07 May 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/board-of-directors.html">Board of Directors</a>
+  
+  
+  
+  
+  
+  <a href="tag/deadlines.html">deadlines</a>
+  
+  
+  
+  
+  
+  <a href="tag/election.html">election</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/outreach.html">outreach</a>
+  
+  
+  
+  
+  
+  <a href="tag/opportunity.html">opportunity</a>
+  
+  
+  
+  
+  
+  <a href="tag/events.html">events</a>
+  
+  
+  
+  
+  
+  <a href="tag/nominate.html">nominate</a>
+  
+  
+  
+  
+  
+  <a href="tag/democracy.html">democracy</a>
+  
+  
+  
+  
+  
+  <a href="tag/foundation.html">foundation</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/05/new-board-election-important-please-read.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-05-new-board-election-important-please-read.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-05-psfnumfocus-joint-working-group-on.html">PSF/NumFOCUS joint Working Group on Scientific Python</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>01 May 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/open-source.html">open source</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/non-profit.html">non-profit</a>
+  
+  
+  
+  
+  
+  <a href="tag/working-group.html">Working Group</a>
+  
+  
+  
+  
+  
+  <a href="tag/scipy.html">scipy</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/numfocus.html">NumFocus</a>
+  
+  
+  
+  
+  
+  <a href="tag/science.html">Science</a>
+  
+  
+  
+  
+  
+  <a href="tag/scientific-computing.html">Scientific Computing</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/05/psfnumfocus-joint-working-group-on.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-05-psfnumfocus-joint-working-group-on.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-south-african-brothers-and-sisters-for.html">South African Brothers and Sisters for Python</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>30 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/diversity.html">diversity</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/outreach.html">outreach</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/non-profit.html">non-profit</a>
+  
+  
+  
+  
+  
+  <a href="tag/africa.html">Africa</a>
+  
+  
+  
+  
+  
+  <a href="tag/edu-sig.html">edu-sig</a>
+  
+  
+  
+  
+  
+  <a href="tag/python.html">python</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/south-african-brothers-and-sisters-for.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-south-african-brothers-and-sisters-for.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-reminder-friday-may-1-deadline-for-psf.html">Reminder: Friday May 1 deadline for PSF Board nominations</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>28 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/reminder-friday-may-1-deadline-for-psf.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-reminder-friday-may-1-deadline-for-psf.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-highly-contagious-python-spreads.html">Highly Contagious: Python Spreads through South America!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>28 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/diversity.html">diversity</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/advocacy.html">advocacy</a>
+  
+  
+  
+  
+  
+  <a href="tag/outreach.html">outreach</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/events.html">events</a>
+  
+  
+  
+  
+  
+  <a href="tag/south-america.html">South America</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/highly-contagious-python-spreads.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-highly-contagious-python-spreads.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-finding-global-voices.html">Finding global voices</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>23 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/nominations.html">nominations</a>
+  
+  
+  
+  
+  
+  <a href="tag/diversity.html">diversity</a>
+  
+  
+  
+  
+  
+  <a href="tag/election.html">election</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/nominate.html">nominate</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/democracy.html">democracy</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/finding-global-voices.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-finding-global-voices.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-run-for-board-of-directors.html">Run for the Board of Directors!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>17 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/election.html">election</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/nominate.html">nominate</a>
+  
+  
+  
+  
+  
+  <a href="tag/call.html">call</a>
+  
+  
+  
+  
+  
+  <a href="tag/director.html">director</a>
+  
+  
+  
+  
+  
+  <a href="tag/psf.html">PSF</a>
+  
+  
+  
+  
+  
+  <a href="tag/board.html">board</a>
+  
+  
+  
+  
+  
+  <a href="tag/democracy.html">democracy</a>
+  
+  
+  
+  
+  
+  <a href="tag/foundation.html">foundation</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/run-for-board-of-directors.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-run-for-board-of-directors.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-my-dinner-with-katie.html">My Dinner with Katie</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>17 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/conference.html">conference</a>
+  
+  
+  
+  
+  
+  <a href="tag/pycon.html">pycon</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/education.html">education</a>
+  
+  
+  
+  
+  
+  <a href="tag/edu-sig.html">edu-sig</a>
+  
+  
+  
+  
+  
+  <a href="tag/young-coders.html">Young Coders</a>
+  
+  
+  
+  
+  
+  <a href="tag/coding-literacy.html">coding literacy</a>
+  
+  
+  
+  
+  
+  <a href="tag/children.html">children</a>
+  
+  
+  
+  
+  
+  <a href="tag/memories-of-lost-time.html">Memories of Lost Time</a>
+  
+  
+  
+  
+  
+  <a href="tag/community-service-awards.html">community service awards</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/my-dinner-with-katie.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-my-dinner-with-katie.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-board-of-directions-nomination.html">Board of Directions Nomination Instructions Update</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>17 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/board-of-directions-nomination.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-board-of-directions-nomination.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-python-x-southwest-scipy-in-austin.html">Python X Southwest: SciPy in Austin!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>15 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/python-x-southwest-scipy-in-austin.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-python-x-southwest-scipy-in-austin.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-psf-supports-more-django-girls.html">PSF supports more Django Girls!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>15 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/psf-supports-more-django-girls.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-psf-supports-more-django-girls.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-psf-python-brochure-get-your-free-copy.html">PSF Python Brochure: Get your free copy at PyCon 2015</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>09 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/pycon.html">pycon</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/advocacy.html">advocacy</a>
+  
+  
+  
+  
+  
+  <a href="tag/brochure.html">brochure</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/public-relations.html">public relations</a>
+  
+  
+  
+  
+  
+  <a href="tag/volunteers.html">volunteers</a>
+  
+  
+  
+  
+  
+  <a href="tag/sponsorship.html">sponsorship</a>
+  
+  
+  
+  
+  
+  <a href="tag/support.html">support</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/psf-python-brochure-get-your-free-copy.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-psf-python-brochure-get-your-free-copy.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-psf-to-sponsor-plone-bucharest-2015.html">PSF to sponsor Plone Bucharest 2015!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>06 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/psf-to-sponsor-plone-bucharest-2015.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-psf-to-sponsor-plone-bucharest-2015.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-psf-seeks-event-coordinatoradministrator.html">PSF Seeks Event Coordinator/Administrator</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>06 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/psf-seeks-event-coordinatoradministrator.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-psf-seeks-event-coordinatoradministrator.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-04-pycon-2018-2019-in-havana-cuba.html">PyCon 2018-2019 in Havana, Cuba!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>01 April 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/04/pycon-2018-2019-in-havana-cuba.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-04-pycon-2018-2019-in-havana-cuba.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-for-shes-jolly-good-psf-fellow.html">For S/He’s a Jolly Good…The PSF Fellow Recognition Program</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>31 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/for-shes-jolly-good-psf-fellow.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-for-shes-jolly-good-psf-fellow.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-to-sublicense-or-not-to-sublicense-that.html">To sublicense or not to sublicense? That is the election.</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>27 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/to-sublicense-or-not-to-sublicense-that.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-to-sublicense-or-not-to-sublicense-that.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-world-domination-one-student-at-time.html">World Domination: One Student at a Time!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>26 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/world-domination-one-student-at-time.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-world-domination-one-student-at-time.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-personal-opinion-i-think-its-always.html">Let’s make decisions together!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>24 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/personal-opinion-i-think-its-always.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-personal-opinion-i-think-its-always.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-google-summer-of-code-applications-are.html">Google Summer of Code Applications are open!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>24 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/google-summer-of-code-applications-are.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-google-summer-of-code-applications-are.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-raspberry-pi-2-even-more-delicious.html">Raspberry Pi 2: Even More Delicious!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>20 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/raspberry-pi-2-even-more-delicious.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-raspberry-pi-2-even-more-delicious.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-psf-python-job-board-relaunched.html">PSF Python Job Board relaunched !</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>19 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/jobs.html">jobs</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/opportunity.html">opportunity</a>
+  
+  
+  
+  
+  
+  <a href="tag/donations.html">donations</a>
+  
+  
+  
+  
+  
+  <a href="tag/job-board.html">job board</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/development.html">development</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/psf-python-job-board-relaunched.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-psf-python-job-board-relaunched.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-manuel-kaufmann-and-python-in-argentina.html">Manuel Kaufmann and Python in Argentina</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>16 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/manuel-kaufmann-and-python-in-argentina.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-manuel-kaufmann-and-python-in-argentina.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-unicef-pi4learning.html">Unicef Pi4Learning</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>13 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/unicef-pi4learning.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-unicef-pi4learning.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-membership-vote.html">Membership Vote</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>13 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/membership-vote.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-membership-vote.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-bbc-launches-microbit.html">BBC launches MicroBit</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>12 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/bbc-launches-microbit.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-bbc-launches-microbit.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-hyperion-development-awarded-fourth-psf.html">Hyperion Development Awarded Fourth PSF grant</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>05 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/hyperion-development-awarded-fourth-psf.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-hyperion-development-awarded-fourth-psf.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-python-namibia.html">Python Namibia</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>04 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/python-namibia.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-python-namibia.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-03-pycon-cameroon.html">Pycon Cameroon</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>04 March 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/pycon-cameroon.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-03-pycon-cameroon.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-02-john-pinner.html">John Pinner</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>26 February 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/02/john-pinner.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-02-john-pinner.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-02-psf-community-service-award-goes-to.html">PSF Community Service Award goes to Django Girls</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>22 February 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/02/psf-community-service-award-goes-to.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-02-psf-community-service-award-goes-to.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-02-enroll-as-psf-voting-member.html">Enroll as PSF Voting Member</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>19 February 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/02/enroll-as-psf-voting-member.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-02-enroll-as-psf-voting-member.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-02-raspbery-pis-in-space-astropi.html">Raspberry Pis in Space: AstroPi</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>18 February 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/02/raspbery-pis-in-space-astropi.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-02-raspbery-pis-in-space-astropi.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-02-the-esteemed-international-scientific.html">Python featured in “Nature”</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>12 February 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/02/the-esteemed-international-scientific.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-02-the-esteemed-international-scientific.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-02-pycon-belarus.html">PyCon Belarus</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>10 February 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/02/pycon-belarus.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-02-pycon-belarus.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-02-geek-girls-carrots-coming-to-pycon-2015.html">Geek Girls Carrots coming to PyCon 2015!</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>05 February 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/02/geek-girls-carrots-coming-to-pycon-2015.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-02-geek-girls-carrots-coming-to-pycon-2015.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-02-psf-python-brochure-sold-out-help-us.html">PSF Python Brochure “sold out” - help us kick start the second print run !</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>04 February 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/02/psf-python-brochure-sold-out-help-us.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-02-psf-python-brochure-sold-out-help-us.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-02-django-girls-warsaw-carrot-coding.html">Geek Girls Carrots Warsaw workshop</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>03 February 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/02/django-girls-warsaw-carrot-coding.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-02-django-girls-warsaw-carrot-coding.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-01-2015-psf-news-blog-post-3-psf-brochure.html">The PSF Brochure</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>28 January 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/01/2015-psf-news-blog-post-3-psf-brochure.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-01-2015-psf-news-blog-post-3-psf-brochure.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-01-2014-year-in-review-part-2.html">2014 Year in Review, Part 2</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>23 January 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/01/2014-year-in-review-part-2.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-01-2014-year-in-review-part-2.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-01-2014-year-in-review.html">2014 Year in Review</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>19 January 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/01/2014-year-in-review.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-01-2014-year-in-review.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  <div class="section ablog-post">
+    <h2 class="ablog-post-title">
+      <a href="../posts/2015/2015-01-python-events-calendars-please-submit.html">Python Events Calendars - Please submit your 2015 events</a>
+    </h2>
+    <ul class="ablog-archive">
+      <li>
+        
+        
+        <span>13 January 2015</span>
+        
+      </li>
+      <div class="ablog-sidebar-item ablog__postcard2">
+
+
+<li id="ablog-sidebar-item author ablog__author">
+  <span>
+    
+    Author:
+    
+    </span>
+  
+  
+  <a href="author/psf.html">PSF</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item location ablog__location">
+  <span>
+    
+    Location:
+    
+    </span>
+  
+  
+  <a href="location/world.html">World</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item language ablog__language">
+  <span>
+    
+    Language:
+    
+    </span>
+  
+  
+  <a href="language/en.html">en</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item category ablog__category">
+  <span>
+    
+    Category:
+    
+    </span>
+  
+  
+  <a href="category/legacy.html">Legacy</a>
+  
+  
+  
+</li>
+
+
+<li id="ablog-sidebar-item tags ablog__tags">
+  <span>
+    
+    
+    Tags:
+    
+    
+    </span>
+  
+  
+  <a href="tag/conference.html">conference</a>
+  
+  
+  
+  
+  
+  <a href="tag/pycon.html">pycon</a>
+  
+  
+  
+  
+  
+  <a href="tag/post.html">post</a>
+  
+  
+  
+  
+  
+  <a href="tag/calendar.html">calendar</a>
+  
+  
+  
+  
+  
+  <a href="tag/community.html">community</a>
+  
+  
+  
+  
+  
+  <a href="tag/public-relations.html">public relations</a>
+  
+  
+  
+  
+  
+  <a href="tag/service.html">service</a>
+  
+  
+  
+  
+  
+  <a href="tag/user-groups.html">user groups</a>
+  
+  
+  
+  
+  
+  <a href="tag/legacy-blogger.html">legacy-blogger</a>
+  
+  
+  
+</li>
+
+
+</div>
+    </ul>
+    <p class="ablog-post-excerpt"><p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/01/python-events-calendars-please-submit.html">here</a>.</p>
+</p>
+
+    <p class="ablog-post-expand"><a href="../posts/2015/2015-01-python-events-calendars-please-submit.html"><em>Read more ...</em></a></p>
+    <hr/>
+  </div>
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

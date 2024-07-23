@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Python Core Developer Mentorship - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="python-core-developer-mentorship">
+<h1>Python Core Developer Mentorship<a class="headerlink" href="#python-core-developer-mentorship" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/05/python-core-developer-mentorship.html">here</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq_TGJRi9RSnTATtMXtbfEvwDCd2khNu7yIydB8xtSB92MXJH0ylSixQhRx_4FLmwXF76nZoP4_16tghpdEYnOcTvl9moMV5EZ4Jy9vyHRuvKCo8mXcg2D6uwaPRSuhYf4mg/s640/mentorship-1.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq_TGJRi9RSnTATtMXtbfEvwDCd2khNu7yIydB8xtSB92MXJH0ylSixQhRx_4FLmwXF76nZoP4_16tghpdEYnOcTvl9moMV5EZ4Jy9vyHRuvKCo8mXcg2D6uwaPRSuhYf4mg/s1600/mentorship-1.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjq_TGJRi9RSnTATtMXtbfEvwDCd2khNu7yIydB8xtSB92MXJH0ylSixQhRx_4FLmwXF76nZoP4_16tghpdEYnOcTvl9moMV5EZ4Jy9vyHRuvKCo8mXcg2D6uwaPRSuhYf4mg/s1600/mentorship-1.jpg</a>)</p>
+<p>Core developer Victor Stinner described to the Language Summit his method of
+mentoring potential new core developers. His former apprentices Pablo Galindo
+Salgado and Cheryl Sabella, who have both been promoted to core developer in
+the last year, recounted their experiences of the mentorship program.</p>
+<p><em>`Read more 2019 Python Language Summit
+coverage &lt;https://pyfound.blogspot.com/2019/05/the-2019-python-language-
+summit.html&gt;`_.</em>
+*
+*</p>
+</section>
+<section id="barriers-to-entry">
+<h1>Barriers To Entry<a class="headerlink" href="#barriers-to-entry" title="Link to this heading">¶</a></h1>
+<p>Python needs more core developers now, according to Stinner, to spread the
+burden of maintaining the code and reviewing contributions. Regular
+contributors can be promoted to the core team, but this process can take up to
+five years and few contributors stay engaged for long enough, because
+contributing to the Python project is discouraging.</p>
+<p>Contributors’ main frustration is that pull requests can languish for months
+or years without a review, so they give up and seek a responsive project
+instead. Python is caught in a Catch-22, where the core team’s understaffing
+makes the project unwelcoming to potential recruits, which means the team
+stays understaffed. But there are other hurdles for contributors: The code
+base is 30 years old, with some dusty corners and complex parts, and it
+supports a wild variety of platforms. Python’s popularity can also be a
+barrier; it is frightening to modify code used by millions of people.</p>
+</section>
+<section id="the-fast-path-to-the-core-team">
+<h1>The Fast Path To The Core Team<a class="headerlink" href="#the-fast-path-to-the-core-team" title="Link to this heading">¶</a></h1>
+<p>Stinner described how core developers can overcome the Catch-22 by personally
+mentoring prospective teammates, as he does. He identifies promising coders
+who contribute frequently, and contacts them to offer mentorship.</p>
+<p>Stinner said that a mentor must follow the apprentice’s progress closely over
+a period of many months, at least. Not all worthwhile effort results in a Git
+commit: an apprentice must spend time learning the workflow, the codebase, and
+so on. With close attention, a mentor will know that the apprentice is making
+progress even during quiet periods. Once an apprentice submits a pull request,
+the mentor’s job is to provide a prompt, thorough review, or recruit the
+appropriate expert to do so.</p>
+<p>Stinner admitted that it is difficult to prioritize among the many items on
+his to-do list, so he dedicates time on his schedule for mentoring to ensure
+he is available for his apprentice. It is particularly important to ask
+regularly, “What are you doing? Are you stuck? Do you need some help?”</p>
+<p>The main goal of the mentorship is to keep the apprentice motivated to
+contribute to Python. Compared to the usual contributor’s experience of
+submitting a patch and getting no response for months, an apprentice with a
+committed mentor will have reliable feedback and encouragement. If the mentor
+and apprentice stay engaged for long enough, the apprentice can earn the
+mentor’s trust and be nominated for promotion to the core team.</p>
+<p>In Stinner’s view, mentorship must happen in private, so the apprentice can be
+comfortable asking “dumb” questions. The mentorship should also be secret, at
+least at the beginning. Core developer Ned Deily commented that it would be
+helpful to know who is being mentored so he could prioritize reviewing their
+patches and answering their questions. But Stinner said he does not announce
+when he begins mentoring someone, to avoid pressure. “It can be very scary to
+see many people looking at your work.”</p>
+<p>Mentors should provide a series of rewards for apprentices to earn. Stinner
+said that he initially considered gamifying the mentorship process with
+badges, but rejected this idea. Instead, contributors are rewarded with ever
+greater responsibilities. Bug triage is a good first responsibility, since the
+cost of mistakes is trivial: a bug closed in error can be reopened, a
+mislabelled bug can be labelled correctly. In Stinner’s experience,
+apprentices are eager to gain more responsibility and they take each new task
+seriously. “They understand what it means and they do their best not to make
+mistakes.”</p>
+<p>Stinner invited two recently promoted core developers to describe their
+experience as apprentices.</p>
+</section>
+<section id="pablo-galindo-salgado">
+<h1>Pablo Galindo Salgado<a class="headerlink" href="#pablo-galindo-salgado" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_3IUfcQntvLlyw9SwzNfWtEceWZIKQBQaJg7iycwSZJKS8niHKAb76gIoqxRLej4cPzrQnkYt-8kP4TB2aWtnfxEZd4PhrWHrzs7H9ksTxSV36dqVlTr25_g1_YaA51wSUw/s640/mentorship-2.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_3IUfcQntvLlyw9SwzNfWtEceWZIKQBQaJg7iycwSZJKS8niHKAb76gIoqxRLej4cPzrQnkYt-8kP4TB2aWtnfxEZd4PhrWHrzs7H9ksTxSV36dqVlTr25_g1_YaA51wSUw/s1600/mentorship-2.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_3IUfcQntvLlyw9SwzNfWtEceWZIKQBQaJg7iycwSZJKS8niHKAb76gIoqxRLej4cPzrQnkYt-8kP4TB2aWtnfxEZd4PhrWHrzs7H9ksTxSV36dqVlTr25_g1_YaA51wSUw/s1600/mentorship-2.jpg</a>)</p>
+<p>Pablo Galindo Salgado was promoted to core developer in June 2018. He told the
+Language Summit that one of a mentor’s most important roles is as a source of
+tribal knowledge. Many tasks as a core developer require knowledge of
+undocumented behaviors, or the historical context for a piece of code, or who
+is the current expert about a certain aspect of Python. Apprentices have an
+advantage over other contributors because they have someone to ask these
+questions.</p>
+<p>According to Galindo, there must be a moment in the mentorship where the core
+developer encourages the apprentice to embrace failure. “I committed some
+mistakes in the beginning,” he said. “When you don’t have context, you think
+you broke the world.” Victor Stinner and Yury Selivanov explained gently that
+everyone is human, and shared stories about their own past mistakes.</p>
+</section>
+<section id="cheryl-sabella">
+<h1>Cheryl Sabella<a class="headerlink" href="#cheryl-sabella" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0_J7o2jKRpEqUsNV-665xETsFA2H7FiGopqqSDx5Hl85r9vv13Vt2ZedD4xQLbGR627rjanLLLCFRrgJJgLNSn2ThNJWv9m7mO3B2mGGtpE2nswkVkEW7WaW3tYs5A87prw/s320/mentorship-3.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0_J7o2jKRpEqUsNV-665xETsFA2H7FiGopqqSDx5Hl85r9vv13Vt2ZedD4xQLbGR627rjanLLLCFRrgJJgLNSn2ThNJWv9m7mO3B2mGGtpE2nswkVkEW7WaW3tYs5A87prw/s1600/mentorship-3.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg0_J7o2jKRpEqUsNV-665xETsFA2H7FiGopqqSDx5Hl85r9vv13Vt2ZedD4xQLbGR627rjanLLLCFRrgJJgLNSn2ThNJWv9m7mO3B2mGGtpE2nswkVkEW7WaW3tYs5A87prw/s1600/mentorship-3.jpg</a>)</p>
+<p>Cheryl Sabella became a core developer in February 2019. When she began
+working on CPython two years earlier, it was the first open source project she
+had contributed to. “So I knew nothing,” she told the Language Summit.
+Fortunately, she said, the community supported her as she learned git, the
+Python development workflow, and the codebase itself. Her first pull request
+was a documentation change. When Mariatta Wijaya approved it and commented
+with the “Ta-da” emoji, says Sabella, “I was over the moon.”</p>
+<p>Sabella contributed for some time, especially to IDLE, and one day Stinner
+wrote to say that he’d granted her bug triage authority. As she recounted to
+the Language Summit, this new power made her nervous; she would never have
+asked for it. The next year, when Stinner invited her to become a core
+developer, she hesitated for so long that Stinner eventually told her, “Okay,
+I’m not going to bother you anymore about this.” Then he invited her again in
+January 2019, saying, “Well, I told you I wasn’t going to but I’m bothering
+you again.”</p>
+<p>Sabella said she had not begun the mentorship program with the intent of
+becoming a core developer, she only wanted to contribute. It was the core
+team’s regular guidance and cheerleading that motivated her to join.</p>
+</section>
+<section id="victor-stinner">
+<h1>Victor Stinner<a class="headerlink" href="#victor-stinner" title="Link to this heading">¶</a></h1>
+<p>Victor Stinner returned to the podium to share his insights as a mentor. He
+said mentors should choose apprentices who represent not only diverse
+nationalities and genders, but also diverse skill levels. The core team spends
+much of their time reviewing contributors’ pull requests, and they need a
+variety of skills and personalities to review them all: some patches are
+documentation, some are in Python or C, some require specialized knowledge,
+some are just very tedious.</p>
+<p>Stinner said that mentors should accept a range of outcomes. “It’s not a
+failure if, at the end of some mentoring, the mentoree doesn’t become a core
+developer.” Mentorships are often interrupted by professional duties or events
+in either participant’s life, or the mentor and apprentice turn out to be a
+poor match. There is value from the relationship nevertheless. The apprentice
+becomes a better Python contributor and a better programmer. The mentor
+learns, by observing the apprentice’s difficulties, about barriers to entry on
+the Python project, such as gaps in the documentation or tooling.</p>
+<p>Mentoring is a small burden, Stinner told the Language Summit. Apprentices are
+only available one day a week, typically, because Python competes with a
+regular job or university program, thus they can only consume a few hours of
+the mentor’s time. The mentorship program is efficient and effective: In the
+previous twelve months, five apprentices have been promoted to core developer.
+Stinner told the Language Summit, “I think everybody in this room can do more
+mentoring.”</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-05-mariatta-wijaya-lets-use-github-issues.html">
+      
+      <span>Mariatta Wijaya: Let’s Use GitHub Issues Already!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-01-2018-in-review.html">
+      <span>2018 in review!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2021 Python Language Summit: The Challenges of Packaging Python for a Linux Distro - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2021-python-language-summit-the-challenges-of-packaging-python-for-a-linux-distro">
+<h1>The 2021 Python Language Summit: The Challenges of Packaging Python for a Linux Distro<a class="headerlink" href="#the-2021-python-language-summit-the-challenges-of-packaging-python-for-a-linux-distro" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit_23.html">here</a>.</p>
+<p><a class="reference external" href="https://github.com/doko42">Matthias Klose</a> gave a talk about the challenges
+of packaging Python for a Linux distribution at the <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit.html">2021 Python Language
+Summit</a>. He wanted to discuss:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>CPython sources and how they fit with Debian and Ubuntu</p></li>
+<li><p>Ownership of module installations</p></li>
+<li><p>Architecture and platform support</p></li>
+<li><p>Inclusiveness and the ubiquity of Python on various platforms</p></li>
+<li><p>Communication issues</p></li>
+</ul>
+</div></blockquote>
+<section id="what-is-python-like-on-debian-and-ubuntu">
+<h2>What Is Python Like on Debian and Ubuntu?<a class="headerlink" href="#what-is-python-like-on-debian-and-ubuntu" title="Link to this heading">¶</a></h2>
+<p>He shared what Debian 11 and Ubuntu 21.04 have installed for Python. By
+default, there is almost nothing, so it’s usually pulled in by various seeds
+or images. Linux distributions usually have a mature packaging system and
+don’t ship naked CPython, unlike macOs or Windows.</p>
+<p>These Debian and Ubuntu versions still use Python 2 to bootstrap PyPI, but one
+version of Python 3 is also shipped with them. CPython itself is split into
+multiple binary packages for license issues, dependencies, development needs,
+and cross-buildability needs. There is also a new python3-full package that
+includes everything for the batteries-included experience. About twenty
+percent of the packages shipped by Debian use Python. He said that this is
+usually enough for desktop users but may not be enough for developers.
+However, the line between those two groups is not always clear.</p>
+<p>As for the QA that Python is getting in Debian and Ubuntu, for the main part
+of the archive, it must conform to the Debian Free Software Guidelines. These
+guidelines include free distribution, inclusion of source code, and ability to
+modify and create derived works. Packages have to build from source and pass
+the upstream test suite as well as CI tests.</p>
+</section>
+<section id="what-distro-specific-decisions-were-made-for-debian-and-ubuntu">
+<h2>What Distro-Specific Decisions Were Made for Debian and Ubuntu?<a class="headerlink" href="#what-distro-specific-decisions-were-made-for-debian-and-ubuntu" title="Link to this heading">¶</a></h2>
+<p>Debian has a <a class="reference external" href="https://www.debian.org/doc/packaging-manuals/python-policy/">policy for shipping Python
+packages</a> that is
+also used by Ubuntu. Usually, applications are in application-specific
+locations so they don’t get in the way of anything else. They ship modules as
+--single-version-externally-managed, and they are usually shipped only if the
+application needs them.</p>
+<p>The site-packages directory has been renamed to /usr/lib/python3/dist-packages
+and /usr/local/lib/python3.x/dist-packages for local installs. The path
+doesn’t change during Python upgrades (<a class="reference external" href="https://www.python.org/dev/peps/pep-3147/">PEP
+3147</a> and <a class="reference external" href="https://www.python.org/dev/peps/pep-3149/">PEP
+3149</a>). Although there are a large
+number of packages that use Python, pip is not used in the archive but just
+provided for use.</p>
+<p>You can’t call Python with python, python2, python3.x, or python3. There is no
+Python executable name by default to call Python because they just removed
+most of the Python 2 stuff. There is a package called python-is-python3 that
+reinstalls the Python symlink. That package was a compromise, and there was
+some difficulty getting it into Debian.</p>
+<p>In the past, there have been license issues with shipping the CPython upstream
+sources. There are still license issues with the _dbm module, which is only
+buildable with a GPL-3+ license. There were also some executables included in
+the sources that were removed for 3.10. The big remaining issue is that wheels
+are still included without the source and can’t be shipped, so you have to
+build them using the regular setuptools and pip distributions. Usually,
+symlinks and dependencies are used to point to the proper setuptools and pip
+packages.</p>
+<p>The relationship between pip and Linux distributions is a difficult one, and
+there is more than one way to install Python modules. Part of the motivation
+behind renaming site-packages to dist-packages was that pip was breaking
+desktop systems. They also wanted to resolve conflicts with locally built
+Python (installed in /usr/local).</p>
+<p>There has been some controversy about what can break your system:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>sudo rm -rf /</p></li>
+<li><p>sudo pip install pil</p></li>
+<li><p>sudo apt install python3-pil</p></li>
+</ul>
+</div></blockquote>
+<p>PyPA does not consider sudo pip install to be dangerous, but Debian and Ubuntu
+have different opinions about how pip should behave. Mixing packages from two
+different installers can lead to problems. Although <a class="reference external" href="https://www.python.org/dev/peps/pep-0517/">PEP
+517</a> appears to say that pip is
+only recommended, pip does seem to be enforced more and more. Matthias Klose
+joked that perhaps ensurepip should be renamed to enforcepip. He also said
+that having some kind of offline mode for pip would help.</p>
+<p>He discussed inclusiveness and said that Python being ubiquitous should be
+seen as an asset rather than a burden. He was sad to see negative attitudes
+towards platforms that are used less, such as AIX, and didn’t see why Python
+would want to exclude some communities.</p>
+</section>
+<section id="what-communication-issues-are-there">
+<h2>What Communication Issues Are There?<a class="headerlink" href="#what-communication-issues-are-there" title="Link to this heading">¶</a></h2>
+<p>In December or November, there were tweets about problems within Debian and
+Ubuntu. He considered some of the concerns that were brought up to be valid,
+but he said that there were also legal threats made against the Debian project
+on behalf of the PSF. He was of the opinion that all parties could improve and
+that it wasn’t just a Debian or Ubuntu problem.</p>
+<p>Here are some of the communication problems he highlighted:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Distro issues don’t reach distro people.</p></li>
+<li><p>Problems with pip breaking systems don’t reach pip developers.</p></li>
+<li><p>There is no single place to discuss PyPA issues.</p></li>
+<li><p>There have been problems with manylinux wheels built for CentOS that came up in distro channels.</p></li>
+</ul>
+</div></blockquote>
+<p>He would like to see communication improve and reminded the summit attendees
+that no group speaks with a single voice.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2021-05-the-2021-python-language-summit_22.html">
+      
+      <span>The 2021 Python Language Summit: Lightning Talks, Round 1</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2021-05-the-2021-python-language-summit-python.html">
+      <span>The 2021 Python Language Summit: The Python Documentation Work Group</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

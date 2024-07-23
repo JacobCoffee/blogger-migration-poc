@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2022 Python Language Summit: Python in the browser - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2022-python-language-summit-python-in-the-browser">
+<h1>The 2022 Python Language Summit: Python in the browser<a class="headerlink" href="#the-2022-python-language-summit-python-in-the-browser" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit-python.html">here</a>.</p>
+<p>Python can be run on many platforms: Linux, Windows, Apple Macs,
+microcomputers, and even Android devices. But it’s a widely known fact that,
+if you want code to run in a browser, Python is simply no good – you’ll just
+have to turn to JavaScript.</p>
+<p>Now, however, that may be about to change. Over the course of the last two
+years, and following over 60 CPython pull requests (many attached to GitHub
+issue <a class="reference external" href="https://github.com/python/cpython/issues/84461">#84461</a>), Core
+Developer Christian Heimes and contributor Ethan Smith have achieved a state
+where the CPython <cite>main</cite> branch can now be compiled to
+<a class="reference external" href="https://webassembly.org">WebAssembly</a>. This opens up the possibility of being
+able to run arbitrary Python programs clientside inside your web browser of
+choice.</p>
+<p>At <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit_01678898482.html">the 2022 Python Language
+Summit</a>, Heimes gave a talk updating the attendees of the
+progress he’s made so far, and where the project hopes to go next.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="webassembly-basics">
+<h2>WebAssembly basics<a class="headerlink" href="#webassembly-basics" title="Link to this heading">¶</a></h2>
+<p>WebAssembly (or “WASM”, for short), Heimes explained, is a low-level
+<a class="reference external" href="https://en.wikipedia.org/wiki/Assembly_language">assembly</a>-like language that
+can be as fast as native <a class="reference external" href="https://en.wikipedia.org/wiki/Machine_code">machine
+code</a>. Unlike your usual machine
+code, however, WebAssembly is independent from the machine it is running on.
+Instead, the core principle of WebAssembly is that it can be run _anywhere_ ,
+and can be run in a completely isolated environment. This leads to it being a
+language that is extremely fast, extremely portable, and provides minimal
+security risks – perfect for running clientside in a web browser.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXVrvjIV5Pg-7vBlGzGgVYFJAygQ2a8qe9LXiaDwLzouLJMBbHUvl6E-XR9dLV-RbeflF7YA4C61vlgWKUpHHwfe-TiAixTknVfw2TdrUGN6RpGo6bO9aM19Rc42si-dQtuaCQF_QSZVfvOqSxOvjnwjUhe6P3jx-hWFNKt9W8NXGrHTY/w400-h228/Compiling%20to%20WASM.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXVrvjIV5Pg-7vBlGzGgVYFJAygQ2a8qe9LXiaDwLzouLJMBbHUvl6E-XR9dLV">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXVrvjIV5Pg-7vBlGzGgVYFJAygQ2a8qe9LXiaDwLzouLJMBbHUvl6E-XR9dLV</a>-
+RbeflF7YA4C61vlgWKUpHHwfe-TiAixTknVfw2TdrUGN6RpGo6bO9aM19Rc42si-
+dQtuaCQF_QSZVfvOqSxOvjnwjUhe6P3jx-
+hWFNKt9W8NXGrHTY/s1105/Compiling%20to%20WASM.png)</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe_WC6ibKEMkQQTAkyJS-0N47L2GyZblm64gZnymQCFOagjRHYRStW4041pWZgXp2tR1djK4VOAFfOTUueHVyIsBrolUdprqRwMkRiMBFawhPYNdPdEQrOmnviIs06twY4QwQAygSr5Jz5OhovG1Bm3_pyqp_QOBJDloDS-luIQDrARwc/w400-h228/What%20is%20WASM.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe_WC6ibKEMkQQTAkyJS-0N47L2GyZblm64gZnymQCFOagjRHYRStW4041pWZgXp2tR1djK4VOAFfOTUueHVyIsBrolUdprqRwMkRiMBFawhPYNdPdEQrOmnviIs06twY4QwQAygSr5Jz5OhovG1Bm3_pyqp_QOBJDloDS">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhe_WC6ibKEMkQQTAkyJS-0N47L2GyZblm64gZnymQCFOagjRHYRStW4041pWZgXp2tR1djK4VOAFfOTUueHVyIsBrolUdprqRwMkRiMBFawhPYNdPdEQrOmnviIs06twY4QwQAygSr5Jz5OhovG1Bm3_pyqp_QOBJDloDS</a>-
+luIQDrARwc/s1102/What%20is%20WASM.png)</p>
+<p>After much work, CPython now cross-compiles to WebAssembly using
+<a class="reference external" href="https://emscripten.org/">emscripten</a> through the <cite>–with-emscripten-
+target=browser</cite> flag. The CPython test suite now also passes on emscripten
+builds, and work is going towards adding a buildbot to CPython’s fleet of
+automatic robot testers, to ensure this work does not regress in the future.</p>
+<p>Users who want to try out Python in the browser can try it out at
+<a class="reference external" href="https://repl.ethanhs.me/">https://repl.ethanhs.me/</a>. The work opens up
+exciting possibilities of being able to run PyGame clientside and adding
+Jupyter bindings.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOQOZPEsaISXhU9KzTBRipRUEbfLFnqjscGY5k7zDIVBJEh95lEXAc0mMRVgur-Ddy0YSPKR704GIxMvQFG_Z9dJG-qIgJ2PuDT7_B8g26p3GUYlb-M-ATRy6SbD8O0j9qgI2C-mvGwpMCqtKZzVUI3dsbngkw-Teo-WKfoFvBLTAcJYk/w400-h228/Small%20demo.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOQOZPEsaISXhU9KzTBRipRUEbfLFnqjscGY5k7zDIVBJEh95lEXAc0mMRVgur">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOQOZPEsaISXhU9KzTBRipRUEbfLFnqjscGY5k7zDIVBJEh95lEXAc0mMRVgur</a>-
+Ddy0YSPKR704GIxMvQFG_Z9dJG-qIgJ2PuDT7_B8g26p3GUYlb-M-
+ATRy6SbD8O0j9qgI2C-mvGwpMCqtKZzVUI3dsbngkw-Teo-
+WKfoFvBLTAcJYk/s1098/Small%20demo.png)</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8iEqr-gFtnHybO7OJ01jeRmjvKy1kQqGt-j6-JVSvmaKvnUu4ZA07rKe5h36lBQ9Tg2eSYUWFuF4t679ZqVvkyECAcp6swAw1R6R-8IfHObWIQZ9tMfo0-z2BmyvQRmiEMJpBqI3xY4etjZhSGI5Na0d7CrErhtKpL_2dE-8X49fOGQ8/w400-h228/PyGame%20demo.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8iEqr">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8iEqr</a>-
+gFtnHybO7OJ01jeRmjvKy1kQqGt-j6-JVSvmaKvnUu4ZA07rKe5h36lBQ9Tg2eSYUWFuF4t679ZqVvkyECAcp6swAw1R6R-8IfHObWIQZ9tMfo0-z2BmyvQRmiEMJpBqI3xY4etjZhSGI5Na0d7CrErhtKpL_2dE-8X49fOGQ8/s1121/PyGame%20demo.png)</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="support-status">
+<h2>Support status<a class="headerlink" href="#support-status" title="Link to this heading">¶</a></h2>
+<p>It should be noted that cross-compiling to WebAssembly is still highly
+experimental, and not yet officially supported by CPython. Several important
+modules in the Python standard library are not currently included in the
+bundled package produced when <cite>–with-emscripten-target=browser</cite> is specified,
+leading to a number of tests needing to be skipped in order for the test suite
+to pass.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6FiL8GyoOOZjbf5Riz36cJPg_E_MwFlAd5Ey7i8pp0xmfwI6bBSfB1WqMleeGPB-Xm2NROCUk5umsw0dAEHnWEwEZ56E39RzPtAgE7Z9VoTYMTQaCcCsEBisx0yAur_oW17UeO6PNUV_ahNZ-HzR-1whlZ0JC_nmiaZj4i8SkVK1RJMU/w400-h226/Support%20status.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6FiL8GyoOOZjbf5Riz36cJPg_E_MwFlAd5Ey7i8pp0xmfwI6bBSfB1WqMleeGPB">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg6FiL8GyoOOZjbf5Riz36cJPg_E_MwFlAd5Ey7i8pp0xmfwI6bBSfB1WqMleeGPB</a>-
+Xm2NROCUk5umsw0dAEHnWEwEZ56E39RzPtAgE7Z9VoTYMTQaCcCsEBisx0yAur_oW17UeO6PNUV_ahNZ-
+HzR-1whlZ0JC_nmiaZj4i8SkVK1RJMU/s1102/Support%20status.png)</p>
+<p>Nonetheless, the future’s bright. Only a few days after Heimes’s talk, Peter
+Wang, CEO at Anaconda, announced the launch of
+<a class="reference external" href="https://anaconda.cloud/pyscript-python-in-the-browser">_PyScript_</a> in a
+<a class="reference external" href="https://anaconda.cloud/pyscript-pycon2022-peter-wang-keynote">PyCon keynote address</a>. PyScript is a tool that allows Python to be called from within HTML,
+and to call JavaScript libraries from inside Python code – potentially
+enabling a website to be written entirely in Python.</p>
+<p>PyScript is currently built on top of
+<a class="reference external" href="https://pyodide.org/en/stable/">_Pyodide_</a> , a third-party project bringing
+Python to the browser, on which work began before Heimes started his work on
+the CPython <cite>main</cite> branch. With Heimes’s modifications to Python 3.11, this
+effort will only become easier.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2022-05-the-2022-python-language-summit_2.html">
+      
+      <span>The 2022 Python Language Summit: Performance Improvements by the Faster CPython team</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2022-05-the-2022-python-language-summit-python_11.html">
+      <span>The 2022 Python Language Summit: Python without the GIL</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

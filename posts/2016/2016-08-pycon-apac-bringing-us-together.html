@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PyCon APAC - Bringing us together - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="pycon-apac-bringing-us-together">
+<h1>PyCon APAC - Bringing us together<a class="headerlink" href="#pycon-apac-bringing-us-together" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2016/08/pycon-apac-bringing-us-together.html">here</a>.</p>
+<p>Two weekends ago I was lucky enough to get the chance to attend PyCon APAC
+2016. This year the event was held in Seoul, South Korea at the COEX
+Convention Center within the Gangnam-gu district. PyCon APAC 2016 brought
+1,500 Pythonistas together and it was organized by the PyCon Korea team. This
+was a very special trip for me as it was my first trip to Asia. The first day
+while we were figuring out the public transportation system, I did experience
+some brief challenges.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzyAHUTITTqDk9tHPmyJJFURjRBT8WravikPcKA_iA5W4Q0aIw3XjexMPEM2ekm87-8Z6tIpjzpHsjY1Ev_MfFnfdaTjApmtXcMfg74xeeQvGP2sFqpU-SWZfziXSBjqHep54/s320/IMG_5260.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzyAHUTITTqDk9tHPmyJJFURjRBT8WravikPcKA_iA5W4Q0aIw3XjexMPEM2ekm87-8Z6tIpjzpHsjY1Ev_MfFnfdaTjApmtXcMfg74xeeQvGP2sFqpU">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzyAHUTITTqDk9tHPmyJJFURjRBT8WravikPcKA_iA5W4Q0aIw3XjexMPEM2ekm87-8Z6tIpjzpHsjY1Ev_MfFnfdaTjApmtXcMfg74xeeQvGP2sFqpU</a>-
+SWZfziXSBjqHep54/s1600/IMG_5260.jpg)</p>
+<p>However, the following days at the conference settled my disorientation.
+Through this process, I realized that the same Python community qualities
+existed in South Korea as they do everywhere else in the world. We all may not
+have been able to communicate verbally, but the openness of the community
+still prevailed. The locals were welcoming, inclusive, and took the time to
+teach us Korean customs and culture. More than that, PyCon APAC 2016 stressed
+diversity of nationality and gender. One great way that the conference made
+everyone feel like they were part of the community was this sign that
+comprised all the names of the people who had pre-registered for the
+conference.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjb1AxEDBFnbftD7TDP92uZ-HOnDs3vnBrxmxgsg0ZMnjEUowUKOqepD_Njux2cGoText35BeEqF0zTbh5Tlb7JZO9dobZVRchaowBDnFFyquWazMgi8qTwn1LBLnBFw4GlehY/s320/IMG_5197.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjb1AxEDBFnbftD7TDP92uZ">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjb1AxEDBFnbftD7TDP92uZ</a>-
+HOnDs3vnBrxmxgsg0ZMnjEUowUKOqepD_Njux2cGoText35BeEqF0zTbh5Tlb7JZO9dobZVRchaowBDnFFyquWazMgi8qTwn1LBLnBFw4GlehY/s1600/IMG_5197.jpg)</p>
+<p>This meaningful sign had such a positive impact on the attendees as it acted
+as a constant reminder. I enjoyed watching attendees find their names in the
+sign, and all of the tweets that followed.</p>
+<p>Through experiencing PyCon APAC, I also learned that the organizers spend a
+great deal of effort making their community strong and open. At the conference
+I was invited to attend the PyCon APAC organizers’ meetings. During this
+meeting, the organizers addressed important questions such as “Do we continue
+PyCon APAC even though many APAC countries organize their own PyCon?” and “How
+do we continue to increase diversity?” It was decided during the meeting that
+the purpose of PyCon APAC goes beyond regional conferences and should
+continue. It helps build diversity and brings forth positive influences from
+other parts of the world. The organizers decided that each location should
+attempt to have a small portion of their budget set aside to send some of
+their community members to other “Indo-Asia-Pacific” regional conferences,
+especially the yearly APAC conference itself. Hearing how the team of
+organizers valued such questions and discussions showed me that they valued
+our community and that is one reason why their conferences are so successful.</p>
+<p>&gt; Had the chance 2 contribute 2 powerful discussions. Met organizers from KR,
+&gt; HK, MY, PH, TW, VN, JP, SG
+&gt; <a class="reference external" href="https://twitter.com/hashtag/pyconapac?src=hash">#pyconapac</a>
+&gt; <a class="reference external" href="https://t.co/3gMHjDzdsz">pic.twitter.com/3gMHjDzdsz</a>
+&gt;
+&gt; — Ewa Jodlowska (&#64;ewa_jodlowska) <a class="reference external" href="https://twitter.com/ewa_jodlowska/status/764958064176836608">August 14,
+&gt; 2016</a></p>
+<p>Beyond community importance, the conference brought us together to discuss
+core Python development. Some of the questions I heard at the PSF booth were,
+“<a class="reference external" href="https://www.youtube.com/watch?v=YgtL4S7Hrwo">When will Python 2.7.x stop being
+supported?</a>” and “What will
+happen to those of us that use 2.7.x in a corporate setting?” Their questions
+were based on PEP 373 and PEP 494, and their worries were relevant ones. Many
+think that Python 3.5.x still needs a lot more work before developers no
+longer need Python 2. Those questions are hard, and no one has an absolute
+answer, no matter how strong their beliefs. But our discussions led to how we
+all need to work on making Python 3.x better, since it is the future of the
+language. We discussed the need to port packages from Python 2 to 3, and the
+need for corporate support.</p>
+<p>&gt; Constant reminders to use Python 3 for your wrist
+&gt; <a class="reference external" href="https://twitter.com/hashtag/PyConAPAC?src=hash">#PyConAPAC</a>
+&gt; <a class="reference external" href="https://t.co/FG7kIc9TGZ">pic.twitter.com/FG7kIc9TGZ</a>
+&gt;
+&gt; — Ian Lewis (&#64;IanMLewis) <a class="reference external" href="https://twitter.com/IanMLewis/status/764281662033108992">August 13,
+&gt; 2016</a></p>
+<p>Regardless of the PyCon 2 vs Python 3 debate, the attendees were excited to
+get coding during the PyCon APAC Sprints. This was the first time the PyCon
+Korea team held sprints, and they did not know how many sprinters to expect.
+They were overwhelmed when that day came and they had to book additional space
+to accommodate everyone. As an organizer, I can tell you that this is a good
+problem to have, especially when the organizers react properly and swiftly.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJFH4qNLjslsjCgLGNBwWGNdwKHDqJgNfxvGubfpFqj7D7s46BcGxXoiK4VIC20euWPekAAq-60WmUwgnYgYuiFSNbIBiApgUlU0OU6aGLbaq92yMzi4EDZcRtN2KrY5X9rog/s320/IMG_5238.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJFH4qNLjslsjCgLGNBwWGNdwKHDqJgNfxvGubfpFqj7D7s46BcGxXoiK4VIC20euWPekAAq-60WmUwgnYgYuiFSNbIBiApgUlU0OU6aGLbaq92yMzi4EDZcRtN2KrY5X9rog/s1600/IMG_5238.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJFH4qNLjslsjCgLGNBwWGNdwKHDqJgNfxvGubfpFqj7D7s46BcGxXoiK4VIC20euWPekAAq-60WmUwgnYgYuiFSNbIBiApgUlU0OU6aGLbaq92yMzi4EDZcRtN2KrY5X9rog/s1600/IMG_5238.jpg</a>)</p>
+<p>During the Sprints/Tutorial day, Pythonistas attended a sprint about Pandas &amp;
+PyData led by one of the creators of the pandas project, Wes McKinney. The
+picture above shows hands-on learning at the tutorial for DjangoCupcake.
+Others attended sessions about the Django Rest Framework, Write the Docs, Tox,
+Travis, and aiohttp led by Andrew Svetlov, a core Python developer.</p>
+<p>Establishing connections with Pythonistas from the APAC region and beyond made
+the long flights to and from Seoul worth every minute. I hope to attend future
+PyCon APACs and reconnect with all the wonderful people I met during the
+conference. Thank you, organizers and attendees, for a memorable conference!</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2016-08-in-beginning-there-was-one-python-group.html">
+      
+      <span>“In the beginning, there was one Python group”: Community Service Award Recipient Stéphane Wirtel</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2016-10-opening-bbc-microbit.html">
+      <span>Opening the BBC micro:bit</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>A Million Children - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="a-million-children">
+<h1>A Million Children<a class="headerlink" href="#a-million-children" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2016/03/a-million-children.html">here</a>.</p>
+<p>Today, March 22nd, the <a class="reference external" href="http://bbc.co.uk/">British Broadcasting Corporation</a>
+(BBC) begin to deliver 1 million small programmable devices to the UK’s 11 and
+12 year old children. The aim is to inspire a new generation of digital
+creators. The device is called a <a class="reference external" href="http://microbit.co.uk/">BBC micro:bit</a> and,
+among other things, it runs <a class="reference external" href="http://micropython.org/">MicroPython</a>.</p>
+<p>&gt; Tomorrow’s the day when the
+&gt; <a class="reference external" href="https://twitter.com/hashtag/bbcmicrobit?src=hash">#bbcmicrobit</a> arrives in
+&gt; pupils hands. <a class="reference external" href="https://t.co/XnJVYc4bME">pic.twitter.com/XnJVYc4bME</a> Get
+&gt; ready to write the future
+&gt; <a class="reference external" href="https://twitter.com/hashtag/microbit?src=hash">#microbit</a>
+&gt;
+&gt; – BBC Make It Digital (&#64;BBCMIDigital) <a class="reference external" href="https://twitter.com/BBCMIDigital/status/711946540642902020">March 21,
+&gt; 2016</a></p>
+<p>The device is about the size of a credit card, comes in different colours and
+consists of a couple of buttons, a 5x5 LED matrix, I/O pins, an accelerometer,
+compass, ARM processor, micro-USB port, battery connector and BLE. Over the
+coming weeks all the software and hardware plans needed to recreate the
+project will be released under an open license. If you have the time and
+money, you could fork this work and make your own.</p>
+<p>Since the project’s inception, the Python Software Foundation has been a
+member of the partnership tasked to deliver this “moonshot”. The partnership
+consists of almost 30 organisations including big multi-nationals such as
+<a class="reference external" href="http://www.arm.com/">ARM</a>, <a class="reference external" href="http://microsoft.com/">Microsoft</a> and
+<a class="reference external" href="http://samsung.com/">Samsung</a>, academic institutions like <a class="reference external" href="http://www.lancaster.ac.uk/">Lancaster
+University</a> and volunteer and community based
+organisations such as the PSF and <a class="reference external" href="https://codeclub.org.uk/">CodeClub</a>.</p>
+<p>Originally, the PSF agreed to provide Pythonic educational resources and
+expertise. The BBC told us they already had a Python solution in the pipeline.
+However, at the beginning of May the partner who was to deliver this solution
+dropped out and we were asked to provide an alternative.</p>
+<p>Thanks to <a class="reference external" href="https://github.com/dpgeorge/">Damien George</a>’s amazing
+<a class="reference external" href="http://micropython.org/">MicroPython</a> project and his collaboration with an
+international community of Pythonistas the device runs a full re-
+implementation of Python 3. The version of MicroPython on the micro:bit
+doesn’t include the standard library. However, it contains several easy to use
+modules for interacting with the device’s hardware, making music, digital art
+and connecting stuff to the device via its I/O pins. All the standard language
+features are supported including data types, OOP, data structures, exceptions,
+generators and builtins. All this on a device with 256k of flash memory and
+16k of RAM.</p>
+<p>Special mention should be made of <a class="reference external" href="https://github.com/MarkShannon">Mark
+Shannon</a> who did amazing work on the display
+related capabilities of MicroPython on the BBC micro:bit. Mark also has
+interesting work-in-progress on improved audio capabilities.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjuE4ylXuGff8OVT0hguWgjL5y6GA6fbOW115R17CTRM8q7YMqHtJ4DCtdrVAHBMhtWpOgK0P875ZNhekHwv-vSsfbeNqM0tnPwQME3JBwUyLVKg31kGEiExCNHRmc-bo47A/s320/scroll-hello.gif">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjuE4ylXuGff8OVT0hguWgjL5y6GA6fbOW115R17CTRM8q7YMqHtJ4DCtdrVAHBMhtWpOgK0P875ZNhekHwv">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjuE4ylXuGff8OVT0hguWgjL5y6GA6fbOW115R17CTRM8q7YMqHtJ4DCtdrVAHBMhtWpOgK0P875ZNhekHwv</a>-
+vSsfbeNqM0tnPwQME3JBwUyLVKg31kGEiExCNHRmc-bo47A/s1600/scroll-hello.gif)</p>
+<p>Members of the community have been busy generating more than just code.
+Between them they have created:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>An “official” browser based <a class="reference external" href="https://www.microbit.co.uk/app/#create:xyelfe">Python editor</a> that’s part of the BBC’s <a class="reference external" href="http://microbit.co.uk/">main website</a> for the project. Many thanks to <a class="reference external" href="https://twitter.com/hawkz">Steve Hawkes</a> for his amazing design and Giles and Harry from <a class="reference external" href="http://pythonanywhere.com/">Python Anywhere</a> for hosting it.</p></li>
+<li><p>An unofficial native editor for beginner programmers called <a class="reference external" href="http://codewith.mu/">Mu</a>. Thanks to <a class="reference external" href="https://twitter.com/carlosperate">&#64;carlosperate</a>, <a class="reference external" href="https://twitter.com/inglesp">&#64;inglesp</a>, <a class="reference external" href="https://twitter.com/NDevox">&#64;NDevox</a>, <a class="reference external" href="https://twitter.com/kushaldas">&#64;kushaldas</a>, <a class="reference external" href="https://twitter.com/tjguk">&#64;tjguk</a>, <a class="reference external" href="https://twitter.com/stestagg">&#64;stestagg</a> and <a class="reference external" href="https://twitter.com/theheadofabroom">&#64;theheadofabroom</a> for all their work on the project.</p></li>
+<li><p>An <a class="reference external" href="https://github.com/ntoll/python-native-editor">editor</a> for <a class="reference external" href="https://chrome.google.com/webstore/detail/micropython/lhdjeebhcalhgnbigbngiaglmladclbo">ChromeOS</a>. Thanks to <a class="reference external" href="https://www.linkedin.com/in/clifford-french-994630102">Clifford French</a> for the loan of equipment to facilitate this development.</p></li>
+<li><p><a class="reference external" href="https://microbit-micropython.readthedocs.org/en/latest/">Developer documentation</a>. Kudos to <a class="reference external" href="https://twitter.com/willingcarol">Carol Willing</a> and <a class="reference external" href="https://twitter.com/deshipu">Radomir Dopieralski</a> for such a comprehensive and clear resource.</p></li>
+<li><p><a class="reference external" href="https://microbit-micropython.readthedocs.org/en/latest/tutorials/introduction.html">Teacher Tutorials</a>. Many thanks to our friends at <a class="reference external" href="http://www.computingatschool.org.uk/">Computing at School</a> who acted as “crash test dummies”.</p></li>
+<li><p><a class="reference external" href="http://microbit-playground.co.uk/">Lesson plans</a> and a <a class="reference external" href="http://cheat.microbit-playground.co.uk/">cheat sheet</a> curated by <a class="reference external" href="https://twitter.com/jezMr">Jez Dean</a>.</p></li>
+<li><p>Crazy open-source projects from <a class="reference external" href="https://microworldtour.github.io/">around the world</a>, created by numerous Pythonistas who took part in a micro “world tour”.</p></li>
+<li><p>Jupyter integration (coming soon). Thanks to <a class="reference external" href="https://github.com/fperez">Fernando Perez</a> for pointers that helped us create a new Jupyter kernel for the micro:bit in only an hour.</p></li>
+<li><p>Free to use tools for generating <a class="reference external" href="https://pycomic.github.io/">child-friendly Python resources</a> and/or simulate the <a class="reference external" href="http://pycomic.github.io/microbit.html">output of the device</a>. Once again, <a class="reference external" href="https://twitter.com/hawkz">Steve Hawkes</a> is responsible for the magnificent design.</p></li>
+<li><p>Ongoing workshops throughout the UK in association with <a class="reference external" href="http://www.computingatschool.org.uk/">Computing at School</a> where developers and teachers work together to learn about Python on the BBC micro:bit. Many thanks to <a class="reference external" href="https://twitter.com/epictsuk">Yvonne Walker</a> for her fantastic organisational skills.</p></li>
+</ul>
+</div></blockquote>
+<p>&gt; Dead or Alive? Built using MicroPython on
+&gt; <a class="reference external" href="https://twitter.com/hashtag/microbit?src=hash">#microbit</a> at
+&gt; <a class="reference external" href="https://twitter.com/hashtag/casmicropy?src=hash">#casmicropy</a>. Thanks
+&gt; <a class="reference external" href="https://twitter.com/ntoll">&#64;ntoll</a>,
+&gt; <a class="reference external" href="https://twitter.com/cas_lancaster">&#64;cas_lancaster</a>
+&gt; <a class="reference external" href="https://t.co/Vk3yEGdjGL">pic.twitter.com/Vk3yEGdjGL</a>
+&gt;
+&gt; – Alan O’Donohoe (&#64;teknoteacher) <a class="reference external" href="https://twitter.com/teknoteacher/status/710155547916509184">March 16,
+&gt; 2016</a></p>
+<p>We’re incredibly proud that all the Python related work was created by
+volunteers in their spare time: community minded Pythonistas with a passion
+for education who want to inspire digital creativity in young people. It’s yet
+more evidence that Python has the world’s greatest programming community. A
+big “thank you” to everyone who contributed.</p>
+<p>Why is this so important?</p>
+<p>Asking what sort of education and learning our community supports is how we
+decide what sort of community we become. For it is through education and
+learning that we engage with our future colleagues, friends and supporters.
+Put simply, we’re investing time and effort in the future of a diverse Python
+community.</p>
+<p>You’re probably wondering what you can do with the device. A quick look around
+the <a class="reference external" href="https://microworldtour.github.io/">world-tour website</a> will show you how
+MicroPython on the micro:bit can be adapted to a huge number of educational
+(and not so educational) uses. Two of our favourites are described below:</p>
+<p><a class="reference external" href="https://twitter.com/deshipu">Radomir Dopieralski</a> only had his device a few
+days before he’d managed to fry it while connecting it to a robot. Failure is
+an essential aspect of education - it’s how we learn to adjust and improve our
+behaviour while exploring the world around us. Happily, Radomir learned from
+his mistake and went on to build several different robots including our
+favourite called “Bob” (which is wobbly-cute in a menacing “all humans must
+die” sort of a way):</p>
+<p><a class="reference external" href="https://twitter.com/martinohanlon">Martin O’Hanlon</a> is a regular contributor
+to the education track at PyCon UK. His lessons in programming Minecraft with
+Python are genius-level performances that end with a hundred kids and their
+parents furiously hacking Python so Minecraft does crazy things. It’s
+inspiring to see such a thing unfold. As a result, we were especially looking
+forward to his contribution (and he didn’t disappoint).</p>
+<p>Mart has managed to tick pretty much all the boxes for many 11 year olds with
+his X-Wing flying in Minecraft running on a Raspberry Pi controlled via
+MicroPython running on a BBC micro:bit. Perhaps the only thing missing is that
+it doesn’t come with a side of pizza and fries:</p>
+<p>Finally, if you’re wondering what it feels like to program such a device…
+the following reaction is typical:</p>
+<p>&gt; I’ve been playing with micropython on the BBC micro:bit and it’s amazing! &lt;3
+&gt;
+&gt; – Guido van Rossum (&#64;gvanrossum) <a class="reference external" href="https://twitter.com/gvanrossum/status/653975453691080704">October 13,
+&gt; 2015</a></p>
+<p>You’ll soon be able to get your own via mail-order when they’re released to
+the general public over the summer.</p>
+<p>If you’re interested in contributing (there is so much yet to be done) then
+join our <a class="reference external" href="https://mail.python.org/mailman/listinfo/microbit">mailing list</a> or
+check out our <a class="reference external" href="https://github.com/bbcmicrobit/micropython">source code</a>. We
+accept contributions, without prejudice, from anyone. If you’re thinking, “but
+not me”, then <em>we especially mean you</em>. Good quality content and engagement
+with respect, humour and intelligence wins every time.</p>
+<p>Our children’s latent talent, joie de vivre and receptiveness to programming
+in Python is something unambiguously good for us to support, cherish and
+foster. MicroPython on the BBC micro:bit is one way to do this.</p>
+<p>Come join in the fun!</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2016-01-postscript-to-warehouse-post.html">
+      
+      <span>Postscript to Warehouse Post!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2016-03-genuinely-nice-chap-damien-george.html">
+      <span>“A Genuinely Nice Chap”: Community Service Award Recipient Damien George</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

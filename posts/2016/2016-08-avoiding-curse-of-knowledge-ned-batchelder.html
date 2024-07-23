@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>“Avoiding the Curse of Knowledge”: Community Service Award Recipient Ned Batchelder - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="avoiding-the-curse-of-knowledge-community-service-award-recipient-ned-batchelder">
+<h1>“Avoiding the Curse of Knowledge”: Community Service Award Recipient Ned Batchelder<a class="headerlink" href="#avoiding-the-curse-of-knowledge-community-service-award-recipient-ned-batchelder" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2016/08/avoiding-curse-of-knowledge-ned-batchelder.html">here</a>.</p>
+<p>Ned Batchelder didn’t mean to get himself nominated for an award. He’d simply
+<a class="reference external" href="https://twitter.com/nedbat/status/738871623844040704">encouraged his Twitter
+followers</a> to “nominate
+someone who made a difference for a PSF Community Service Award.” A friend who
+saw his tweet thought, “You know, the person who best exemplifies the
+community spirit and community service of Python is Ned.”</p>
+<p>In the second quarter of 2016, the Python Software Foundation recognized
+Batchelder with a Community Service Award for his tireless work helping run
+the Boston Python user group, being a regular speaker at conferences,
+maintaining coverage.py, and being a friendly face for the community on IRC
+and elsewhere.</p>
+<p><em>Coverage.py and ByteRun</em>
+*
+* Batchelder maintains <a class="reference external" href="https://coverage.readthedocs.io/">coverage.py</a>, a
+tool for measuring Python programs’ code coverage. It monitors a program under
+test, to report which lines of source are executed and which are not.
+Coverage.py fills a vital niche in the Python ecosystem, ensuring our code is
+thoroughly tested, and Batchelder has developed it for well over a decade.</p>
+<p>As an offshoot of his coverage.py work, Batchelder began experimenting with a
+project called <a class="reference external" href="https://github.com/nedbat/byterun">ByteRun</a> in 2013. His most
+prominent contributor is Allison Kaptur, who wrote a chapter on the project
+for <a class="reference external" href="http://aosabook.org/en/buy.html#fh">The Architecture of Open Source
+Applications</a>. “ByteRun is a Python
+interpreter written in Python,” she says. “It’s not like a real one. It does
+now run most Python code that you throw at it, but Ned’s original motivation
+was to explore instruction-level coverage for coverage.py. There are lots of
+cases where line-level coverage does not give the whole picture; he wanted to
+see if he could do better. That was his motivation, but I joined the project
+because I have an inexplicable love of byte code that I cannot justify.”</p>
+<p>Kaptur loved working on a codebase with Batchelder—despite his long
+experience, he is patient with contributors and enthusiastic about their work.
+When <a class="reference external" href="https://github.com/nedbat/byterun/pull/10#issuecomment-45956985">she reported a significant
+bug</a> in his
+implementation of stack frames and scopes in ByteRun, he celebrated the
+discovery. “Wow, this is amazing! I’m humbled to learn that I had the data
+stack wrong.”</p>
+<p><em>Boston Python User Group</em></p>
+<p>When Batchelder first attended the <a class="reference external" href="http://www.meetup.com/bostonpython/">Boston Python User
+Group</a> a decade ago it was already going
+strong. The group draws from Boston’s big tech community, and it meets in
+Cambridge’s Kendall Square, the epicenter of the tech industry there.</p>
+<p>Under Batchelder’s leadership the group has grown to over 6000 members. It was
+for this achievement that his friend and colleague David Baumgold, when he
+read Batchelder’s tweet, nominated him for a Community Service Award. Baumgold
+says, “He is very, very good at getting people to open up about what they’re
+working on. He calls it pulling lightning talks out of people. He says, ‘If
+you don’t think you have a lightning talk in you, come and talk to me. In five
+minutes I’ll find your lightning talk.’”</p>
+<p>Jessica McKellar, too, helped cultivate Boston Python for several years.
+Batchelder admits, “I’m not great at bringing in other organizers and giving
+them lots of control. But she was a big help in creating new events for the
+group.” The workshops for women that McKellar started unlocked a pent-up
+demand in the area. McKellar created a follow-up event, the monthly Project
+Night, where workshop participants could advance further. Batchelder says, “On
+project nights people come and do what they want to do. When you run one of
+those every month, you get a consistent rhythm going and people continue to
+show up.”</p>
+<p>Another reason for the group’s size is Batchelder’s stick–to–itiveness.
+Organizing events for seven years and more isn’t easy. There are nights he
+asks himself, “Really? I’m going to Boston Python again? That’s what I’m doing
+tonight?”</p>
+<p>But it’s worth it: helping people use computers, for Batchelder, is as fun as
+using computers himself. Even better is when he connects a newcomer to a
+project or person that provides precisely what they need. “When I can do that,
+I think—wow, I really nailed it. That was a good night.”</p>
+<p><em>PyCon Talks</em></p>
+<p>When PyCon’s call for proposals opens each year, Batchelder considers what
+question he’s heard most often that year, and tries to come up with a “very
+good answer” that is the core of a PyCon talk.</p>
+<p>But how does he compose the best answer he can?</p>
+<p>“There’s all these topics that lead to each other in a dense graph, but I’m
+going to have to linearize it and speak one sentence after the other for 25
+minutes.” To trim that tree of knowledge to its trunk, Batchelder seeks the
+principles that lead from the question to the solution. “I try to lay bare the
+mechanisms that link them together.”</p>
+<p>His <a class="reference external" href="http://nedbatchelder.com/text/unipain.html">Unicode Sandwich talk</a> in
+2012, for example, distilled a painfully complex question into a simple
+answer. Programmers can handle Unicode correctly in their apps with his three
+concise tips. And his <a class="reference external" href="http://nedbatchelder.com/text/iter.html">talk on looping and iteration in
+Python</a> covers topics so fundamental
+that most Python programmers couldn’t explain them much better than a mole
+could explain digging. David Baumgold says, “Ned is very good at avoiding the
+curse of knowledge. He’s simultaneously very knowledgeable and also very
+accessible to beginners.”</p>
+<ul class="simple">
+<li></li>
+</ul>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Juggling*
+*
+* Ewa Jodlowska, the PSF Director of Operations, says that every Python
+programmer she meets has a hidden talent. She was sitting at a table with
+Batchelder at PyCon Montréal last year when he picked up a few pieces of fruit
+and juggled them.</p>
+<p>Batchelder has been juggling for so long he cannot remember how he first
+learned; perhaps from his father. Naturally, he teaches it too. At his
+workplace, <a class="reference external" href="https://open.edx.org/about-open-edx">Open edX</a>, “There’s a bunch
+of people who learned how to juggle because they saw all the props on my desk.
+Whenever we have company outings there always kids that want to learn.”</p>
+<p>At PyCon this year he held an Open Space for juggling. Jodlowska recalls it
+was so popular it spilled out of the room. Batchelder stood in the hallway
+juggling his pins, while the crowd surrounding him cheered him on.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy_KFQx7poU2_xqLMigiCAiCP_0shxJlWc43oQfBKm6ZT_kyiAm6DA-A91uc3ZdjsSCxVyDLKo3w9_6H8GBDPa-KRbhaVi3OdKPWN5JHlq8A08jDh7nOO6Im9o_ErMfNJWuQ/s640/IMG_5977.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy_KFQx7poU2_xqLMigiCAiCP_0shxJlWc43oQfBKm6ZT_kyiAm6DA-A91uc3ZdjsSCxVyDLKo3w9_6H8GBDPa">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy_KFQx7poU2_xqLMigiCAiCP_0shxJlWc43oQfBKm6ZT_kyiAm6DA-A91uc3ZdjsSCxVyDLKo3w9_6H8GBDPa</a>-
+KRbhaVi3OdKPWN5JHlq8A08jDh7nOO6Im9o_ErMfNJWuQ/s1600/IMG_5977.jpg)
+—
+_Photo by Max <a href="#id4"><span class="problematic" id="id5">Batchelder_</span></a></p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2016-07-pygotham-python-conference-at-united.html">
+      
+      <span>PyGotham: a Python Conference at the United Nations</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2016-08-the-python-software-foundation-is.html">
+      <span>The Python Software Foundation is seeking a blogger!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

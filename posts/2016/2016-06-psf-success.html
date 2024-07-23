@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The PSF’s Growing Success - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-psf-s-growing-success">
+<h1>The PSF’s Growing Success<a class="headerlink" href="#the-psf-s-growing-success" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2016/06/psf-success.html">here</a>.</p>
+<p>In honor of the 2016-2017 board of director’s first board meeting today, I
+wanted to share the PSF’s growing success with the public!</p>
+<p>For as long as I have been with the PSF, our goal has been to encourage people
+all around the world to learn and use Python. We have done this by funding
+conferences, workshops, and dev work. Due to the success of our community,
+each year more and more people have become aware of the PSF and our mission.
+The success is hard to measure. More in-depth research can be done on how the
+PSF’s mission has bettered the world, but for now, let us start with a simple,
+tangible, measurement: money.</p>
+<p><em>Turning gut feelings into metrics</em></p>
+<p>Besides our treasurer, Kurt Kaiser, most of us have not paid much attention to
+these metrics. Even though members of the PSF have received yearly reports
+from Kurt, sometimes that snapshot does not have the progression across
+several years. I have been helping with grant management since 2012 and
+recently it felt like the board mailing list was receiving much more traffic
+than when I first joined the board as Secretary. In April I decided to scrape
+&lt;<a class="reference external" href="https://www.python.org/psf/records/board/resolutions/">https://www.python.org/psf/records/board/resolutions/</a>&gt; to the best of my
+ability. Luckily, Kurt was able to help me extract that data from the PSF’s
+accounting system. Below is a graph depicting the data from those reports. The
+reporting only goes back to 2010 as prior to that our accounting was done
+elsewhere and the transitioned info is not as detailed as the accounting we
+keep now.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuitNk4nP8mb_EbYPXnDODUH83Xc9Yhyp9g2wOMETIsucK7HCY7KVbRz9aaUlvQss3TiL9z2rWZQAjIQPtp4go1LCK78cORUIjI2HRuV41NaqqG0bVj2fVqeJNhP0MSw7Sil8/s400/psf_history.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuitNk4nP8mb_EbYPXnDODUH83Xc9Yhyp9g2wOMETIsucK7HCY7KVbRz9aaUlvQss3TiL9z2rWZQAjIQPtp4go1LCK78cORUIjI2HRuV41NaqqG0bVj2fVqeJNhP0MSw7Sil8/s1600/psf_history.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuitNk4nP8mb_EbYPXnDODUH83Xc9Yhyp9g2wOMETIsucK7HCY7KVbRz9aaUlvQss3TiL9z2rWZQAjIQPtp4go1LCK78cORUIjI2HRuV41NaqqG0bVj2fVqeJNhP0MSw7Sil8/s1600/psf_history.png</a>)
+—
+If you would like to see a higher resolution copy, click here:
+&lt;<a class="reference external" href="https://www.dropbox.com/s/od9jy5i2cyi1b1k/psf_history.png?dl=0">https://www.dropbox.com/s/od9jy5i2cyi1b1k/psf_history.png?dl=0</a>&gt;</p>
+<p>I did a comparison of grants disbursed from the 2014-2015 term to the
+2015-2016 term and noticed that our disbursements increased by approximately
+$65,000. When I compared the 2013-2014 term to the 2014-2015, I saw that the
+grant disbursement also increased by approximately $65,000! As I mentioned
+above, this was surprising to me because I was under the impression that we
+only recently started receiving many more requests. Therefore, I also plotted
+the average grant size; which shows a spike in 2013-2014 and has since
+returned back to its former level. In conclusion: we gave out more money
+between 2013-2014 and 2014-2015, but that money primarily went to larger
+grants. The total amount we disburse continues to increase, but that money is
+spread across more grants, explaining the visibly increased volume of
+requests.</p>
+<p><em>A growing trend?</em></p>
+<p>Personally, I feel this is a huge milestone for the PSF and our community. If
+we continue in this pattern, the 2016-2017 term might give out over $300,000
+USD to fund python education all around the world! I am astonished by this
+comparison, especially since when I started the disbursements totaled a little
+over $40,000. If it is an indication, we will have to continue expanding our
+staff as well as look into software that can help us better manage these
+tasks!</p>
+<p>For now though, let’s keep up the great work!</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2016-06-pycon-2016-thanks.html">
+      
+      <span>PyCon 2016: A look back, my take away, and thank you!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2016-07-pygotham-python-conference-at-united.html">
+      <span>PyGotham: a Python Conference at the United Nations</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

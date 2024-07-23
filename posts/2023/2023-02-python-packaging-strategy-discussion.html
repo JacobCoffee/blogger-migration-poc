@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Python Packaging Strategy Discussion Summary - Part 1 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="python-packaging-strategy-discussion-summary-part-1">
+<h1>Python Packaging Strategy Discussion Summary - Part 1<a class="headerlink" href="#python-packaging-strategy-discussion-summary-part-1" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2023/02/python-packaging-strategy-discussion.html">here</a>.</p>
+<p>As the Python Packaging Project Manager, my work has mostly concentrated on
+<a class="reference external" href="https://wiki.python.org/psf/PackagingWG#PyPI_Organization_Account">improving user experience on
+PyPI</a>. As
+the Python Packaging ecosystem grows from strength to strength, one of the
+initiatives I have undertaken is to define a cohesive strategy for Python
+Packaging.</p>
+<p>My Mission</p>
+<p>Python Packaging is a diverse landscape dotted with many tools that cater to
+generic and niche user requirements. As a community, something that is poorly
+understood is where the community wants to be in 5 years. Understanding where
+we want to be is important to allow us to identify key goals for the future
+and how we will reach them, and to ensure we place users at the heart of
+everything we do. By defining key deliverables driven by community consensus,
+securing funding becomes easier as we can demonstrate that the community
+vision will drive innovation and enable better user experience and adoption of
+Packaging tools.</p>
+<p>User Survey</p>
+<p>In order to understand what end users are looking for when they use Packaging
+tools, <a class="reference external" href="https://discuss.python.org/t/rfc-survey-to-help-define-a-python-packaging-vision-and-strategy/15658">Nicole Harris and I worked</a> <a class="reference external" href="https://discuss.python.org/t/rfc-survey-to-help-define-a-python-packaging-vision-and-strategy/15658">with the
+community to finalize the survey questions</a>. <a class="reference external" href="https://discuss.python.org/t/your-feedback-required-python-packaging-user-survey/18070">Nicole
+developed the final set of survey
+questions</a>. The survey results are summarized in <a class="reference external" href="https://drive.google.com/file/d/1U5d5SiXLVkzDpS0i1dJIA4Hu5Qg704T9/view">this
+document</a>.</p>
+<p>From the survey responses, it was clear that while Packaging tools were
+improving with time, most users found the landscape too complex to navigate.
+Based on the survey responses, the strategy discussion was condensed to these
+topics-</p>
+<ul class="simple">
+<li></li>
+<li><ol class="arabic simple">
+<li><p>Development of a single Packaging tool or a more unified experience</p></li>
+<li><p>Better support for Packaging users</p></li>
+<li><p>Phasing out legacy systems</p></li>
+<li><p>Supporting each other in the community</p></li>
+<li><p>Encouraging long-term contribution</p></li>
+</ol>
+</li>
+</ul>
+<p>This post will summarize the discussion around a single Packaging tool. The
+other four topics will be the subject of future posts on
+<a class="reference external" href="https://discuss.python.org/c/packaging/14">Discuss</a>.</p>
+<p>One tool to rule them all?</p>
+<p>An overwhelming majority of users recommended a more unified experience when
+using Packaging tools. The word cloud below shows the frequency of suggestions
+for the open-ended question- “If you could improve only one area of Python
+packaging, what would it be?”</p>
+<p>![](<a class="reference external" href="https://lh5.googleusercontent.com/KsXFmhYnPLC7zhMpD9lR-8YnYV9IXNJimr1QeViiKVTXDmcWtLvujVr">https://lh5.googleusercontent.com/KsXFmhYnPLC7zhMpD9lR-8YnYV9IXNJimr1QeViiKVTXDmcWtLvujVr</a>-
+llkDeVoPZC2gGq1Iam0BRUQ1qVm1lrICCwzICXPT9bA_IeF2lrJ2zCOD9_5fkhjV6RMLDZK7TTi-
+UtVmfulOk-4VzkmxhK8)</p>
+<p>To take this discussion further, I invited <a class="reference external" href="https://discuss.python.org/t/python-packaging-strategy-discussion-part-1/22420">maintainers and contributors of
+any Packaging tool</a> to answer this question:</p>
+<p>“Can we reduce the number of tools and bring about some form of unification?
+Can we do anything else to reduce the complexity?”</p>
+<p>After an interesting and lively discussion, we still do not have a clear
+consensus of what a solution should look like, but we do have a way forward.</p>
+<p>Since we are at the beginning of this conversation, we don’t know what
+unification means yet. As <a class="reference external" href="https://discuss.python.org/t/python-packaging-strategy-discussion-part-1/22420/16">Pradyun Gedam
+suggested</a>, there are many options as to what it could look like-</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Unification of PyPI/conda models</p></li>
+<li><p>Unification of the consumer-facing tooling</p></li>
+<li><p>Unification of the publisher-facing tooling</p></li>
+<li><p>Unification of the workflow setups/tooling</p></li>
+<li><p>Unification/Consistency in the deployment processes</p></li>
+<li><p>Unification/Consistency in “Python” installation/management experience</p></li>
+<li><p>Unification of the interface of tools</p></li>
+</ol>
+</div></blockquote>
+<p>Based on these criteria, there is (some) consensus in driving forward
+unification of workflow setups/tooling and unification of interface of tools.</p>
+<p>The next major question was, if we do go ahead with unification of specific
+elements, which elements of Packaging would offer the best solution. To
+provide a unified UI/UX for end users, some of the solutions that were
+suggested were</p>
+<ul class="simple">
+<li></li>
+<li><ol class="arabic simple">
+<li><p>Reusable libraries</p></li>
+<li><p>Expanding pip to include more functionalities</p></li>
+<li><p>Recommending existing tools such as hatch, poetry etc.</p></li>
+</ol>
+</li>
+<li></li>
+<li></li>
+</ul>
+<p>This discussion also raised a few interesting concerns. Understandably, there
+is concern over the time and effort that volunteers have devoted in developing
+tools and whether all this effort will come to naught if we recommend a
+specific tool. As the discussion continues, there is a large question over the
+part that PyPA plays and whether PyPA would be willing to take a stand on
+recommending a specific tool. One concern that keeps coming up is that
+historically there has been poor communication between PyPA, Packaging tools
+and end users and if anything will change this time.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>The way forward</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>In order to flesh out the details of the actual solution, I recommend the
+following steps:</p>
+<ul class="simple">
+<li></li>
+<li><ol class="arabic simple">
+<li><p>Identify the tasks that a unified solution has to accomplish</p></li>
+<li><p>Identify the best way to deliver the solution. This could be a new tool, expanding an existing tool or developing standards/libraries.</p></li>
+<li><p>Submit PEPs to ensure community governance and consensus</p></li>
+<li><p>Ensure there is buy-in from end users for proposed solution(s)</p></li>
+<li><p>Define development roadmaps, milestones, key deliverables and timeline</p></li>
+<li><p>Generate funding to support development</p></li>
+<li><p>Develop and deliver</p></li>
+<li><p>Communicate, communicate, communicate</p></li>
+</ol>
+</li>
+<li></li>
+<li></li>
+</ul>
+<p>This will be a long and intensive process. But the time and effort invested in
+this project will be worth it as it will result in innovation and better user
+experience.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>We will be discussing four more big questions over the next three months that
+will be used to help us plan the future of Packaging at Python. As we continue
+the strategy discussions, I invite everyone to participate in the discussion
+threads on <a class="reference external" href="https://discuss.python.org/c/packaging/14">Discuss</a>.</p>
+<p>We are grateful to Bloomberg for generously providing the funding for this
+role and making this valuable work possible.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2023-02-announcing-python-software-foundation.html">
+      
+      <span>Announcing Python Software Foundation Fellow Members for Q4 2022! 🎉</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2023-02-the-case-for-second-developer-in.html">
+      <span>The Case for a Second Developer-in-Residence for Python</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

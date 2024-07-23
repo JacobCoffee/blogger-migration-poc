@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PSF Grants Program 2022 &amp; 2023 Transparency Report - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="psf-grants-program-2022-2023-transparency-report">
+<h1>PSF Grants Program 2022 &amp; 2023 Transparency Report<a class="headerlink" href="#psf-grants-program-2022-2023-transparency-report" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2024/05/psf-grants-program-2022-2023.html">here</a>.</p>
+<p>The PSF’s Grants Program is a key plank in our charitable mission to promote,
+protect, and advance the Python programming language, and to support and
+facilitate the growth of a diverse and international community of Python
+programmers. After much research, input, and analysis, we are pleased to share
+a PSF Grants Program 2022 &amp; 2023 Transparency Report. The report includes
+context, numbers, analysis, and a proposed path forward. It also includes a
+supplemental analysis of several specific grant applications for which we were
+requested to share more information.</p>
+<p>We feel it is important to acknowledge that Pythonistas, regional communities,
+and the broader community are behind these statistics and commentary. Our
+community called for this report to be created. While the report is focused on
+data and outcomes, we also feel it is important to acknowledge in this
+introduction the concerns and frustrations that brought us here, explained
+further in the ‘Setting context’ section below. We hope that this report,
+along with many other steps, helps to remediate this.</p>
+<p>This report reflects the outcome of thousands of hours of PSF and volunteer
+efforts over 2022 and 2023 by the Grants Working Group, the PSF Board, Python
+organizers, and PSF Staff worldwide. We truly value this opportunity to share
+information on the last two years of increasing grants to the community and to
+improve our Grants Program while honoring the hard work of everyone involved
+in making the Program and our mission possible.</p>
+<p>This report was compiled by PSF Staff and reviewed by the PSF Board and Grants
+Working Group. If you have questions, comments, or feedback about the Grants
+Program or this report, please email
+<a class="reference external" href="mailto:grants&#37;&#52;&#48;pyfound&#46;org">grants<span>&#64;</span>pyfound<span>&#46;</span>org</a>.</p>
+<section id="setting-context">
+<h2>Setting context<a class="headerlink" href="#setting-context" title="Link to this heading">¶</a></h2>
+<p>In December of 2023, we received an <a class="reference external" href="https://pythonafrica.blogspot.com/2023/12/an-open-letter-to-python-software_5.html">open
+letter</a> from a coalition of organizers from the pan-African Python
+community asking the PSF to address concerns and frustrations around our
+Grants Program. Before receiving the letter, the PSF Board was aware of the
+Grant application that spurred this letter and published a <a class="reference external" href="https://pyfound.blogspot.com/2023/10/september-october-board-votes.html">transparency blog
+post</a>
+regarding the September and October 2023 Board votes concerning that
+application. PSF Staff were aware of a need for a refresh of Grants Program
+documentation and processes and worked on these updates time allowing. Since
+receiving the letter in December, the PSF Board and Staff have:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Spent time listening during many discussions with the letter writers and other community members.</p></li>
+<li><p>Re-prioritized reviewing and rewriting Grant-related documentation and processes, including revisiting the Grants Working Group Charter.</p></li>
+<li><p>Established monthly <a class="reference external" href="https://pyfound.blogspot.com/2024/02/introducing-psf-grants-office-hours.html">Grants Program Office Hours</a>.</p></li>
+<li><p>Contracted Carol Willing to perform a <a class="reference external" href="https://pyfound.blogspot.com/2024/03/djangocon-africa-grant-process.html">DjangoCon Africa Grants Process Retrospective</a> which is now available on the PSF Blog.</p></li>
+</ul>
+</div></blockquote>
+<p>For a high-level idea of the scope of our Grants Program, we are happy to
+share:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The PSF distributed $393K in Grants during 2022 and $623K during 2023 for the Grants Program and the PyCon US Travel Grants Program combined.</p></li>
+<li><p>The Grants Program distributed $215K in Grants during 2022 and $393K during 2023.</p></li>
+<li><p>_Noting this Transparency Report is focused on the Grants Program only. If you want to learn more about travel grants check out the`Travel Grants Process for PyCon US 2024 blog post &lt;<a class="reference external" href="https://pycon.blogspot.com/2024/03/TravelGrantsReport2024.html">https://pycon.blogspot.com/2024/03/TravelGrantsReport2024.html</a>&gt;`_ on the PyCon US blog. _</p></li>
+</ul>
+</div></blockquote>
+<p>The growth we saw from 2022 to 2023 is exciting to reflect on, and we’re
+looking forward to what 2024 and beyond has in store for our Grants Program!</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY0bpGADg5WscFrtJWiX7XcDjWsG5HW5Z85B8eqvB7vG0P8hyULdHNmtk3puK5fDv41-trrGB0QGSMIXnAqwlSvg5232_kPpNUwIe19TFqImW3hJPh5VsjMH-oHz2l-xzvjVTsHULJKTqEqwbbjmAK7tmjlbGYy00Tw-vOOHnkk9KHf-Mi3A/w411-h255/PSF%20Grant%20Trends.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY0bpGADg5WscFrtJWiX7XcDjWsG5HW5Z85B8eqvB7vG0P8hyULdHNmtk3puK5fDv41-trrGB0QGSMIXnAqwlSvg5232_kPpNUwIe19TFqImW3hJPh5VsjMH">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiY0bpGADg5WscFrtJWiX7XcDjWsG5HW5Z85B8eqvB7vG0P8hyULdHNmtk3puK5fDv41-trrGB0QGSMIXnAqwlSvg5232_kPpNUwIe19TFqImW3hJPh5VsjMH</a>-
+oHz2l-xzvjVTsHULJKTqEqwbbjmAK7tmjlbGYy00Tw-vOOHnkk9KHf-
+Mi3A/s600/PSF%20Grant%20Trends.png)</p>
+</section>
+<section id="the-numbers-in-graph-form">
+<h2>The numbers (in graph form)<a class="headerlink" href="#the-numbers-in-graph-form" title="Link to this heading">¶</a></h2>
+<p>_ _</p>
+<p>_Thanks to Tania Allard for helping improve the readability and accessibility
+of the graphs provided in this report._</p>
+</section>
+<section id="our-analysis">
+<h2>Our analysis<a class="headerlink" href="#our-analysis" title="Link to this heading">¶</a></h2>
+<section id="general-trends-observations-notes">
+<h3>General Trends, Observations, &amp; Notes<a class="headerlink" href="#general-trends-observations-notes" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>In 2022, Grants requests were not at “full capacity” as our community was still recovering from the impact of COVID-19 on events, initiatives, and collective burnout.</p></li>
+<li><p>The increase in total grant applications we received from 2023 over 2022 is encouraging. The program grew in 2023 as we began to return to in-person and hybrid events, and we anticipate more applications coming in throughout 2024 and beyond.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="number-of-total-grant-applications-by-continent">
+<h3>Number of Total Grant Applications by Continent<a class="headerlink" href="#number-of-total-grant-applications-by-continent" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>In both 2022 &amp; 2023, we received the most number of applications from Africa and Europe, with South America not far behind.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="percentage-of-grants-approved">
+<h3>Percentage of Grants Approved<a class="headerlink" href="#percentage-of-grants-approved" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>The percentage of approved vs. declined applications is reasonable. Some reasons applications were denied include:
+* Unable to meet PSF Grants Program criteria
+* Unclear benefit to funding the application
+* Not Python related
+* Spam</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="percentage-of-grant-applications-by-continent">
+<h3>Percentage of Grant Applications by Continent<a class="headerlink" href="#percentage-of-grant-applications-by-continent" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>The percentages across continents are reasonably balanced, with fewer applications from Asia, North America, and Oceania. Based on the distribution of populations globally, the percentage of applications from Asia is lower than expected. After receiving input on this directly from PyCon organizers from Asia, we have come to understand that this is based on an approach focused on sustainability. PyCon organizers in Asia are focused on local sponsorship, fiscal responsibility, and independence. We absolutely commend this approach, and at the same time, we urge organizers from Asia to request Grant funding to supplement and enhance their events.</p></li>
+<li><p>Additionally, note that we cannot award Grants to certain countries in Asia due to OFAC and our status as a US-based 501c3 non-profit.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="approved-declined-grant-applications-by-continent">
+<h3>Approved &amp; Declined Grant Applications by Continent<a class="headerlink" href="#approved-declined-grant-applications-by-continent" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>The number of declined applications from Africa shows an area for improvement. Our conclusion is that our documentation is not clear enough on the requirements for a grant to be awarded and that results in applications that will not pass.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="dollar-amount-granted-by-continent-percentage-of-money-granted-by">
+<h3>Dollar Amount Granted by Continent &amp; Percentage of Money Granted by<a class="headerlink" href="#dollar-amount-granted-by-continent-percentage-of-money-granted-by" title="Link to this heading">¶</a></h3>
+<p>Continent</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>This graph appears to show that Europe received disproportionate funding. On further review, we believe this is because the grant applications we got from Europe were for conferences. In contrast, a large number of the grant applications from other regions were for meetups and workshops, including many Django Girls events. Conferences typically cost significantly more than meetups. Here’s a breakdown:</p></li>
+</ul>
+</div></blockquote>
+<p>Continent | Applications Received in 2022 | Granted in 2022 | Applications Received in 2023 | Granted in 2023
+—<a href="#id4"><span class="problematic" id="id5">|---|</span></a>—<a href="#id6"><span class="problematic" id="id7">|---|</span></a>—
+Africa | 4 conferences, 7 meetups | 3 conferences, 7 meetups | 7 Conferences, 16 meetups | 5 conferences, 13 meetups
+Europe | 12 conferences, 1 meetup | 11 conferences, 1 meetup | 15 conferences, 2 meetups | 15 conferences, 2 meetups</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>We are encouraged to see the dollar amount granted to the Africa region rise significantly between 2022 and 2023.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="average-amount-granted-by-continent">
+<h3>Average Amount Granted by Continent<a class="headerlink" href="#average-amount-granted-by-continent" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Oceania is an outlier; the PSF received one application in 2022 and two in 2023 from Oceania. Many more grants were awarded to other regions, which caused their average dollar amount to be lower. With that in mind, we feel the average is reasonable. It means that we are receiving both large and small grant applications!</p></li>
+<li><p>Africa and South America received less on average than other regions. This is another example of the typical types of grant requests we are receiving from different regions (workshops and meetups vs. large conferences).</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="grant-decision-times-in-weeks-by-number-percentage-of-applications">
+<h3>Grant Decision Times in Weeks by Number &amp; Percentage of Applications<a class="headerlink" href="#grant-decision-times-in-weeks-by-number-percentage-of-applications" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>The majority of the average grant review period is 4 weeks, which we feel is reasonable based on the process and load of grant applications we receive.</p></li>
+<li><p>When we reviewed applications that took longer than 4 weeks to decide, we found a couple of scenarios.</p></li>
+<li><p>One of the main reasons for longer decision times is that applications are sometimes submitted without crucial information, and there is significant time spent on communications between applicants, PSF Staff, and the Grants Working Group. Once requested, there are often delays in receiving the required information back from applicants.</p></li>
+<li><p>The grant application was escalated to the Board who meet on a monthly basis. Grants can be escalated to the Board either because the amount requested is greater than $10,000 or because the Grants Working Group cannot reach a consensus on a decision.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="grant-program-average-days-to-decide-by-continent">
+<h3>Grant Program Average Days to Decide by Continent<a class="headerlink" href="#grant-program-average-days-to-decide-by-continent" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>This graph also shows Oceania as an outlier, and, again, it is skewed because we received only one application in 2022 and only two in 2023 applications from that region.</p></li>
+<li><p>In 2023, applications from Asia took longer to reach decisions. When we looked into this further, we found that the reasons for delays were that applications were submitted without the required information and that significant time was spent on communications between applicants, PSF Staff, and the Grants Working Group.</p></li>
+<li><p>We are pleased to see that the average number of days is very close across most regions.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="supplemental-information-on-specific-grant-requests">
+<h2>Supplemental information on specific grant requests<a class="headerlink" href="#supplemental-information-on-specific-grant-requests" title="Link to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://pythonafrica.blogspot.com/2023/12/an-open-letter-to-python-software_5.html">open letter</a> we received from the pan-African Python community
+asked us to specifically review the process and share information about
+several older grant applications from 2018, 2019, and 2022. We want to share
+as much information as possible while noting that some of these requests were
+managed by folks who have since moved on from the PSF and Grants Working Group
+(GWG).</p>
+<section id="introducing-python-and-related-technologies-to-more-high-schools-in">
+<h3>Introducing Python and related technologies to more high schools in<a class="headerlink" href="#introducing-python-and-related-technologies-to-more-high-schools-in" title="Link to this heading">¶</a></h3>
+<p>Uganda (2018)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Grant request submitted January 2nd, 2018</p></li>
+<li><p>Requesting funding for four events in different schools for the 7-9 February, 12-14 February, 19-21 February, 26 Feb-1 March, of 2018.</p></li>
+<li><p>GWG Chair forwarded request to the GWG January 4th</p></li>
+<li><p>GWG reviewed and needed more information</p></li>
+<li><p>GWG Chair requested more information and forwarded that to GWG on January 12th</p></li>
+<li><p>GWG Chair acknowledged to the GWG on February 7th that the request was dropped</p></li>
+<li><p>No further comments added or actions taken</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pyladies-fest-in-kampala-uganda-2019">
+<h3>PyLadies Fest in Kampala, Uganda (2019)<a class="headerlink" href="#pyladies-fest-in-kampala-uganda-2019" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Grant request submitted February 21st, 2019</p></li>
+<li><p>Requesting funding for a five day event starting on May 6th, 2019</p></li>
+<li><p>GWG Chair requested more information</p></li>
+<li><p>GWG Chair forwarded request and additional information to the GWG on March 25th</p></li>
+<li><p>GWG reviewed and needed more information</p></li>
+<li><p>GWG Chair requested more information and forwarded a reply to GWG on April 26th saying the grant requestor was working on solidifying the necessary information</p></li>
+<li><p>GWG Chair forwarded additional information to the GWG on July 10th and advised the GWG the event was rescheduled for September 16th</p></li>
+<li><p>No further comments added or actions taken</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pyladies-kampala-open-source-workshop-2022">
+<h3>PyLadies Kampala Open Source Workshop (2022)<a class="headerlink" href="#pyladies-kampala-open-source-workshop-2022" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>Grant request submitted September 20, 2022</p></li>
+<li><p>Requesting funding for a one day event for November 26th, 2022.</p></li>
+<li><p>GWG Chair requested more information, which was provided on September 26th</p></li>
+<li><p>GWG Chair forwarded request to GWG on October 20th</p></li>
+<li><p>GWG reviewed and no one objected</p></li>
+<li><p>GWG Chair moved the request to a vote on October 31st</p></li>
+<li><p>Board Member contacted PSF Staff for an update on November 2nd</p></li>
+<li><p>GWG approved the request and the GWG Chair sent the Resolution to the grant requester on November 3rd</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="our-comments">
+<h3>Our comments<a class="headerlink" href="#our-comments" title="Link to this heading">¶</a></h3>
+<p>We do not have many insights into the administration of these Grant requests
+outside of what exists on the GWG mailing list, including any off list emails
+or in-person conversations that might have occurred. The PSF Staff
+administering the GWG for the grant requests from 2018 and 2019 are no longer
+on the team. The request from 2022, which was approved, was 2 days over our
+goal of 6 week turnaround time for decisions on grant applications.</p>
+<p>While our staff roster is currently small, it was <em>even</em> smaller in 2018 and
+2019. We realized some time ago that as our grant requests increased having a
+solo administrator for the GWG was tough- it was hard for our staff to catch a
+break! When we put out a call for a Community Communications Manager in June
+of 2023, we planned for whoever stepped into that role to be a second
+administrator for the GWG to always have a stopgap at the ready. Our current
+administration for the GWG now includes two PSF Staff members. This is done
+purposefully to avoid situations where applications get dropped because a
+critical piece of information comes just as someone is scheduled to be out of
+the office or an emergency happens.</p>
+</section>
+</section>
+<section id="a-path-forward">
+<h2>A path forward<a class="headerlink" href="#a-path-forward" title="Link to this heading">¶</a></h2>
+<p>Some of our goals:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Review, rewrite, and improve the Grants Working Group Charter, including exploring various decision-making options and criteria.</p></li>
+<li><p>Review, rewrite, and improve documentation so that:</p></li>
+<li><p>Applicants can be confident that their application meets the Grants Program criteria before submitting.</p></li>
+<li><p>Reduce the need for follow-ups for additional information that can cause delays.</p></li>
+<li><p>Continue to host the PSF Grants Program Office Hours to increase ongoing transparency, support grant applicants, and understand the gaps in our documentation.</p></li>
+<li><p>Analyze and deliberate on the equity of designating grant funding allocated by region.</p></li>
+<li><p>Explore ways that the PSF could regularly support the organization of large-scale events in underserved regional communities.</p></li>
+<li><p>Examine and update our processes regarding timeframes, including escalating grant applications after 4 weeks of review to avoid 8-week review periods.</p></li>
+<li><p>We’d like to receive more applications in the future by continuing to publicize the opportunity and providing support during our Office Hours.</p></li>
+<li><p>Revisit the effectiveness and sustainability of the Grants Program yearly.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="a-final-note">
+<h2>A final note<a class="headerlink" href="#a-final-note" title="Link to this heading">¶</a></h2>
+<p>We hope this transparency report will help our community understand the state
+of our Grants Program over the last two years. It has been instructive to the
+Board, the Grants Working Group, and our staff who administer the program to
+understand where our strengths and weaknesses lay. This report will inform our
+efforts as we progress with improvements to the Grants Program. We also feel
+this exercise will continue to be helpful year over year, to both monitor the
+health of and analyze how our improvement efforts have impacted the success of
+the Grants Program.</p>
+<p>If you have any questions, comments, or feedback, please email
+<a class="reference external" href="mailto:grants&#37;&#52;&#48;pyfound&#46;org">grants<span>&#64;</span>pyfound<span>&#46;</span>org</a>.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2024-05-psf-board-election-dates-for-2024.html">
+      
+      <span>PSF Board Election Dates for 2024</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2024-05-blog-post.html">
+      <span>Thinking about running for the Python Software Foundation Board of Directors? Let’s talk!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

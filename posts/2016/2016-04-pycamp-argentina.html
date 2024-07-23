@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PyCamp Argentina - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="pycamp-argentina">
+<h1>PyCamp Argentina<a class="headerlink" href="#pycamp-argentina" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2016/04/pycamp-argentina.html">here</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirTwZyJOvDuuha1QjYOCl3umcuqA-hpHoKHMqwHX8U7Opxc9nikTPpCAB84kYcY6U1KRjL8nptO1JpwRIVhGg8XWEYR8KWzEhqTZ7v5uRAYTSZrwnJ5scTfTN5swaE8yueeg/s320/img57995zjpg_26024346831_o.jpg">![Stream amid green hills and blue
+sky</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirTwZyJOvDuuha1QjYOCl3umcuqA">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEirTwZyJOvDuuha1QjYOCl3umcuqA</a>-
+hpHoKHMqwHX8U7Opxc9nikTPpCAB84kYcY6U1KRjL8nptO1JpwRIVhGg8XWEYR8KWzEhqTZ7v5uRAYTSZrwnJ5scTfTN5swaE8yueeg/s1600/img57995zjpg_26024346831_o.jpg)</p>
+<p>You settle into a deck chair in the sun. All around you are the hills,
+streams, and spectacular greenery of Cordoba Province, Argentina. You could
+take a nap, or a hike. But best of all, you can write code with friends.
+“There’s a particular energy you can’t find elsewhere. It comes from everybody
+working together, playing together, discussing ideas,” says Facundo Batista.
+“You can devote your time to your community, because everything is taken care
+of. You spend all day programming, then take 40 steps to your bed.”</p>
+<p>PyCamp is Argentina’s annual outdoor code sprint. This year, Facundo Batista
+organized PyCamp in the small town of La Serranita. For four days, 24 coders
+hacked on a dozen open source projects, with the help of a $600 grant from the
+Python Software Foundation.</p>
+<p>“It’s especially fruitful for newbies,” says Batista. “You can be a 22-year-
+old with a couple years of college, and you are working on an open-source
+project side-by-side with someone with 25 years experience at big companies.
+The amount you can learn, it’s awesome!”</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPkLM0dOnsd7zeS48qSZMsNhDORLUHirUw1eq_ruqYZGi-JeilYb_0rRxGCU9-6EuienXV2Ot7ttoqg-Jj1shllsz9letaKvUxV6j-ZhT4np5h-ZXq04rGe7fY4DZJ_Vn7rA/s320/img57968zjpg_26064541336_o.jpg">![Three young people sitting and talking on an outdoor wooden
+deck.</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPkLM0dOnsd7zeS48qSZMsNhDORLUHirUw1eq_ruqYZGi">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPkLM0dOnsd7zeS48qSZMsNhDORLUHirUw1eq_ruqYZGi</a>-
+JeilYb_0rRxGCU9-6EuienXV2Ot7ttoqg-
+Jj1shllsz9letaKvUxV6j-ZhT4np5h-ZXq04rGe7fY4DZJ_Vn7rA/s1600/img57968zjpg_26064541336_o.jpg)</p>
+<p>The idea for PyCamp arose from Argentina’s Python community, beginning in
+2008. The camp isn’t really outdoors: there is a roof, walls, beds, bathrooms,
+even electricity and WiFi. But despite these amenities, the location is always
+abundantly green and rural.</p>
+<p>Batista used the PSF grant to bring several new coders, improving the group’s
+diversity. One first-time participant, Ariel Ramos, says, “Thanks for the
+grant, I liked the experience a lot, and it was very useful to be there. I
+liked the openness to the newbies and the special attention to ensure they
+enjoyed the event and learned.” Another participant, Pedro Nieto, says PyCamp
+“allowed me to participate in several interesting projects that normally I
+wouldn’t have even known about. It gave me more confidence to program, and
+encouraged me to participate in the free software community.”</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqXNjFPTvoyN-7SV0tIh11ZAjSpVYp_A5c7IFxKncmx40xZpkRhETDCeyJPwWL2GQW6AsA9xGLfSNET8f3HiRstDo7phqx4sjsQMZep6efx2g3ns94q9djDVG-Uexhs2ajUA/s320/img57957djpg_26090361635_o.jpg">![White daisy with a pink center, photographed against a white
+wall</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqXNjFPTvoyN-7SV0tIh11ZAjSpVYp_A5c7IFxKncmx40xZpkRhETDCeyJPwWL2GQW6AsA9xGLfSNET8f3HiRstDo7phqx4sjsQMZep6efx2g3ns94q9djDVG">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhqXNjFPTvoyN-7SV0tIh11ZAjSpVYp_A5c7IFxKncmx40xZpkRhETDCeyJPwWL2GQW6AsA9xGLfSNET8f3HiRstDo7phqx4sjsQMZep6efx2g3ns94q9djDVG</a>-
+Uexhs2ajUA/s1600/img57957djpg_26090361635_o.jpg)</p>
+<p>PyCamp participants each arrive with one or two ideas, and the sprint begins
+with pitches to recruit contributors. “You end up working on 5 or 6 different
+projects,” says Batista. “No attachments.” At the end of the sprint, the teams
+<a class="reference external" href="https://www.youtube.com/watch?v=AQ_XtNsOF7E">present their work in a series of lightning
+talks</a>.</p>
+<p>Batista’s favorite project this year was a tower defense game, built from
+scratch. Half the participating programmers wrote the game’s core, and coded
+its UI using <a class="reference external" href="https://pyglet.readthedocs.org/">pyglet</a>, the Python OpenGL
+library. The other half invented an AI to play the game. With their
+responsibilities neatly divided, the teams were very productive: they
+completed a working game in four days. Inexperienced members were mixed in
+with experts on each team to accelerate their learning. “I actually knew only
+a little Python,” says Agustín Curto. “I was just starting with the language,
+and it helped because I learned a lot by asking.”</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-uCJcO9_DzuV-VWDs7CE3YJCVG0jNvzs1Wt1HtxFhwz6uRRi3BenG9uZqfk36RklgVpiRTU3ScJ7YXhimGdG1tMlO5JehW3E-GEAzxVQBb9bvTPPwxARpP1mxvBARMN2oWA/s320/pycamp2016-td.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg</a>-
+uCJcO9_DzuV-
+VWDs7CE3YJCVG0jNvzs1Wt1HtxFhwz6uRRi3BenG9uZqfk36RklgVpiRTU3ScJ7YXhimGdG1tMlO5JehW3E-GEAzxVQBb9bvTPPwxARpP1mxvBARMN2oWA/s1600/pycamp2016-td.png)
+—
+Tower defense game</p>
+<p>By sponsoring new PyCamp coders, the PSF wasn’t merely generous: it also made
+an investment in the future of the Python community in Argentina. José Luis
+Zanotti says, “It was such an incredible, fun, and educational experience that
+I decided to commit myself to be an active member of the community, working in
+their projects, and overall promoting the usage of Python in my geographic
+area.”</p>
+<p>_Photos by Facundo Batista;`full gallery on
+Flickr &lt;<a class="reference external" href="https://www.flickr.com/photos/54757453&#64;N00/sets/72157666336865262">https://www.flickr.com/photos/54757453&#64;N00/sets/72157666336865262</a>&gt;`_._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2016-04-the-psf-has-hired-it-manager.html">
+      
+      <span>The PSF has hired an IT Manager!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2016-04-run-for-2016-board-of-directors.html">
+      <span>We Want You to Run for the 2016 Board of Directors</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

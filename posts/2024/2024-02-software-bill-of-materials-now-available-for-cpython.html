@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Software Bill-of-Materials documents are now available for CPython - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="software-bill-of-materials-documents-are-now-available-for-cpython">
+<h1>Software Bill-of-Materials documents are now available for CPython<a class="headerlink" href="#software-bill-of-materials-documents-are-now-available-for-cpython" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2024/02/software-bill-of-materials-now-available-for-cpython.html">here</a>.</p>
+<p>Our Security Developer-in-Residence, <a class="reference external" href="https://sethmlarson.dev/">Seth Larson</a>,
+has been working to improve the management of vulnerabilities for Python
+users. Seth has championed progress on this goal in a variety of areas:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://www.cve.org/Media/News/item/news/2023/08/29/Python-Software-Foundation-Added-as-CNA">Authorizing the Python Software Foundation as a CVE Numbering Authority</a> (CNA) to publish CVE IDs and records</p></li>
+<li><p>Revitalizing the security advisory mailing list (<a class="reference external" href="https://mail.python.org/mailman3/lists/security-announce.python.org/">security-announce&#64;python.org</a>)</p></li>
+<li><p>Migrating all historical vulnerabilities to the <a class="reference external" href="https://ossf.github.io/osv-schema/">Open Source Vulnerability format</a> (OSV) and having the records indexed into the <a class="reference external" href="https://osv.dev/list?ecosystem=&amp;q=PSF">global OSV database</a></p></li>
+</ul>
+</div></blockquote>
+<p>With the <a class="reference external" href="https://www.python.org/downloads/release/python-3122/">release of CPython
+3.12.2</a>, the next step
+of the Python Software Foundation’s vulnerability management strategy is now
+available in the form of Software Bill-of-Materials (SBOM) documents for
+CPython source releases. The documents are available for download in their own
+column labeled “SBOM” in the “Files” table <a class="reference external" href="https://www.python.org/downloads/release/python-3122/">on the release
+page</a>. User
+documentation and a getting started guide for CPython SBOMs is <a class="reference external" href="https://www.python.org/download/sbom/">available on
+python.org</a>.</p>
+<p>These documents are relatively new but have been tested with multiple tools
+that accept SPDX SBOM documents. Please report any feedback on the SBOM to the
+<a class="reference external" href="https://github.com/python/cpython/">CPython issue tracker</a>.</p>
+<section id="what-is-a-software-bill-of-materials-sbom">
+<h2>What is a Software Bill-of-Materials (SBOM)?<a class="headerlink" href="#what-is-a-software-bill-of-materials-sbom" title="Link to this heading">¶</a></h2>
+<p>Software Bill-of-Materials are machine-readable documents using an ecosystem-
+independent format like <a class="reference external" href="https://spdx.github.io/spdx-spec/v2.3/">SPDX</a> or
+<a class="reference external" href="https://cyclonedx.org/">CycloneDX</a> to describe what a piece of software is
+made of and how each component within the software relates to other
+components. There are multiple use-cases for SBOMs, but for CPython we
+primarily focused on software supply chain and vulnerability management.</p>
+<p>Many vulnerability scanning tools support passing an SBOM document as input to
+provide a comprehensive scan for software vulnerabilities without needing to
+rely on fallible software discovery. This means there’s less chances for
+vulnerabilities to be missed by scanners.</p>
+<p>There are existing tools for automatically creating SBOMs for software, but
+SBOMs which aren’t accurate are sometimes more dangerous than having no SBOM
+due to causing a false sense of security. This is especially true for complex
+pieces of software or projects which exist outside of package ecosystems, both
+of which apply to CPython and make generating an SBOM difficult. For this
+reason the content of CPython SBOMs is curated by hand on first pass to ensure
+accuracy and completeness and then automated to track updates as the software
+changes.</p>
+<p>SBOM documents are becoming a requirement for compliance in multiple areas and
+industries. In order to meet those requirements we are providing a
+comprehensive and accurate SBOM for CPython that will provide assurance for
+Python users.</p>
+</section>
+<section id="what-is-included-in-cpython-sboms">
+<h2>What is included in CPython SBOMs?<a class="headerlink" href="#what-is-included-in-cpython-sboms" title="Link to this heading">¶</a></h2>
+<p>CPython SBOMs use the SPDX SBOM standard. SBOM documents include a description
+of the contained software, including all of its dependencies. Information in
+CPython SBOMs includes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Names and versions of all software components</p></li>
+<li><p>Software identifiers (like <a class="reference external" href="https://nvd.nist.gov/products/cpe">CPE</a> and <a class="reference external" href="https://github.com/package-url/purl-spec">Package URLs</a>)</p></li>
+<li><p>Download URLs for source code with checksums</p></li>
+<li><p>File names and content checksums</p></li>
+<li><p>Dependency relationships between each component</p></li>
+</ul>
+</div></blockquote>
+<p>CPython SBOMs satisfy the requirements listed in the <a class="reference external" href="https://www.ntia.gov/sites/default/files/publications/sbom_minimum_elements_report_0.pdf">NTIA Minimum Elements
+for a Software Bill of
+Materials</a>.
+Software identifiers can be used for correlating software in use to
+vulnerability databases like the <a class="reference external" href="https://www.cve.org/">CVE database</a> and
+<a class="reference external" href="https://osv.dev/">Open Source Vulnerability database</a>, typically done
+automatically using vulnerability scanning tools.</p>
+<section id="what-isnt-included-in-cpython-sboms">
+<h3>What _isn’<a href="#id1"><span class="problematic" id="id2">t_</span></a> included in CPython SBOMs?<a class="headerlink" href="#what-isnt-included-in-cpython-sboms" title="Link to this heading">¶</a></h3>
+<p>Keep in mind that software libraries that you supply yourself to compile
+CPython, such as OpenSSL and zlib, are <em>not included in the SBOMs for source
+artifacts</em>.</p>
+<p>This is due to these libraries not being included in source artifacts, so
+CPython users have a choice of which version and sources to use for these
+third-party libraries. Folks who are compiling CPython from source are
+responsible for tracking their own dependencies either in a separate SBOM
+document or by appending new entries to your local CPython SBOM.</p>
+<p>CPython’s SBOMs don’t include licensing information for dependencies. See the
+CPython licensing page for licensing information.</p>
+</section>
+</section>
+<section id="what-is-coming-next-for-cpython-sboms">
+<h2>What is coming next for CPython SBOMs?<a class="headerlink" href="#what-is-coming-next-for-cpython-sboms" title="Link to this heading">¶</a></h2>
+<p>This is only the beginning for CPython SBOMs, as mentioned above there are
+only SBOM documents published for source releases today. The CPython release
+managers also publish binary installers for
+<a class="reference external" href="https://www.python.org/downloads/windows/">Windows</a> and
+<a class="reference external" href="https://www.python.org/downloads/macos/">macOS</a> on a variety of distribution
+channels. These artifacts will need their own SBOM documents as they are
+compiled with software that’s typically not available on those platforms (e.g.
+OpenSSL).</p>
+<p>There’s also more infrastructure needed to reduce noise and churn for Python
+users and Python Security Response Team members alike. Vulnerability EXchange
+(VEX) statements are a set of standards which allows software producers to
+signal to user tooling whether a piece of software in use is affected by a
+vulnerability, even for vulnerabilities affecting dependencies. This is an
+area of active development and is being explored alongside the <a class="reference external" href="https://github.com/ossf/wg-security-tooling">OpenSSF
+Security Tooling Working Group</a>.</p>
+<p>The Security Developer-in-Residence role and this work is funded by a
+substantial investment from the OpenSSF <a class="reference external" href="https://openssf.org/community/alpha-omega/">Alpha-Omega
+Project</a>. Thanks to Alpha-Omega
+for their support in improving the security posture of the entire Python
+ecosystem.The OpenSSF is a non-profit cross-industry collaboration that
+unifies security initiatives and brings together leaders to improve the
+security of open source software by building a broader community, targeted
+initiatives, and best practices.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2024-02-introducing-psf-grants-office-hours.html">
+      
+      <span>Introducing PSF Grants Program Office Hours</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2024-02-white-house-recommends-.html">
+      <span>White House recommends use of memory-safe languages like Python</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

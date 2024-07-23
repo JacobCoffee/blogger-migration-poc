@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>“Weapons of Math Destruction” by Cathy O’Neil - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="weapons-of-math-destruction-by-cathy-o-neil">
+<h1>“Weapons of Math Destruction” by Cathy O’Neil<a class="headerlink" href="#weapons-of-math-destruction-by-cathy-o-neil" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2017/01/weapons-of-math-destruction-by-cathy.html">here</a>.</p>
+<p>In a 1947 lecture on computing machinery, Alan Turing made a prediction: “The
+new machines will in no way replace thought, but rather they will increase the
+need for it.”</p>
+<p>Someday, he said, machines would think for themselves, but the computers of
+the near future would require human supervision to prevent malfunctions:</p>
+<p>&gt; “The intention in constructing these machines in the first instance is to
+&gt; treat them as slaves, giving them only jobs which have been thought out in
+&gt; detail, jobs such that the user of the machine fully understands in
+&gt; principle what is going on all the time.”
+&gt; <a href="#id5"><span class="problematic" id="id6">`1 &lt;http://pyfound.blogspot.com/2017/01/weapons-of-math-destruction-by-
+&gt; cathy.html#1&gt;`_</span></a></p>
+<p>It is unclear now whether machines remain slaves, or if they are beginning to
+be masters. Machine-learning algorithms pervasively control the lives of
+Americans. We do not fully understand what they do, and when they malfunction
+they harm us, by reinforcing the unjust systems we already have. Usually
+unintentionally, they can make the lives of poor people and people of color
+worse.</p>
+<p>In “Weapons of Math Destruction”, Cathy O’Neil identifies such an algorithm as
+a “WMD” if it satisfies three criteria: it makes decisions of consequence for
+a large number of people, it is opaque and unaccountable, and it is
+destructive. I interviewed O’Neil to learn what data scientists should do to
+disarm these weapons.</p>
+<section id="automated-injustice">
+<h2>Automated Injustice<a class="headerlink" href="#automated-injustice" title="Link to this heading">¶</a></h2>
+<p>Recidivism risk models are a striking example of algorithms that reinforce
+injustice. These algorithms purport to predict how likely a convict is to
+commit another crime in the next few years. The model described in O’Neil’s
+book, called
+<a class="reference external" href="http://www.mhs.com/product.aspx?gr=saf&amp;id=overview&amp;prod=lsi-r">LSI-R</a>,
+assesses offenders with 54 questions, then produces a risk score based on
+correlations between each offender’s characteristics and the characteristics
+of recidivists and non-recidivists in a sample population of offenders.</p>
+<p>Some of LSI-R’s factors measure the offender’s past behavior: Has she ever
+been expelled from school, or violated parole? But most factors probably
+aren’t under the individual’s control: Does she live in a high-crime
+neighborhood? Is she poor? And many factors are not under her control at all:
+Has a family member been convicted of any crimes? Did her parents raise her
+with a “rewarding” parenting style?</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKu6FMXYZLklcVS19XECCM5_C7jSOgWavAPk2ENdTOCKIwJtH3SCK_K7FkgEO5ujMlW9hLBhQGFwQb4JdCGeViWCvuipVTFQQb-CIExl0EyIN5t-6rj_UjuHQtazUOhIEMOA/s200/weaponsmath-r4-6-06.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKu6FMXYZLklcVS19XECCM5_C7jSOgWavAPk2ENdTOCKIwJtH3SCK_K7FkgEO5ujMlW9hLBhQGFwQb4JdCGeViWCvuipVTFQQb">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKu6FMXYZLklcVS19XECCM5_C7jSOgWavAPk2ENdTOCKIwJtH3SCK_K7FkgEO5ujMlW9hLBhQGFwQb4JdCGeViWCvuipVTFQQb</a>-
+CIExl0EyIN5t-6rj_UjuHQtazUOhIEMOA/s1600/weaponsmath-r4-6-06.jpg)</p>
+<p>Studies of LSI-R show it gives worse scores to poor black people. Some of its
+questions directly measure poverty, and others (such as frequently changing
+residence) are proxies for poverty. LSI-R does not know the offender’s race.
+It would be illegal to ask, but, O’Neil writes, “with the wealth of detail
+each prisoner provides, that single illegal question is almost superfluous.”
+For example, it asks the offender’s age when he was first involved with the
+police. O’Neil cites a 2013 New York Civil Liberties Union study that young
+black and Hispanic men were ten times as likely to be stopped by the New York
+City police, even though only a tiny fraction were doing anything criminal.</p>
+<p>So far, the LSI-R does not automatically become destructive. If it is
+accurate, and used for benign choices like spending more time treating and
+counselling offenders with high risk scores, it could do some good. But in
+many states, judges use the LSI-R and models like it to decide how long the
+offender’s sentence should be. <a class="reference external" href="http://blog.wilentz.com/criminallaw/2015/04/15/the-use-and-abuse-of-the-lsi-r-in-parole-evaluations-challenging-so-called-objective-testing/">This is not LSI-R’s intended
+use</a>, and it
+is certainly not accurate enough for it: a study this year found that <a class="reference external" href="http://www.tandfonline.com/doi/abs/10.1080/23774657.2015.1111743">LSI-R
+misclassified 41% of
+offenders</a>.
+<a class="reference external" href="http://pyfound.blogspot.com/2017/01/weapons-of-math-destruction-by-cathy.html#2">2</a></p>
+</section>
+<section id="success-according-to-whom">
+<h2>Success, According to Whom?<a class="headerlink" href="#success-according-to-whom" title="Link to this heading">¶</a></h2>
+<p>O’Neil told me that whether an algorithm becomes a WMD depends on who defines
+success, and according to whom. “Over and over again, people act as if there’s
+only one set of stakeholders.”</p>
+<p>When a recidivism risk model is used to sentence someone to a longer prison
+term, the sole stakeholder respected is law enforcement. “Law enforcement
+cares more about true positives, correctly identifying someone who will
+reoffend and putting them in jail for longer to keep them from committing
+another crime.” But our society has a powerful interest in preventing false
+positives. Indeed, we were founded on a constitution that considered a false
+positive—that is, being punished for a crime you did not commit—to be
+extremely costly. Principles including the presumption of innocence, the
+requirement that guilt is proven beyond reasonable doubt, and so on, express
+our desire to avoid unjust punishment, even at the cost of some criminals
+being punished too little or going free.</p>
+<p>However, this interest is ignored when an offender is punished for a bad LSI-R
+score. His total sentence accounts not only for the crime he committed, but
+also for future crimes he is thought likely to commit. Furthermore, he is
+punished for who he is: Being related to a criminal or being raised badly are
+circumstances of birth, but for many people facing sentencing, such
+circumstances are used to add years to their time behind bars.</p>
+</section>
+<section id="statistically-unsound">
+<h2>Statistically Unsound<a class="headerlink" href="#statistically-unsound" title="Link to this heading">¶</a></h2>
+<p>Cathy O’Neil says weapons of math destruction are usually caused by two
+failures. The first is when only one stakeholder’s interests define success.
+LSI-R is an example of this. The other is a lack of actual science in data
+science. For these algorithms, she told me, “We actually don’t have reasonable
+ways of checking to see whether something is working or not.”</p>
+<p>A New York City public school program begun in 2007 assessed teachers with a
+“value added model”, which estimated how much a teacher affected each
+student’s progress on standardized tests. To begin, the model forecast
+students’ progress, given their neighborhood, family income, previous
+achievement, and so on. At the end of the year their actual progress was
+compared to the forecast, and the difference was attributed to the teacher’s
+effectiveness. O’Neil tells the story of Tim Clifford, a public school teacher
+who scored only 6 out of 100 the first year he was assessed, then 96 out of
+100 the next year. O’Neil writes, “Attempting to score a teacher’s
+effectiveness by analyzing the test results of only twenty-five or thirty
+students is statistically unsound, even laughable.” One analysis of the
+assessment showed that <a class="reference external" href="http://garyrubinstein.teachforus.org/2012/02/26/analyzing-released-nyc-value-added-data-part-1/">a quarter of teachers’ scores swung by 40 points in a
+year</a>. Another showed that, with such small samples, <a class="reference external" href="http://www.nytimes.com/2010/12/27/nyregion/27teachers.html">the
+margin of error made half of all teachers statistically
+indistinguishable</a>.</p>
+<p>Nevertheless, the score might determine if the teacher was given a bonus, or
+fired. Although its decision was probabilistic, appealing it required
+conclusive evidence. O’Neil points out that time and again, “the human victims
+of WMDs are held to a higher standard of evidence than the algorithms
+themselves.” The model is math so it is presumed correct, and anyone who
+objects to its scores is suspect.</p>
+<p>New York Governor Andrew Cuomo put a moratorium on these teacher evaluations
+in 2015. We are starting to see that some questions require too subtle an
+intelligence for our current algorithms to answer accurately. As Alan Turing
+said, “If a machine is expected to be infallible, it cannot also be
+intelligent.”</p>
+</section>
+<section id="responsible-data-science">
+<h2>Responsible Data Science<a class="headerlink" href="#responsible-data-science" title="Link to this heading">¶</a></h2>
+<p>I asked Cathy O’Neil about the responsibilities of data scientists, both in
+their daily work and as reformers of their profession. Regarding daily work,
+O’Neil drew a sharp line: “I don’t want data scientists to be de facto policy
+makers.” Rather, their job is to explain to policy makers the moral tradeoffs
+of their choices. The same as any programmer gathers requirements before
+coding a solution, data scientists should gather requirements regarding the
+relative cost of different kinds of errors. Machine learning algorithms are
+always imperfect, but they can be tweaked for either more false positives or
+more false negatives. When the stakes are high, the choice between the two is
+a moral one. Data scientists must pose these questions frankly to policy
+makers, says O’Neil, and “translate moral decisions into code.”</p>
+<p>Tradeoffs in the private sector often pit corporate interests against human
+ones. This is especially dangerous to the poor because, as O’Neil writes, “The
+privileged are processed more by people, the masses by machines.” She told me
+that when the boss asks for an algorithm that optimizes for profit, it is the
+data scientist’s duty to mention that the algorithm should also consider
+fairness.</p>
+<p>“Weapons of Math Destruction” tells us how to recognize a WMD once it is
+built. But how can we predict whether an algorithm will become a WMD? O’Neil
+told me, “The biggest warning sign is if you’re choosing winners and losers,
+and if it’s a big deal for losers to lose. If it’s an important decision and
+it’s a secret formula, then that’s a set-up for a weapon of math destruction.
+The only other ingredient you need in that setup is actually making it
+destructive.”</p>
+</section>
+<section id="reform">
+<h2>Reform<a class="headerlink" href="#reform" title="Link to this heading">¶</a></h2>
+<p>Cathy O’Neil says the top priority, for data scientists who want to disarm
+WMDs, is to develop tools for analyzing them. For example, any EU citizen
+harmed by an algorithmic decision may soon have <a class="reference external" href="http://fusion.net/story/321178/european-union-right-to-algorithmic-explanation/">the legal right to an
+explanation</a>, but so far we lack the tools to provide one. We
+also need tools to measure disparate impact and unfairness. O’Neil says, “We
+need tools to decide whether an algorithm is being racist.”</p>
+<p>New data scientists should enter the field with better training in ethics.
+Curricula usually ignore questions of justice, as if the job of the data
+scientist were purely technical. Data-science contests like
+<a class="reference external" href="https://www.kaggle.com/">Kaggle</a> also encourage this view, says O’Neil.
+“Kaggle has defined the success and the penalty function. The hard part of
+data science is everything that happens before Kaggle.” O’Neil wants more case
+studies from the field, anonymized so students can learn from them how data
+science is really practiced. It would be an opportunity to ask: When an
+algorithm makes a mistake, who gets hurt?</p>
+<p>If data scientists take responsibility for the effects of their work, says
+O’Neil, they will become activists. “I’m hoping the book, at the very least,
+gets people to acknowledge the power that they’re wielding,” she says, “and
+how it could be used for good or bad. The very first thing we have to realize
+is that well-intentioned people can make horrible mistakes.”</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>1.</em> Quoted in “Alan Turing: The Enigma”, by Andrew Hodges. Princeton
+University Press. <a class="reference external" href="http://pyfound.blogspot.com/2017/01/weapons-of-math-destruction-by-cathy.html#top1">↩</a></p>
+<p><em>2.</em> See also <a class="reference external" href="https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing">ProPublica’s analysis of bias in a similar recidivism model,
+COMPAS</a>. <a class="reference external" href="http://pyfound.blogspot.com/2017/01/weapons-of-math-destruction-by-cathy.html#top2">↩</a></p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="../2016/2016-12-happy-holidays-and-thank-you.html">
+      
+      <span>Happy Holidays and Thank You!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2017-01-shelia-miguez-and-will-kahn-greene-and_19.html">
+      <span>Sheila Miguez and Will Kahn-Greene and their love for the Python Community: Community Service Award Quarter 3 2016 Winners</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

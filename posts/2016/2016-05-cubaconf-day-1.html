@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CubaConf, Day 1 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="cubaconf-day-1">
+<h1>CubaConf, Day 1<a class="headerlink" href="#cubaconf-day-1" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2016/05/cubaconf-day-1.html">here</a>.</p>
+<p>_This is the second in a series of posts on my trip in April to Havana, Cuba
+to attend`CubaConf &lt;<a class="reference external" href="http://www.cubaconf.org/">http://www.cubaconf.org/</a>&gt;`_, an International Conference on
+Free Software. _</p>
+<p>Day one of` CubaConf &lt;<a class="reference external" href="http://www.cubaconf.org/">http://www.cubaconf.org/</a>&gt;`_ started out with a bit of
+confusion. A last minute change of venue was necessary due to some
+bureaucratic red tape surrounding the government controlled <a class="reference external" href="http://www.cubaheritage.org/articles.asp?lID=1&amp;artID=306">Palacio del
+Segundo Cabo</a>.
+Luckily, a short walk across the Plaza de Armas, <a class="reference external" href="http://www.ohch.cu/instituciones/colegio-san-geronimo/">the Colegia San
+Geronimo</a> was
+available and happy to step in to provide meeting rooms for the approximately
+180 speakers and attendees. And in spite of the spotty internet service that
+plagues the island, difficulties in communicating the change did not prevent
+the conference from starting smoothly and nearly on schedule. The organizers,
+including <a class="reference external" href="https://twitter.com/elmor3no_">Pablo Mestre</a>, a member of the PSF-
+Cuba workgroup, deserve much credit for their smooth handling of the
+situation.</p>
+<p>Preliminary announcements and welcoming remarks revealed that speakers and
+attendees came from 17 different countries: Argentina, Bolivia, Brazil,
+Canada, Columbia, Costa Rica, Cuba, France, Germany, Italy, Mexico, Peru,
+Spain, Turkey, Uruguay, United States, and Venezuela.
+<a class="reference external" href="http://www.cubaconf.org/2016/03/11/mapbox-is-sponsoring/">Sponsors</a>,
+including the PSF, were mentioned and thanked.</p>
+<p>The keynote by <a class="reference external" href="http://temas.cult.cu/autor/84/hamlet-l%C3%B3pez-garc%C3%ADa">Hamlet López
+García</a>, a social
+psychologist from the Cuban Institute of Cultural Research at Juan Marinello,
+explored the relationship between free software and Cuba’s politics and
+culture.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhj5dv-wAB8P79CMEHZRu7wk7EViu7wDYEVcjN4PWzPzkMlRSPx4P8sjl9Ivh9f4zlx0YiprZtxuG1HGM7oJSdTeqQo-UE_O6As9v8GFDSWAndN6B2UdXGxgQdY576W_Hkz1Y/s320/HamletGarcia.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhj5dv">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhj5dv</a>-
+wAB8P79CMEHZRu7wk7EViu7wDYEVcjN4PWzPzkMlRSPx4P8sjl9Ivh9f4zlx0YiprZtxuG1HGM7oJSdTeqQo-
+UE_O6As9v8GFDSWAndN6B2UdXGxgQdY576W_Hkz1Y/s1600/HamletGarcia.jpg)
+—
+Hamlet López García</p>
+<p>López’ main thesis, (citing Richard Stallman), was that technologies develop
+as social processes and are shaped by cultural values. In this way, the
+general principles of the Cuban revolution can be seen to be in harmony with
+those of free software. The further adoption and use of free software,
+according to López, is leading to more democratic access to knowledge and
+opportunity, not just in Cuba, but globally. This opening talk was
+enthusiastically received and set a positive tone for the rest of the day.</p>
+<p>Once the conference broke into three tracks, I attended a talk by <a class="reference external" href="https://en.wikipedia.org/wiki/Jacob_Appelbaumof">Jacob
+Appelbaum</a> on the <a class="reference external" href="https://www.torproject.org/">TOR
+network</a> and the importance of anonymity.
+Appelbaum explained the ways in which the TOR network was designed to ensure
+four types of freedom: it’s decentralized, encrypted, distributed, and unlike
+other internet networks, meta-data free (i.e., it does not collect or
+aggregate meta-data).</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhznGz5WaMZtUr9GNGCC1k8Y7ytQbufSFoZkRNZvBIqGYctLM-PKLeZnZ8QwCN0SSErsomaEl5ZGA8kRHf0xeVG_cgKnEZXJBBxzOicJ-Ies5z3ajtUB65XFMUStrneC0-D-zI/s400/CubaCon1.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhznGz5WaMZtUr9GNGCC1k8Y7ytQbufSFoZkRNZvBIqGYctLM">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhznGz5WaMZtUr9GNGCC1k8Y7ytQbufSFoZkRNZvBIqGYctLM</a>-
+PKLeZnZ8QwCN0SSErsomaEl5ZGA8kRHf0xeVG_cgKnEZXJBBxzOicJ-
+Ies5z3ajtUB65XFMUStrneC0-D-zI/s1600/CubaCon1.jpg)</p>
+<p>Additional talks occurring on day one shared speakers’ experiences using open
+source for projects such as collaborative mapping and creating an online
+payment system, as well as more theoretical topics such as web development and
+encryption. Former PSF Director, David Mertz, gave a talk on teaching Python
+to Data Scientists, a topic that he will reprise in Portland at PyCon’s
+education summit at the end of this month. Talks were given in either English
+or Spanish, with simultaneous translation provided by one of several bilingual
+volunteers.</p>
+<p>Another talk worth singling out was a provocative talk by ` Heather
+Marsh &lt;<a class="reference external" href="https://en.wikipedia.org/wiki/Heather_Marsh">https://en.wikipedia.org/wiki/Heather_Marsh</a>&gt;`_ on the illusory nature of
+the power that users assume to derive from the internet. According to Marsh,
+such internet features as “thought bubbles” and “noise” pose obstacles to
+collaboration and to challenging the “Ponzi schemes of power.” These ideas are
+more fully presented in Marsh’s book, <a class="reference external" href="http://www.amazon.com/Binding-Chaos-collaboration-global-scale/dp/1489527680">Binding
+Chaos</a>.</p>
+<p>At the end of the day, a tired, but excited crowd posed for a group photo
+before walking down the block to the conference dinner of Cuban food, mojitos,
+and beer.  (And by the way, beer costs about $1 per can/bottle–I almost
+didn’t come home.)</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhby-NrF5Opdd0NRlMRE71MPjSErQXIu3wJMexgIvKWxrHMUFiWmv65-MNbDVPNuYeys4P04gcmTCd0xh4AhWs_i4qBbrt_9WDblrouU2i6RaOvR66lXAh7GLxjVYOY1IsLtU0/s640/CubaConGroup.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhby">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhby</a>-
+NrF5Opdd0NRlMRE71MPjSErQXIu3wJMexgIvKWxrHMUFiWmv65-MNbDVPNuYeys4P04gcmTCd0xh4AhWs_i4qBbrt_9WDblrouU2i6RaOvR66lXAh7GLxjVYOY1IsLtU0/s1600/CubaConGroup.jpg)
+—
+CubaConf end of Day 1
+Outside the Colegia San Geronimo</p>
+<p>_I would love to hear from readers. Please send feedback, comments, or blog
+ideas to me at  <a class="reference external" href="mailto:msushi&#37;&#52;&#48;gnosis&#46;cx">msushi<span>&#64;</span>gnosis<span>&#46;</span>cx</a>._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2016-05-python-and-open-source-alive-and-well.html">
+      
+      <span>Python and Open Source Alive and Well in Havana, Cuba</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2016-05-brett-cannon-wins-frank-willison-award.html">
+      <span>Brett Cannon wins Frank Willison Award</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Python Language Summit 2024: Lightning Talks - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-python-language-summit-2024-lightning-talks">
+<h1>The Python Language Summit 2024: Lightning Talks<a class="headerlink" href="#the-python-language-summit-2024-lightning-talks" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2024/06/python-language-summit-2024-lightning-talks.html">here</a>.</p>
+<p>The Python Language Summit 2024 closed off with six lightning talks which were
+all submitted during the Language Summit. The talks were delivered by Petr
+Viktorin, David Hewitt, Emily Morehouse, Łukasz Langa, Pablo Galindo Salgado,
+and Yury Selivanov.</p>
+<section id="petr-viktorin-unsupported-build-warning">
+<h2>Petr Viktorin: Unsupported build warning<a class="headerlink" href="#petr-viktorin-unsupported-build-warning" title="Link to this heading">¶</a></h2>
+<p>Do you know what happens when you build Python on an unsupported platform?</p>
+<p>“… _It works!_ “ – Thomas Wouters</p>
+<p>Petr gave a short presentation on a warning that many folks using Python (and
+even developing Python!) may have never seen before: the unsupported build
+warning. This warning appears when building on a platform that’s <a class="reference external" href="https://peps.python.org/pep-0011/#support-tiers">not
+officially supported by CPython</a>, for example “riscv64-unknown-linux-gnu”.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvkJZG2Hef6Q1_gBbnMa8D8-2vH2pZutdxA2dwMf0ptLy5hVYWPqlqVe6p5Bo1H-E2GL3G0ocf58y89LambQpnac-4Hl6SeGBkQj-4TO6wlqkmp5DCT_fJbzSTuN-4bo3ARtbIsw-C1sDrlOdkRkdGkzoeBZwYENDfZ2JqpWOI6bK9My_H-A/s320/20240515_163830.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvkJZG2Hef6Q1_gBbnMa8D8-2vH2pZutdxA2dwMf0ptLy5hVYWPqlqVe6p5Bo1H-E2GL3G0ocf58y89LambQpnac-4Hl6SeGBkQj-4TO6wlqkmp5DCT_fJbzSTuN-4bo3ARtbIsw-C1sDrlOdkRkdGkzoeBZwYENDfZ2JqpWOI6bK9My_H-A/s4000/20240515_163830.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvkJZG2Hef6Q1_gBbnMa8D8-2vH2pZutdxA2dwMf0ptLy5hVYWPqlqVe6p5Bo1H-E2GL3G0ocf58y89LambQpnac-4Hl6SeGBkQj-4TO6wlqkmp5DCT_fJbzSTuN-4bo3ARtbIsw-C1sDrlOdkRkdGkzoeBZwYENDfZ2JqpWOI6bK9My_H-A/s4000/20240515_163830.jpg</a>)
+—
+“The platform is not supported, use at your own risk”
+(Photo credit: Hugo van Kemenade)</p>
+<p>Just because a platform isn’t officially supported by CPython doesn’t mean it
+won’t work on that platform, and indeed it’s likely that CPython may work fine
+on the platform or a subset of features may be subtly or not-so-subtly broken
+or unavailable.</p>
+<p>Petr wanted to get a temperature check from the group on whether this warning
+could be further improved or changed, such as by hiding the warning after the
+user had executed the test suite or showing the number of tests that had
+failed.</p>
+<p>The room seemed mostly uninterested in exploring this topic further and was in
+favor of keeping the warning as-is.</p>
+</section>
+<section id="david-hewitt-rust-in-python-panic">
+<h2>David Hewitt: Rust in Python: panic!<a class="headerlink" href="#david-hewitt-rust-in-python-panic" title="Link to this heading">¶</a></h2>
+<p>David Hewitt maintains the project PyO3 which offers Rust bindings for the
+Python C API. David explained that these bindings require mapping concepts in
+the Rust programming language to Python and the topic of today’s talk is the
+<a class="reference external" href="https://doc.rust-lang.org/std/macro.panic.html">panic!</a> macro.</p>
+<p>In Rust, the panic! macro will generate a panic, unwind the stack, and then
+terminate the program while providing feedback to the caller of the program.
+David showed that there were <a class="reference external" href="https://doc.rust-lang.org/std/macro.panic.html#when-to-use-panic-vs-result">two methods of handling
+errors</a> in Rust programs, <a class="reference external" href="https://doc.rust-lang.org/std/macro.panic.html">panic!</a> and <a class="reference external" href="https://doc.rust-lang.org/std/result/index.html">Result</a>.</p>
+<p>Python functions implemented in Rust use the
+<a class="reference external" href="https://docs.rs/pyo3/latest/pyo3/prelude/type.PyResult.html">PyResult</a> type
+to contain the return value or raised exception which uses the Rust Result
+type. But what if a Rust function panics, what should PyO3 do?</p>
+<p>Today PyO3 raises a separate exception for panics,
+<a class="reference external" href="http://pyo3_runtime.PanicException">pyo3_runtime.PanicException</a> to be exact.
+This exception inherits from
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException">BaseException</a>,
+typically reserved for exceptions that users won’t want to catch like
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#KeyboardInterrupt">KeyboardInterrupt</a>
+and
+<a class="reference external" href="https://docs.python.org/3/library/exceptions.html#SystemExit">SystemExit</a>.</p>
+<p>David has been receiving feedback from some users that the PanicException
+inheriting from BaseException is annoying to work with. This is because
+everywhere that exceptions are caught now needs to also catch PyO3’s
+PanicException, giving the example case of logging exceptions.</p>
+<p>David wanted feedback on whether the original choice to inherit from
+BaseException was appropriate or if there was a better answer.</p>
+<p>Pablo Galindo Salgado asked whether an AssertError or RuntimeError would be
+more appropriate. David replied that he felt that not inheriting from
+BaseException would “cheapen” the Rust aspect of a panic.</p>
+<p>Guido van Rossum offered that he thinks “BaseException is the correct choice”,
+to which there was much agreement from the room.</p>
+</section>
+<section id="emily-morehouse-formalizing-the-pep-prototype-process">
+<h2>Emily Morehouse: Formalizing the PEP prototype process<a class="headerlink" href="#emily-morehouse-formalizing-the-pep-prototype-process" title="Link to this heading">¶</a></h2>
+<p>Python Steering Council Member and Language Summit chair, Emily Morehouse,
+spoke to the group about the PEP prototype process and how formalizing can
+better support PEP authors.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_yjbMilImLmVEiUaLonsB9wIfGZfstpK-s_OPRYJWC5hi4n9kfT162S8Yzm4HSRBn238d74zKFLA8uUimuJEbxUc5Fs3K8S4EK31CTOaSfFIMbViDPdyE9YcSfDZ3mmPZDwq1E3px-LPDUgu7ciJnMbKJvmmD-htwg2Wa7z6vQ2QciDFwnA/s320/20240515_164802.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_yjbMilImLmVEiUaLonsB9wIfGZfstpK">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_yjbMilImLmVEiUaLonsB9wIfGZfstpK</a>-
+s_OPRYJWC5hi4n9kfT162S8Yzm4HSRBn238d74zKFLA8uUimuJEbxUc5Fs3K8S4EK31CTOaSfFIMbViDPdyE9YcSfDZ3mmPZDwq1E3px-
+LPDUgu7ciJnMbKJvmmD-htwg2Wa7z6vQ2QciDFwnA/s4000/20240515_164802.jpg)
+—
+(Photo credit: Hugo van Kemenade)</p>
+<p>Emily started off the talk stating “We all agree that we should be doing more
+testing and prototyping outside of CPython”. She also referenced prior talks
+like pdb improvements and subinterpreters where this approach was recommended.</p>
+<p>Emily noted that the Steering Council has pronounced this as a requirement for
+PEP authors. She acknowledged that this “can feel a bit bad as a PEP author to
+be put out into the dark world of figuring out how to gather feedback from the
+community” and how to manage and distribute a project.</p>
+<p>Emily’s proposal for improving the PEP process borrows from the <a class="reference external" href="https://tc39.es">TC39
+process</a>, which is the process for making changes and
+improvements to JavaScript. The proposal would see the prototype process be
+made an “official optional step of the  PEP process” which would then allow
+creating a separate GitHub repository within the
+“<a class="reference external" href="https://github.com/python/">python</a>” GitHub organization.</p>
+<p>This would allow the project to house its own code, issue tracker, and
+packages would be distributed by the Python organization instead of on
+someone’s personal account. Emily also suggested providing a template for the
+repository to handle distributions to PyPI.</p>
+<p>Emily’s theory is that PEPs would see more adoption and get more feedback if
+they came from an official channel. This approach provides additional support
+to PEP author and lets the author start gathering community feedback quicker
+before waiting for PEP pronouncement.</p>
+<p>The room was in agreement for moving forward with the process improvement.</p>
+<p>Carol Willing thought the improvement would be great but called back to
+pattern matching for CPython where the work was done in a feature branch of
+the CPython repository rather than a separate repository. Carol thought using
+a feature branch worked well for pattern matching and wanted to know how this
+process might work for future language changes.</p>
+<p>Emily replied that the process would be case-by-case depending on the feature
+whether it’s a branch, fork or something else. Thomas Wouters agreed, saying
+that this proposal appears to be specifically for projects which could be
+distributed on the PyPI instead of language features.</p>
+</section>
+<section id="lukasz-langa-python-for-ios-finally">
+<h2>Łukasz Langa: Python for iOS, finally<a class="headerlink" href="#lukasz-langa-python-for-ios-finally" title="Link to this heading">¶</a></h2>
+<p>Harking back to the previous talk on mobile support for Python, Łukasz wanted
+to know if the Python team should have a more official presence on phone
+application stores like the Apple App Store (and maybe the Google Play Store,
+but Łukasz declined to speak on it since he is an iOS user).</p>
+<p>Łukasz noted that there already exists today multiple applications on his
+phone that “are Python”. These applications are useful for trying out Python
+code, learning Python, and writing small programs.</p>
+<p>However Łukasz noted that by not having an official Python application on
+mobile meant the user experience today is sub-optimal. Some applications are
+publishing old versions of Python and aren’t reachable when being asked to
+upgrade to newer versions so users can take advantage of new features. Others
+have suddenly changed from being free to being paid applications. Should the
+Python development team do something about this?</p>
+<p>The response from the room appeared positive, but acknowledged the amount of
+effort that creating and maintaining such an application would be.</p>
+<p>Russell Keith-Magee, the author of BeeWare which is leading the charge to
+bring Python to mobile platforms, said “Sure, but I’m not building it”. After
+much laughter from the room, Russell noted that the project is “an entirely
+achievable goal but not a small one”.</p>
+<p>Ned Deily, macOS release expert, agreed and offered that “implementing a
+terminal would get us most of the way there”.</p>
+</section>
+<section id="pablo-galindo-salgado-making-asserts-cooler-in-3-14">
+<h2>Pablo Galindo Salgado: Making asserts cooler in 3.14<a class="headerlink" href="#pablo-galindo-salgado-making-asserts-cooler-in-3-14" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0pV2WbxQPLnzwGGNZLfuaTK0bLZTojRicPegJVn8Fqen_yxpJ6F4LEyfLAkA2tQ-8NouuVuRAWDs3C9-Pj8qv5PjWJgXUq6IX8pvPRbULMUiwo5Tr4bzTZoZi3FBqU_Y5AoESMX1_ONpx6BUYgdtnuIDVvRG-uaBl7-rh-JYDZleTp0XcUg/s320/20240515_165425.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0pV2WbxQPLnzwGGNZLfuaTK0bLZTojRicPegJVn8Fqen_yxpJ6F4LEyfLAkA2tQ-8NouuVuRAWDs3C9-Pj8qv5PjWJgXUq6IX8pvPRbULMUiwo5Tr4bzTZoZi3FBqU_Y5AoESMX1_ONpx6BUYgdtnuIDVvRG">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi0pV2WbxQPLnzwGGNZLfuaTK0bLZTojRicPegJVn8Fqen_yxpJ6F4LEyfLAkA2tQ-8NouuVuRAWDs3C9-Pj8qv5PjWJgXUq6IX8pvPRbULMUiwo5Tr4bzTZoZi3FBqU_Y5AoESMX1_ONpx6BUYgdtnuIDVvRG</a>-
+uaBl7-rh-JYDZleTp0XcUg/s4000/20240515_165425.jpg)
+—
+You’ll have to imagine the iconic Pablo “✨ woooooow ✨”
+(Photo credit: Hugo van Kemenade)</p>
+<p>Pablo took the term “lightning talk” to heart and gave a 90 second
+presentation (demo included!) on his plans to improve asserts in Python in
+version 3.14. The problem statement was summarized as “asserts are kinda sad”,
+after which Pablo showed how when an assert statement fails there isn’t much
+indication about _why_ the condition failed in the error.</p>
+<p>Consider how an assertion error might look today:</p>
+<dl class="simple">
+<dt>Traceback (most recent call last):</dt><dd><dl class="simple">
+<dt>File “main.py”, line 7, in &lt;module&gt;</dt><dd><p>bar(x, y)
+~~~^^^^^^</p>
+</dd>
+<dt>File “main.py”, line 3, in bar</dt><dd><dl class="simple">
+<dt>assert (x + 1) + z == y</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>AssertionError</p>
+<p>Pretty opaque! In the above example you’ll notice that we can’t see the values
+of x, y, or z which makes evaluating what went wrong difficult. Instead, with
+Pablo’s proposed changes the traceback would look like so:</p>
+<dl class="simple">
+<dt>Traceback (most recent call last):</dt><dd><dl class="simple">
+<dt>File “main.py”, line 7, in &lt;module&gt;</dt><dd><p>bar(x, y)
+~~~^^^^^^</p>
+</dd>
+<dt>File “main.py”, line 3, in bar</dt><dd><dl class="simple">
+<dt>assert (x + 1) + z == y</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>AssertionError: assert ((1 + 1) + 11) == 2</p>
+<p>With this change the values are visible for the asserted statement. Similarly
+being able to inspect containers to show where their contents differ, a-la
+pytest:</p>
+<dl class="simple">
+<dt>Traceback (most recent call last):</dt><dd><dl class="simple">
+<dt>File “main.py”, line 2, in bar</dt><dd><p>assert x == y</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>AssertionError: assert Lists differ: [1, 2, 3, [1, 2]] != [1, 2, 3, [1, 3]]</p>
+<p>First differing element 3:
+[1, 2]
+[1, 3]</p>
+<p>- [1, 2, 3, [1, 2]]
+?               ^</p>
+<p>+ [1, 2, 3, [1, 3]]
+?</p>
+<p>Pablo intends to put together a PEP for this feature, including asking
+questions like whether the process should be hookable and whether user code
+should be able to provide custom formatters. Stay tuned for that!</p>
+<p>—</p>
+</section>
+<section id="yury-selivanov-efficient-data-sharing-between-subinterpreters">
+<h2>Yury Selivanov: Efficient data sharing between subinterpreters<a class="headerlink" href="#yury-selivanov-efficient-data-sharing-between-subinterpreters" title="Link to this heading">¶</a></h2>
+<p>The final talk of the Language Summit was from Yury Selivanov on
+<a class="reference external" href="https://github.com/edgedb/memhive">Memhive</a>, a new “highly experimental”
+project which adds support for structured data sharing between Python
+subinterpreters.</p>
+<p><a class="reference external" href="https://docs.python.org/3/whatsnew/3.12.html#pep-684-a-per-interpreter-gil">Per-Interpreter
+GIL</a> is a newer feature to Python that allows running multiple “interpreters”
+in a single instance of Python each with their own Global Interpreter Lock
+(GIL). Per-interpreter GIL allows for true multi-core parallelism, previously
+using threads in a Python process would only allow a single Python instruction
+to execute at a time due to the GIL being shared across all threads.</p>
+<p>Being in the same process means that each subinterpreter is sharing the same
+memory space, and if instructions are executing truly concurrently we run into
+problems with that shared memory space. PEP 684 which specifies per-
+interpreter GIL <a class="reference external" href="https://peps.python.org/pep-0684/#memory-allocators">calls out this
+issue</a> and for now keeps
+memory allocators using global locking mechanisms.</p>
+<p>Yury started the talk by discussing immutable data structures and their
+properties, the most interesting being how quickly they can be copied in
+memory. Deep copies are fast for immutable data structures because they are
+implemented as a single copy-by-reference.</p>
+<p>An immutable mapping collection, specifically a <a class="reference external" href="https://en.wikipedia.org/wiki/Hash_array_mapped_trie">hash-array mapped
+trie</a> (HAMT), has
+already been implemented in Python for the <a class="reference external" href="https://docs.python.org/3/library/contextvars.html">contextvars
+module</a>. Context variables
+need to be copied for _every new asynchronous <a href="#id6"><span class="problematic" id="id7">task_</span></a> , so being efficient is
+important to not impact performance of all async Python workloads.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxf-H2sUp5DAFcb-F6V_4nDi1CJwPmaaQ2bcYsJAyeR3BVQ8tkd48KSXQkgbbe8WjhPKjcQeS3apgBovebDLvuUWK8A0ghOgUy7LtKQzo3TIcfMjOsIbaLc_ZX_X6UEHfhmbi0WVKVECEHyStwVHtdC5czZ8nFoEbjffmLSdYkE0hvnaWMnw/s320/20240515_165853.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxf-H2sUp5DAFcb-F6V_4nDi1CJwPmaaQ2bcYsJAyeR3BVQ8tkd48KSXQkgbbe8WjhPKjcQeS3apgBovebDLvuUWK8A0ghOgUy7LtKQzo3TIcfMjOsIbaLc_ZX_X6UEHfhmbi0WVKVECEHyStwVHtdC5czZ8nFoEbjffmLSdYkE0hvnaWMnw/s4000/20240515_165853.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxf-H2sUp5DAFcb-F6V_4nDi1CJwPmaaQ2bcYsJAyeR3BVQ8tkd48KSXQkgbbe8WjhPKjcQeS3apgBovebDLvuUWK8A0ghOgUy7LtKQzo3TIcfMjOsIbaLc_ZX_X6UEHfhmbi0WVKVECEHyStwVHtdC5czZ8nFoEbjffmLSdYkE0hvnaWMnw/s4000/20240515_165853.jpg</a>)
+—
+Yury explaining how to replant a trie 🌲
+(Photo credit: Hugo van Kemenade)</p>
+<p>HAMTs work by transparently updating the trie structure in background of the
+mapping allowing for structured sharing while minimizing overhead to create
+new copies.</p>
+<p>The invariant for this to work across subinterpreters is that the immutable
+collection in the main interpreter must not be garbage collected. Maintaining
+this invariant will require reliable reference counting across subinterpreters
+(“remote IncRef”). The proposed implementation would have every subinterpreter
+maintain multiple queues for tracking local and remote reference counts.</p>
+<p>Yury explained that similar to how HAMTs provide an immutable mapping
+collection there is another data structure for immutable list collections
+which is “just another 5,000 lines of C” (which received some chuckles) and
+“luckily we won’t be the first ones to implement this collection”.</p>
+<p>After comparing the performance of pickling mappings or using mappings with
+immutable data structures showed that immutable data structures were much more
+performant. The performance was better for immutable mappings for both small
+and large numbers of keys, between 6x and a “ridiculous” 150,000x faster.</p>
+<p>“I believe these are the missing components for subinterpreters”, Yury noted
+with many thanks to Eric Snow who has been working on subinterpreters and per-
+interpreter GIL for years. Yury concluded that this work is being done with a
+practical use-case in mind so will be completed and usable for others
+including CPython.</p>
+<p>For folks looking for more on this topic, Yury also <a class="reference external" href="https://us.pycon.org/2024/schedule/presentation/67/">gave a talk at PyCon US
+2024</a> about his work on
+Memhive.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2024-06-python-language-summit-2024-free-threading-ecosystems.html">
+      
+      <span>The Python Language Summit 2024: Free-threading ecosystems</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2024-06-python-language-summit-2024-limiting-yield-in-async-generators.html">
+      <span>The Python Language Summit 2024: Limiting Yield in Async Generators</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

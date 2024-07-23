@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>November 2018 board meeting summary - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="november-2018-board-meeting-summary">
+<h1>November 2018 board meeting summary<a class="headerlink" href="#november-2018-board-meeting-summary" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2018/12/november-2018-board-meeting-summary.html">here</a>.</p>
+<p>On November 12th and 13th, ten of the thirteen PSF board members convened in
+Chicago, IL. Those who could not make it to the in-person meeting, joined via
+phone conferencing when possible.</p>
+<p>In attendance were Naomi Ceder, Jacqueline Kazil, Thomas Wouters, Van
+Lindberg, Ewa Jodlowska, Lorena Mesa, Eric Holscher, Anna Ossowski,
+Christopher Neugebauer, and Jeff Triplett. Kushal Das and Marlene Mhangami
+connected remotely.</p>
+<p>In continued efforts to be transparent with our community, we wanted to share
+what we discussed and what actions will be taken next.</p>
+<section id="fundraising">
+<h2>Fundraising<a class="headerlink" href="#fundraising" title="Link to this heading">¶</a></h2>
+<p>The first discussion we had pertained to directors’ involvement in
+fundraising.</p>
+<section id="what-is-being-addressed">
+<h3>What is being addressed?<a class="headerlink" href="#what-is-being-addressed" title="Link to this heading">¶</a></h3>
+<p>It is common for non-profit board members to help raise resources via their
+various networks. In the past, our board hasn’t been very active in this area,
+and we’d like to change that going forward.</p>
+</section>
+<section id="what-are-the-next-steps">
+<h3>What are the next steps?<a class="headerlink" href="#what-are-the-next-steps" title="Link to this heading">¶</a></h3>
+<p>During the meeting, we created two board committees to get directors more
+involved in the fundraising process:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Fundraising committee: This committee will be focused on incoming sponsorships and donations. Even though this is a responsibility all directors will work on, this committee will help move things forward and provide the resources that other directors need to help with this role.</p></li>
+<li><p>Outreach committee: This committee will decide if/how PSF funds will be used to help promote the PSF globally (this would be in addition to funds given via a grant/sponsorship). This group will also assist with creating resources for directors to use when attending an event to represent the PSF.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="code-of-conduct">
+<h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading">¶</a></h2>
+<p>Since the Code of Conduct’s creation in 2013, the PSF has not updated nor
+worked on any related resources for our community to use outside of PyCon.</p>
+<p>To better support our community, in the third quarter of 2017, the PSF created
+the Code of Conduct Work Group
+(&lt;<a class="reference external" href="https://wiki.python.org/psf/ConductWG/Charter">https://wiki.python.org/psf/ConductWG/Charter</a>&gt;). The purpose of this work
+group is to:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Review, revise, and advise on policies relating to the PSF code of conducts and other communities that the PSF supports. This includes any #python chat community &amp; python.org email list under PSF jurisdiction.</p></li>
+<li><p>Create a standard set of Codes of Conduct and supporting documents for multiple channels of interaction such as, but not limited to, conferences, mailing lists, slack/IRC, code repositories, and more.</p></li>
+<li><p>Develop training materials and other processes to support Python community organizers in implementing and enforcing the Code of Conduct.</p></li>
+</ol>
+</div></blockquote>
+<section id="id1">
+<h3>What is being addressed?<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h3>
+<p>At our November meeting, the board discussed certain risk exposure that was
+brought to our attention. This discussion is still ongoing and as soon as
+there is a resolution for moving forward, we will work together with the Code
+of Conduct Work Group to update the community.</p>
+</section>
+</section>
+<section id="python-in-education">
+<h2>Python in Education<a class="headerlink" href="#python-in-education" title="Link to this heading">¶</a></h2>
+<section id="id2">
+<h3>What is being addressed?<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>At PyCon 2018, one of the directors hosted an open space about Python in
+Education. The goal was to hear from attendees how the PSF can help educators
+with any obstacles they face with introducing Python into their curriculums.
+Lot of data points were collected and needed to be discussed.</p>
+</section>
+<section id="id3">
+<h3>What are the next steps?<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h3>
+<p>The board directors created a Python in Education group. This group will
+facilitate ways the PSF can use its resources to improve the way we support
+educators with introducing Python into their curriculums.</p>
+<p>The first goal will be to curate impactful and proven open source material
+that educators can use globally. The group will write up a request for
+proposal, decide on a budget that will be allocated to accepted proposals, and
+market it to our community. Our intended timeline is to launch the RFP by the
+new year and have the deadline be before PyCon. At PyCon, we will announce
+accepted proposals so the work can be done during the third quarter of 2019.</p>
+</section>
+</section>
+<section id="finance-committee">
+<h2>Finance Committee<a class="headerlink" href="#finance-committee" title="Link to this heading">¶</a></h2>
+<p>As the PSF continues to grow, we have to make sure that operationally we are
+efficient and effective, especially when it comes to our finances.</p>
+<section id="id4">
+<h3>What is being addressed?<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>For every non-profit board, a major responsibility is to ensure that there is
+a group to monitor the organization’s overall financial health. Prior to now,
+the PSF has not had a board finance committee.</p>
+</section>
+<section id="id5">
+<h3>What are the next steps?<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h3>
+<p>During the meeting, we created a committee that the Director of Operations and
+Finance Controller will report to. To start, the group will meet quarterly.
+Their goals will be to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Oversee financial planning (PSF &amp; PyCon budgets)</p></li>
+<li><p>Monitor that adequate funds are available for financial management tasks</p></li>
+<li><p>Ensure that assets are protected</p></li>
+<li><p>Draft organizational fiscal policies</p></li>
+<li><p>Anticipate financial problems from external fiscal environments</p></li>
+<li><p>Oversee financial record keeping</p></li>
+<li><p>Relay financial health to the rest of the board</p></li>
+<li><p>Ensure all legal reporting requirements are met</p></li>
+<li><p>Sustain the financial committee itself by training and recruiting subsequent board members</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="pycon-trademark">
+<h2>PyCon Trademark<a class="headerlink" href="#pycon-trademark" title="Link to this heading">¶</a></h2>
+<section id="id6">
+<h3>What is being addressed?<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<p>At our meeting in May 2018, the board directors decided that the PSF needs to
+improve the way we monitor the PyCon trademark. The main reason behind this
+decision is to protect the mark by being able to prove that we are monitoring
+its use, which will help avoid certain legal challenges. Additionally, it will
+help us ensure that all PyCons are up to community standards: Python focused,
+non-commercial, and have actionable code of conducts.</p>
+<p>The process has not yet been fully implemented.</p>
+</section>
+<section id="id7">
+<h3>What are the next steps?<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h3>
+<p>The board directors will revive the discussion with the PSF’s trademark
+committee. The goal is to find common ground on how the process will work.
+Afterwards, we will work on full transparency with the community via blogs and
+a message on pycon.org.</p>
+</section>
+</section>
+<section id="diversity-tracking">
+<h2>Diversity Tracking<a class="headerlink" href="#diversity-tracking" title="Link to this heading">¶</a></h2>
+<p>Even though this topic was not on our initial agenda, we wanted to talk about
+this if time allowed. We got lucky and were able to sneak it in!</p>
+<section id="id8">
+<h3>What is being addressed?<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h3>
+<p>Our grants program currently does not require any tracking or reporting for
+diversity grants. Nor does the PSF have a policy for expectations of diversity
+grants. Since we want to see that the funding we give towards diversity is
+impactful, we wanted to discuss options for what we can do.</p>
+</section>
+<section id="id9">
+<h3>What are the next steps?<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<p>We will work on a policy for diversity grants that ask organizers to collect
+relevant diversity statistics. In addition to that, the PSF will work on a
+template survey so conferences can have a starting point in order to lessen
+the burden on volunteer organizers. Once a template and policy is in place, we
+will market the resource via relevant mailing lists, communication chats, and
+the Grants Program page.</p>
+</section>
+</section>
+<section id="python-governance-and-core-development">
+<h2>Python Governance and Core Development<a class="headerlink" href="#python-governance-and-core-development" title="Link to this heading">¶</a></h2>
+<p>Python has recently seen the resignation of its BDFL, Guido van Rossum. This
+encouraged the core developers to rethink the governance of Python. Several
+governance proposals were created in the forms of PEPs, which the core
+developers will be <a class="reference external" href="https://www.python.org/dev/peps/pep-8001/">voting</a>
+December 1st, 2018 to December 16th, 2018 (Anywhere on Earth).</p>
+<p>Even though the board is not currently involved with core development, we did
+discuss what has been developing with the governance discussions. We reflected
+on some of the discussions happening on discuss.python.org. We discussed the
+various PEPs such as PEP 8001, which is about the Python Governance Voting
+Process. We also discussed what the directors thought about the proposals for
+Python governance such as PEP
+<a class="reference external" href="https://www.python.org/dev/peps/pep-8010/">8010</a>,
+<a class="reference external" href="https://www.python.org/dev/peps/pep-8011/">8011</a>,
+<a class="reference external" href="https://www.python.org/dev/peps/pep-8012/">8012</a>,
+<a class="reference external" href="https://www.python.org/dev/peps/pep-8013/">8013</a>,
+<a class="reference external" href="https://www.python.org/dev/peps/pep-8014/">8014</a>,
+<a class="reference external" href="https://www.python.org/dev/peps/pep-8015/">8015</a>,
+<a class="reference external" href="https://www.python.org/dev/peps/pep-8016/">8016</a>.</p>
+</section>
+<section id="whats-next">
+<h2>What’s next?<a class="headerlink" href="#whats-next" title="Link to this heading">¶</a></h2>
+<p>Working across the table from one another was motivational and acted as a
+catalyst for several initiatives. It gave us the opportunity to have in-depth
+conversations, establish stronger professional relationships, and create
+actionable tasks to help move initiatives forward beyond the two-day meeting.</p>
+<p>We plan to host more 24-hour chat channels throughout 2019. They give us the
+chance to hear from community members world wide. Additionally, we will have
+our next in-person board meeting at PyCon 2019 on May 2nd. We look forward to
+updating you all on our progress then.</p>
+<p>It is important for us to know that the PSF Board is inline with our
+community’s needs. If you have comments or suggestions on what was recently
+discussed or something completely new, please reach out to me: ewa at python
+dot org.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2018-11-pypi-security-and-accessibility-q1-2019.html">
+      
+      <span>PyPI Security and Accessibility Q1 2019 Request for Proposals period opens.</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2018-12-pyconza-2018-beautiful-community-in.html">
+      <span>PyConZA 2018 – a beautiful community in South Africa</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The PSF Brochure - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-psf-brochure">
+<h1>The PSF Brochure<a class="headerlink" href="#the-psf-brochure" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/01/2015-psf-news-blog-post-3-psf-brochure.html">here</a>.</p>
+<p>Sometime back in 2011, the PSF realized that _Python_ , although at the time a
+mature and widely-used language, was still unknown to many decision-makers
+outside of the tech world. To remedy this obstacle to _Python’_ s growth (and
+grave injustice), the brochure project was born.</p>
+<p>For over two years, the brochure team, headed by PSF Director, Marc-Andre
+Lemburg, sought success stories and sponsors, in order to demonstrate to
+_“CIOs and chief developers, scientists and programmers, university lecturers,
+teachers and students, customers, clients, managers and employees”_   that
+_Python_  could be the programming solution they were looking for. The
+brochure team also worked hard to ensure there would be no cost to the PSF
+membership by securing sponsors’ ads to fund all printing and distribution.</p>
+<p>Making its debut in April at _PyCon <a href="#id2"><span class="problematic" id="id3">2014_</span></a>  in Montreal (issued in two releases
+of 5,000 copies each, with the first release running out almost immediately),
+the brochure was titled _“python: a programming language changes the world.”_
+The brochure makes clear in 32 pages of vivid detail why _Python_  has become
+a leading programming language in business and industry, finance, science and
+research, media, education, the public sector, government, and charity
+worldwide.</p>
+<p><a class="reference external" href="http://brochure.getpython.info/media/images/Newsletter4-Banner_20120705_12-44-50-800.jpg">![</a>](<a class="reference external" href="http://brochure.getpython.info/media/images/Newsletter4-Banner_20120705_12-44-50-800.jpg">http://brochure.getpython.info/media/images/Newsletter4-Banner_20120705_12-44-50-800.jpg</a>)</p>
+<p>_Python_ ‘s leanness (for example, _”a task that requires an average of twenty
+lines of code in C and seven in Java can often be done with just one line in
+Python”_), agility and flexibility, ease of teaching and learning, capacity
+for system integration, along with the extremely large number of libraries
+available, were cited in the brochure over and over again as reasons for its
+use. According to Chuck Groom – Head of Engineering at the Seattle
+_SurveyMonkey_  office, _“The transition to Python from NET has been a great
+success. Our Python applications handle heavy traffic without problems.
+Developers have found it possible to add new features much more quickly than
+before. New employees get up to speed in a manner of days, and recruiting has
+become easier.”_  And other web-service providers featured in the brochure,
+including _Google_  and _You Tube,  _are just as effusive in their praise.</p>
+<p>Examples from science and industry also abound. _ArcGIS  _(geographic
+information systems), who created the _ArcPy_  module for data analysis
+conversion and management, identifies an additional benefit in describing the
+_Python_  community as _“an extended workbench of a company’s own IT
+department.”_   More scientific uses are described in the brochure by
+_OpenQuake_ , _OpenERP_ , and _Intellovations_  (maker of _ForecastWatch_).</p>
+<p>Making _”heavy use of Python,”_  scientists at the _European Space Agency
+(ESA)_  are able to develop software that will, in the future, be put to use
+on Mars to search for signs of life. And at _CERN_ , physicists, in only 6
+months, were able to replace the C++ analysis framework used for choosing
+experiment parameters with _Python_. The result, _“This new system has been in
+use for a few years now, and many problems that could not be solved using the
+previous system are now literally one-liners.”_</p>
+<p>Today’s film industry is also shown to be committed to _Python_. Companies
+such as _Industial Light and <a href="#id4"><span class="problematic" id="id5">Magic_</span></a>  and _Side <a href="#id6"><span class="problematic" id="id7">Effects_</span></a>  use _Python_  for
+their animation software and to manage production processes. Accoring to Tommy
+Burnette, head of _Global Pipeline, Lucasfilm,_  _”Python plays a key role in
+our production pipeline. Without it a project the size of The Avengers would
+have been very difficult to pull off. From crowd rendering to batch processing
+to compositing, Python binds all things together.”_   And _Blender , “a free
+open-source 3D content creation suite,”_  uses _Python_ as its primary
+language.</p>
+<p>Not to be overlooked, the financial services industry is also featured as
+greatly reliant on _Python_. Examples in the brochure include _Swisscom IT
+<a href="#id8"><span class="problematic" id="id9">Services_</span></a>  and _Landesbank <a href="#id10"><span class="problematic" id="id11">Baden-Wurttemberg_</span></a>. And companies such as
+_eGenix.com,_ which provides _Python-_ based software to the nation of Ghana
+for the collection of VAT revenue, point up _Python’_ s importance in
+contributing to developing economies.</p>
+<p>The brochure also features several educational uses of _Python_  that serve to
+empower disadvantaged learners, like _One Laptop per Child (OLPC)_ , which has
+provided laptop computers to over 2.5 million children and teachers in 42
+countries, and the _PHOENIX project (Physics with Homemade Equipment and
+Innovative Experiments)_  started in 2004 by the _Inter University Accelerator
+Centre (IUAC)_  in India.</p>
+<p>The above are just a few of the abundant and impressive stories highlighted in
+the PSF brochure. Visit the website or download a copy for more info about how
+_Python_  is indeed _”__changing the world.__”_  And If you or someone you
+know would benefit from this type of exposure or if you have a success story
+you’d like to share, please let us know.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2015-01-2014-year-in-review-part-2.html">
+      
+      <span>2014 Year in Review, Part 2</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2015-02-django-girls-warsaw-carrot-coding.html">
+      <span>Geek Girls Carrots Warsaw workshop</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

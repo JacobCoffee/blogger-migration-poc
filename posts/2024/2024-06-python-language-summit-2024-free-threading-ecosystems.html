@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Python Language Summit 2024: Free-threading ecosystems - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-python-language-summit-2024-free-threading-ecosystems">
+<h1>The Python Language Summit 2024: Free-threading ecosystems<a class="headerlink" href="#the-python-language-summit-2024-free-threading-ecosystems" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2024/06/python-language-summit-2024-free-threading-ecosystems.html">here</a>.</p>
+<p>Following <a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language-summit-2023-making.html">years of excitement</a> around the removal of the Global
+Interpreter Lock (GIL), Python without the GIL is coming soon. <a class="reference external" href="https://www.python.org/downloads/release/python-3130b1/">Python 3.13
+pre-releases</a> already
+have support for being built without the GIL using a new --disable-gil
+compile-time option:</p>
+</section>
+<section id="download">
+<h1>Download<a class="headerlink" href="#download" title="Link to this heading">¶</a></h1>
+<p>wget <a class="reference external" href="https://www.python.org/ftp/python/3.13.0/Python-3.13.0b2.tgz">https://www.python.org/ftp/python/3.13.0/Python-3.13.0b2.tgz</a>
+echo “c87c42aa8137230a15a02ed90a6600610ba680cb5b54c0fbc57581a0d032e0c4  ./Python-3.13.0b2.tgz” | sha256sum –check
+tar -xzvf ./Python-3.13.0b2.tgz</p>
+</section>
+<section id="build">
+<h1>Build<a class="headerlink" href="#build" title="Link to this heading">¶</a></h1>
+<p>cd Python-3.13.0b2/
+./configure –disable-gil
+make</p>
+</section>
+<section id="run-with-no-gil">
+<h1>Run with no GIL!<a class="headerlink" href="#run-with-no-gil" title="Link to this heading">¶</a></h1>
+<p>./python -X nogil -c “import sys; print(sys._is_gil_enabled())”
+False</p>
+<p>But simply having GIL-less Python is not enough, code needs to be written that
+is safe and performant without the GIL using both the C and Python APIs.</p>
+<p>This year at the Language Summit, Daniele Parmeggiani gave a talk about ways
+Python can enable safe and performant concurrent code without _locking_
+CPython into a specific implementation or <a href="#id8"><span class="problematic" id="id9">`memory
+model &lt;https://en.wikipedia.org/wiki/Memory_model_\(programming\&gt;`_</span></a>).</p>
+<section id="don-t-leak-the-details">
+<h2>Don’t leak the details<a class="headerlink" href="#don-t-leak-the-details" title="Link to this heading">¶</a></h2>
+<p>Daniele started his talk, like many Python users, with cautious enthusiasm
+about the prospect of free-threading in Python:</p>
+<p>&gt; “Given the <a href="#id10"><span class="problematic" id="id11">`acceptance notes &lt;https://discuss.python.org/t/pep-703-making-
+&gt; the-global-interpreter-lock-optional-in-cpython-acceptance/37075&gt;`_</span></a> to PEP
+&gt; 703, one should argue for caution in discussing the prospects of new multi-
+&gt; threading ecosystems after the release of Python 3.13 — with a hopeful
+&gt; spirit I will disregard this caution here.”
+&gt;
+&gt; -- Daniele Parmeggiani</p>
+<p>Daniele detailed a <a class="reference external" href="https://github.com/python/cpython/issues/113920">feature
+request</a> he had opened to
+create a public function for the private C API function “_Py_TRY_INCREF()”.
+Daniele wanted to use this function to increment an object’s reference count
+safely in a truly multi-threaded Python where a reference count might be
+decremented concurrently to an increment.</p>
+<p>Daniele continued, “[Sam Gross]
+<a class="reference external" href="https://github.com/python/cpython/issues/113920#issuecomment-1995563002">responded</a>
+as thoughtfully and thoroughly as he usually does that the function shouldn’t
+be public, and I agree with him”.</p>
+<p>The semantics of _Py_TRY_INCREF() today are tied to the specific
+implementation of free-threading and without a guarantee that the underlying
+implementation won’t change Daniele does not think the function “should ever
+be made public”.</p>
+<p>But without this functionality Daniele’s problem still stands, where do we go
+from here?</p>
+</section>
+<section id="higher-level-apis-to-the-rescue">
+<h2>Higher-level APIs to the rescue<a class="headerlink" href="#higher-level-apis-to-the-rescue" title="Link to this heading">¶</a></h2>
+<p>“At a higher-level it’s possible to write further guarantees without
+constraining what’s under the hood”. Daniele started a single step up in
+abstraction, detailing an atomic reference API:</p>
+<p>PyObject <a href="#id1"><span class="problematic" id="id2">*</span></a>AtomicRef_Get(AtomicRef <a href="#id3"><span class="problematic" id="id4">*</span></a>self)
+{</p>
+<blockquote>
+<div><p>PyObject <a href="#id5"><span class="problematic" id="id6">*</span></a>reference;
+reference = self-&gt;reference;
+while (!_Py_TRY_INCREF(reference)) {</p>
+<blockquote>
+<div><p>reference = self-&gt;reference;</p>
+</div></blockquote>
+<p>}
+return reference;</p>
+</div></blockquote>
+<p>}</p>
+<p>This would be “trivial to implement” with the new garbage collection scheme in
+Python 3.13 (“quiescent state-based reclamation” or QSBR), “but what if
+[Python 3.14] were to change this scheme radically? Or what if 3.15 decides to
+do away with it entirely?”</p>
+<p>Daniele eschewed making guarantees about low-level APIs at this stage of
+development, but concluded that “an API for atomically updating a reference to
+a PyObject seems like a high-level use-case worth guaranteeing, regardless of
+any implementation of reference counting”.</p>
+</section>
+<section id="atomic-data-structures">
+<h2>Atomic data structures<a class="headerlink" href="#atomic-data-structures" title="Link to this heading">¶</a></h2>
+<p>Daniele continued exploring higher-level concepts that Python could provide at
+this stage of free-threading by looking to what other languages are doing.</p>
+<p>Java provides a
+<a class="reference external" href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/package-summary.html">java.util.concurrent</a> package containing some familiar faces for Python concurrency
+users like
+<a class="reference external" href="https://docs.python.org/3/library/threading.html#semaphore-objects">Semaphores</a>, <a class="reference external" href="https://docs.python.org/3/library/threading.html#lock-objects">Locks</a>, and
+<a class="reference external" href="https://docs.python.org/3/library/threading.html#barrier-objects">Barriers</a>,
+but also some other atomic primitives that map to Python classes like dicts,
+lists, booleans, and integers. Daniele asked whether Python should provide
+atomic variations for primitives like numbers and dictionaries.</p>
+<p>Daniele explained that many atomic data structures use the “compare-and-set”
+model to synchronize read and write access to the same space in memory.
+Compare-and-set requires the caller to specify an expected value, if the value
+in memory matches the expected value then the value is updated to the passed
+value, and the call returns whether the operation was successful or not.</p>
+<p>Daniele explained that compare-and-set establishes a “<a class="reference external" href="https://jenkov.com/tutorials/java-concurrency/java-happens-before-guarantee.html">happens-
+before</a>” ordering between concurrent writes to the same memory
+location, joking that the phrase “happens-before” may spark thoughts of memory
+models which he wished to avoid.</p>
+<p>Today Python doesn’t have any method of reordering memory accesses which would
+require thinking about the memory model. Daniele noted that may come one day
+from the new <a class="reference external" href="https://docs.python.org/3.13/whatsnew/3.13.html#whatsnew313-jit-compiler">just-in-time
+compiler</a> (JIT).</p>
+<p>Daniele was already developing an <a class="reference external" href="https://github.com/dpdani/cereggii/tree/dev/src/cereggii/atomic_dict">atomic dictionary
+class</a>
+and had seen performance gains over the existing standard library dictionary
+with the GIL disabled (with lower single-threaded performance):</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivKqZ5arkv_l8RhLPqmFmnl_v797VnOU0HBAilJQFK-VUktBrd5VjNg9p0gfqX5UjS9PTIjLmsN_wUx6Tbbjqbo_baffEOyqwcPazs224myHNsjyTERlbtZ2omHUOxMqAUSj7crhDzDa3CsTDtrRdCnepHwsqpEiCMnMXTQBd7AKAVjQd_LQ/s320/Screenshot%20from%202024-06-07%2010-27-54.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivKqZ5arkv_l8RhLPqmFmnl_v797VnOU0HBAilJQFK">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEivKqZ5arkv_l8RhLPqmFmnl_v797VnOU0HBAilJQFK</a>-
+VUktBrd5VjNg9p0gfqX5UjS9PTIjLmsN_wUx6Tbbjqbo_baffEOyqwcPazs224myHNsjyTERlbtZ2omHUOxMqAUSj7crhDzDa3CsTDtrRdCnepHwsqpEiCMnMXTQBd7AKAVjQd_LQ/s1199/Screenshot%20from%202024-06-07%2010-27-54.png)
+—
+Performance comparison of dict with and without the GIL and Daniele’s
+AtomicDict</p>
+<p>Daniele observed that the free-threading changes actually _decreased_ the
+performance for write-heavy workloads on builtin types like dictionaries
+because “Python programs will now actually be subject to memory contention”.
+When multiple threads attempt to mutate a list or dictionary, “it will be as
+if the GIL is still there, [the threads] will all be contending for one lock”,
+offering that “new concurrent data structures would alleviate this performance
+issue”.</p>
+<p>Daniele wanted to know what primitives Python should offer for C extension
+developers targeting free-threaded builds, or asked if it’s still too early to
+make guarantees:</p>
+<p>“As the writer of a <a class="reference external" href="https://github.com/dpdani/cereggii">C extension</a> looking
+to implement concurrent lock-free data structures for Python”, Daniele asked
+of the room, “does CPython eventually wish to incorporate… either high-level
+atomics or low-level routines?”</p>
+<p>Daniele continued, “if not the atomics, then new low-level APIs like
+_Py_TRY_INCREF() will be necessary in order not to force the abuse of locks in
+external efforts towards new free-threading ecosystems”.</p>
+</section>
+<section id="discussion">
+<h2>Discussion<a class="headerlink" href="#discussion" title="Link to this heading">¶</a></h2>
+<p>Thomas Wouters, channeling the Steering Council’s past intent from accepting
+PEP 703 last October said, “we don’t know yet what users will actually need”
+and the Steering Council didn’t want to “prematurely optimize” and mandate
+features be implemented without that knowledge.</p>
+<p>Thomas recommended building solutions to “production use-cases” as PyPI
+packages or separate projects before the deciding to pull those solutions into
+Python, summarizing the sentiment with, “we need to take our time and make
+sure we’re doing the right thing”.</p>
+<p>Steering Council member Barry Warsaw agreed with Thomas on strategy, also
+adding that “[atomic references] might be something [Python] needs to make
+sure the interpreter doesn’t crash with some of our own C code”. Barry was
+interested in how to “ensure that the interpreter stays safe in the face of
+free-threading without necessarily thinking about the right APIs for the
+higher-level data structures”.</p>
+<p>Sam Gross, author and main implementer of PEP 703 to make the GIL optional in
+CPython, commented on making additional guarantees to standard library
+collections, saying “we’re going to find situations that are ambiguous where
+no one’s promised thread-safety or [the lack of thread-safety]”.</p>
+<p>Sam would also like to see “scalable collections” on PyPI (and “would love to
+see in Python eventually too”) that are “designed not just to be thread-safe,
+but to scale well with certain workloads”. Sam noted that builtin data classes
+like dict and list “can only make so many trade-offs” and tend to “focus on
+single-threaded performance” or “multi-threaded read-only access”.</p>
+<p>Eric Snow wanted to see immutable data structures be considered, too, noting
+the benefits to performance and shareability that Yury Selivanov was seeing
+when using them with sub-interpreters.</p>
+<p>Gregory Smith sympathized with Daniele on wanting to avoid thinking about
+memory models, but “had a sneaking suspicion we kinda have to anyway”. Greg
+was concerned about other stacks like data science and machine learning “re-
+interpreting Python code and transforming it into other things that run on
+other hardware”. Without a clear definition, people “make their own
+assumptions” and get confused when code runs differently in different places.</p>
+<p>Replying to Greg, Daniele offered that there’s already a mechanism for
+determining whether an object is shared between threads “which might be a
+first-step”, but that this “was a detail of the implementation, and not a part
+of the language”.</p>
+<p>Guido van Rossum began by being “wary of looking to Java for examples”,
+stating that many APIs that Python borrowed from Java were eventually
+deprecated and removed.</p>
+<p>Guido commented that “there will be other people with much higher-level ideas
+on concurrency” and recommended “to wait as long as we can before we build
+anything into the language explicitly or implicitly”. Guido also felt it was
+“important that we have sub-interpreters as well as free-threading, so people
+can play with different models before we commit to anything”.</p>
+<p>Overall, the group seemed interested in Daniele’s work on atomics but didn’t
+seem willing to commit to exact answers for Python yet. It’s clear that more
+experimentation will be needed in this area.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2024-06-python-language-summit-2024-annotations-as-transforms.html">
+      
+      <span>The Python Language Summit 2024: Annotations as Transformers</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2024-06-python-language-summit-2024-lightning-talks.html">
+      <span>The Python Language Summit 2024: Lightning Talks</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

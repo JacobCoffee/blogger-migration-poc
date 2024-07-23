@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2021 Python Language Summit: Progress on Running Multiple Python Interpreters in Parallel in the Same Process - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2021-python-language-summit-progress-on-running-multiple-python-interpreters-in-parallel-in-the-same-process">
+<h1>The 2021 Python Language Summit: Progress on Running Multiple Python Interpreters in Parallel in the Same Process<a class="headerlink" href="#the-2021-python-language-summit-progress-on-running-multiple-python-interpreters-in-parallel-in-the-same-process" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit_16.html">here</a>.</p>
+<p><a class="reference external" href="https://twitter.com/VictorStinner">Victor Stinner</a> and <a class="reference external" href="https://twitter.com/dongheena92">Dong-hee
+Na</a> gave a presentation at the <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit.html">2021 Python
+Language Summit</a> about running multiple Python interpreters in parallel
+in the same process.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7g90zuvRUj_yTomTouxzfuKCiZ-3eWcAEZsyr7YPX1YoRybYiVYH4sWUw-d1OoFXPn0_Vs0qG7y4XH1LOMABwTvSKeenMKOI7fIICkZZQn1buU7jrKBhycR33RK0Y8lEnfGs/s16000/talk-3-authors.png">![Victor Stinner &amp; Dong-hee
+Na</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7g90zuvRUj_yTomTouxzfuKCiZ-3eWcAEZsyr7YPX1YoRybYiVYH4sWUw-d1OoFXPn0_Vs0qG7y4XH1LOMABwTvSKeenMKOI7fIICkZZQn1buU7jrKBhycR33RK0Y8lEnfGs/s500/talk-3-authors.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7g90zuvRUj_yTomTouxzfuKCiZ-3eWcAEZsyr7YPX1YoRybYiVYH4sWUw-d1OoFXPn0_Vs0qG7y4XH1LOMABwTvSKeenMKOI7fIICkZZQn1buU7jrKBhycR33RK0Y8lEnfGs/s500/talk-3-authors.png</a>)</p>
+<section id="use-cases">
+<h2>Use Cases<a class="headerlink" href="#use-cases" title="Link to this heading">¶</a></h2>
+<p>Victor Stinner started by explaining why we would need to make the changes
+that they’re discussing. One use case would be if you wanted to embed Python
+and extend the features of your application, like Vim, Blender, LibreOffice,
+and pybind11. Another use case is subinterpreters. For example, to handle HTTP
+requests, there is Apache mod_wsgi, which uses subinterpreters. There are also
+plugins for WeeChat, which is an IRC client written in C.</p>
+<section id="embedding-python">
+<h3>Embedding Python<a class="headerlink" href="#embedding-python" title="Link to this heading">¶</a></h3>
+<p>One of the current issues with embedding Python is that it doesn’t explicitly
+release memory at exit. If you use a tool to track memory leaks, such as
+Valgrind, then you can see a lot of memory leaks when you exit Python.</p>
+<p>Python makes the assumption that the process is done as soon as you exit, so
+you wouldn’t need to release memory. But that doesn’t work for embedded Python
+because applications can survive after calling Py_Finalize(), so you have to
+modify Py_Finalize() to release all memory allocations done by Python. Doing
+that is even more important for Py_EndInterpreter(), which is used to exit the
+subinterpreter.</p>
+</section>
+<section id="running-multiple-interpreters-in-parallel">
+<h3>Running Multiple Interpreters in Parallel<a class="headerlink" href="#running-multiple-interpreters-in-parallel" title="Link to this heading">¶</a></h3>
+<p>The idea is to run one interpreter per thread and one thread per CPU, so you
+use as many interpreters as you have CPUs to distribute the workload. It’s
+similar to multiprocessing use cases, such as distributing machine learning.</p>
+</section>
+<section id="why-do-we-need-a-single-process">
+<h3>Why Do We Need a Single Process?<a class="headerlink" href="#why-do-we-need-a-single-process" title="Link to this heading">¶</a></h3>
+<p>There are multiple advantages to using a single process. Not only can it be
+more convenient, but it can also be more efficient for some uses cases. Admin
+tools are designed for handling a single process rather than multiple. Some
+APIs don’t work with cross-processes since they are designed for single
+processes. On Windows, creating a thread is faster than creating a process. In
+addition, macOS decided to ban fork(), so multiprocessing uses spawn by
+default and is slower.</p>
+</section>
+<section id="no-shared-object">
+<h3>No Shared Object<a class="headerlink" href="#no-shared-object" title="Link to this heading">¶</a></h3>
+<p>The issue with running multiple interpreters is that all CPUs have access to
+the same memory. There is concurrent access on the refcnt object. One way to
+make sure that the code is correct is to put a lock on the reference counter
+or use an atomic operation, but that can create a performance bottleneck. One
+solution would be to not share any objects between interpreters, even if
+they’re immutable objects.</p>
+</section>
+<section id="what-drawbacks-do-subinterpreters-have">
+<h3>What Drawbacks Do Subinterpreters Have?<a class="headerlink" href="#what-drawbacks-do-subinterpreters-have" title="Link to this heading">¶</a></h3>
+<p>If you have a crash, like a segfault, then all subinterpreters will be killed.
+You need to make sure that all imported extensions support subinterpreters.</p>
+</section>
+</section>
+<section id="c-api-extensions">
+<h2>C API &amp; Extensions<a class="headerlink" href="#c-api-extensions" title="Link to this heading">¶</a></h2>
+<p>Next, Dong-hee Na shared the current status of the extension modules that
+support heap types, module state, and multiphase initialization. In order to
+support multiple subinterpreters, you need to support multiphase
+initialization (<a class="reference external" href="https://www.python.org/dev/peps/pep-0489/">PEP 489</a>), but
+first you need to convert static types to heap types and add module state.
+<a class="reference external" href="https://www.python.org/dev/peps/pep-0384/">PEP 384</a> and <a class="reference external" href="https://www.python.org/dev/peps/pep-0573/">PEP
+573</a> support heap types, and we
+mostly use PyTypeFromSpec() and PyTypeFromModuleAndSpec() APIs. Dong-hee Na
+walked the summit attendees through an example with the _abc module extension.</p>
+</section>
+<section id="work-done-so-far">
+<h2>Work Done So Far<a class="headerlink" href="#work-done-so-far" title="Link to this heading">¶</a></h2>
+<p>Victor Stinner outlined some of the work that has already been done. They had
+to deal with many things to make interpreters not share objects anymore, such
+as free lists, singletons, slice cache, pending calls, type attribute lookup
+cache, interned strings, and Unicode identifiers. They also had to deal with
+the states of modules because there are some C APIs that directly access
+states, so they needed to be per interpreter rather than per module instance.</p>
+<p>One year ago, Victor Stinner wrote a proof of concept to check if the design
+for subinterpreters made sense and if they’re able to scale with the number of
+CPUs:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG6fb9kVXZV0UZuclH_0DyQtzoNYb1ZnWhTy2sZ3rsL7ShnhF8maXN0vyXKncZbOSUAMOiwgqrRp232VT5NiuvC6hC7xdSloMCkq338ZSf27HPs8MflKoNYmemv327FsfRdEc/s16000/proof-of-concept.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG6fb9kVXZV0UZuclH_0DyQtzoNYb1ZnWhTy2sZ3rsL7ShnhF8maXN0vyXKncZbOSUAMOiwgqrRp232VT5NiuvC6hC7xdSloMCkq338ZSf27HPs8MflKoNYmemv327FsfRdEc/s500/proof">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhG6fb9kVXZV0UZuclH_0DyQtzoNYb1ZnWhTy2sZ3rsL7ShnhF8maXN0vyXKncZbOSUAMOiwgqrRp232VT5NiuvC6hC7xdSloMCkq338ZSf27HPs8MflKoNYmemv327FsfRdEc/s500/proof</a>-
+of-concept.png)</p>
+</section>
+<section id="work-that-still-needs-to-be-done">
+<h2>Work That Still Needs to Be Done<a class="headerlink" href="#work-that-still-needs-to-be-done" title="Link to this heading">¶</a></h2>
+<p>Some of the easier TODOs are:</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p>Converting remaining extensions and static types</p></li>
+<li><p>Making _PyArg_Parser per interpreter</p></li>
+<li><p>Dealing with the GIL itself</p></li>
+</ul>
+</div></blockquote>
+<p>Some of the more challenging TODOs are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Removing static types from the public C API</p></li>
+<li><p>Making None, True, and False singletons per interpreter</p></li>
+<li><p>Getting the Python thread state (tstate) from a thread local storage (TLS)</p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p>There are some ideas for the future:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Having an API to directly share Python objects</p></li>
+<li><p>Sharing data and use one Python object per interpreter with locks</p></li>
+<li><p>Supporting spawning subprocesses (fork)</p></li>
+</ul>
+</div></blockquote>
+<p>If you want to know more, you can play around with this yourself:</p>
+<p>./configure –with-experimental-isolated-subinterpreters</p>
+</section>
+</section>
+<section id="ifdef-experimental-isolated-subinterpreters">
+<h1>ifdef EXPERIMENTAL_ISOLATED_SUBINTERPRETERS<a class="headerlink" href="#ifdef-experimental-isolated-subinterpreters" title="Link to this heading">¶</a></h1>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2021-05-the-2021-python-language-summit-pep-654.html">
+      
+      <span>The 2021 Python Language Summit: PEP 654 — Exception Groups and except*</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2021-05-the-2021-python-language-summit-cpython.html">
+      <span>The 2021 Python Language Summit: CPython Performance Improvements at Instagram</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

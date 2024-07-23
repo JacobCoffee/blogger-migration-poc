@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Redesigning the Python Package Index - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="redesigning-the-python-package-index">
+<h1>Redesigning the Python Package Index<a class="headerlink" href="#redesigning-the-python-package-index" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2018/08/redesigning-python-package-index.html">here</a>.</p>
+<p>In April this year a new version of the <a class="reference external" href="https://pypi.org/">Python Package
+Index</a> (PyPI) was released, an effort made possible by a
+<a class="reference external" href="http://pyfound.blogspot.com/2017/11/the-psf-awarded-moss-grant-pypi.html">generous award from the Mozilla Open Source Support
+program</a>.</p>
+<p>A major change in PyPI is the new user interface - something that had not seen
+any sizeable updates for over ten years. Understandably there have been
+questions about what’s next for the new UI, which as the designer of
+<a class="reference external" href="https://github.com/pypa/warehouse">Warehouse</a> (the project powering PyPI), I
+would like to address.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtiv4iacJl6C0Xg17cbHpRfD894UjyMoVgudIJIj6TCll0clw2j2OQE_9WNTATdV1GimQ0X3eaM-YW5MNAimodsdXEVNPJIdddv6L9-W9jMsJGkAPuFZ7CgX8gWepKIInWwiY/s640/Screen+Shot+2018-07-18+at+4.32.52+PM.png">![The PyPI
+homepage</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtiv4iacJl6C0Xg17cbHpRfD894UjyMoVgudIJIj6TCll0clw2j2OQE_9WNTATdV1GimQ0X3eaM">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhtiv4iacJl6C0Xg17cbHpRfD894UjyMoVgudIJIj6TCll0clw2j2OQE_9WNTATdV1GimQ0X3eaM</a>-
+YW5MNAimodsdXEVNPJIdddv6L9-W9jMsJGkAPuFZ7CgX8gWepKIInWwiY/s1600/Screen+Shot+2018-07-18+at+4.32.52+PM.png)</p>
+<section id="the-new-design">
+<h2>The new design<a class="headerlink" href="#the-new-design" title="Link to this heading">¶</a></h2>
+<p>PyPI’s new design is a reflection of the Python community - modern, welcoming
+and inclusive.</p>
+<p>The design emphasises inclusion by providing extensive help documentation,
+user friendly interfaces, accessible font sizes and a high-contrast color
+scheme. The entire site works across all resolutions, meaning that you can now
+use PyPI on any device.</p>
+<p>These features are no accident, as the goal of the redesign is to make PyPI a
+success for as many users as possible. This a big challenge as over 15 million
+people from 236 different countries visit PyPI.org each year (Aug 2017 - July
+2018).</p>
+<p>While the new design is informed by <a class="reference external" href="https://whoisnicoleharris.com/2018/05/17/warehouse-accessibility.html">usability
+standards</a> and user experience best practices, it’s now time to take
+PyPI to the next level: informing design improvements by engaging in community
+research and user testing.</p>
+</section>
+<section id="next-steps">
+<h2>Next steps<a class="headerlink" href="#next-steps" title="Link to this heading">¶</a></h2>
+<p>The first area we are looking to improve is the project’s detail page (<a class="reference external" href="https://pypi.org/project/pip/">view
+example</a>), which is - as the name suggests -
+the page where the details of a particular project can be viewed.</p>
+<p>This is by far the most visited page type on PyPI. In July 2018 alone, 76.59%
+of page visits were to a project detail page, or 3,594,956 visits from a total
+page visit count of 4,693,561. The majority of users arrive on these pages
+direct from Google or other sources, bypassing the PyPI home and search pages.</p>
+<p>Given these numbers, even a small improvement in the efficiency of this page
+would return great results for the community. The question is: how should we
+decide what to change? What one user might think of an improvement, others may
+consider a regression.</p>
+</section>
+<section id="conducting-user-research">
+<h2>Conducting user research<a class="headerlink" href="#conducting-user-research" title="Link to this heading">¶</a></h2>
+<p>In an effort to better understand what our users want from the aforementioned
+page, we ran a design research exercise (<a class="reference external" href="https://whoisnicoleharris.com/2018/07/22/pypi-user-research.html">full
+writeup</a>)
+asking Python community members to rank the importance of different pieces of
+information on the page. 1,926 people participated in the exercise. These were
+the results:</p>
+<p>&amp;&amp;</p>
+<p><a class="reference external" href="https://infogram.com/aafb06e8-4bc6-4e49-8bbe-9e2525b18ddf">“Buy a Feature” - PyPI
+research</a>
+<a class="reference external" href="https://infogram.com/">Infogram</a></p>
+<p>From this research, we can ascertain that many users highly value the project
+description, information about the required version of Python, and links to
+the project online. In contrast, few users value the <a class="reference external" href="https://pypi.org/classifiers/">trove
+classifiers</a>, list of maintainers, or
+instructions on how to see statistics about the project.</p>
+<p>Such insights are essential in driving the redesign in a way that prioritises
+important information for the largest number of users.</p>
+</section>
+<section id="running-user-tests">
+<h2>Running user tests<a class="headerlink" href="#running-user-tests" title="Link to this heading">¶</a></h2>
+<p>In conjunction with this research we are also establishing a user testing
+program, where PyPI users will give their feedback to the team via a remote
+video call; answering specific usage questions or completing certain tasks on
+the site.</p>
+<p>Our goal is to run these sessions with a diverse group of users, accounting
+for the different people, places and ways that Python is used, while
+establishing major “pain points” with the current design. From this, we can
+open issues in the issue tracker to address problems, <a class="reference external" href="https://github.com/pypa/warehouse/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+label%3A%22raised+in+user+testing%22+">as has happened
+before</a>
+with previous rounds of user tests conducted on the project management
+interfaces.</p>
+<p>User tests can also be used to test new design concepts, compare the
+performance between old design vs new proposals, and ascertain if the proposed
+design solutions are truely performant.</p>
+</section>
+<section id="help-us-help-pypi">
+<h2>Help us help PyPI!<a class="headerlink" href="#help-us-help-pypi" title="Link to this heading">¶</a></h2>
+<p>So - how can you help us take PyPI to the next level?</p>
+<p>If you’d like to participate in user tests, please <a class="reference external" href="https://t.co/rkBRinecDx">register your
+interest</a>. Depending on your profile and
+availability, we will be in touch to organise a testing session.</p>
+<p>If you have a background in design/research or are interested in facilitating
+user tests, please contact me on <a class="reference external" href="mailto:nicole&#37;&#52;&#48;pypi&#46;org">nicole<span>&#64;</span>pypi<span>&#46;</span>org</a>.
+All help is welcome!</p>
+<p>We appreciate new contributors to the Warehouse project, with <a class="reference external" href="https://github.com/pypa/warehouse/issues?q=is%3Aissue+label%3A%22good+first+issue%22">reserved issues
+for new
+contributors</a>
+and love <a class="reference external" href="https://psfmember.org/civicrm/contribute/transact?reset=1&amp;id=13">donations to the Python Packaging Working
+Group</a> as
+these help us build a more sustainable model for Python packaging.</p>
+<p>Finally, if you are interested in participating in future rounds of user
+research, please follow <a class="reference external" href="https://twitter.com/pypi">PyPI on Twitter</a> or keep an
+eye on PyPI.org for future announcements!</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2018-08-pycon-2019-call-for-sponsors.html">
+      
+      <span>PyCon 2019 - Call for Sponsors</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2018-09-cpython-core-developer-sprint-2018.html">
+      <span>CPython Core Developer Sprint 2018</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

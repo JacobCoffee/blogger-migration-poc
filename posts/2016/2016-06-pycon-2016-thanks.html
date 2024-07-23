@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PyCon 2016: A look back, my take away, and thank you! - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="pycon-2016-a-look-back-my-take-away-and-thank-you">
+<h1>PyCon 2016: A look back, my take away, and thank you!<a class="headerlink" href="#pycon-2016-a-look-back-my-take-away-and-thank-you" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2016/06/pycon-2016-thanks.html">here</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-BS5KmqGLfNvMXU5-4_jkg9uiUKTKkjFKyUQHvJ9BBgmbYV02XyLiSvFb7B9vj2pRy58zre6Zvl4Hq2LpZEe-TNWkk5HDd8xS0eqvdH22IQmGARl5-j35GWQzmFMHI8psCCA/s320/portland-by-jesse.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj</a>-
+BS5KmqGLfNvMXU5-4_jkg9uiUKTKkjFKyUQHvJ9BBgmbYV02XyLiSvFb7B9vj2pRy58zre6Zvl4Hq2LpZEe-
+TNWkk5HDd8xS0eqvdH22IQmGARl5-j35GWQzmFMHI8psCCA/s1600/portland-by-jesse.jpg)
+—
+Portland, Oregon
+photo credit: A. Jesse Jiryu Davis</p>
+<p><em>A quick look back at PyCon 2016</em></p>
+<p>I am writing this during my flight home to Chicago as I reminisce about PyCon,
+which officially ended yesterday in Portland, Oregon. This was yet another
+successful conference! We had over 3200 pythonistas check in! The 2016
+tutorials and talks sold out in March, which is much sooner than previous
+conferences. Both committees did a great job reviewing and providing guidance
+to those that needed it. Personally I only found time to watch Lars’ talk, but
+thanks to our efficient AV crew, I will watch the rest in the comfort of my
+home over the next few weeks. Hearing the positive feedback from our sponsors,
+even when logistical issues popped up, tells me the companies that helped make
+PyCon happen, are just as dedicated to our community as we are. I appreciate
+their support and understanding.</p>
+<p>PyCon 2016 was my ninth PyCon. I have enjoyed organizing each one of those
+nine conferences. Over the last nine years I have seen the Python community
+grow and become a respected community. PyCon is, for many, the central time of
+the year and I know it is for me and the PSF. Through our learning experiences
+at PyCon, we are able to help the Python community all around the world. We
+are able to offer others insight on conference childcare, our financial aid
+system, and volunteer involvement amongst other things. We also learn from
+others within our community and welcome guidance for how processes could be
+more effective and less overwhelming. On a larger scale, PyCon’s revenue helps
+us (the PSF) fund hundreds of other PyCons and teaching workshops around the
+world per year. But those are not the only ways that PyCon impacts our
+community.</p>
+<p><em>My main take away</em></p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>I have noticed that it is easier for us to improve and grow as a community
+when we meet in person from time to time. Over the years I have learned
+through my own experiences that emailing about community relations is not
+always easy nor productive. When I come to PyCon and see the many
+interactions, I understand the reasons why conferences are so vital to any
+community. When we are face to face, we are able to put our differences and
+opinions aside. It is easier for us to put ourselves into someone else’s
+shoes. When we find common ground, we become a stronger community. Watching
+Twitter the last few days has been my evidence for this happening at PyCon. I
+have seen so many moving “good-byes” and appreciations for our community. I
+have seen attendees publicly thanking our community for its openness and
+acceptance. Witnessing this energizes me and inspires me to further support
+the community through my PSF and PyCon work. Thank you PyCon 2016 for
+motivating me and making me a stronger individual in so many ways. _Let us
+keep this inspirational motivation going all year round!_</p>
+<p><em>My long list of thank yous</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Betsy Waliszewski (psf event coordinator): Welcome to the PSF &amp; PyCon community! Thank you for all of the time and energy you put into the pre-planning and onsite work. Having you at PyCon 2016 was a tremendous help that I have never had before. I look forward to developing your role as event coordinator!</p></li>
+<li><p>Kurt Kaiser (psf treasurer): Thank you for all of the work you do for PyCon, especially for financial aid. The work you do impacts hundreds of PyCon goers every year.</p></li>
+<li><p>Brandon Rhodes (conference chair): Thank you for being such a wonderful person. It was a pleasure working with you and seeing the way you work. Working with you has taught me much more than you know.</p></li>
+<li><p>Ruben Orduz, Carol Willing, Allen Downey (tutorial chairs): Thank you for all of your work reviewing tutorial proposals and helping those that needed guidance.</p></li>
+<li><p>Ned Jackson Lovely, Karen Rustad Tölva (program chairs), and the program committee: Thank you for all of your work reviewing hundreds of talks. Thank you for coming together as a community when needed. I admire your strength and ability to work through certain situations.</p></li>
+<li><p>Ashwini Oruganti and LVH (financial aid chairs): Thank you for continuing to improve our financial aid process. I know this task needed a lot of time, but we will continue to work to make it better for the volunteers as well as the recipients.</p></li>
+<li><p>Barry Warsaw and Larry Hastings (language summit chairs): Thank you for working to put together a great language summit. I look forward to seeing the evolvement of the summit and the python language.</p></li>
+<li><p>Chalmer Lowe, Jessica Ingrassellino, Ria Baldevia (education summit chairs): Thank you for continuing to grow the education summit. This year, the event was a huge success and I look forward to what it will bring to PyCon 2017!</p></li>
+<li><p>Rami Chowdhury and Yarko Tymciurak (volunteer chairs): Thank you for helping organize our volunteer efforts. Our volunteers make our conference significant and special. I am sure they all appreciate you two also :)</p></li>
+<li><p>Felix Crux (mobile guide chair): Thank you for helping with the mobile guide. Your attention to detail helped us put together an awesome guide that many attendees took advantage of.</p></li>
+<li><p>Anna Ossowski, Kinga Kięczkowska and Hobson Lane (open space chairs): Thank you for putting so much effort into improving Open Spaces. I look forward to seeing what you will bring to 2017!</p></li>
+<li><p>David Wolever and Julia Duimovich (session staff chairs): The work you two put forth onsite is immeasurable. Without you both, the talks would not happen like clock work! The session chairs give our speakers the attention they deserve. Thank you all who volunteered to be a session chair and/or runner!</p></li>
+<li><p>Brian Costlow (CART coordinator): Thank you for taking on this task this year. Your thorough feedback will definitely help us make the process better going forward!</p></li>
+<li><p>Hannes Hapke and Gustavo Pinto (poster session chairs): I enjoyed seeing the posters get so much attention this year. Thank you for making that event run so smoothly!</p></li>
+<li><p>Lynn Root and Thursday Bram (lightning talk chairs): Thank you for putting together the lightning talks daily and moderating the 5 minute talks.</p></li>
+<li><p>Don Sheu and Yannick Gingras (startup row chairs): Thank you for working so hard to give startups a chance to market their work and to meet awesome pythonistas!</p></li>
+<li><p>Mathieu Leduc-Hamel and Nick Lang (5k coordinators): Mathieu - thank you for helping us pre-plan the 5k. Also, your dedication to wake up that early and get everyone organized is appreciated! Nick - thank you for helping us onsite and giving us pointers on how we can improve the process!</p></li>
+<li><p>Doug Napoleone, Jackie Kazil and Lynn Root (pyladies auction chairs): Thank you for making the PyLadies Auction such a fun event and raising so much money for a great cause.</p></li>
+<li><p>Luke and Meagan Sneeringer (young coder setup and other volunteer tasks): Thank you for all of your support onsite. Having you both there makes us a stronger team. I really appreciate you both being up so early every day to help registration!</p></li>
+<li><p>Kushal Das and Naomi Ceder (sprint chairs): Thank you for the help you both provided to get the sprinters informed and organized. Your work at the Sprints impacts so many in our community!</p></li>
+<li><p>Barbara Shaurette and Andrew Dupont (young coder teachers): Thank you for staying strong and teaching the Young Coders classes this year. Your dedication is appreciated by me and the children!</p></li>
+<li><p>Noah Kantrowitz (general volunteer): Thank you for just being there to help us with random tasks that needed attention. Having someone there with institutional knowledge that can jump in to help with anything is very useful.</p></li>
+<li><p>Jon Henner (accessibility chair): It was unfortunate that you could not join us onsite, but we look forward to seeing you at 2017! Thank you for working with us to make PyCon more accessible. I am grateful for your guidance and I look forward to seeing the impact you will have on PyCon 2017.</p></li>
+<li><p>Jessica McKellar (diversity chair): Thank you for helping PyCon increase its diversity year after year! I look forward to seeing what 2017 will bring!</p></li>
+<li><p>Paul Hildebrandt (swag coordinator): Not only do you bring awesome gifts for our speakers year after year, but you also dedicate so much time to get swag organized and distributed. We are all thankful for you!</p></li>
+</ul>
+</div></blockquote>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2016-06-unconference-day-at-cubaconf.html">
+      
+      <span>Unconference Day at CubaConf</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2016-06-psf-success.html">
+      <span>The PSF’s Growing Success</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

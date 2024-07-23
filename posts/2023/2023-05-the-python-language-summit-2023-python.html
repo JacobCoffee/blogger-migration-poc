@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Python Language Summit 2023: Python on Mobile - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-python-language-summit-2023-python-on-mobile">
+<h1>The Python Language Summit 2023: Python on Mobile<a class="headerlink" href="#the-python-language-summit-2023-python-on-mobile" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language-summit-2023-python.html">here</a>.</p>
+<p>At the <a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language-summit-2023_29.html">Python Language Summit 2023</a>, Russell Keith-Magee presented on the
+ongoing efforts of <a class="reference external" href="https://beeware.org">BeeWare</a>, a project that aims to make
+it easier to run Python on mobile platforms such as Android and iOS.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/a/AVvXsEhKd0EQEStk2AWmSAjsGgsESDcswdm1vnDv77ZrTgwbJdOD6Om0nyFfH6gxIT1fvBo6Tt9bykJuS1pIkPD1qNFnLiINcLdtiebwaDA4CvfOCyNkoq5nRNKZ9K0_7FPWhsYhLJXGxbv7BCL2XEMHZNQxfl61szs8q0yAX56kyk_PKSXXG4A">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/a/AVvXsEhKd0EQEStk2AWmSAjsGgsESDcswdm1vnDv77ZrTgwbJdOD6Om0nyFfH6gxIT1fvBo6Tt9bykJuS1pIkPD1qNFnLiINcLdtiebwaDA4CvfOCyNkoq5nRNKZ9K0_7FPWhsYhLJXGxbv7BCL2XEMHZNQxfl61szs8q0yAX56kyk_PKSXXG4A">https://blogger.googleusercontent.com/img/a/AVvXsEhKd0EQEStk2AWmSAjsGgsESDcswdm1vnDv77ZrTgwbJdOD6Om0nyFfH6gxIT1fvBo6Tt9bykJuS1pIkPD1qNFnLiINcLdtiebwaDA4CvfOCyNkoq5nRNKZ9K0_7FPWhsYhLJXGxbv7BCL2XEMHZNQxfl61szs8q0yAX56kyk_PKSXXG4A</a>)
+—
+The BeeWare logo</p>
+<section id="russell-keith-magee-is-one-busy-bee">
+<h2>Russell Keith-Magee is one busy bee<a class="headerlink" href="#russell-keith-magee-is-one-busy-bee" title="Link to this heading">¶</a></h2>
+<p>Improving Python’s story for running on mobile has been a labour of love for
+Keith-Magee for eight years at this point. Keith-Magee <a class="reference external" href="https://pyfound.blogspot.com/2020/05/cpython-on-mobile-platforms.html">last presented at the
+Python Language Summit in 2020</a> (a year when the summit was conducted entirely
+virtually due to the Covid-19 pandemic). Since then, however, great progress
+has been made.</p>
+<p>The biggest change since his last update, Keith-Magee reported, wasn’t
+technical – it was financial. For the last year, BeeWare has no longer been a
+hobby project for Keith-Magee. He is now paid by
+<a class="reference external" href="https://www.anaconda.com">Anaconda</a> to <a class="reference external" href="https://beeware.org/news/buzz/exciting-news-for-the-future-of-beeware/">work on the project full
+time</a>,
+along with a colleague, Malcolm Smith. “I now have the resources to do the
+work” required to make this happen, he announced.</p>
+<p>Keith-Magee came to the Language Summit this year with a proposal: to add
+Android and iOS as platforms with “tier-3” support from CPython in Python
+3.13.</p>
+<p>What does “tier-3 support” mean? Tier-3 support, as defined by <a class="reference external" href="https://peps.python.org/pep-0011/#tier-3">PEP
+11</a>, describes a level of support
+that the CPython core developers commit to giving a specific platform. The
+CPython test suite is run constantly on popular platforms such as Ubuntu,
+Windows and MacOS, and test failures on these platforms can block releases
+until they are fixed. More esoteric platforms, meanwhile, are tested in CI
+less frequently. Test failures on those platforms will not necessarily block a
+release of CPython.</p>
+<p>Tier-3 support is the current level of support Python provides to the
+<a class="reference external" href="https://emscripten.org">emscripten</a>, <a class="reference external" href="https://wasi.dev">WASI</a> and
+<a class="reference external" href="https://www.freebsd.org">FreeBSD</a> platforms, among others. If a platform has
+tier-3 support, the test suite will be run on the platform on a regular basis,
+but not on every pull request. Tier-3 support indicates that at least one core
+developer has committed to supporting CPython on that platform as best they
+can. However, test failures on that platform will not block a release of
+CPython.</p>
+</section>
+<section id="the-path-to-tier-3-support">
+<h2>The path to tier-3 support<a class="headerlink" href="#the-path-to-tier-3-support" title="Link to this heading">¶</a></h2>
+<p>Historically, a significant barrier standing in the way of mobile-platform
+support from CPython has been the difficulties associated with running tests
+on mobile platforms in
+<a class="reference external" href="https://en.wikipedia.org/wiki/Continuous_integration">CI</a>. Keith-Magee
+announced, however, that it was now possible to run the CPython test suite on
+mobile platforms via
+<a class="reference external" href="https://beeware.org/project/projects/tools/briefcase/">Briefcase</a>, BeeWare’s
+packaging and development tool. (Getting the test suite to _pass_ is another
+issue – But Keith-Magee felt confident that it would be easy to make progress
+on that front.) As such, Keith-Magee reported, it should be feasible for
+CPython to integrate running tests on these platforms into the project’s
+testing infrastructure on GitHub.</p>
+<p>One remaining issue is a fairly specific question, but an important one
+nonetheless: on a mobile platform, what should
+<a href="#id2"><span class="problematic" id="id3">``</span></a>sys.platform` &lt;<a class="reference external" href="https://docs.python.org/3/library/sys.html#sys.platform">https://docs.python.org/3/library/sys.html#sys.platform</a>&gt;`_ be?
+The two major mobile platforms are currently inconsistent about this: on iOS,
+<cite>sys.platform == “ios”</cite>, whereas on Android, <cite>sys.platform == “linux”</cite>.</p>
+<p>The advantage of the first approach is that it is easy for user code to detect
+whether the code is being run on iOS or not. The advantage of the second
+approach, meanwhile, is that most existing Python code won’t necessarily
+account for the possibility that it might be run on Android or iOS, so will
+run into difficulties with idioms such as the following:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>if sys.platform == “linux”:</dt><dd><p>do_fancy_linux_only_feature()</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The Android platform, Keith-Magee noted, is very similar to Linux, so by
+setting <cite>sys.platform</cite> to “linux”, a lot of code “just works” on Android even
+though the code hasn’t explicitly accounted for the possibility that it might
+be run on that platform.</p>
+</section>
+<section id="abuzz-with-excitement">
+<h2>Abuzz with excitement<a class="headerlink" href="#abuzz-with-excitement" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMf7wl_3NSqzHPBtLs31nHWssIZ1rIY3Wd5AmZKsrmQJnxvn0AQT0yF-cbuP6oldqPjC3L75USN9wYhENRXMmLoPgfEvVx6bUiu7RMNHpkWeexNYmKKRIetyQkdAFlloeZt1KAS9tP9OCu4F9QXY7mF2L11TasEGT2MTrKODgJRDqqkj8/s320/image_2023-05-27_221125338.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMf7wl_3NSqzHPBtLs31nHWssIZ1rIY3Wd5AmZKsrmQJnxvn0AQT0yF">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMf7wl_3NSqzHPBtLs31nHWssIZ1rIY3Wd5AmZKsrmQJnxvn0AQT0yF</a>-
+cbuP6oldqPjC3L75USN9wYhENRXMmLoPgfEvVx6bUiu7RMNHpkWeexNYmKKRIetyQkdAFlloeZt1KAS9tP9OCu4F9QXY7mF2L11TasEGT2MTrKODgJRDqqkj8/s959/image_2023-05-27_221125338.png)
+—
+Keith-Magee in flight (photo by Hugo van Kemenade)</p>
+<p>Keith-Magee’s talk was greeted enthusiastically by the core developers in the
+room; there was strong consensus that Python needed a better story on mobile
+platforms. Carol Willing expressed excitement about the ways in which support
+for mobile platforms could help Python spread globally, to countries where
+large numbers of people had no access to desktop computers (but had easy
+access to phones). Łukasz Langa agreed, noting that he had received many
+enquiries about Python on mobile after giving a talk on the subject about a
+year ago. “It’s interesting to a _lot_ of people,” Langa commented. “We need
+it.”</p>
+<p>&gt; “Wooooo!”</p>
+<p>&gt; -- _Carol Willing, CPython Core <a href="#id15"><span class="problematic" id="id16">Developer_</span></a></p>
+<p>On the <cite>sys.platform</cite> question, Core Developer Filipe Laíns said that he was
+working on a new API for the
+<a href="#id5"><span class="problematic" id="id6">``</span></a>sysconfig` &lt;<a class="reference external" href="https://docs.python.org/3/library/sysconfig.html">https://docs.python.org/3/library/sysconfig.html</a>&gt;`_ standard-
+library module, which will provide a more granular way of distinguishing
+between platforms from user code. In the meantime, Brett Cannon wondered if
+BeeWare could use the same approach as CPython builds for WebAssembly: on
+WebAssembly builds, unusually, <cite>sys.platform</cite> has a different value to
+<cite>os.name</cite> (<a href="#id7"><span class="problematic" id="id8">`</span></a>sys.platform <a href="#id9"><span class="problematic" id="id10">`</span></a>is either “wasi” or “emscripten”, but <a href="#id11"><span class="problematic" id="id12">`</span></a>os.name <a href="#id13"><span class="problematic" id="id14">`</span></a>is
+“linux”).</p>
+<p>Another outstanding question, however, is what the release process would look
+like for these new platforms. There was appreciation of the work Keith-Magee
+had already put into BeeWare, and nobody doubted that he would continue to be
+committed to the project. However, Keith-Magee is not currently a core
+developer, leading to a concern that CPython might be supporting a platform
+that nobody on the core team had expertise in.</p>
+<p>Ned Deily, release manager for Python 3.6 and 3.7, worried that distributing
+CPython binaries for these platforms might not be feasible, as it would make
+the release process “even more arduous”. Keith-Magee responded that it could
+be possible to automate the build process for these platforms. If it wasn’t,
+he said, it also wouldn’t necessarily be essential for CPython to distribute
+official binaries for these platforms, at least at first.</p>
+</section>
+<section id="where-next-for-beeware">
+<h2>Where next for BeeWare?<a class="headerlink" href="#where-next-for-beeware" title="Link to this heading">¶</a></h2>
+<p>Keith-Magee’s next steps are to work towards upstreaming the patches to
+CPython that the BeeWare project has made, so that CPython on mobile platforms
+can “just work” without any changes being made. The alterations that have
+already been made to support <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit-python.html">CPython on
+WebAssembly</a> have made this task much easier, Keith-Magee noted.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2023-05-the-python-language-summit-2023-pattern.html">
+      
+      <span>The Python Language Summit 2023: Pattern Matching, __match__, and View Patterns</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2023-05-the-python-language-summit-2023-three.html">
+      <span>The Python Language Summit 2023: Three Talks on the C API</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

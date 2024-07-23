@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Python Language Summit 2023: Making the Global Interpreter Lock Optional - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-python-language-summit-2023-making-the-global-interpreter-lock-optional">
+<h1>The Python Language Summit 2023: Making the Global Interpreter Lock Optional<a class="headerlink" href="#the-python-language-summit-2023-making-the-global-interpreter-lock-optional" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language-summit-2023-making.html">here</a>.</p>
+<p>The Global Interpreter Lock (“GIL”), is one of the most fundamental parts of
+how Python works today. It’s also one of the most controversial parts, as it
+prevents true concurrency between threads – another way of saying that it’s
+difficult to run two functions simultaneously while writing pure-Python code.</p>
+<p>If there’s one blog that really “took off” after I wrote last year’s coverage
+on the Python Language Summit, it was <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit-python_11.html">my blog on Sam Gross’s proposal to make
+Python’s Global Interpreter Lock (the “GIL”)
+optional</a>. One week following the publication of my articles, the
+blog had been viewed nearly 38,000 times; the blog in “second place” had only
+been viewed 5,300 times.</p>
+<p>Interest in removing the GIL is clear, therefore – and this year, Gross
+returned to the <a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language-summit-2023_29.html">Python Language
+Summit</a> to discuss the development of his plans.</p>
+<section id="dare-to-dream-of-a-gil-free-world">
+<h2>Dare to dream of a GIL-free world<a class="headerlink" href="#dare-to-dream-of-a-gil-free-world" title="Link to this heading">¶</a></h2>
+<p>Gross started off by giving an update on how work on <cite>nogil</cite> – Gross’s fork of
+CPython with the GIL removed – had progressed over the past year. Gross had
+been spending the last few months rebasing his fork onto CPython 3.12. As a
+result, he was now able to give an accurate estimate of how bad the
+performance costs to single-threaded code would be, if the GIL were removed.</p>
+<p>Over the past year, Gross had also written a PEP – <a class="reference external" href="https://peps.python.org/pep-0703/">PEP
+703</a> – which, following the Language
+Summit, was <a class="reference external" href="https://github.com/python/steering-council/issues/188">submitted to the Steering Council for their
+consideration</a> on May
+12. If the PEP is accepted by the Steering Council, a version of Python with
+the GIL disabled could be available as soon as Python 3.13. (To discuss the
+ideas in the PEP, head to <a class="reference external" href="https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-3-12-updates/26503/1">the thread on
+discuss.python.org</a>.)</p>
+<p>Gross reported that the latest version of <cite>nogil</cite> was around 6% slower on
+single-threaded code than the CPython <cite>main</cite> branch, and that he was confident
+that the performance overhead could be reduced even further, possibly to
+nearly 0%. Most of the overhead was due to reference counting and changes that
+had been required to the operation of CPython’s new-in-3.11 <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit_2.html">specialising
+adaptive interpreter</a>. With multiple threads, the performance overhead was
+around 8%.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz0cEgI5ArFR9lfrczf74Z1y3C536LXYM7iW8WJKi3G_A_Usgp-Bhl8tbOqL7lCkZgpa4Nod76W7FRbSAZ6jwekyynJXd7CDYTSnoilbuGTvRpgvjkYpAMuTBCUwQYeFMpOKsRafkrus1HHzPUC6RFtS0Zu0okF4UVZyeJj_NnQD1C4ck/s320/Sam%20Gross%20picture.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz0cEgI5ArFR9lfrczf74Z1y3C536LXYM7iW8WJKi3G_A_Usgp">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhz0cEgI5ArFR9lfrczf74Z1y3C536LXYM7iW8WJKi3G_A_Usgp</a>-
+Bhl8tbOqL7lCkZgpa4Nod76W7FRbSAZ6jwekyynJXd7CDYTSnoilbuGTvRpgvjkYpAMuTBCUwQYeFMpOKsRafkrus1HHzPUC6RFtS0Zu0okF4UVZyeJj_NnQD1C4ck/s1025/Sam%20Gross%20picture.png)
+—
+A slide from Gross’s talk
+(numbers indicate the per-thread overhead)</p>
+<p>Having rebased onto Python 3.12, Gross was also able to give an estimate on
+the extent of the code changes that would be required to CPython, were <cite>nogil</cite>
+to be accepted. Excluding generated files, Gross reported that around 15,000
+lines of code would need to be changed. There would also need to be some
+alterations to <a class="reference external" href="https://github.com/microsoft/mimalloc">mimalloc</a>, which
+<cite>nogil</cite> depends on – but Gross was hopeful that these would be accepted to
+mimalloc itself, reducing the need for CPython to maintain mimalloc patches in
+its codebase.</p>
+<p>Some audience members expressed concern about the prospect of “<cite>#ifdef</cite> hell”
+across the code base, to account for the two possible CPython build options.
+However, Gross countered that most of the changes required could be made
+unconditionally without resorting to <a href="#id2"><span class="problematic" id="id3">`</span></a>#ifdef`s, since the changes were simply
+no-ops with the GIL enabled.</p>
+<p>The plan for <cite>nogil</cite> remains that it would be enabled via a compile-time flag,
+named <cite>–disable-gil</cite>. Third-party C extensions would need to provide separate
+wheels for GIL-disabled Python.</p>
+</section>
+<section id="gil-gotta-go">
+<h2>GIL gotta go<a class="headerlink" href="#gil-gotta-go" title="Link to this heading">¶</a></h2>
+<p>Last year, it felt as though Gross’s proposal was met with a certain degree of
+excitement, but also a certain degree of scepticism. It was thrilling to see
+how far <cite>nogil</cite> had come, but there was a certain amount of frustration in the
+room at the lack of a concrete plan for where to go next.</p>
+<p>This year, it felt like the proposal was greeted much more warmly. Gross had
+come to the summit with a far more clearly defined roadmap for how we might
+get to <cite>nogil</cite>, and had taken the time to put together detailed estimates of
+the performance impact and the extent of the code changes.</p>
+<p>&gt; “Thank you for doing this… now we have something we can actually consider!”</p>
+<p>&gt; --_Brandt Bucher, CPython Core <a href="#id4"><span class="problematic" id="id5">Developer_</span></a></p>
+<p>Attendees at the Language Summit were also impressed at how low the
+performance overhead of <cite>nogil</cite> was, although Mark Shannon commented that he
+thought the numbers might be “a slight underestimate”. Gross explained that he
+had managed to achieve a 2-3% speedup by optimising for the case where only a
+single thread was active. Even in multithreaded programs, he explained, this
+provided a performance boost, since even in multithreaded code, it was often
+the case that only a single thread would be attempting to access an object at
+any given point in time.</p>
+<p>Larry Hastings expressed concern that <cite>nogil</cite> might make debugging code
+harder; Gross responded that there was some impact on debuggability, but that
+it wasn’t too bad, in his opinion. Pablo Galindo Salgado, release manager for
+Python 3.10 and 3.11, expressed concern that <cite>nogil</cite> could also make
+implementing debuggers trickier – but commented that “it might be worth the
+price” anyway.</p>
+<p>Another point of discussion was the changes Gross had made to <a class="reference external" href="https://peps.python.org/pep-0659/">the
+specialising adaptive interpreter</a> in the
+<cite>nogil</cite> fork. In order for the specialisations to work with the GIL disabled,
+Gross had had to guard the adaptive specialisations to the bytecode behind a
+lock. As well as this, each thread had been limited to a single specialisation
+of any given bytecode; with the GIL enabled, the adaptive interpreter can
+respecialise bytecode multiple times. Gross commented that he thought it would
+probably be possible to allow multiple specialisations of bytecode in
+multithreaded code, but that this would require further investigation. His
+current solution was the simplest one he had found, for now.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2023-05-the-python-language-summit-2023.html">
+      
+      <span>The Python Language Summit 2023: Lightning Talks</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2023-05-the-python-language-summit-2023-pattern.html">
+      <span>The Python Language Summit 2023: Pattern Matching, __match__, and View Patterns</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

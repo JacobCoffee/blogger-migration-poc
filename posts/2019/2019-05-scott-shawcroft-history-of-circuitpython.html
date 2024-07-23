@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Scott Shawcroft: History of CircuitPython - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="scott-shawcroft-history-of-circuitpython">
+<h1>Scott Shawcroft: History of CircuitPython<a class="headerlink" href="#scott-shawcroft-history-of-circuitpython" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/05/scott-shawcroft-history-of-circuitpython.html">here</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCgu-jJPUnZbYrguEG4_gxS0ALVzLvmqSsdOnR-NIPRefWfrD6QbbmkZdXVEVC4_q8sgcrk68GXnrbjiynsDl3J0xou1vELTW3DUQ6exVySsvU4JW50ZupaqF-OrQnWwDZiw/s640/circuitpython-1.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCgu">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhCgu</a>-
+jJPUnZbYrguEG4_gxS0ALVzLvmqSsdOnR-
+NIPRefWfrD6QbbmkZdXVEVC4_q8sgcrk68GXnrbjiynsDl3J0xou1vELTW3DUQ6exVySsvU4JW50ZupaqF-
+OrQnWwDZiw/s1600/circuitpython-1.jpg)</p>
+<p>Scott Shawcroft is a freelance software engineer working full time for
+Adafruit, an open source hardware company that manufactures electronics that
+are easy to assemble and program. Shawcroft leads development of
+CircuitPython, a Python interpreter for small devices.</p>
+<p>The presentation began with a demo of Adafruit’s Circuit Playground Express, a
+two-inch-wide circular board with a microcontroller, ten RGB lights, a USB
+port, and other components. Shawcroft connected the board to his laptop with a
+USB cable and it appeared as a regular USB drive with a source file called
+code.py. He edited the source file on his laptop to dim the brightness of the
+board’s lights. When he saved the file, the board automatically reloaded the
+code and the lights dimmed. “So that’s super quick,” said Shawcroft. “I just
+did the demo in three minutes.”</p>
+<p><a class="reference external" href="https://pyfound.blogspot.com/2019/05/the-2019-python-language-summit.html">Read more 2019 Python Language Summit
+coverage</a>.</p>
+</section>
+<section id="circuitpython-is-optimized-for-learning-electronics">
+<h1>CircuitPython Is Optimized For Learning Electronics<a class="headerlink" href="#circuitpython-is-optimized-for-learning-electronics" title="Link to this heading">¶</a></h1>
+<p>The history of CircuitPython begins with MicroPython, a Python interpreter
+written from scratch for embedded systems by <a class="reference external" href="http://pyfound.blogspot.com/2016/03/genuinely-nice-chap-damien-george.html">Damien
+George</a> starting in 2013. Three years later, Adafruit hired Shawcroft to
+port MicroPython to the SAMD21 chip they use on many of their boards.
+Shawcroft’s top priority was serial and USB support for Adafruit’s boards, and
+then to implement communication with a variety of sensors. “The more hardware
+you can support externally,” he said, “the more projects people can build.”</p>
+<p>As Shawcroft worked with MicroPython’s hardware APIs, he found them ill-
+fitting for Adafruit’s goals. MicroPython customizes its hardware APIs for
+each chip family to provide speed and flexibility for hardware experts.
+Adafruit’s audience, however, is first-time coders. Shawcroft said, “Our goal
+is to focus on the first five minutes someone has ever coded.”</p>
+<p>To build a Python for Adafruit’s needs, Shawcroft forked MicroPython and
+created a new project, CircuitPython. In his Language Summit talk, he
+emphasized it is a “friendly fork”: both projects are MIT-licensed and share
+improvements in both directions. In contrast to MicroPython’s hardware APIs
+that vary by chip, CircuitPython has one hardware API, allowing Adafruit to
+write one set of libraries for them all.</p>
+<p>MicroPython has a distinct standard library that differs from CPython’s: for
+example, its time functions are in a module named <cite>utime</cite> with a different
+feature set from the standard <cite>time</cite> module. It also ships modules with
+features not found in CPython’s standard library, such as advanced filesystem
+management features. In CircuitPython, Shawcroft removed the nonstandard
+features and modules. This change helps new coders ramp smoothly from
+CircuitPython on a microcontroller to CPython on a full-size computer, and it
+makes Adafruit’s libraries reusable on CPython itself.</p>
+<p>Another motive for forking was to create a separate community for
+CircuitPython. In the original MicroPython project’s community, Shawcroft
+said, “There are great folks, and there’s some not-so-great folks.” The
+CircuitPython community welcomes beginners, publishes documentation suitable
+for them, and maintains standards of conduct that are safe for minors.</p>
+<p>Audience members were curious about CircuitPython’s support for Python 3.8 and
+beyond. When Damien George began MicroPython he targeted Python 3.4
+compliance, which CircuitPython inherits. Shawcroft said that MicroPython has
+added some newer Python features, and decisions about more language features
+rest with Damien George.</p>
+</section>
+<section id="minimal-barrier-to-entry">
+<h1>Minimal Barrier To Entry<a class="headerlink" href="#minimal-barrier-to-entry" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9rVZAiFGj0wWj9cwyNFb5GCqWk0bqS5sWAeZRkLlHImQSYGbVsxSog20nRsShUh2eIs7_JYOcmTkr3EWOKi-QKAaFm5st4lKPYLbAlscu0MC698h-1wNAG-0_QrA6BGVNNw/s640/presentation-7.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9rVZAiFGj0wWj9cwyNFb5GCqWk0bqS5sWAeZRkLlHImQSYGbVsxSog20nRsShUh2eIs7_JYOcmTkr3EWOKi">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg9rVZAiFGj0wWj9cwyNFb5GCqWk0bqS5sWAeZRkLlHImQSYGbVsxSog20nRsShUh2eIs7_JYOcmTkr3EWOKi</a>-
+QKAaFm5st4lKPYLbAlscu0MC698h-1wNAG-0_QrA6BGVNNw/s1600/presentation-7.jpg)</p>
+<p>_
+_ _Photo courtesy of Adafruit._</p>
+<p>Shawcroft aims to remove all roadblocks for beginners to be productive with
+CircuitPython. As he demonstrated, CircuitPython auto-reloads and runs code
+when the user saves it; there are two more user experience improvements in the
+latest release. First, serial output is shown on a connected display, so a
+program like <cite>print(“hello world”)</cite> will have visible output even before the
+coder learns how to control LEDs or other observable effects.</p>
+<p>Second, error messages are now translated into nine languages, and Shawcroft
+encourages anyone with language skills to contribute more. Guido van Rossum
+and A. Jesse Jiryu Davis were excited to see these translations and suggested
+contributing them to CPython. Shawcroft noted that the existing translations
+are MIT-licensed and can be ported; however, the translations do not cover all
+the messages yet, and CircuitPython cannot show messages in non-Latin
+characters such as Chinese. Chinese fonts are several megabytes of characters,
+so the size alone presents an unsolved problem.</p>
+<p>Later this year, Shawcroft will add Bluetooth support for coders to connect
+their phone or tablet to an Adafruit board and enjoy the same quick edit-
+refresh cycle there. Touchscreens will require a different sort of code
+editor, perhaps more like <a class="reference external" href="https://edublocks.org/">EduBlocks</a>. Despite the
+challenges, Shawcroft echoed <a class="reference external" href="http://pyfound.blogspot.com/2019/05/russell-keith-magee-python-on-other.html">Russell Keith-Magee’s insistence on the value of
+mobile platforms</a>: “My nieces, they have tablets and phones. They do not
+have laptops.”</p>
+<p>Shawcroft’s sole request for the core developers was to keep new language
+features simple, with few special cases. First, because each new CPython
+feature must be reimplemented in MicroPython and CircuitPython, and special
+cases make this work thorny. Second, because complex logic translates into
+large code size, and the space for code on microcontrollers is minuscule.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7Qfxf1iCIy08sgty2vPbfXtYf2z9hcDa3oaJGRAQN5Oz5OrBzZBDNvjU9guTruU5Rp8tsy9Y3J-Ci-lvQV8bCnHsFdP_rXH3thF-8lazML4ksrP-mNcslr04rkFKnLtTw8A/s640/circuitpython-2.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7Qfxf1iCIy08sgty2vPbfXtYf2z9hcDa3oaJGRAQN5Oz5OrBzZBDNvjU9guTruU5Rp8tsy9Y3J-Ci">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7Qfxf1iCIy08sgty2vPbfXtYf2z9hcDa3oaJGRAQN5Oz5OrBzZBDNvjU9guTruU5Rp8tsy9Y3J-Ci</a>-
+lvQV8bCnHsFdP_rXH3thF-8lazML4ksrP-
+mNcslr04rkFKnLtTw8A/s1600/circuitpython-2.jpg)</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-05-amber-brown-batteries-included-but.html">
+      
+      <span>Amber Brown: Batteries Included, But They’re Leaking</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-05-petr-viktorin-extension-modules-and.html">
+      <span>Petr Viktorin: Extension Modules And Subinterpreters</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

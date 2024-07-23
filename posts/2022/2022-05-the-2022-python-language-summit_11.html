@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2022 Python Language Summit: Achieving immortality - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2022-python-language-summit-achieving-immortality">
+<h1>The 2022 Python Language Summit: Achieving immortality<a class="headerlink" href="#the-2022-python-language-summit-achieving-immortality" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit_11.html">here</a>.</p>
+<p>What does it mean to achieve immortality? At` the 2022 Python Language
+Summit &lt;<a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language">https://pyfound.blogspot.com/2022/05/the-2022-python-language</a>-
+summit_01678898482.html&gt;`_, Eddie Elizondo, an engineer at Instagram, and Eric
+Snow, CPython core developer, set out to explain just that.</p>
+<p>Only for Python objects, though. Not for humans. That will have to be another
+PEP.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="objects-in-python-as-they-currently-stand">
+<h2>Objects in Python, as they currently stand<a class="headerlink" href="#objects-in-python-as-they-currently-stand" title="Link to this heading">¶</a></h2>
+<p>In Python, as is well known, <a class="reference external" href="https://linux.die.net/diveintopython/html/getting_to_know_python/everything_is_an_object.html#d0e4665">everything is an
+object</a>.
+This means that if you want to calculate even a simple sum, such as <cite>194 +
+3.14</cite>, the Python interpreter must create two objects: one object of type
+<cite>int</cite> representing the number <cite>194</cite>, and another object of type <cite>float</cite>
+representing the number <cite>3.14</cite>.</p>
+<p>All objects in Python maintain a <a class="reference external" href="https://docs.python.org/3.6/c-api/intro.html#objects-types-and-reference-counts">_reference
+count_</a> : a running total of the number of active references to that
+object that currently exist in the program. If the reference count of an
+object drops to 0, the object is eventually destroyed (through a process known
+as <a class="reference external" href="https://devguide.python.org/garbage_collector/">_garbage collection_</a>).
+This process ensures that programmers writing Python don’t normally need to
+concern themselves with manually deleting an object when they’re done with it.
+Instead, memory is automatically freed up.</p>
+<p>The need to keep reference counts for all objects (along with a few other
+mutable fields on all objects) means that there is currently no way of having
+a “truly immutable” object in Python.</p>
+<p>This is a distinction that only really applies at the C level. For example,
+the <cite>None</cite> singleton cannot be mutated at runtime at the Python level:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="gp">&gt;&gt;&gt; </span><span class="kc">None</span><span class="o">.</span><span class="fm">__bool__</span> <span class="o">=</span> <span class="k">lambda</span> <span class="bp">self</span><span class="p">:</span> <span class="kc">True</span>
+</span><span data-line="2"><span class="gt">Traceback (most recent call last):</span>
+</span><span data-line="3">  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+</span><span data-line="4"><span class="gr">AttributeError</span>: <span class="n">&#39;NoneType&#39; object attribute &#39;__bool__&#39; is read-only</span>
+</span></pre></div>
+</div>
+<p>However, at the C level, the object representing <cite>None</cite> is mutating
+constantly, as the reference count to the singleton changes constantly.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="immortal-objects">
+<h2>Immortal objects<a class="headerlink" href="#immortal-objects" title="Link to this heading">¶</a></h2>
+<p>An “immortal object”, according to <a class="reference external" href="https://peps.python.org/pep-0683/">PEP
+683</a> (written by Elizondo/Snow), is an
+object marked by the runtime as being effectively immutable, even at the C
+level. The reference count for an immortal object will never reach 0; thus, an
+immortal object will never be garbage-collected, and will never die.</p>
+<p>&gt; “The fundamental improvement here is that now an object can be truly
+&gt; immutable.”
+&gt;
+&gt; – Eddie Elizondo and Eric Snow, _PEP <a href="#id4"><span class="problematic" id="id5">683_</span></a></p>
+<p>The lack of truly immutable objects in Python, PEP 683 explains, “can have a
+large negative impact on CPU and memory performance, especially for approaches
+to increasing Python’s scalability”.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="the-benefits-of-immortality">
+<h2>The benefits of immortality<a class="headerlink" href="#the-benefits-of-immortality" title="Link to this heading">¶</a></h2>
+<p>At their talk at the Python Language Summit, Elizondo and Snow laid out a
+number of benefits that their proposed changes could bring.</p>
+<p>Guaranteeing “true memory immutability”, Elizondo explained, “we can simplify
+and enable larger initiatives,” including Eric Snow’s proposal for a <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit-per.html">per-
+interpreter GIL</a>, but also Sam Gross’s proposal for a version of
+Python that operates <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit-python_11.html">without the GIL
+entirely</a>. The proposal could also unlock new optimisation
+techniques in the future by helping create new ways of thinking about problems
+in the CPython code base.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUczmNuNdBhbIdRAeODp2yjmHK-_mcpMWNRI8WTjIXx_1tkgvMgZNGdgEHNr3KGVJTACb0vFLSlZ-U5I8YLXytAFz3tymHxwMYIBDeLzIOY_7F0MjND1qXalKF8xMy5t7-34LOJq1wBxKb9ojSgsa3qXYCeFbB48gtLkv_fOC8xnrv4NY/w400-h226/Achieving%20immortality.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUczmNuNdBhbIdRAeODp2yjmHK">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhUczmNuNdBhbIdRAeODp2yjmHK</a>-
+_mcpMWNRI8WTjIXx_1tkgvMgZNGdgEHNr3KGVJTACb0vFLSlZ-U5I8YLXytAFz3tymHxwMYIBDeLzIOY_7F0MjND1qXalKF8xMy5t7-34LOJq1wBxKb9ojSgsa3qXYCeFbB48gtLkv_fOC8xnrv4NY/s607/Achieving%20immortality.png)</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="the-costs">
+<h2>The costs<a class="headerlink" href="#the-costs" title="Link to this heading">¶</a></h2>
+<p>A naive implementation of immortal objects is costly, resulting in performance
+regeressions of around 6%. This is mainly due to adding a new branch of code
+to the logic keeping track of an object’s reference count.</p>
+<p>With mitigations, however, Elizondo and Snow explained that the performance
+regression could be reduced to around 2%. The question they posed to the
+assembled developers in the audience was whether this was an “acceptable”
+performance regression – and, if not, what would be?</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="reception">
+<h2>Reception<a class="headerlink" href="#reception" title="Link to this heading">¶</a></h2>
+<p>The proposal was greeted with a mix of curious interest and healthy
+scepticism. There was agreement that certain aspects of the proposal would
+reach wide support among the community, and consensus that a performance
+regression of 1-2% would be acceptable if clear benefits could be shown.
+However, there was also concern that parts of the proposal would change
+semantics in a backwards-incompatible way.</p>
+<p>Pablo Galindo Salgado, Release Manager for Python 3.10/3.11 and CPython Core
+Developer, worried that all the benefits laid out by the speakers were only
+_potential_ benefits, and asked for more specifics. He pointed out that
+changing the semantics of reference-counting would be likely to break an awful
+lot of projects, given that popular third-party libraries such as
+<a href="#id2"><span class="problematic" id="id3">``</span></a>numpy` &lt;<a class="reference external" href="https://numpy.org">https://numpy.org</a>&gt;`_, for example, use C extensions which continuously
+check reference counts.</p>
+<p>Thomas Wouters, CPython Core Developer and Steering Council Member, concurred,
+saying that it probably “wasn’t possible” to make these changes without
+changing the <a class="reference external" href="https://docs.python.org/3/c-api/stable.html#stable-application-binary-interface">stable ABI</a>. Kevin Modzelewski, a maintainer of
+<a class="reference external" href="https://www.pyston.org/">Pyston</a>, a performance-oriented fork of Python 3.8,
+noted that Pyston had had immortal objects for a while – but Pyston had never
+made any promise to support the stable ABI, freeing the project of that
+constraint.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2022-05-the-2022-python-language-summit-per.html">
+      
+      <span>The 2022 Python Language Summit: A per-interpreter GIL</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2022-05-the-2022-python-language-summit-dealing.html">
+      <span>The 2022 Python Language Summit: Dealing with CPython’s issue and PR backlog</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

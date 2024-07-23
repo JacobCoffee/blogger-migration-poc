@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>2018 PSF Recurring Giving Campaign - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="psf-recurring-giving-campaign">
+<h1>2018 PSF Recurring Giving Campaign<a class="headerlink" href="#psf-recurring-giving-campaign" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2018/10/2018-psf-recurring-giving-campaign.html">here</a>.</p>
+<p>The PSF is launching an end-of-year fundraising drive to build a sustainable
+community of supporters. Our goal is to raise $30,000! You can help by signing
+up to give monthly or if you’re already a supporting member (Thank You!!), by
+checking the box to renew your membership automatically.</p>
+<p>The drive begins October 22 and concludes November 21, 2018.</p>
+<p><em>_Your donations have IMPACT_</em></p>
+<p>Over $118,543 was awarded in financial aid to 143 PyCon attendees in 2018.
+$240,000 has been paid in grants from January through September 2018 to
+recipients in 45 different countries.</p>
+<p>Some examples of how your donation dollars are spent:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>$35,000 was provided to the Python Core Development Sprint in 2018</p></li>
+<li><p>$20,000 helps support 11 Python conferences, impacting over  3,000 people globally</p></li>
+<li><p>$20,000 helps support ~25 hands-on workshops impacting over 700 people</p></li>
+<li><p>$10,000 supports user group meetup fees for 150 groups for 6 months</p></li>
+<li><p>$5,000 provides hosting for 3-4 PSF community web services for a year(e.g. Mail.python.org, uspycon.org, wiki.python.org)</p></li>
+<li><p>$1,000 helps supports 2 regional conferences, impacting over 500 people</p></li>
+<li><p>$50 supports a Python meetup group for 3 months</p></li>
+</ul>
+</div></blockquote>
+<p>This work can’t be done without the generous financial support that people
+like you provide.</p>
+<p>_*It’s easy to donate -  <a href="#id1"><span class="problematic" id="id2">*</span></a>_</p>
+<blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p>Click <a class="reference external" href="https://psfmember.org/civicrm/contribute/transact?reset=1&amp;id=2">here</a> to make a one-time or recurring donation.</p></li>
+<li><p>If you’re an existing PSF Supporting Member and would like to make your support recurring, log into your account and click “Auto-Renewal”.</p></li>
+<li><p>If you’re an existing Supporting Member and would like to support the PSF beyond your $99 annual fee, use this <a class="reference external" href="https://psfmember.org/civicrm/contribute/transact?reset=1&amp;id=2">donation page</a> to select an additional one-time or monthly donation.</p></li>
+<li><p>If you’d like to join the PSF, click <a class="reference external" href="https://psfmember.org/civicrm/contribute/transact?reset=1&amp;id=21">here</a> to become a Supporting Member and optionally make a one-time donation.</p></li>
+</ul>
+</div></blockquote>
+<p>More details on contributing can be found on the 2018 PSF Recurring Giving</p>
+</div></blockquote>
+<p>Campaign <a class="reference external" href="https://www.python.org/psf/donations/2018-q4-drive/">page</a>.</p>
+<p>Thank you to everyone who has contributed to our past fundraisers! Your
+support is what makes the PSF possible and is greatly appreciated by the
+Python community.</p>
+<p>If you would like to share the news about the PSF’s Recurring Giving Campaign,
+please share a tweet via this tweet button or by copying the text in the
+following:</p>
+<p>[](<a class="reference external" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.python.org%2Fpsf%2Fdonations%2F2018-q4-drive%2F&amp;via=%40thepsf&amp;text=Our%20Recurring%20Giving%20Campaign%20starts%20TODAY%2C%20October%2022.%20Help%20us%20raise%20%2430K%21%20%20&amp;hashtags=idonatedtothepsf%2Cijoinedthepsf">https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.python.org%2Fpsf%2Fdonations%2F2018-q4-drive%2F&amp;via=%40thepsf&amp;text=Our%20Recurring%20Giving%20Campaign%20starts%20TODAY%2C%20October%2022.%20Help%20us%20raise%20%2430K%21%20%20&amp;hashtags=idonatedtothepsf%2Cijoinedthepsf</a>)</p>
+<p>Contribute to our Recurring Giving Campaign &amp; help us reach our goal of $30K.
+The PSF is a non-profit organization entirely supported by its sponsors,
+members &amp; the public. <a class="reference external" href="https://www.python.org/psf/donations/2018-q4-drive/">https://www.python.org/psf/donations/2018-q4-drive/</a>
+idonatedtothepsf #ijoinedthepsf
+=================================</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2018-10-python-software-foundation-fellow.html">
+      
+      <span>Python Software Foundation Fellow Members for Q3 2018</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2018-10-pypi-security-and-accessibility-q1-2019.html">
+      <span>PyPI Security and Accessibility Q1 2019 Request for Information period opens.</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

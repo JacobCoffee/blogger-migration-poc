@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Virtual Python Core Developer Sprint 2020 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="virtual-python-core-developer-sprint-2020">
+<h1>Virtual Python Core Developer Sprint 2020<a class="headerlink" href="#virtual-python-core-developer-sprint-2020" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2020/12/virtual-python-core-developer-sprint.html">here</a>.</p>
+<section id="overview">
+<h2><em>Overview</em><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>From October 19th to 23rd, 47 participants gathered for the first-ever virtual
+2020 Python Core Developer Sprint. This included 41 Python core developers, 3
+triagers, and 3 core dev mentees. The core dev sprint is an annual week-long
+meeting in which the CPython core team has the opportunity to work directly
+together on projects and get to know one another better, free from outside
+distractions. Many of the core developers participating in the event received
+the week off from their employer to focus on the sprint.</p>
+<p>Due to the challenges of the COVID-19 pandemic, the event had to be done
+remotely. This was unlike previous years, where it was hosted in-person by a
+sponsoring organization. While it was not exactly the same experience, it came
+with the silver lining of allowing participants to join the sprint from
+anywhere in the entire world, including those that would have otherwise been
+unable to travel to a physical event. Participants joined in from Canada, USA,
+England, Poland, Israel, China, Germany, South Korea, Japan, and the
+Netherlands.</p>
+<p>Google stepped up to host the in-person event in 2020. Since that didn’t work
+out, they were able to sponsor the virtual event so participants could receive
+a meal stipend for the entire week. We hope the availability of that stipend
+made it a more enjoyable event for participants.</p>
+<p>![](<a class="reference external" href="https://lh5.googleusercontent.com/wgKW5dLpibBAQ3oHE87Klpn4f-8Ai9AlB0sTfVtK5jmR1EV8cW5TokqJiZ8U6ykFnR93boHWKT98n6_lnHHAUDvbQFLtEvdW9fmch_RbJ2bWFeOJWJ9TbPgXQJiXD8tAQNSgf7aJ=w546-h307">https://lh5.googleusercontent.com/wgKW5dLpibBAQ3oHE87Klpn4f-8Ai9AlB0sTfVtK5jmR1EV8cW5TokqJiZ8U6ykFnR93boHWKT98n6_lnHHAUDvbQFLtEvdW9fmch_RbJ2bWFeOJWJ9TbPgXQJiXD8tAQNSgf7aJ=w546-h307</a>)</p>
+</section>
+<section id="setting">
+<h2>Setting<a class="headerlink" href="#setting" title="Link to this heading">¶</a></h2>
+<p>The virtual event itself was hosted on <a class="reference external" href="https://pythondiscord.com/">Python
+Discord</a>, one of the largest and most active
+dedicated Python communities with over 100k members. Hosting the event on an
+existing Discord server allowed us to significantly simplify the setup
+process, obtain invaluable help from the Python Discord admin team, and create
+a greater audience pool for the <a class="reference external" href="https://www.youtube.com/watch?v=gXMdfBTcOfQ">community
+Q&amp;A</a>. The platform choice was
+reached democratically through <a class="reference external" href="https://discuss.python.org/t/2020-core-dev-sprint-poll-discord-or-zulip/5016?u=aeros">a
+poll</a> in the “Committers” section of
+<a class="reference external" href="https://discuss.python.org/">discuss.python.org</a>.</p>
+<p>Leading up to the sprint, we created a <a class="reference external" href="https://python-core-sprint-2020.readthedocs.io/">readthedocs site</a> as a centralized location for documentation on
+the sprint, links to shared docs, google calendar, project participants,
+Discord setup, and more. There was also a dedicated “Tech Check” day, where we
+set aside a full day to answer participant questions about the sprint and help
+them with any platform setup. Other components involved in organization of the
+sprint were tracked via the <a class="reference external" href="https://github.com/python/core-sprint">python/core-sprint
+repo</a>.</p>
+</section>
+<section id="statistics">
+<h2>Statistics<a class="headerlink" href="#statistics" title="Link to this heading">¶</a></h2>
+<p>By the end of the sprint, we merged a total of 215 pull requests within the
+core Python repositories, including CPython, devguide, peps, etc. On Discord,
+sprint participants posted more than 5,800 messages across various channels.</p>
+<p>The Ask a Core Dev Anything session was hosted by the Python Discord admin
+team and live-streamed to YouTube. It had 2,100 unique live viewers, and
+peaked at 385 concurrent viewers. By the end of the sprint, the session had
+3,339 total viewers, with 37 countries tuned in. After the session, a number
+of core developers continued engaging with Python community members on Discord
+in the #stream-afterparty channel.</p>
+</section>
+<section id="project-highlights">
+<h2>Project Highlights<a class="headerlink" href="#project-highlights" title="Link to this heading">¶</a></h2>
+<p>Each individual project effectively had their own sub-group, and organized
+internal meetings via a shared Google Calendar. Some of these projects
+included stdlib modules such as asyncio, importlib, pegen, ast; as well as
+other areas like C-API/subinterpreters, PR review, pattern matching, PEP 594
+and improving new contributor experience. Here were some of the highlights for
+each project:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>documentation</em> - Completed a Documentation Workgroup Charter to be approved by the Steering Council, which would effectively act as a committee of active documentation contributors to create goals for large projects, work through pending documentation PRs, and vote on general documentation decisions (such as the purpose and direction of the tutorial).</p></li>
+<li><p><em>asyncio</em> - Initially started with a focus on a new streaming API, but was redirected to mapping out the blueprints for an upcoming exception group PEP, which would allow multiple exceptions to be simultaneously propagated for better exception handling in concurrent programs. This is intended to eventually lead to task groups in asyncio.</p></li>
+<li><p><em>importlib</em> - Worked on support for namespace packages, which was a longstanding issue. Also worked through 3.10 blocker around unreleased zip file handles.</p></li>
+<li><p><em>pegen</em> - Discussions around steps moving forward with migrations to the new parser. This included publishing a PyPI package with the new parser for 3rd party packages to utilize, merging a PR to make the parser faster, and porting f-strings.</p></li>
+<li><p><em>C-API/subinterpreters</em> - Created a PR for finishing remaining parts of PEP 573, gathering ideas for improving stable ABI, isolation of extension modules, progress towards isolating runtime state to being per-interpreter, and work on runtime finalization code.</p></li>
+<li><p><em>garbage collection</em> - Discussions around prototyping a tracing garbage collector with the constraints of maximizing backwards-compatibility with existing C extensions.</p></li>
+<li><p><em>pattern matching</em> - Completed drafts for PEPs 634, 635, and 636, sent to SC, and opened a draft PR for the reference implementation of those PEPs.</p></li>
+<li><p><em>core mentorship/new contributors</em> - Discussions around automated welcome and first PR merged messages, incentivising contributors with 2 other reviews for one review of their own PR, automated reminders for stalled PRs, revitalization of core dev office hours, increasing core dev mentorship with documented guides.</p></li>
+<li><p><em>PEP 594</em> - Discussions around moving forward with the PEP, archiving removed modules, adoption of modules from 3rd parties, and making the transition smoother for the few users who still rely on them.</p></li>
+</ul>
+</div></blockquote>
+<p>For a more comphrehensive summary, see the <a class="reference external" href="https://www.youtube.com/watch?v=5LyGF5CwNBw">Send-off
+Meeting</a>.</p>
+</section>
+<section id="promotions-and-mentorships">
+<h2>Promotions and Mentorships<a class="headerlink" href="#promotions-and-mentorships" title="Link to this heading">¶</a></h2>
+<p>The team gained two new Python triage members during the sprint: Irit Katriel
+and Andre Delfino. Irit has been actively contributing to CPython for the past
+several months. Andre has been contributing to CPython for more than two
+years, and already had the bug triage permission on b.p.o.</p>
+<p>One of the mentees who participated in the sprint, Hai Shi (mentored by Victor
+Stinner), was later granted the bug triage privileges a month after the
+sprint. Batuhan Taşkaya, who was one of the bug triage members participating
+in the sprint, was promoted to core developer a few weeks after the sprint.</p>
+<p>Other mentees participating were Lewis Gaul and Filipe Laíns. Lewis was being
+mentored by Eric Snow to work on subinterpreters, and Filipe was being
+mentored by Jason R. Coombs to work on importlib.resources.</p>
+</section>
+<section id="retrospective">
+<h2>Retrospective<a class="headerlink" href="#retrospective" title="Link to this heading">¶</a></h2>
+<p>In order to improve future sprints (especially any with a virtual component),
+we also asked participants at the end of the event to fill out a survey to
+provide feedback on parts of the sprint for parts they enjoyed and areas of
+improvement.</p>
+<p>Enjoyed:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Usage of Discord as a platform</p></li>
+<li><p>Unscheduled voice/video chats</p></li>
+<li><p>Social games (such as the escape room event)</p></li>
+<li><p>Having an agenda for large meetings</p></li>
+<li><p>The Kick-off meeting</p></li>
+<li><p>Dedicated off-topic channels</p></li>
+</ul>
+</div></blockquote>
+<p>Improvements:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>For each project, having one person as the assigned leader to schedule meetings, create an agenda, and provide a summary of accomplishments</p></li>
+<li><p>Using a shared cloud/google drive folder instead of sharing individual documents</p></li>
+<li><p>More automation for joining the Discord server and assigning roles</p></li>
+<li><p>Dedicated separate server going forward to help with overload of unread channels</p></li>
+<li><p>Maintaining a single centralized dashboard. Our <a class="reference external" href="https://python-core-sprint-2020.readthedocs.io/">readthedocs site</a> initially started that way, but could have used more periodic updates</p></li>
+<li><p>Swag/merchandise for the event (did not have adequate time this year)</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="links">
+<h2>Links<a class="headerlink" href="#links" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=Uz8CP_05aCQ">Kick-off Meeting</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=yzCitT4juGk">Python Core Dev and Community Q&amp;A</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=WnkkaQhNA7U">Python Steering Council and Core Dev Q&amp;A</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=5LyGF5CwNBw">Send-off Meeting</a></p></li>
+<li><p><a class="reference external" href="https://python-core-sprint-2020.readthedocs.io/">Python Core Sprint 2020 Readthedocs</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="thank-you">
+<h2>Thank you!<a class="headerlink" href="#thank-you" title="Link to this heading">¶</a></h2>
+<p>A huge thanks to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Everyone who participated in the sprint</p></li>
+<li><p>_Google_ for sponsoring the event so we could provide meal stipends for the week</p></li>
+<li><p>_Python <a href="#id3"><span class="problematic" id="id4">Discord_</span></a> for hosting the event, as well assisting with the live streaming and editing of the community Q&amp;A</p></li>
+<li><p>The _PSF_ for supporting and providing infrastructure for sprint</p></li>
+</ul>
+</div></blockquote>
+<p>Sprint attendees: Joannah Nanjekye, Barry Warsaw, Batuhan Taşkaya, Pablo
+Galindo Salgado, Mariatta Wijaya, Łukasz Langa, Senthil Kumaran, Carol
+Willing, Andrew Kuchling, Neil Schemenauer, Petr Viktorin, Zach Ware, Brett
+Cannon, Ammar Askar, Eric V. Smith, Stefan Behnel, Ned Deily, Lysandros
+Nikolaou, Emily Morehouse, Tal Einat, Jason R. Coombs, Hai Shi, Kyle Stanley,
+Terry Jan Reedy, Guido van Rossum, Ronald Oussoren, Thomas Wouters, Yury
+Selivanov, Steve Dower, Dong-hee Na, Christian Heimes, Larry Hastings, Eric
+Snow, Gregory P. Smith, Brandt Bucher, Lewis Gaul, Filipe Laíns, Mark Shannon,
+Inada Naoki, Paul Ganssle, Éric Araujo, Irit Katriel, Fred Drake</p>
+<p>Written by: Kyle Stanley and Mariatta Wijaya</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2020-12-rebuilding-psf-fundraiser-2020-your.html">
+      
+      <span>Rebuilding the PSF Fundraiser 2020 - Your support means so much 🤗!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2020-12-election-reform-update.html">
+      <span>Election Reform Community Update</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2022 Python Language Summit: Upstreaming optimisations from Cinder - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2022-python-language-summit-upstreaming-optimisations-from-cinder">
+<h1>The 2022 Python Language Summit: Upstreaming optimisations from Cinder<a class="headerlink" href="#the-2022-python-language-summit-upstreaming-optimisations-from-cinder" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit_60.html">here</a>.</p>
+<p>In May 2021, the team at Instagram made waves in the world of Python by open-
+sourcing <a class="reference external" href="https://github.com/facebookincubator/cinder">Cinder, a performance-oriented fork of
+CPython</a>.</p>
+<p>Cinder is a version of CPython 3.8 with a ton of optimisations added to
+improve speed across a wide range of metrics, including “eager evaluation of
+coroutines”, a <a class="reference external" href="https://engineering.fb.com/2022/05/02/open-source/cinder-jits-instagram/">just-in-time
+compiler</a>, and an “experimental bytecode compiler” that makes use of <a class="reference external" href="https://peps.python.org/pep-0484/">PEP
+484</a> <a class="reference external" href="https://docs.python.org/3/library/typing.html">type
+annotations</a>.</p>
+<p>Now, the engineers behind Cinder are looking to upstream many of these changes
+so that CPython itself can benefit from these optimisations. At` the 2022
+Python Language Summit &lt;<a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python">https://pyfound.blogspot.com/2022/05/the-2022-python</a>-
+language-summit_01678898482.html&gt;`_, Itamar Ostricher, an engineer at Instagram,
+presented on Cinder’s optimisations relating to async tasks and coroutines.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="asyncio-refresher">
+<h2>Asyncio refresher<a class="headerlink" href="#asyncio-refresher" title="Link to this heading">¶</a></h2>
+<p>Consider the following (contrived) example. Here, we have a function,
+<cite>IO_bound_function</cite>, which is dependent on some kind of external input in
+order to finish what it’s doing (for example, this might be a web request, or
+an attempt to read from a file, etc.). We also have another function,
+<cite>important_other_task</cite>, which we want to be run in the same event loop as
+<cite>IO_bound_function</cite></p>
+<blockquote>
+<div><p>import asyncio</p>
+<dl>
+<dt>async def IO_bound_function():</dt><dd><p>“””This function could finish immediately… or not!”””
+# Body of this function here</p>
+</dd>
+<dt>async def important_other_task():</dt><dd><p>await asyncio.sleep(5)
+print(‘Task done!’)</p>
+</dd>
+<dt>async def main():</dt><dd><dl class="simple">
+<dt>await asyncio.gather(</dt><dd><p>IO_bound_function(),
+important_other_task()</p>
+</dd>
+</dl>
+<p>)
+print(“All done!”)</p>
+</dd>
+<dt>if __name__ == “__main__”:</dt><dd><p>asyncio.run(main)</p>
+</dd>
+</dl>
+</div></blockquote>
+<p><cite>IO_bound_function</cite> could take a long time to complete – but it could also
+complete immediately. In an asynchronous programming paradigm, we want to
+ensure that if it takes a long time to complete, the function doesn’t hold up
+the rest of the program. Instead, <cite>IO_bound_function</cite> will yield execution to
+the other thing scheduled in the event loop, <cite>important_other_task</cite>, letting
+this coroutine take control of execution for a period.</p>
+<p>So far so good – but what if <cite>IO_bound_function</cite> finishes what it’s doing
+immediately? In that eventuality, we’re creating a coroutine object for no
+reason at all, since the coroutine will never have to suspend execution and
+will never have to reclaim control of the event loop at any future point in
+time.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id1">
+<h2><a class="reference external" href="https://www.youtube.com/watch?v=fWNaR-rxAic">Call me maybe?</a><a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>The team at Instagram saw this as an optimisation opportunity. At the “heart”
+of many of their async-specific improvements, Itamar explained, is an
+extension to Python’s <a class="reference external" href="https://docs.python.org/3/c-api/call.html#the-vectorcall-protocol">vectorcall
+protocol</a>:
+a new <cite>_Py_AWAITED_CALL_MARKER</cite> flag, which enables a callee to know that a
+call is being awaited by a caller.</p>
+<p>![](<a class="reference external" href="https://i.imgur.com/TnMpocv.png">https://i.imgur.com/TnMpocv.png</a>)</p>
+<p>The addition of this flag means that
+<a class="reference external" href="https://docs.python.org/3/glossary.html#term-awaitable">awaitables</a> can
+sometimes be _eagerly <a href="#id3"><span class="problematic" id="id4">evaluated_</span></a> , and coroutine objects often do not need to
+be constructed at all.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/a/AVvXsEhAcfwuy6nDewCEqg0CVeiNrntoJtCMbdd8jc_SA1HMpI4IoFuiqb-cM4l1gmrKU5F8r3z4lkp50iDJ_P-2OJgDgQV1QGqEPSCif43BSlKPl_SST00pm7ApSLGvP4iC7WiV82V5FJ8JjcRuluJW-pZfCQ-9kuQxoue4yU5uXAmSmrPZPFc=w400-h225">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/a/AVvXsEhAcfwuy6nDewCEqg0CVeiNrntoJtCMbdd8jc_SA1HMpI4IoFuiqb">https://blogger.googleusercontent.com/img/a/AVvXsEhAcfwuy6nDewCEqg0CVeiNrntoJtCMbdd8jc_SA1HMpI4IoFuiqb</a>-
+cM4l1gmrKU5F8r3z4lkp50iDJ_P-2OJgDgQV1QGqEPSCif43BSlKPl_SST00pm7ApSLGvP4iC7WiV82V5FJ8JjcRuluJW-
+pZfCQ-9kuQxoue4yU5uXAmSmrPZPFc)</p>
+<p>Ostricher reported that Instagram had seen performance gains of around 5% in
+their async-heavy workloads as a result of this optimisation.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="pending-questions">
+<h2>Pending questions<a class="headerlink" href="#pending-questions" title="Link to this heading">¶</a></h2>
+<p>Significant questions remain about whether these optimisations can be merged
+into the <cite>main</cite> branch of CPython, however. Firstly, exact performance numbers
+are hard to come by: the benchmark Ostricher presented does not isolate
+Cinder’s async-specific optimisations.</p>
+<p>More important might be the issue of _fairness_. If some awaitables in an
+event loop are eagerly evaluated, this might change the effective priorities
+in an event loop, potentially creating backwards-incompatible changes with
+CPython’s current behaviour.</p>
+<p>Lastly, there are open questions about whether this conflicts with a big
+change to <cite>asyncio</cite> that has just been made in Python 3.11: the introduction
+of <span class="target" id="task-groups-https-github-com-python-cpython-issues-90908-task-groups-a-concept-similar-to-nurseries-https-vorpus-org-blog-notes-on-structured-concurrency-or-go-statement-considered-harmful-in-trio-https-trio-readthedocs-io-en-stable-a-popular-third-party-async-framework-are-a-major-evolution-https-realpython-com-python311-exception-groups-asynchronous-task-groups-in-python-311-in-asyncio">task groups &lt;https://github.com/python/cpython/issues/90908&gt;`__. Task
+groups – a concept similar to `“nurseries” &lt;https://vorpus.org/blog/notes-on-
+structured-concurrency-or-go-statement-considered-harmful/&gt;`_ in
+_`Trio &lt;https://trio.readthedocs.io/en/stable/&gt;`__ , a popular third-party async
+framework – are a `major
+evolution &lt;https://realpython.com/python311-exception-groups/#asynchronous-
+task-groups-in-python-311&gt;`_ in `asyncio</span>’s API. But “it’s not completely clear
+how the Cinder optimisations might apply to Task Groups,” Ostricher noted.</p>
+<p>Ostricher’s talk was well received by the audience, but it was agreed that
+discussion with the maintainers of other async frameworks such as _Trio_ was
+essential in order to move forward. Guido van Rossum, creator of Python,
+opined that he could “get over the fairness issue”. The issue of compatibility
+with task groups, however, may prove more complicated.</p>
+<p>Given the newness of task groups in <cite>asyncio</cite>, there remains a high degree of
+uncertainty as to how this feature will be used by end users. Without knowing
+the potential use cases, it is hard to comment on whether and how
+optimisations can be made in this area.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2022-05-the-2022-python-language-summit-python_11.html">
+      
+      <span>The 2022 Python Language Summit: Python without the GIL</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2022-05-pycon-jp-association-awarded-psf.html">
+      <span>PyCon JP Association Awarded the PSF Community Service Award for Q4 2021</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

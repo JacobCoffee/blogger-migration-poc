@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Pythonistas (and a Python!) at PyCon Jamaica - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="pythonistas-and-a-python-at-pycon-jamaica">
+<h1>Pythonistas (and a Python!) at PyCon Jamaica<a class="headerlink" href="#pythonistas-and-a-python-at-pycon-jamaica" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2017/02/pythonistas-and-python-at-pycon-jamaica.html">here</a>.</p>
+<p>This past November marked the first <a class="reference external" href="https://www.pythonjam.org.jm/conference-2016/schedule">PyCon
+Jamaica</a>. Held in the
+capital, Kingston, the conference began on November 17th with a day of
+tutorials followed by a single track of talks on November 18th. I attended
+both as a representative of the Python Software Foundation, which sponsored
+the conference, and as a speaker.</p>
+<section id="python-in-kingstons-higher-education">
+<h2>Python in Kingston’s Higher Education<a class="headerlink" href="#python-in-kingstons-higher-education" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://lh5.googleusercontent.com/vyjJAil3hoGxsqPc7BE5sWQGf1enSZ_xRjKfRzoiGVu4UzxtAXITVarN-kMotsxkFB68DGdB5jdrh1ffwOM-SAQyFEEfqzhEucPnhCYp788vwpjEL1C8jlVpaE3v7nz6JABRvogz">![</a>](<a class="reference external" href="https://lh5.googleusercontent.com/vyjJAil3hoGxsqPc7BE5sWQGf1enSZ_xRjKfRzoiGVu4UzxtAXITVarN">https://lh5.googleusercontent.com/vyjJAil3hoGxsqPc7BE5sWQGf1enSZ_xRjKfRzoiGVu4UzxtAXITVarN</a>-
+kMotsxkFB68DGdB5jdrh1ffwOM-
+SAQyFEEfqzhEucPnhCYp788vwpjEL1C8jlVpaE3v7nz6JABRvogz)`![ &lt;<a class="reference external" href="https://lh4.googleusercontent.com/rDwy2d6-HR9N9iVckv9ivFfZ6eDlxQZq8pshOThLF_qFSGFor">https://lh4.googleusercontent.com/rDwy2d6-HR9N9iVckv9ivFfZ6eDlxQZq8pshOThLF_qFSGFor</a>-
+Al6tmM2WP88WjXRx-
+hWDb6kj5A0G4PeggEZ1u5OLapxdecKx6D0saJxdGMto0bGZpZF2O3D7uRs7oqvHoJxZeb&gt;`_](<a class="reference external" href="https://lh4.googleusercontent.com/rDwy2d6-HR9N9iVckv9ivFfZ6eDlxQZq8pshOThLF_qFSGFor">https://lh4.googleusercontent.com/rDwy2d6-HR9N9iVckv9ivFfZ6eDlxQZq8pshOThLF_qFSGFor</a>-
+Al6tmM2WP88WjXRx-
+hWDb6kj5A0G4PeggEZ1u5OLapxdecKx6D0saJxdGMto0bGZpZF2O3D7uRs7oqvHoJxZeb)</p>
+<p>Kingston, home to approximately 33% of Jamaicans, boasts several institutions
+of higher learning including the Caribbean Maritime Institute and the Mona
+campus of the University of the West Indies. PyCon Jamaica kicked off with
+tutorials at the University of the West Indies. Most of the tutorials focused
+on introductory topics (e.g. Introduction to Plone). Participants came from a
+wide range of backgrounds including mechanical engineers or undergraduates
+with a marketing concentration. Interestingly I was informed Python isn’t a
+part of the standard computer science offering at the university yet it has
+become a language of considerable interest in many of Kingston’s professional
+sectors.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p><a class="reference external" href="https://twitter.com/pigeonflight">David Bain</a>, organizer of PyCon Jamaica and
+the local <a class="reference external" href="https://twitter.com/PythonJamaica">Python Jamaica</a> user group,
+explained that he thinks the interest in Python has risen as students have
+become increasingly exposed to web technologies. Bain added that PyCon Jamaica
+is a way to help demonstrate to students and professionals the various
+applications Python has. “Jamaica wants to be seen as a viable source for
+local and North American nearshore developer talent, our event signals that
+software development talent is here,” Bain explained.</p>
+</section>
+<section id="modernizing-the-public-sector-with-python">
+<h2>Modernizing the Public Sector with Python<a class="headerlink" href="#modernizing-the-public-sector-with-python" title="Link to this heading">¶</a></h2>
+<p>Conference talks were held at the Hope Zoo, a facility housing vast botanical
+gardens, a zoo, and a community center. There were three international
+speakers, <a class="reference external" href="https://twitter.com/jagumbs">Joir-dan Gumbs</a> of IBM, <a class="reference external" href="https://twitter.com/star_is_here">Star
+Ying</a> of the US Dept of Commerce, and
+myself, alongside several local speakers. The tutorials had been more student-
+centric, but the conference catered to those using Python in the Jamaican
+public sector.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>A common theme from local speakers highlighted how Python has helped local
+professionals modernize outdated practices. Marc Murray of the Jamaican
+Ministry of Health described how he has used Python throughout his career of
+fifteen-plus years to automate processes and enable better data collection and
+data sharing. More than one speaker acknowledged that struggle of
+institutional knowledge silos in the local government. With Python, though,
+these knowledge silos have started to be disrupted. Agencies are able to share
+the same data sets with greater ease and promote transparency.</p>
+<p>&gt; <a class="reference external" href="https://twitter.com/hashtag/PyConJamaica2016?src=hash">#PyConJamaica2016</a>:
+&gt; Challenges <a class="reference external" href="https://twitter.com/hashtag/Python?src=hash">#Python</a> answers in
+&gt; gov’t - information silos, use to inc info access, speed, remove redundancy
+&gt; <a class="reference external" href="https://twitter.com/PythonJamaica">&#64;PythonJamaica</a>
+&gt;
+&gt; — Lorena Mesa (&#64;loooorenanicole) <a class="reference external" href="https://twitter.com/loooorenanicole/status/799707097625722880">November 18,
+&gt; 2016</a></p>
+<p>Python’s data-processing power was the star in a talk by student <a class="reference external" href="https://www.youtube.com/watch?v=mLZtMGJF--8">Dominic
+Mills</a>. Mills recently completed
+an internship at CERN, where he built a Django prototype for debugging
+hardware in future experiments. Crucial to this project was not only the
+collection of data via Celery but the capacity to analyze it. Mills used bokeh
+for real time analysis of the sensor data, permitting monitoring and alarms to
+be raised if unfavorable conditions were found.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>Collectively the speakers at PyCon Jamaica reflect how Jamaican programmers
+are embracing Python for data collection and analysis in a variety of
+specialties. Python’s open source packages and rich community support seemed
+to be its biggest selling points. Speaker Joir-dan Gumbs commented that, “the
+best part for me was the presentations of how Python is enhancing the lives of
+Jamaicans, as well as the networking.”</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p><a class="reference external" href="https://lh4.googleusercontent.com/sYJxq06KAp98Au2jQOw9Co3389hBmw4wscoeauJEvRFyilN50SjJNYfAZkDB0Xvb-DFfl3UtbETEI28Md57wYlnfArpR4_vemw-LC9awYBdCqNp28aUydUm2Nka39fpHLh8HhI7q">![</a>](<a class="reference external" href="https://lh4.googleusercontent.com/sYJxq06KAp98Au2jQOw9Co3389hBmw4wscoeauJEvRFyilN50SjJNYfAZkDB0Xvb">https://lh4.googleusercontent.com/sYJxq06KAp98Au2jQOw9Co3389hBmw4wscoeauJEvRFyilN50SjJNYfAZkDB0Xvb</a>-
+DFfl3UtbETEI28Md57wYlnfArpR4_vemw-LC9awYBdCqNp28aUydUm2Nka39fpHLh8HhI7q)</p>
+<p>I’m excited to see what PyCon Jamaica 2017 will hold. Already the conference
+is rich in data science and data visualization content. After all, if PyCon
+Jamaica 2016 included an appearance from the Hope Zoo’s <a class="reference external" href="https://twitter.com/loooorenanicole/status/799749120089092097">own
+python</a> what
+will we see next? Perhaps two pythons, and of course many more Jamaican
+Pythonistas.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2017-01-time-to-upgrade-your-python-tls-v12.html">
+      
+      <span>Time To Upgrade Your Python: TLS v1.2 Will Soon Be Mandatory</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2017-02-discovering-python-community-in.html">
+      <span>Discovering the Python Community in Zimbabwe at their first PyCon</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

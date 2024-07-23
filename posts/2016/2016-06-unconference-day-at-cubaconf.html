@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Unconference Day at CubaConf - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="unconference-day-at-cubaconf">
+<h1>Unconference Day at CubaConf<a class="headerlink" href="#unconference-day-at-cubaconf" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2016/06/unconference-day-at-cubaconf.html">here</a>.</p>
+<p>_Note: This is the third post on my trip in April to Havana, Cuba to attend
+the International Open Software
+Convention,`CubaConf &lt;<a class="reference external" href="https://www.cubaconf.org/espa%C3%B1ol/">https://www.cubaconf.org/espa%C3%B1ol/</a>&gt;`_._</p>
+<p>The second day of CubaConf, structured as an
+“<a class="reference external" href="https://www.cubaconf.org/schedule/day-2-unconference/">unconference</a>,” was
+equally as lively as the first. In an unconference, the audience actively
+participates by proposing topics and then voting on which ones will be
+presented. This was especially effective as a way of conforming to the
+conference’s purpose to explore ways in which open software can be most
+effectively used in poorer nations, like Cuba, and how it can contribute to
+development. I was impressed by the number of audience members who came
+prepared to give a talk and who lined up at the front of the room to pitch
+their ideas. The suggestions were recorded on a white board, and at the end of
+the session we voted for the agenda.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrl9HGtgA4DsNYWe3Flk4f-p6KKTBCS1TqxhyPUVvQsao_5arV0dbALYlRiAMBHXogZBUiMCOFvXUEbyYTqVZLbzLTk5j_tC3RcpyttMHregKlSrotJl-400D1QumigYjnHf0/s400/Unconference.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrl9HGtgA4DsNYWe3Flk4f-p6KKTBCS1TqxhyPUVvQsao_5arV0dbALYlRiAMBHXogZBUiMCOFvXUEbyYTqVZLbzLTk5j_tC3RcpyttMHregKlSrotJl-400D1QumigYjnHf0/s1600/Unconference.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrl9HGtgA4DsNYWe3Flk4f-p6KKTBCS1TqxhyPUVvQsao_5arV0dbALYlRiAMBHXogZBUiMCOFvXUEbyYTqVZLbzLTk5j_tC3RcpyttMHregKlSrotJl-400D1QumigYjnHf0/s1600/Unconference.jpg</a>)
+—
+Proposed unconference topics</p>
+<p>Before moving on to the unconference talks, we heard an already scheduled
+keynote. <a class="reference external" href="https://www.cubaconf.org/2016/01/05/second-keynote-speaker-etiene-dalcol-will-talk-about-growing-through-free-software-and-lua/">Etiene Dalcol</a>,
+a Brazilian software engineer, told us of her experiences and observations
+within the tech scene in Brazil.</p>
+<p>Early on in her career, Dalcol created a web framework,
+<a class="reference external" href="http://sailorproject.org/">Sailor</a>, in ten days. She said that although it
+was “lousy,” people began to contribute and to request more features,
+indicating their thirst for local grown tech. Sailor is now quite improved and
+popular, and will be participating for its second time in <a class="reference external" href="https://summerofcode.withgoogle.com/">Google’s Summer of
+Code</a>.</p>
+<p>Dalcol then talked about her experiences working on the programming language,
+<a class="reference external" href="https://www.lua.org/about.html">Lua</a>. She used the history of Lua to
+illustrate what she sees as a hindrance to tech development in Latin America.
+Lua, created in 1993 in Brazil, was never marketed in Brazil. In fact, it
+wasn’t until 2015 that the first Portuguese language book on Lua was
+published. According to Dalcol, this type of suppression of local efforts
+contributes to a belief, prevalent even among Brazilian engineers, that
+Silicon Valley tech is superior.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz8bTAVMZX4Gk-XxX3XjeoJh3EPe48vMxQdpWg9kKJp_ugcqHAJ9tkF-3iyjNm985rEYBfXwr-VYyoyORelitIifTVk2-2z0cLGPOOxsPJGQnFrIjC1dFjsRx4bILDOkl3nd8/s200/EtieneDalcol.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz8bTAVMZX4Gk">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgz8bTAVMZX4Gk</a>-
+XxX3XjeoJh3EPe48vMxQdpWg9kKJp_ugcqHAJ9tkF-3iyjNm985rEYBfXwr-
+VYyoyORelitIifTVk2-2z0cLGPOOxsPJGQnFrIjC1dFjsRx4bILDOkl3nd8/s1600/EtieneDalcol.jpg)
+—
+Etiene Dalcol</p>
+<p>To combat this situation, her advice for Latin American developers is to stay
+true to their own unique perspectives and needs; to develop software that will
+solve local problems and to offer products that reflect their own cultures–to
+do what can’t be done anywhere else. In fact, according to Dalcol, this
+approach will produce software that will in turn be of benefit to other
+cultures. She cited advice she had found useful as a musician–don’t play
+Chopin to Europeans; rather offer them what you know but they don’t.</p>
+<p>Dalcol also spoke of her experiences as a woman in tech, a theme that was
+addressed head-on later in the conference in its final keynote on women in
+open source (more on this later).</p>
+<p>Dalcol’s advice was clearly reflected in many of the afternoon’s unconference
+talks. We heard from participants about projects that were actively benefiting
+their communities.</p>
+<p>One such talk, by a developer from Costa Rica, was about the use of <a class="reference external" href="https://www.openstreetmap.org/about">Open
+Street Map</a>. OSM allows collaborators to
+create interactive maps geared to specific purposes. Examples included
+Ecuador’s rapid mapping of areas of damage caused by the devastating
+earthquake that had just happened April 26. By the following Sunday,  just
+five days after the quake, nine cities had been completely mapped, providing
+crucial information for emergency responders, survivors, and reconstruction
+workers.</p>
+<p>Other OSM projects discussed included a public transport map in Nicaragua and
+a map of  humanitarian services in Costa Rica. There have even been open
+street mapping parties in Indonesia to develop useful maps. The speaker
+invited participants to join his open source mapping workshop to be held the
+next day.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXxlhbnGgIBtg70RTApChyphenhyphenWdH_uo3Z1cCFLzsSht40ujJY5DnjrmCc2mgsGia4HBfb3pEFe0IlZg2AbQV3hxIiactdqBNTPWrj0FAoDShFQJki-ejmlsPuds4849tqiR7tDw8/s400/CubaOpenStreet.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXxlhbnGgIBtg70RTApChyphenhyphenWdH_uo3Z1cCFLzsSht40ujJY5DnjrmCc2mgsGia4HBfb3pEFe0IlZg2AbQV3hxIiactdqBNTPWrj0FAoDShFQJki">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXxlhbnGgIBtg70RTApChyphenhyphenWdH_uo3Z1cCFLzsSht40ujJY5DnjrmCc2mgsGia4HBfb3pEFe0IlZg2AbQV3hxIiactdqBNTPWrj0FAoDShFQJki</a>-
+ejmlsPuds4849tqiR7tDw8/s1600/CubaOpenStreet.jpg)
+—
+Open Street Mappers</p>
+<p>Another day two talk, by <a class="reference external" href="https://www.cmu.edu/silicon-valley/faculty-staff/wasserman-tony.html">Tony Wasserman</a> on evaluating technology for
+business needs was well-received by many who had entrepreneurial intent and
+appreciated a run-down of the factors that lead businesses to adopt some
+software products over others.</p>
+<p>At day’s end, we gathered in the main room for Lightning Talks and
+announcements. It was clear that the day had generated a great deal of
+excitement that would carry over to the next day’s sprints and to projects
+that would continue beyond the conference.</p>
+<p>_I would love to hear from readers. Please send feedback, comments, or blog
+ideas to me at  <a class="reference external" href="mailto:msushi&#37;&#52;&#48;gnosis&#46;cx">msushi<span>&#64;</span>gnosis<span>&#46;</span>cx</a>._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2016-05-our-2016-psf-board-of-directors.html">
+      
+      <span>Our 2016 PSF Board of Directors</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2016-06-pycon-2016-thanks.html">
+      <span>PyCon 2016: A look back, my take away, and thank you!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

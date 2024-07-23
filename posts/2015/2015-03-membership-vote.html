@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Membership Vote - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="membership-vote">
+<h1>Membership Vote<a class="headerlink" href="#membership-vote" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/membership-vote.html">here</a>.</p>
+<p>This morning, PSF Director David Mertz announced on the PSF Members’ mailing
+list the opening of a vote. For those of you who have already self-certified
+as voting members, or if you are already a Fellow of the Foundation, you
+should have received the announcement in a private email.</p>
+<p>This is our first stab at using the voting mechanism to get a sense of the
+larger membership’s views on an issue currently under discussion (the non-
+binding poll), so we urge you to take a moment and make your voice heard.</p>
+<p>To review your eligibility to vote and to see the certification form, please
+see my previous blog post <a class="reference external" href="http://pyfound.blogspot.com/2015/02/enroll-as-psf-voting-member.html">Enroll as Voting
+Member</a>
+or go to the <a class="reference external" href="https://www.python.org/psf/membership/">PSF Website</a>.</p>
+<p>Here is the announcement:</p>
+<p>&gt; Membership Vote for Pending Sponsors and Non-Binding Poll</p>
+<p>&gt; The candidate Sponsor Members listed below were recommended for approval by
+&gt; the Python Software Foundation Board of Directors. Following the ballot
+&gt; choices is a detailed description of the organization (the submit button is
+&gt; after the descriptions, so scroll down for it).
+&gt;  This election will close on 2015-03-26.
+&gt;  Sponsor Member Candidates
+&gt;  Bloomberg LP|  yes|  no|  abstain
+&gt; —<a href="#id1"><span class="problematic" id="id2">|---|</span></a>—<a href="#id3"><span class="problematic" id="id4">|---
+&gt; Fastly|</span></a>  yes|  no|  abstain
+&gt; Infinite Code|  yes|  no|  abstain
+&gt; Non-Binding Poll on PyCon Video Sublicensing</p>
+<p>&gt; <em>Purpose:</em>  The PSF Board of Directors is seeking the collective
+&gt; perspective of PSF Voting Members on the appropriate handling of video
+&gt; recording sublicensing for presentations at PyCon US. These videos are
+&gt; currently made freely available on Google’s YouTube, and may be incorporated
+&gt; into other sites through YouTube’s embedding features. There are no plans to
+&gt; change that arrangement, but a separate question has arisen that requires
+&gt; determining whether it would be appropriate to exercise the sublicensing
+&gt; rights granted to the PSF under the PyCon US speaker agreement. This part of
+&gt; the poll serves as a non-binding survey of PSF Voting Members, intended to
+&gt; help the Directors formulate a suitable policy in this area based on the way
+&gt; the PyCon US speaker agreement is generally perceived, rather than based
+&gt; solely on what it permits as a matter of law.
+&gt;  <em>Background:</em>  A request has been made to the PSF to sublicense video
+&gt; recordings made at PyCon of speaker presentations. The license agreement
+&gt; signed by speakers gives the PSF the right to grant such sublicenses,
+&gt; however the Board of Directors is of mixed opinion about whether we _should_
+&gt; do so. The release form (i.e. license) agreed to by speakers is at
+&gt; &lt;<a class="reference external" href="https://us.pycon.org/2015/speaking/recording/">https://us.pycon.org/2015/speaking/recording/</a>&gt; for reference. Note that
+&gt; YouTube is explicitly mentioned in the release as an example of such a
+&gt; sublicensee, and <a class="reference external" href="http://pyvideo.org/">pyvideo.org</a> has always been given
+&gt; this right (although they have only exercised it thus far by embedding
+&gt; YouTube hosted videos, not by mirroring content, and hence are not
+&gt; technically a sublicensee at this point). Embedding a video does not require
+&gt; a sublicense, only mirroring it does.
+&gt;  There are two axes along which the Board is divided. On the one hand, we
+&gt; are not unanimous about whether we should grant a sublicense to commercial
+&gt; entities which may benefit financially by providing local copies of these
+&gt; video recordings, and may even _potentially_  grant such local access only
+&gt; to subscribers in some manner. In favor of granting such access, some
+&gt; Directors feel that the more widespread the mirroring, the better,
+&gt; regardless of the commercial or non-commercial nature of the hosting (i.e.
+&gt; as long as the gratis access is never removed, which is not being
+&gt; contemplated). In opposition to granting such access, some Directors feel
+&gt; that for-profit sublicensees will gain unfair commercial advantage by
+&gt; bundling PyCon videos with other content sold for profit. Potentially the
+&gt; PSF may require payment, and gain revenue, for granting these sublicense
+&gt; rights.
+&gt;  On the other hand, we are also not unanimous about whether—if we do grant
+&gt; sublicenses—we should do so only prospectively, once we can inform speakers
+&gt; of our intent prior to their talks, or whether we should exercise the rights
+&gt; given in speaker releases even retroactively for previous PyCons. While
+&gt; speakers have given such rights already in a legal sense, some Directors
+&gt; feel they may not have fully contemplated that grant at the time, and only
+&gt; going forward, with more explicit information about sublicensing intents of
+&gt; the PSF, should sublicensing be allowed to other entities.
+&gt;  Sublicense entities|  Only YouTube (others embedding)|  As many mirrors as
+&gt; possible|  Only non-commercial mirrors
+&gt; —<a href="#id5"><span class="problematic" id="id6">|---|</span></a>—<a href="#id7"><span class="problematic" id="id8">|---
+&gt; Sublicense timeframe|</span></a>  Prospectively only|  Including retroactively|  Not
+&gt; applicable
+&gt;
+&gt; * * *</p>
+<p>&gt; <em>Bloomberg LP</em>
+&gt;  As the market data and analysis industry leader, Bloomberg LP provides a
+&gt; broad portfolio of innovations to our clients. Bloomberg’s Open Market Data
+&gt; Initiative is part of our ongoing efforts to foster open solutions for the
+&gt; the financial services industry. This includes a set of published Python
+&gt; modules that are freely available to our clients at
+&gt; &lt;<a class="reference external" href="http://www.bloomberglabs.com/api/libraries/">http://www.bloomberglabs.com/api/libraries/</a>&gt;. In support of promoting
+&gt; further Python usage within the financial services industry, we have hosted
+&gt; a number of free public developer-focused events to support the Python
+&gt; ecosystem—including the Scientific Python community. Please refer to
+&gt; &lt;<a class="reference external" href="http://go.bloomberg.com/promo/invite/bloomberg-open-source-day-scientific">http://go.bloomberg.com/promo/invite/bloomberg-open-source-day-scientific</a>-
+&gt; python/&gt; and &lt;<a class="reference external" href="https://twitter.com/Mbussonn/status/533566917727223808">https://twitter.com/Mbussonn/status/533566917727223808</a>&gt;. By
+&gt; becoming a member, we wish to further increase our support of the PSF in its
+&gt; mission to promote, protect, and advance the Python programming language.</p>
+<p>&gt; <em>Fastly</em>
+&gt;  Fastly provides the PSF with unlimited free CDN services, a dedicated IP
+&gt; block, and hosted certificates. We also provide the PSF with free Premium
+&gt; Support. Over the last few months, Fastly’s comped services to the PSF
+&gt; totalled up to ~$20,000/month. In January 2015 alone, the PSF sent 1.7
+&gt; billion requests and 132 TB through Fastly.
+&gt;  Python is a the go-to language at Fastly for building developer tools.
+&gt; Python allows Fastly to rapidly prototype and deploy novel protocols and
+&gt; services over multiple platforms, including devices like network switches,
+&gt; which are traditionally not programmable. Fastly relies on Python for data
+&gt; analysis and to dynamically reconfigure network switching and routing to
+&gt; steer every request to the closest available server. These tools are
+&gt; instrumental in helping Fastly reliably deliver more traffic in less time.</p>
+<p>&gt; <em>Infinite Code</em>
+&gt;  Infinite Code is a software development firm with offices in Beijing, China
+&gt; and Kuala Lumpur, Malaysia. We are strong believers in Free/Open Source
+&gt; Software and the people centric principles of Agile Development. Our
+&gt; language of choice is Python for software development where possible. Our
+&gt; recent Python developments run the range from high volume, real money gaming
+&gt; platforms to massively parallel data gathering and transformation for large
+&gt; quantities of data. Our developers have been using Python since 2001.</p>
+<p>_I would love to hear from readers. Please send feedback, comments, or blog
+ideas to me at <a class="reference external" href="mailto:msushi&#37;&#52;&#48;gnosis&#46;cx&#46;_">msushi<span>&#64;</span>gnosis<span>&#46;</span>cx<span>&#46;</span>_</a></p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2015-03-bbc-launches-microbit.html">
+      
+      <span>BBC launches MicroBit</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2015-03-unicef-pi4learning.html">
+      <span>Unicef Pi4Learning</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

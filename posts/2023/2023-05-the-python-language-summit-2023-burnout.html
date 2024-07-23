@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Python Language Summit 2023: Burnout is Real - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-python-language-summit-2023-burnout-is-real">
+<h1>The Python Language Summit 2023: Burnout is Real<a class="headerlink" href="#the-python-language-summit-2023-burnout-is-real" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language-summit-2023-burnout.html">here</a>.</p>
+<p>Guido van Rossum, creator of the Python programming language, spoke at the
+<a class="reference external" href="https://pyfound.blogspot.com/2023/05/the-python-language-summit-2023_29.html">2023 Python Language Summit</a> on the subject of open-source burnout,
+strategies for tackling it, and how to avoid it.</p>
+<p>The first known case of burnout in the field of open-source software, van
+Rossum speculated, may have been Charles Babbage, who gave up the post of
+Lucasian Professor of Mathematics (the “Chair of Newton”) at Cambridge
+University in 1839.</p>
+<p>&gt; “In 1839 the demands of the Analytical Engine upon my attention had become
+&gt; so incessant and so exhausting, that even the few duties of the Lucasian
+&gt; Chair had a sensible effect in impairing my bodily strength. I therefore
+&gt; sent in my resignation.”</p>
+<p>&gt; -- _Charles Babbage, “Passages from the Life of a Philosopher” (Chapter 4)_</p>
+<p>Van Rossum described how the Python community had been hit multiple times by
+core developers, suffering from burnout, suddenly disappearing for extended
+periods of time. Van Rossum told the story of one core developer, previously
+one of the most prolific contributors to CPython, who had abruptly ceased
+contributing around a decade ago. He had hardly been heard from since.</p>
+<p>Van Rossum himself, he recounted, had felt so burned out by the acrimonious
+debate around <a class="reference external" href="https://peps.python.org/pep-0572/">PEP 572</a> (proposing the
+“walrus operator”, <cite>:=</cite>), that it <a class="reference external" href="https://lwn.net/Articles/759654/">led to him stepping
+down</a> from his post as Benevolent Dictator
+For Life (“BDFL”) of Python in 2018. Decisions about the language were ceded
+to <a class="reference external" href="https://peps.python.org/pep-8016/">a democratically elected Steering
+Council</a>, which has governed Python ever
+since.</p>
+<p>Burnout, van Rossum noted, was often connected to conflict – and it often
+didn’t matter whether or not you ended the conflict victorious. Merely having
+the conflict at all could be exhausting.</p>
+<p>Van Rossum’s talk itself was fairly short, but was followed by a lengthy
+discussion among the assembled core developers on the experiences they’d had
+with burnout, and strategies that could be employed to tackle it.</p>
+<p>Several attendees in the room commented that learning to recognise burnout in
+yourself was an important skill. Some participants in the discussion described
+times when they had suddenly realised that things that had previously been
+enjoyable had morphed into a source of stress. One core developer told the
+story of a conference they had organised, at which they had felt such extreme
+stress that they were unable to think of any of the things that had gone well.
+Instead, they found themselves fixated on all of the minor things that had
+gone wrong.</p>
+<p>Learning to recognise burnout in others was perhaps an even harder problem to
+solve. Van Rossum noted that the developers most susceptible to burnout were
+generally those who were most active and engaged with the community. But how
+can you distinguish between somebody devoting their time to CPython because of
+the intense enjoyment they found in contributing to the project, somebody who
+might have formed an unhealthy addiction to open source, and somebody who was
+only continuing to contribute out of a misplaced sense of obligation?</p>
+<p>Some developers spoke of strategies they used to decompress. Brett Cannon
+described how he periodically takes “open source breaks”, in which he forces
+himself to spend a period of time without looking at his GitHub notifications
+or thinking about his open-source commitments. Mariatta Wijaya spoke about how
+she found mentoring other Python programmers to be deeply healing. All agreed
+that it was crucial to talk to friends and relatives when you were feeling
+close to burnout.</p>
+<p>It was agreed that the Python community needed to do better in many ways. We
+needed to become better, as a community, at understanding when other people
+said that they were unable to complete something they had previously committed
+to. And perhaps we needed to normalise questions such as, “Hey, you’ve been
+super productive and responsive for too long. When do you think you’ll burn
+out?”</p>
+<p>Russell Keith-Magee remarked that systems with single points of failure were
+bound to lead to situations of intense stress. These systems would inevitably,
+at some point, fail. The transition from a single BDFL (with an indefinite
+term) to a five-member Steering Council with one-year terms had been a very
+positive change in that regard, Keith-Magee said. But there were still places
+in CPython development where there were single points of failure. Examples
+included various esoteric platforms where support from CPython depended on a
+single core developer being able to give up their time to review PRs relating
+to the platform.</p>
+<p>Carol Willing agreed with Keith-Magee, pointing out that no matter who you
+were, you were rarely the only person who could do a certain task. You _might_
+be the person who could do it fastest or best – but sometimes, it was
+important to “see the people, and share the joy”.</p>
+<p>Łukasz Langa spoke about his role as part of the current Code of Conduct
+Working Group, to which any violations of the <a class="reference external" href="https://www.python.org/psf/conduct/">Python Code of
+Conduct</a> can be reported. Langa remarked
+that being part of the Working Group had brought to the fore parts of the
+community which he had previously been mostly unaware of. He encouraged
+everybody in the room to report toxic members of the community who were
+discouraging or aggressive online.</p>
+<p>Speaking personally, for a moment: I tried to take an open-source break
+earlier this year, when I felt myself close to burning out on some of my open-
+source commitments. I can’t say it was fully successful – my addiction to
+GitHub was too great for me to resist glancing at my notifications
+occasionally. But it was helpful, and re-energising, to spend some time doing
+a creative activity that bore with it a 0% risk of people shouting at me on
+the internet about it:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhW9jyCByps_8fSzctINDv6FRBbC8f-H_wz7eVrD_4aEGCy-hm0H1umibAftp2nXc4KYVrbABUvnLDLEQPmOi5necf69ruuyHTjABgJOyBZ64eO3lBsmHJ4S9ogosVzKVzvGloPjQMVXFWjB6fnD3djhfqsuKTBDxbiuRf4bMf-yDjpYHs/s320/image_2023-05-27_220847107.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhW9jyCByps_8fSzctINDv6FRBbC8f-H_wz7eVrD_4aEGCy">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhW9jyCByps_8fSzctINDv6FRBbC8f-H_wz7eVrD_4aEGCy</a>-
+hm0H1umibAftp2nXc4KYVrbABUvnLDLEQPmOi5necf69ruuyHTjABgJOyBZ64eO3lBsmHJ4S9ogosVzKVzvGloPjQMVXFWjB6fnD3djhfqsuKTBDxbiuRf4bMf-
+yDjpYHs/s572/image_2023-05-27_220847107.png)</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2023-05-the-python-language-summit-2023_29.html">
+      
+      <span>The Python Language Summit 2023</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2023-05-the-python-language-summit-2023.html">
+      <span>The Python Language Summit 2023: Lightning Talks</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Pablo Galindo Salgado: The Night’s Watch is Fixing the CIs in the Darkness for You - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="pablo-galindo-salgado-the-night-s-watch-is-fixing-the-cis-in-the-darkness-for-you">
+<h1>Pablo Galindo Salgado: The Night’s Watch is Fixing the CIs in the Darkness for You<a class="headerlink" href="#pablo-galindo-salgado-the-night-s-watch-is-fixing-the-cis-in-the-darkness-for-you" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/06/pablo-galindo-salgado-nights-watch-is.html">here</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgykyJ2Ky5ABOKlQu3Xsk8i4weEGsvq8FKTB92Xy7kNoGDndrDh8aT5RKdJ6xgGiaKzvzx3vC92NrsjP8TD9gcroY6PSostwqSmVtsHijuv-51f09t21iNrNFTnnr3SYkHlKA/s400/PyconUS_-Language-summit-lightning-talk-1.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgykyJ2Ky5ABOKlQu3Xsk8i4weEGsvq8FKTB92Xy7kNoGDndrDh8aT5RKdJ6xgGiaKzvzx3vC92NrsjP8TD9gcroY6PSostwqSmVtsHijuv-51f09t21iNrNFTnnr3SYkHlKA/s1600/">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgykyJ2Ky5ABOKlQu3Xsk8i4weEGsvq8FKTB92Xy7kNoGDndrDh8aT5RKdJ6xgGiaKzvzx3vC92NrsjP8TD9gcroY6PSostwqSmVtsHijuv-51f09t21iNrNFTnnr3SYkHlKA/s1600/</a><a href="#id5"><span class="problematic" id="id6">PyconUS_</span></a>-
+Language-summit-lightning-talk-1.png)</p>
+<p>Python is tested on a menagerie of “buildbot” machines with different OSes and
+architectures, to ensure all Python users have the same experience on all
+platforms. As Pablo Galindo Salgado told the Language Summit, the bugs
+revealed by multi-platform tests are “Lovecraftian horrors”: race conditions,
+bugs specific to particular architectures or compiler versions, and so on. The
+core team had to confront these horrors with few good weapons, until now.</p>
+<p><em>`Read more 2019 Python Language Summit
+coverage &lt;https://pyfound.blogspot.com/2019/05/the-2019-python-language-
+summit.html&gt;`_.</em></p>
+</section>
+<section id="the-solemn-duty-of-bug-triage">
+<h1>The Solemn Duty of Bug Triage<a class="headerlink" href="#the-solemn-duty-of-bug-triage" title="Link to this heading">¶</a></h1>
+<p>When a test fails, the core developer who triages the failure follows an
+arduous process. “It’s not glamorous by any means,” said Galindo, “but someone
+needs to do it.” Galindo, Victor Stinner, and Zachary Ware are the main bug
+triagers, and they all follow a similar sequence: read the failure email,
+search for duplicate failures, read the voluminous logs to characterize the
+problem, and file a bug with a detailed description. Then, optionally, they
+try to reproduce the problem. Since failures are often specific to one
+buildbot, the triagers must contact the buildbot’s owner and get permission to
+ssh into it and debug.</p>
+<p>According to Galindo, typical test failures are “really, really complicated,”
+so the triage team takes a firm stance about reverting changes. If they
+suspect that a change has broken a test, its author has one day to follow up
+with a fix or the change will be reverted. “Nobody likes their commits to be
+reverted,” he told the Language Summit. But test failures can cause cascading
+failures later on, so the team must be ruthless.</p>
+</section>
+<section id="new-tools-for-squashing-bugs">
+<h1>New Tools for Squashing Bugs<a class="headerlink" href="#new-tools-for-squashing-bugs" title="Link to this heading">¶</a></h1>
+<p>A pull request is not tested by the buildbots until after it is merged, so the
+author does not immediately know if they have broken any tests. Galindo and
+his colleagues have written a bot which reacts to a test failure by commenting
+on the merged pull request that caused it, with reassuring instructions to
+help the panicked author respond. “We have some arcane magic,” he said, to
+distinguish compiler errors from tracebacks and neatly format them into the
+message, so the author get begin diagnosing immediately.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNK9Kix0IukNxCgnarP8KMQxghpMNpvytGKnksy3hM3kbX_k05faE-ZSU1cRcAexXjHVsZ3NczrL-Kx8ZuVFhXCqjogArWdMjhWIWyN4bHiWYmYj6HgXs-UiPNniLLxX4pfA/s640/buildbot-failure.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNK9Kix0IukNxCgnarP8KMQxghpMNpvytGKnksy3hM3kbX_k05faE">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNK9Kix0IukNxCgnarP8KMQxghpMNpvytGKnksy3hM3kbX_k05faE</a>-
+ZSU1cRcAexXjHVsZ3NczrL-Kx8ZuVFhXCqjogArWdMjhWIWyN4bHiWYmYj6HgXs-
+UiPNniLLxX4pfA/s1600/buildbot-failure.png)</p>
+<p>Since the bot was deployed in September, the mean time to fix a test failure
+has fallen dramatically. When Galindo showed this chart, the core developers
+broke into applause.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoml_QeZEni9Z_pP_WUR02MMXMjGYhoKZi6CSbxlS8PzflWXagw-x7TGojeKM1H898ZHiP6JXx1XL2tbqEwTibxfNOu8Tra3hhW37XT2_SbeNtWphBWmFz_fQ4CM1jXHCHaw/s640/bot-activated.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoml_QeZEni9Z_pP_WUR02MMXMjGYhoKZi6CSbxlS8PzflWXagw-x7TGojeKM1H898ZHiP6JXx1XL2tbqEwTibxfNOu8Tra3hhW37XT2_SbeNtWphBWmFz_fQ4CM1jXHCHaw/s1600/bot">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjoml_QeZEni9Z_pP_WUR02MMXMjGYhoKZi6CSbxlS8PzflWXagw-x7TGojeKM1H898ZHiP6JXx1XL2tbqEwTibxfNOu8Tra3hhW37XT2_SbeNtWphBWmFz_fQ4CM1jXHCHaw/s1600/bot</a>-
+activated.png)</p>
+<p>Nevertheless, there are still severe problems with Python’s tests. Flaky tests
+break about 40% of the builds; the system is programmed to retry a failure and
+consider it successful if the second run passes, but this is clearly just a
+stopgap. Galindo urged the core team to reduce flaky tests by eliminating race
+conditions and sleeps. He also asked for help writing a tool that would
+analyze which flaky tests fail most often, and a tool to detect and merge
+duplicate test failures.</p>
+<p>Finally, Galindo proposed allowing contributors to test their pull requests on
+the buildbots before merging. This feature should be implemented cautiously.
+“The buildbots are very delicate,” he said. They cannot safely run arbitrary
+code like on Travis or other commercial test infrastructures. Still, it would
+be worth the effort, if contributors could catch mistakes before they are
+merged.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTvi5eYQ-FZJf5JZ2YQlR3p1xwfLVxwzL-guWK0Q9jSdJ8mCOLOahs6ahyphenhyphenYkhaIE5ftyIhFpJFTNSazFoOS1PupHYQoRCWzZRGtwMHtpOK8c7NTV7kanQK8qvMkNny9rF3vw/s640/galindo.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTvi5eYQ">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTvi5eYQ</a>-
+FZJf5JZ2YQlR3p1xwfLVxwzL-
+guWK0Q9jSdJ8mCOLOahs6ahyphenhyphenYkhaIE5ftyIhFpJFTNSazFoOS1PupHYQoRCWzZRGtwMHtpOK8c7NTV7kanQK8qvMkNny9rF3vw/s1600/galindo.jpg)</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-05-use-two-factor-auth-to-improve-your.html">
+      
+      <span>Use two-factor auth to improve your PyPI account’s security</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-06-python-language-summit-lightning-talks.html">
+      <span>Python Language Summit Lightning Talks, Part 1</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

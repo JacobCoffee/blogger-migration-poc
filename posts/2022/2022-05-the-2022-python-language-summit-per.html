@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2022 Python Language Summit: A per-interpreter GIL - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2022-python-language-summit-a-per-interpreter-gil">
+<h1>The 2022 Python Language Summit: A per-interpreter GIL<a class="headerlink" href="#the-2022-python-language-summit-a-per-interpreter-gil" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit-per.html">here</a>.</p>
+<p>“Hopefully,” the speaker began, “This is the _last <a href="#id3"><span class="problematic" id="id4">time_</span></a> I give a talk on this
+subject.”</p>
+<p>“My name is Eric Snow, I’ve been a core developer since 2012, and I’ve been
+working towards a per-interpreter GIL since 2014.”</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>In 1997, the <cite>PyInterpreterState</cite> struct <a class="reference external" href="https://github.com/python/cpython/commit/a027efa5bfa7911b5c4b522b6a0698749a6f2e4a">was added to
+CPython</a>,
+allowing multiple Python interpreters to be run simultaneously within a single
+process. “For the longest time,” Snow noted, speaking at <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit_01678898482.html">the 2022 Python
+Language Summit</a>, this functionality was little used and
+little understood. In recent years, however, awareness and adoption of the
+idea has been spreading.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2EUCU6ikZiV8w1wuTSN8OBKzR9qCGteSCtRuzvVVvzaVQe8eVL960HTn5j7unO8Bjl2_yRxh8tQmrqw1kVWBb-SH6cdkxpdYZKHBY3Zs-G5wAKbcZ346avXq8UdPztF7dJ7xukMCf1lTzMK6yzi5lRKZMZ4N6IBV7Dc66ZP7IavC9qi4/w400-h226/pyinterpreterstruct%20commit.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2EUCU6ikZiV8w1wuTSN8OBKzR9qCGteSCtRuzvVVvzaVQe8eVL960HTn5j7unO8Bjl2_yRxh8tQmrqw1kVWBb">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2EUCU6ikZiV8w1wuTSN8OBKzR9qCGteSCtRuzvVVvzaVQe8eVL960HTn5j7unO8Bjl2_yRxh8tQmrqw1kVWBb</a>-
+SH6cdkxpdYZKHBY3Zs-G5wAKbcZ346avXq8UdPztF7dJ7xukMCf1lTzMK6yzi5lRKZMZ4N6IBV7Dc66ZP7IavC9qi4/s608/pyinterpreterstruct%20commit.png)</p>
+<p>Multiple interpreters, however, cannot yet be run in true isolation from each
+other when run inside the same process. Part of this is due to the <a class="reference external" href="https://realpython.com/python-gil/">GIL
+(“Global Interpreter Lock”)</a>, a core
+feature of CPython that is the building block for much of the language. The
+obvious solution to this problem is to have a _per-interpreter <a href="#id5"><span class="problematic" id="id6">GIL_</span></a> : a
+separate lock for each interpreter spawned within the process.</p>
+<p>With a per-interpreter GIL, Snow explained, CPython will be able to achieve
+true multicore parallelism for code running in different interpreters.</p>
+<p>A per-interpreter GIL, however, is no small task. “In general, any mutable
+state shared between multiple interpreters must be guarded by a lock,” Snow
+explained. Ultimately, what this means is that the amount of state shared
+between multiple interpreters must be brought down to an absolute minimum if
+the GIL is to become per-interpreter. As of 2017, there were still several
+thousand global variables; now, after a huge amount of work (and
+<a class="reference external" href="https://peps.python.org/pep-0554/">several</a>
+<a class="reference external" href="https://peps.python.org/pep-0684/">PEPs</a>), this has been reduced to around
+1200 remaining globals.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy15SMZfkahQzCpBxyIV5UGpsu5xiTus0IsavfNsOmndM7vNpQ3zTgq_Wh8PE1mtrADQjlUwrOwIMCJhZgOaXQEsO5F16KpDyy32WoOFwInYA7_PPhtTbBr_f2XqC1Q7G9YXUOrXmQqyeDtvt2ezBpePgvXVVW0brzYSsuGJgIknrKAEg/w400-h226/consolidating%20global%20state.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy15SMZfkahQzCpBxyIV5UGpsu5xiTus0IsavfNsOmndM7vNpQ3zTgq_Wh8PE1mtrADQjlUwrOwIMCJhZgOaXQEsO5F16KpDyy32WoOFwInYA7_PPhtTbBr_f2XqC1Q7G9YXUOrXmQqyeDtvt2ezBpePgvXVVW0brzYSsuGJgIknrKAEg/s608/consolidating%20global%20state.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiy15SMZfkahQzCpBxyIV5UGpsu5xiTus0IsavfNsOmndM7vNpQ3zTgq_Wh8PE1mtrADQjlUwrOwIMCJhZgOaXQEsO5F16KpDyy32WoOFwInYA7_PPhtTbBr_f2XqC1Q7G9YXUOrXmQqyeDtvt2ezBpePgvXVVW0brzYSsuGJgIknrKAEg/s608/consolidating%20global%20state.png</a>)</p>
+<p>&gt; “Basically, we can’t share objects between interpreters”
+&gt;
+&gt; – Eric Snow</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="troubles-on-the-horizon">
+<h2>Troubles on the horizon<a class="headerlink" href="#troubles-on-the-horizon" title="Link to this heading">¶</a></h2>
+<p>The reception to Snow’s talk was positive, but a number of concerns were
+raised by audience members.</p>
+<p>One potential worry is the fact that any C-extension module that wishes to be
+compatible with sub-interpreters will have to make changes to their design.
+Snow is happy to work on fixing these for the standard library, but there’s
+concern that end users of Python may put pressure on third-party library
+maintainers to provide support for multiple interpreters. Nobody wishes to
+place an undue burden on maintainers who are already giving up their time for
+free; subinterpreter support should remain an optional feature for third-party
+libraries.</p>
+<p>Larry Hastings, a core developer in the audience for the talk, asked Snow what
+exactly the benefits of subinterpreters were compared to the existing
+<code class="docutils literal notranslate"><span class="pre">multiprocessing</span> <span class="pre">&lt;https://docs.python.org/3/library/multiprocessing.html&gt;`_</span></code>
+module &lt;<a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">https://docs.python.org/3/library/multiprocessing.html</a>&gt;`_ (allowing
+interpreters to be spawned in parallel processes), if sharing objects between
+the different interpreters would pose so many difficulties. Subinterpreters,
+Snow explained, hold significant speed benefits over <cite>multiprocessing</cite> in many
+respects.</p>
+<p>Hastings also queried how well the idea of a per-interpreter GIL would
+interact with Sam Gross’s proposal for a version of CPython that <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit-python_11.html">removed the
+GIL entirely</a>. Snow replied that there was minimal friction between
+the two projects. “They’re not mutually exclusive,” he explained. Almost all
+the work required for a per-interpreter GIL “is stuff that’s a good idea to do
+anyway. It’s already making CPython faster by consolidating memory”.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2022-05-the-2022-python-language-summit_01678898482.html">
+      
+      <span>The 2022 Python Language Summit</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2022-05-the-2022-python-language-summit_11.html">
+      <span>The 2022 Python Language Summit: Achieving immortality</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

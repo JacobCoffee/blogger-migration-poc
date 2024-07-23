@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>World Domination: One Student at a Time! - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="world-domination-one-student-at-a-time">
+<h1>World Domination: One Student at a Time!<a class="headerlink" href="#world-domination-one-student-at-a-time" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/world-domination-one-student-at-time.html">here</a>.</p>
+<p>A couple of years ago, I discovered the edX MIT course 6.00x <a class="reference external" href="https://www.edx.org/course/introduction-computer-science-mitx-6-00-1x-0#.VRSv3JPF8kU">Intro to
+Computer Science and Programming Using
+Python</a>. At the time, I was eager to learn Python and CS
+basics, so I took the plunge.</p>
+<p>The course has been offered through edX each semester since, and at some point
+it was divided into two courses to allow more time for in-depth study, as the
+original one-semester course moved very quickly from basics to more advanced
+topics, such as _complexity classes, plotting techniques, stochastic programs,
+probability, random walks, and graph optimization._  I can’t say enough good
+things about the excellence of Professor John Guttag, who developed the course
+and wrote the accompanying textbook (which is recommended but not required),
+along with co-teachers, Profs. Eric Grimson and Chris Terman.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWG1TNnYYpT5WiWbyS08Elup7l15wfm43gEHUSvvz-ndW2cEyu6WG_QqbNl080vF9tzCxYXydjBHSlSfM9aR06H8g6SJNatcfmKVEWcqRM-CDwjhI1ri2JHkH7L1zBohQfonU/s1600/Guttag-book.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWG1TNnYYpT5WiWbyS08Elup7l15wfm43gEHUSvvz">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWG1TNnYYpT5WiWbyS08Elup7l15wfm43gEHUSvvz</a>-
+ndW2cEyu6WG_QqbNl080vF9tzCxYXydjBHSlSfM9aR06H8g6SJNatcfmKVEWcqRM-
+CDwjhI1ri2JHkH7L1zBohQfonU/s1600/Guttag-book.jpg)</p>
+<p>I was grateful at the time to have found a free introductory college-level
+course in computer science that uses Python, rather than C, Java, or another
+language, as I had already had some acquaintance with Python and wanted to
+solidify my foundation and gain more skill. Working through the course led me
+to appreciate the features of Python that make it a wonderful teaching
+language. Since it is relatively easy to learn, it allows the learner to get
+up and running quickly, to write code and get results early on, without
+getting too bogged down and discouraged (something that I, as a humanities
+rather than a math person, had experienced in the past.) In addition, Python
+teaches good programming habits, including the importance of good
+documentation, what Prof. Guttag frequently referred to as “good hygiene.” I
+remember wondering at the time why Python wasn’t always the language taught to
+beginners.</p>
+<p>Well, today this is the trend.</p>
+<p>According to a July 2014 study by Phillip Guo, “Python is Now the <a class="reference external" href="http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext">Most
+Popular Introductory Teaching Language</a> at Top U.S. Universities.” Guo analyzed the
+course curricula for the top 39 CS Departments in the US. He used U.S. News’
+ranking of best computer science schools in 2014, which begins with Carnegie
+Mellon, MIT, Stanford, and UC Berkeley (he stopped at 39 because apparently
+there was an 8-way tie for #40), and found that 27 of them teach Python in
+their Intro courses. Of the top 10 departments, the proportion was higher– 8
+of them teach Python. The next most-taught languages the study found were (in
+descending order): Java, MATLAB, C, C+, Scheme, and Scratch. Moreover, in
+addition to edX, both Udacity and Coursera use Python for their introductory
+courses.</p>
+<p>Anecdotally, Guo found that professors in academic fields outside of CS are
+increasingly using Python to fill their students’ needs for programming
+skills. See February’s PSF blog post <a class="reference external" href="http://pyfound.blogspot.com/2015/02/the-esteemed-international-scientific.html">Python in
+Nature</a> for an explanation and example of this trend by Dr. Adina
+Howe, Professor of Agriculture and Biosystems Engineering at Iowa State
+University.</p>
+<p>The increasing popularity of Python as the language for introductory CS
+courses in the US will undoubtedly lead to further growth of the Python
+community and the language. As Guo explains:</p>
+<p>&gt; … the choice of what language to teach first reflects the pedagogical
+&gt; philosophy of each department and influences many students’ first
+&gt; impressions of computer science. The languages chosen by top U.S.
+&gt; departments could indicate broader trends in computer science education,
+&gt; since those are often trendsetters for the rest of the educational
+&gt; community.</p>
+<p>_I would love to hear from readers. Please send feedback, comments, or blog
+ideas to me at  <a class="reference external" href="mailto:msushi&#37;&#52;&#48;gnosis&#46;cx">msushi<span>&#64;</span>gnosis<span>&#46;</span>cx</a>._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2015-03-personal-opinion-i-think-its-always.html">
+      
+      <span>Let’s make decisions together!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2015-03-to-sublicense-or-not-to-sublicense-that.html">
+      <span>To sublicense or not to sublicense? That is the election.</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PSF Grant Funds Porting Work for the email Package - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="psf-grant-funds-porting-work-for-the-email-package">
+<h1>PSF Grant Funds Porting Work for the email Package<a class="headerlink" href="#psf-grant-funds-porting-work-for-the-email-package" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2011/04/psf-grant-funds-porting-work-for-email.html">here</a>.</p>
+<p>R. David Murray recently completed work funded by the PSF to update Python’s
+<cite>email</cite> package to work with Python 3.2. The result of the project is a fully
+functioning version of the standard library package for parsing and
+constructing email messages.</p>
+<section id="project-history">
+<h2>Project History<a class="headerlink" href="#project-history" title="Link to this heading">¶</a></h2>
+<p>The version of the <a class="reference external" href="http://docs.python.org/py3k/library/email.html">email</a>
+package that was shipped with Python 3.0 and 3.1 had some bugs, not the least
+of which was the inability to handle binary inputs. The parser was limited to
+files and messages in ASCII. Due to this, under Python 3 the <cite>email</cite> module
+could only create messages and never receive anything. This deficiency broke
+many applications that depend on <cite>email</cite>. For example, the
+<a class="reference external" href="http://docs.python.org/py3k/library/cgi.html">cgi</a> package uses the <cite>email</cite>
+package to process binary uploads.</p>
+<p>After discussions held in the <a class="reference external" href="http://mail.python.org/pipermail/email-sig/">email-sig discussion
+group</a>, a complete rewrite of the
+API was suggested as the only option and R. David Murray submitted a
+<a class="reference external" href="http://www.bitdance.com/projects/email6/psfproposal/">proposal</a> to the PSF to
+fund the development of Email 6. The proposal was initially accepted, and some
+seed money (including matching funds) were provided. Since then, additional
+funding has been provided by <a class="reference external" href="http://qnx.com/">QNX</a>.</p>
+<p>At first, David spent some time working on the Policy framework, and with some
+help from Antoine Pitrou, who fixed some issues in the
+<a class="reference external" href="http://docs.python.org/py3k/library/nntplib.html">nntp</a> module, David devised
+a way to integrated byte handling in the <cite>email</cite> package without a complete
+rewrite of the original code by using extensions to the API that allow it to
+accept and generate bytes. The implementation used the “surrogateescape”
+mechanism, developed by Martin von Löwis, allowing minimum code modifications.</p>
+<p>David also provided some modifications to
+<a class="reference external" href="http://docs.python.org/py3k/library/smtplib.html">smtplib</a>, enabling it to
+transmit messages with non-ASCII characters. He also worked with Victor
+Stinner to give the <cite>cgi</cite> module the ability to handle binary data. They then
+took on the task of updating the
+<a class="reference external" href="http://docs.python.org/py3k/library/mailbox.html">mailbox</a> module, and using
+the new features coded initially by David, made <cite>mailbox</cite> fully functional for
+Python 3.2.</p>
+<p>David mentions that there are still some bugs, specially in the transition to
+the string/byte separation, but, also according to him, these bugs were
+greatly reduced in version 3.2.</p>
+<p>All this work gave Python 3.2 a fully functional <cite>email</cite> handling package. The
+nntplib, smtplib, email, cgi and mailbox modules were also made functional,
+something that benefits the whole Python community. The grant provided by PSF
+paved the way to reach full functionality.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2011-04-europython-2011-call-for-presentations.html">
+      
+      <span>EuroPython 2011 Call for Presentations</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2011-04-psf-grants-europython-us2000.html">
+      <span>PSF Grants EuroPython US$2000</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

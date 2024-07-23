@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2022 Python Language Summit: Lightning talks - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2022-python-language-summit-lightning-talks">
+<h1>The 2022 Python Language Summit: Lightning talks<a class="headerlink" href="#the-2022-python-language-summit-lightning-talks" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit.html">here</a>.</p>
+<p>These were a series of short talks, each lasting around five minutes.</p>
+<p><a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit_01678898482.html">Read the rest of the 2022 Python Language Summit coverage
+here.</a></p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="lazy-imports-with-carl-meyer">
+<h2>Lazy imports, with Carl Meyer<a class="headerlink" href="#lazy-imports-with-carl-meyer" title="Link to this heading">¶</a></h2>
+<p>Carl Meyer, an engineer at Instagram, presented on a proposal that has since
+blossomed into <a class="reference external" href="https://peps.python.org/pep-0690/">PEP 690</a>: lazy imports, a
+feature that has already been implemented in
+<a class="reference external" href="https://github.com/facebookincubator/cinder">Cinder</a>, Instagram’s
+performance-optimised fork of CPython 3.8.</p>
+<p>What’s a _lazy <a href="#id3"><span class="problematic" id="id4">import_</span></a>? Meyer explained that the core difference with lazy
+imports is that the import does not happen until the imported object is
+referenced.</p>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h3>
+<p>In the following Python module, <cite>spam.py</cite>, with lazy imports activated, the
+module <cite>eggs</cite> would never in fact be imported since <cite>eggs</cite> is never referenced
+after the import:</p>
+<blockquote>
+<div><p># spam.py
+import sys
+import eggs</p>
+<dl class="simple">
+<dt>def main():</dt><dd><p>print(“Doing some spammy things.”)
+sys.exit(0)</p>
+</dd>
+<dt>if __name__ == “__main__”:</dt><dd><p>main()</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>And in _this_ Python module, <cite>ham.py</cite>, with lazy imports activated, the
+function <cite>bacon_function</cite> _is_ imported – but only right at the end of the
+script, after we’ve completed a for-loop that’s taken a very long time to
+finish:</p>
+<blockquote>
+<div><p># ham.py</p>
+<p>import sys</p>
+<p>import time</p>
+<p>from bacon import bacon_function</p>
+<dl>
+<dt>def main():</dt><dd><dl class="simple">
+<dt>for _ in range(1_000_000_000):</dt><dd><p>print(‘Doing hammy things’)
+time.sleep(1)</p>
+</dd>
+</dl>
+<p>bacon_function()</p>
+<p>sys.exit(0)</p>
+</dd>
+<dt>if __name__ == “__main__”:</dt><dd><p>main()</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Meyer revealed that the Instagram team’s work on lazy imports had resulted in
+startup time improvements of up to 70%, memory usage improvements of up to
+40%, and the elimination of almost all import cycles within their code base.
+(This last point will be music to the ears of anybody who has worked on a
+Python project larger than a few modules.)</p>
+</section>
+<section id="downsides">
+<h3>Downsides<a class="headerlink" href="#downsides" title="Link to this heading">¶</a></h3>
+<p>Meyer also laid out a number of costs to having lazy imports. Lazy imports
+create the risk that <cite>ImportError</cite> (or any other error resulting from an
+unsuccessful import) could potentially be raised… anywhere. Import side
+effects could also become “even less predictable than they already weren’t”.</p>
+<p>Lastly, Meyer noted, “If you’re not careful, your code might implicitly start
+to require it”. In other words, you might unexpectedly reach a stage where –
+because your code has been using lazy imports – it now no longer runs without
+the feature enabled, because your code base has become a huge, tangled mess of
+cyclic imports.</p>
+</section>
+<section id="where-next-for-lazy-imports">
+<h3>Where next for lazy imports?<a class="headerlink" href="#where-next-for-lazy-imports" title="Link to this heading">¶</a></h3>
+<p>Python users who have opinions either for or against the proposal are
+encouraged to join <a class="reference external" href="https://discuss.python.org/t/pep-690-lazy-imports/">the discussion on
+discuss.python.org</a>.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="python-dev-versus-discourse-with-thomas-wouters">
+<h2>Python-Dev versus Discourse, with Thomas Wouters<a class="headerlink" href="#python-dev-versus-discourse-with-thomas-wouters" title="Link to this heading">¶</a></h2>
+<p>This was less of a talk, and more of an announcement.</p>
+<p>Historically, if somebody wanted to make a significant change to CPython, they
+were required to post on <a class="reference external" href="https://mail.python.org/mailman3/lists/python-dev.python.org/">the python-dev mailing
+list</a>. The
+Steering Council now views the alternative venue for discussion,
+<a class="reference external" href="http://discuss.python.org">discuss.python.org</a>, to be a superior forum in
+many respects.</p>
+<p>Thomas Wouters, Core Developer and Steering Council member, said that the
+Steering Council was planning on loosening the requirements, stated in several
+places, that emails had to be sent to python-dev in order to make certain
+changes. Instead, they were hoping that
+<a class="reference external" href="http://discuss.python.org">discuss.python.org</a> would become the authoritative
+discussion forum in the years to come.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="asks-from-pyston-with-kevin-modzelewski">
+<h2>Asks from Pyston, with Kevin Modzelewski<a class="headerlink" href="#asks-from-pyston-with-kevin-modzelewski" title="Link to this heading">¶</a></h2>
+<p>Kevin Modzelewski, core developer of the <a class="reference external" href="https://www.pyston.org">Pyston</a>
+project, gave a short presentation on ways forward for CPython optimisations.
+Pyston is a performance-oriented fork of CPython 3.8.12.</p>
+<p>Modzelewski argued that CPython needed better benchmarks; the existing
+benchmarks on <a class="reference external" href="https://github.com/python/pyperformance">pyperformance</a> were
+“not great”. Modzelewski also warned that his “unsubstantiated hunch” was that
+the <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit_2.html?m=1">Faster CPython</a> team had already accomplished “greater than one-
+half” of the optimisations that could be achieved within the current
+constraints. Modzelewski encouraged the attendees to consider future
+optimisations that might cause backwards-incompatible behaviour changes.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="core-development-and-the-psf-with-thomas-wouters">
+<h2>Core Development and the PSF, with Thomas Wouters<a class="headerlink" href="#core-development-and-the-psf-with-thomas-wouters" title="Link to this heading">¶</a></h2>
+<p>This was another short announcement from Thomas Wouters on behalf of the
+Steering Council. After sponsorship from Google providing funding for <a class="reference external" href="https://pyfound.blogspot.com/2021/04/the-psf-is-hiring-developer-in.html">the
+first ever CPython Developer-In-
+Residence</a> (Łukasz Langa), Meta has provided sponsorship for a second year. The
+Steering Council also now has sufficient funds to hire a second Developer-In-
+Residence – and attendees were notified that they were open to the idea of
+hiring somebody who was not currently a core developer.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="forward-classes-with-larry-hastings">
+<h2>“Forward classes”, with Larry Hastings<a class="headerlink" href="#forward-classes-with-larry-hastings" title="Link to this heading">¶</a></h2>
+<p>Larry Hastings, CPython core developer, gave a brief presentation on a
+proposal he had <a class="reference external" href="https://groups.google.com/g/dev-python/c/AuvirC3UNFU?pli=1">sent round to the python-dev mailing
+list</a> in recent
+days: a “forward class” declaration that would avoid all issues with two
+competing <cite>typing</cite> PEPs: <a class="reference external" href="https://peps.python.org/pep-0563/">PEP 563</a> and <a class="reference external" href="https://peps.python.org/pep-0649/">PEP
+649</a>. In brief, the proposed syntax would
+look something like this:</p>
+<blockquote>
+<div><p>forward class X()</p>
+<dl>
+<dt>continue class X:</dt><dd><p># class body goes here
+def __init__(self, key):</p>
+<blockquote>
+<div><p>self.key = key</p>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<p>In theory, according to Hastings, this syntax could avoid <a class="reference external" href="https://github.com/samuelcolvin/pydantic/issues/2678">issues around
+runtime evaluation of annotations that have plagued PEP
+563</a>, while also
+circumventing many of <a class="reference external" href="https://discuss.python.org/t/finding-edge-cases-for-peps-484-563-and-649-type-annotations/14314">the edge cases that unexpectedly
+fail</a> in a world where PEP 649 is
+implemented.</p>
+<p>The idea was in its early stages, and reaction to the proposal was mixed. The
+next day, at the Typing Summit, there was more enthusiasm voiced for a plan
+laid out by Carl Meyer for a tweaked version of Hastings’s earlier attempt at
+solving this problem: <a class="reference external" href="https://peps.python.org/pep-0649/">PEP 649</a>.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="better-fields-access-with-samuel-colvin">
+<h2>Better fields access, with Samuel Colvin<a class="headerlink" href="#better-fields-access-with-samuel-colvin" title="Link to this heading">¶</a></h2>
+<p>Samuel Colvin, maintainer of the <a class="reference external" href="https://pydantic-docs.helpmanual.io">Pydantic</a> library, gave a short presentation on a proposal
+(<a class="reference external" href="https://discuss.python.org/t/better-fields-access-and-allowing-a-new-character-at-the-start-of-identifiers/14529">recently discussed on
+discuss.python.org</a>) to reduce name
+clashes between field names in a subclass, and method names in a base class.</p>
+<p>The problem is simple. Suppose you’re a maintainer of a library,
+<cite>whatever_library</cite>. You release Version 1 of your library, and one user start
+to use your library to make classes like the following:</p>
+<blockquote>
+<div><p>from whatever_library import BaseModel</p>
+<dl class="simple">
+<dt>class Farmer(BaseModel):</dt><dd><p>name: str
+fields: list[str]</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>Both the user and the maintainer are happy, until the maintainer releases
+Version 2 of the library. Version 2 adds a method, <cite>.fields()</cite> to BaseModel,
+which will print out all the field names of a subclass. But this creates a
+name clash with your user’s existing code, wich has <cite>fields</cite> as the name of an
+instance attribute rather than a method.</p>
+<p>Colvin briefly sketched out an idea for a new way of looking up names that
+would make it unambiguous whether the name being accessed was a method or
+attribute.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>class Farmer(BaseModel):</dt><dd><p>$name: str
+$fields: list[str]</p>
+</dd>
+</dl>
+<p>farmer = Farmer(name=’Jones’, fields=[‘meadow’, ‘highlands’])
+print(farmer.$fields)  # -&gt; [‘meadow’, ‘highlands’]
+print(farmer.fields())  # -&gt; [‘name’, ‘fields’]</p>
+</div></blockquote>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2022-05-the-2022-python-language-summit-f.html">
+      
+      <span>The 2022 Python Language Summit: F-Strings in the grammar</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2022-05-the-2022-python-language-summit_2.html">
+      <span>The 2022 Python Language Summit: Performance Improvements by the Faster CPython team</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

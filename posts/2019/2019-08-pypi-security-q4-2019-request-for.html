@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PyPI Security Q4 2019 Request for Information period opens. - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="pypi-security-q4-2019-request-for-information-period-opens">
+<h1>PyPI Security Q4 2019 Request for Information period opens.<a class="headerlink" href="#pypi-security-q4-2019-request-for-information-period-opens" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/08/pypi-security-q4-2019-request-for.html">here</a>.</p>
+<p>The <a class="reference external" href="https://python.org/psf-landing">Python Software Foundation</a> <a class="reference external" href="https://www.python.org/psf/committees/#packaging-work-group">Packaging
+Working Group</a>
+has received funding from <a class="reference external" href="https://research.fb.com/">Facebook research</a> to
+develop and deploy of enhanced security features to PyPI.</p>
+<p><a class="reference external" href="https://pypi.org/">PyPI</a> is a foundational component of the
+<a class="reference external" href="https://python.org/">Python</a> ecosystem and broader computer software and
+technology landscape. This project aims to improve the security and
+accessibility of PyPI for all users worldwide, whether they are direct users
+like project maintainers and <a href="#id1"><span class="problematic" id="id2">``</span></a>pip
+install` &lt;<a class="reference external" href="https://pip.pypa.io/en/stable/">https://pip.pypa.io/en/stable/</a>&gt;`_ers or indirect users. The impact of
+this work will be highly visible and improve crucial features of the service.</p>
+<p>Specifically, this project aims to implement verifiable cryptographic signing
+of artifacts and infrastructure to support automated detection of malicious
+uploads to the index.</p>
+<p>We plan to begin the project in December 2019. Because of the size of the
+project, funding has been allocated to secure one or more contractors to
+complete the development, testing, verification, and assist in the rollout of
+necessary features.</p>
+<p>Register Interest</p>
+<p>To receive notification when our Request for Information period closes and the
+Request for Proposals period opens, please <a class="reference external" href="https://forms.gle/ToVjmwna2wuqAbqG8">register your interest
+here</a>.</p>
+<section id="what-is-the-request-for-information-period">
+<h2>What is the Request for Information period?<a class="headerlink" href="#what-is-the-request-for-information-period" title="Link to this heading">¶</a></h2>
+<p>A Request for Information (RFI) is a process intended to allow us (The Python
+Software Foundation) and potential contractors to openly share information to
+improve the scope and definition of the project at hand. Also, we encourage
+stakeholders in the community with expertise in the project areas to
+contribute their viewpoints on open questions for the scope of the work.</p>
+<p>We hope that it will help potential contractors better understand the work to
+be completed and develop better specified proposals. Additionally we have
+designed the RFI with an open nature in order to expose the project to
+multiple perspectives and help shape the direction for some choices in the
+project.</p>
+<p>The Request for Information period opens today, August 28, 2019, and is
+scheduled to close <em>September 18, 2019</em>.</p>
+<p>After the RFI period closes, we will use the results of the process to prepare
+and open a Request for Proposals to solicit proposals from contractors to
+complete the work.</p>
+</section>
+<section id="more-information">
+<h2>More Information<a class="headerlink" href="#more-information" title="Link to this heading">¶</a></h2>
+<p>The full version of our Request for Information document can be found
+<a class="reference external" href="https://github.com/python/request-for/blob/master/2019-Q4-PyPI/RFI.md">here</a>.</p>
+</section>
+<section id="participate">
+<h2>Participate!<a class="headerlink" href="#participate" title="Link to this heading">¶</a></h2>
+<p>Our RFI will be conducted on the <a class="reference external" href="https://discuss.python.org/c/python-software-foundation/pypi-q4-rfi">Python Community Discussion
+Forum</a>.
+Participants will need to create an account in order to propose new topics of
+discussion or respond to existing topics.</p>
+<p>All discussions will remain public and available for review by potential
+proposal authors who do not wish to or cannot create an account to participate
+directly.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-08-python-software-foundation-fellow.html">
+      
+      <span>Python Software Foundation Fellow Members for Q1 & Q2 2019</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-09-the-python-software-foundation-has_24.html">
+      <span>The Python Software Foundation has updated its Code of Conduct</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

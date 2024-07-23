@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>CPython Core Developer Sprint 2019 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="cpython-core-developer-sprint-2019">
+<h1>CPython Core Developer Sprint 2019<a class="headerlink" href="#cpython-core-developer-sprint-2019" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/10/cpython-core-developer-sprint-2019.html">here</a>.</p>
+<p>During the week of September 9th to September 13th, 34 core CPython committers
+gathered together in the Bloomberg London headquarters for the 2019 Python
+core developer sprint. The core developer sprint is an annual week-long
+meeting in which the CPython core team has the opportunity to meet each other
+in person in order to work together free from distractions. Having this many
+core developers in the same room allows us to work efficiently on several
+aspects of the Python language and CPython (the default implementation). This
+can include topics such as future designs and in-process PEPs (Python
+Enhancement Proposals), prototyping exciting changes that we may see in the
+future,  various core development processes such as issue triaging and pull
+request reviewing, and much more! This is a very exhausting week for everyone,
+but also a very productive one, as these meetings are known for generating a
+much-needed boost in core development, especially close to new releases.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoTH00Gqmxp338swDTYgh4rgC-ohgAlLTvUEOpRkpPpIytdkxgpzCQwnL7s1GVQQnxafO6232f5l9xzI-8GyVt6VZHifQ3jvWrz5Fc6uhsSYEVQ-NAOHnjIuz8CuzCnyIV650/s400/1_WwMWlztWuxYC6CI2Jlx-Zw.jpeg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoTH00Gqmxp338swDTYgh4rgC">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhoTH00Gqmxp338swDTYgh4rgC</a>-
+ohgAlLTvUEOpRkpPpIytdkxgpzCQwnL7s1GVQQnxafO6232f5l9xzI-8GyVt6VZHifQ3jvWrz5Fc6uhsSYEVQ-
+NAOHnjIuz8CuzCnyIV650/s1600/1_WwMWlztWuxYC6CI2Jlx-Zw.jpeg)
+—
+CPython Core Developers in attendance at 2019 Sprint</p>
+<p>This year’s core developer sprint was funded thanks to the <a class="reference external" href="https://www.python.org/psf/">Python Software
+Foundation</a> (PSF) and the donation of PyLondinium
+2019 ticket proceeds, which were gathered specifically to support this event.
+This helped the PSF cover the cost of travel and accommodation for all core
+developers attending. Additionally, some companies covered their employees’
+expenses, such as Microsoft, Facebook, Google and Red Hat. Bloomberg provided
+the venue, infrastructure and catering, as well as some events that happened
+during the week.</p>
+<section id="major-achievements">
+<h2><em>Major Achievements</em><a class="headerlink" href="#major-achievements" title="Link to this heading">¶</a></h2>
+<p>One of the main advantages of having the core developers together in the same
+room is how much smoother the iteration and design process is. For example,
+major achievements were made around the release of Python 3.8 (and older
+versions) in terms of stability and documentation and many exciting things
+were prepared for future releases. Some highlights include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>More than 120 pull requests were merged in the CPython repository. We had a friendly competition in which attending core developers were ranked based on the number of pull requests merged (only those pull requests created by others were considered). In the end, the winners received a poster with all of the attendees’ names created specifically for the sprint.</p></li>
+<li><p>Discussions around PEP 602: Python 3.9 release schedule, including gathering user feedback about several aspects of the PEP.</p></li>
+<li><p>Work on improving the bugs.python.org interface and feature set, including updating the infrastructure to the latest roundup version and reworking the CSS to give a friendlier face to the site.</p></li>
+<li><p>API design and discussion around PEP 416 – Add a frozendict built-in type.</p></li>
+<li><p>Draft design on a future PEP to implement an exception hierarchy to support TaskGroups and cancel scopes.</p></li>
+<li><p>Work towards multiple interpreters: major efforts are needed before we have one GIL per interpreter. This included starting to refactor the existing global state into per-interpreter structures and developing tests that avoid new global state bleeding.</p></li>
+<li><p>Work on a PEG-based parser prototype to substitute the current parser in order to improve maintenance and allow dropping the LL(1) restriction in the future.</p></li>
+<li><p>Several pull requests to squash some complex bugs in multiprocessing.</p></li>
+<li><p>Work on a possible implementation to introduce a Control Flow Graph (CFG) optimizer in CPython.</p></li>
+<li><p>Work on the CI process. AppVeyor was dropped and replaced with Azure Pipelines.</p></li>
+<li><p>Major improvements in the unittest.mock module, such as perfecting the new AsyncMock and related documentation, work on a prototype to add a WaitableMock class that can be joined (for threaded scenarios), as well as bug squashing around the module.</p></li>
+</ul>
+</div></blockquote>
+<p>As you can imagine, with this level of activity, the buildbots were at maximum
+capacity and many issues were found and fixed both during and after the
+sprint.</p>
+</section>
+<section id="friday-event">
+<h2>Friday Event<a class="headerlink" href="#friday-event" title="Link to this heading">¶</a></h2>
+<p>As part of the core dev sprint, an event was organized with the help of
+Bloomberg in order to let the community know about the work done during the
+core developer sprint, why these events are important, and the impact they
+have on the future of the language. The event consisted of 4 lightning talks
+about some of the things worked on during the sprint:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBy7E3RGx3bNSRNHm0HnZectT8IDRF_5oPfZbgD9ovyFhhJMVl_EZFsVI_HOyI-ePyshIhlpPwd8_9RCpEkaIMdl7KYmdYtJUPat0L73_jrDj49hXSNt8iVvDGtEtnC06mKg/s400/EEX9pm0WkAAaLQY.jpeg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBy7E3RGx3bNSRNHm0HnZectT8IDRF_5oPfZbgD9ovyFhhJMVl_EZFsVI_HOyI">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBy7E3RGx3bNSRNHm0HnZectT8IDRF_5oPfZbgD9ovyFhhJMVl_EZFsVI_HOyI</a>-
+ePyshIhlpPwd8_9RCpEkaIMdl7KYmdYtJUPat0L73_jrDj49hXSNt8iVvDGtEtnC06mKg/s1600/EEX9pm0WkAAaLQY.jpeg)
+—
+Moderated panel discussion at the CPython Core Developer Sprint Friday Event</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Work in AsyncMock - <em>Lisa Roach</em></p></li>
+<li><p>Removing dead batteries in the standard library -<em>Christian Heimes</em></p></li>
+<li><p>Sub-Interpreters support in the standard library - <em>Eric Snow and Joannah Nanjekye</em></p></li>
+<li><p>Improving bugs.python.org - <em>Ezio Melotti</em></p></li>
+</ul>
+</div></blockquote>
+<p>There was also a moderated Q&amp;A session about the core development sprint and,
+more generally, Python’s future direction.</p>
+<p>We hope that events like this will help communicate more transparently what
+the core developers do at the sprints and how much impact these events have on
+maintenance, processes, and the language itself.</p>
+</section>
+<section id="mentorees">
+<h2>Mentorees<a class="headerlink" href="#mentorees" title="Link to this heading">¶</a></h2>
+<p>As part of the ongoing effort to improve mentoring and growing the core dev
+team, two mentees who have been contributing for a long period of time and
+have previously been awarded triaging privileges were invited to the sprint.
+Joannah Nanjekye was being mentored by Eric Snow, while Karthikeyan
+Singaravelan was being mentored by Yury Selivanov (and remotely by Andrew
+Svetlov). Mentoring is a very important part of core development, as it helps
+to grow the core dev team and allows us to have more impact and scalability in
+the different areas that are the responsibilities of the core dev team. As a
+result of this mentoring process, Joannah Nanjekye <a class="reference external" href="https://discuss.python.org/t/vote-to-promote-joannah-nanjekye-as-a-core-dev/2347">was been promoted to a
+core developer</a> a few weeks after the core dev sprint!</p>
+</section>
+<section id="other-blogs">
+<h2>Other Blogs<a class="headerlink" href="#other-blogs" title="Link to this heading">¶</a></h2>
+<p>Some of the other attendees have posted their own blogs describing their
+experiences at the sprints (this list may be updated over time as additional
+updates are published by other core devs).</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/&#64;gvanrossum_83706/peg-at-the-core-developer-sprint-8b23677b91e6">PEG at the Core Developer Sprint</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/&#64;Captain_Joannah/cpython-core-developer-sprint-and-outreachy-at-tapia-what-i-did-dddeca446d05">CPython Core Developer Sprint and Outreachy at Tapia: What I did !!</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="thank-you">
+<h2>Thank you!<a class="headerlink" href="#thank-you" title="Link to this heading">¶</a></h2>
+<p>A huge thanks to all the participants who attended, the various companies who
+sponsored parts of the event, and the <a class="reference external" href="https://www.python.org/psf/">PSF</a> for
+covering the majority of travel expenses. We also thank those core developers
+who could not attend this year.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgNPX6HkHsFw6S53kHln9kkAcyEDOFCG5hDgtB7rim7EPQrqSNg5sAaXnLh7k80T6mzTc7oXm27Xaah5IH5ZBAGPJjG8hn0hwoxr0uTAxF0k85Giwu0iB9lxQCGE6U6JyMLQ/s400/1_SOsLyioo4eHMEjkz2Lt6Og.jpeg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgNPX6HkHsFw6S53kHln9kkAcyEDOFCG5hDgtB7rim7EPQrqSNg5sAaXnLh7k80T6mzTc7oXm27Xaah5IH5ZBAGPJjG8hn0hwoxr0uTAxF0k85Giwu0iB9lxQCGE6U6JyMLQ/s1600/1_SOsLyioo4eHMEjkz2Lt6Og.jpeg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgNPX6HkHsFw6S53kHln9kkAcyEDOFCG5hDgtB7rim7EPQrqSNg5sAaXnLh7k80T6mzTc7oXm27Xaah5IH5ZBAGPJjG8hn0hwoxr0uTAxF0k85Giwu0iB9lxQCGE6U6JyMLQ/s1600/1_SOsLyioo4eHMEjkz2Lt6Og.jpeg</a>)
+—
+| CPython Core Developers in attendance at 2019 Sprint
+—</p>
+<p>Attendees: Christian Heimes, Ezio Melotti, Ned Deily, Benjamin Peterson, Mark
+Shannon, Michael Foord, Joannah Nanjekye, Karthikeyan Singaravelan, Emily
+Morehouse, Jason R. Coombs, Julien Palard, Stéphane Wirtel, Zachary Ware, Petr
+Viktorin, Łukasz Langa, Davin Potts, Yury Selivanov, Steve Holden, Stefan
+Behnel, Larry Hastings, Guido van Rossum, Carol Willing, Gregory P. Smith,
+Thomas Wouters, Dino Viehland, Mark Dickinson, Vinay Sajip, Paul Ganssle,
+Steve Dower, Lisa Roach, Eric Snow, Brett Cannon, Pablo Galindo</p>
+<p>Written by: Pablo Galindo</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-10-chris-angelico-2019-q2-community.html">
+      
+      <span>Chris Angelico: 2019 Q2 Community Service Award Winner</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-10-the-2019-python-developer-survey-is.html">
+      <span>The 2019 Python Developer Survey is here, take a few minutes to complete the survey!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

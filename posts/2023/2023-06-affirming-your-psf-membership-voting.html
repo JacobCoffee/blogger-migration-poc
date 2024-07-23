@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Affirming your PSF Membership voting status - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="affirming-your-psf-membership-voting-status">
+<h1>Affirming your PSF Membership voting status<a class="headerlink" href="#affirming-your-psf-membership-voting-status" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2023/06/affirming-your-psf-membership-voting.html">here</a>.</p>
+<p>Every PSF Voting Member (Supporting, Managing, Contributing, and Fellow) needs
+to affirm their membership in order to vote in this year’s election.</p>
+<p>This year’s Board Election begins June 20th, and voter eligibility cut-off is
+June 15th. You should have received an email with instructions and you need to
+affirm your voting rights before June 15th in order to participate in this
+year’s Board Election. Email will be from “<a class="reference external" href="mailto:psf&#37;&#52;&#48;psfmember&#46;org">psf<span>&#64;</span>psfmember<span>&#46;</span>org</a> &lt;Python Software
+Foundation&gt;” with subject “[Action Required] Affirm your PSF Membership voting
+status”</p>
+<p>Why you are being asked to do this:</p>
+<p>Section 4.2 of the PSF Bylaws requires that “Members of any membership class
+with voting rights must affirm each year to the corporation in writing that
+such member intends to be a voting member for such year.”</p>
+<p>The PSF has not enforced this in the past, because it was technically
+challenging to do so. Now that our voting membership has been completely
+consolidated into psfmember.org, we are able to do so.</p>
+<p>Our motivation is to ensure that our elections can meet quorum as required by
+Section 3.9 of our bylaws. As our membership has grown we have seen that and
+increasing number of Contributing, Managing, and Fellow members with
+indefinite membership do not engage with our annual election, making quorum
+difficult to reach.</p>
+<p>You can see your membership record and status on
+<a class="reference external" href="https://psfmember.org/user-information">psfmember.org</a> (note you must be
+logged in to view that page). If you are a voting-eligible member and do not
+already have a login there, please <a class="reference external" href="https://psfmember.org/wp-login.php?action=register">sign up</a> and then email <a class="reference external" href="mailto:psf-donations&#37;&#52;&#48;python&#46;org">psf-donations<span>&#64;</span>python<span>&#46;</span>org</a> so we can
+link your membership to your account. You can click the emailed link to re-
+certify without signing in. But please create your account and ensure it is
+linked to your membership so that we can ensure we have the most up-to-date
+contact information for you in the future.</p>
+<p><em>What happens next?</em> You’ll get an email from OpaVote with a ballot on or
+before June 20th and then you can vote!</p>
+<p>Learn more about membership <a class="reference external" href="https://www.python.org/psf/membership/">here</a> or
+if you have questions about membership or nominations please email psf-
+<a class="reference external" href="mailto:elections&#37;&#52;&#48;python&#46;org">elections<span>&#64;</span>python<span>&#46;</span>org</a> In addition to <a class="reference external" href="http://psf-board.slack.com/">Slack</a> you
+are welcome to join the discussion about the PSF Board election on <a class="reference external" href="https://discuss.python.org/c/python-software-foundation/9">our
+forum</a>.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2023-05-thinking-about-running-for-python.html">
+      
+      <span>Thinking about running for the Python Software Foundation Board of Directors? Let’s talk!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2023-06-board-candidates-for-2023-are-announced.html">
+      <span>Board Candidates for 2023 are Announced!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

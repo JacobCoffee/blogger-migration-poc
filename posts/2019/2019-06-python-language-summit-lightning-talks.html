@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Python Language Summit Lightning Talks, Part 1 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="python-language-summit-lightning-talks-part-1">
+<h1>Python Language Summit Lightning Talks, Part 1<a class="headerlink" href="#python-language-summit-lightning-talks-part-1" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/06/python-language-summit-lightning-talks.html">here</a>.</p>
+<p>The Summit began with six pre-selected lightning talks, with little time for
+discussion of each. Five of them are summarized here. An upcoming article will
+cover Pablo Galindo Salgado’s lightning talk on improvements in Python’s test
+infrastructure.</p>
+<p><em>`Read more 2019 Python Language Summit
+coverage &lt;https://pyfound.blogspot.com/2019/05/the-2019-python-language-
+summit.html&gt;`_.</em></p>
+<section id="jukka-lehtosalo">
+<h2>Jukka Lehtosalo<a class="headerlink" href="#jukka-lehtosalo" title="Link to this heading">¶</a></h2>
+<section id="writing-standard-library-c-modules-in-python">
+<h3>Writing Standard Library C Modules In Python<a class="headerlink" href="#writing-standard-library-c-modules-in-python" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIgxSuO4EZc6fhZiEMGoXHZUVLYXVoeGBEWX-FPckcVT6SaRYlqDkWa_-NidhROft9_2EywUR88j3bNXHPOs_yL7-bqT_lo_9La84ic-SkMjAr_G9PUo-dOox-X3ZNob2I-g/s640/lehtosalo-sullivan.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIgxSuO4EZc6fhZiEMGoXHZUVLYXVoeGBEWX">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIgxSuO4EZc6fhZiEMGoXHZUVLYXVoeGBEWX</a>-
+<a href="#id6"><span class="problematic" id="id7">FPckcVT6SaRYlqDkWa_</span></a>-NidhROft9_2EywUR88j3bNXHPOs_yL7-bqT_lo_9La84ic-
+SkMjAr_G9PUo-dOox-X3ZNob2I-g/s1600/lehtosalo-sullivan.jpg)</p>
+<p>Jukka Lehtosalo described his work with Michael Sullivan on an experimental
+compiler called mypyc.</p>
+<p>The Python standard library, Lehtosalo said, contains the modules that most
+programmers use by default, so it should be fast. The main optimization
+technique has historically been to write C extensions. So far, 90 standard
+library modules are partly or entirely written in C, often for the sake of
+speed, totaling 200,000 lines of C code in the standard library. But C is hard
+to write and error prone, and requires specialized skills. “C is kind of
+becoming a dinosaur,” he said, provoking laughter from the core developers.</p>
+<p>As an alternative, Lehtosalo proposes “writing C extensions in Python.” The
+mypyc compiler reads PEP 484 annotated type-checked Python, and transforms it
+into C extension modules that run between 2 and 20 times faster than pure
+Python. Some of Python’s more dynamic features such as monkeypatching are
+prohibited, and other features are not yet supported, but the project is
+improving rapidly.</p>
+<p>The project has a similar goal to Cython’s: to transform Python into C, which
+is then compiled into extension modules. Compared to Cython, however, mypyc
+supports a wider range of PEP 484 types such as unions and generics. In
+Lehtosalo and Sullivan’s experiments it offers a greater performance
+improvement. They propose further experimentation, testing how well mypyc
+translates certain performance-sensitive standard library modules, such as
+<cite>algorithms</cite>, <cite>random</cite>, or <cite>asyncio</cite>. The translated modules could be
+published on PyPI first, rather than replacing the standard library modules
+right away. If the test goes well, mypyc would offer “C-like performance with
+the convenience of Python.”</p>
+<p>Core developer Brett Cannon suggested an experiment using some module, such as
+<cite>datetime</cite>, that is already implemented in both Python and C. The Python
+version could be translated with mypyc and then pitted against the handwritten
+C version.</p>
+</section>
+</section>
+<section id="matthias-bussonnier">
+<h2>Matthias Bussonnier<a class="headerlink" href="#matthias-bussonnier" title="Link to this heading">¶</a></h2>
+<section id="async-repl-and-async-exec">
+<h3>Async REPL And async-exec<a class="headerlink" href="#async-repl-and-async-exec" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS-uRcM600iPtsiUaZwqdVU1aiaT37FKDCzgn1OBTOQEY0G8sPxpyfItdy2YfeVtbNaCdmNa8YZG7yMwDACYCZHlBPnFd6gLzOJjBAxt_0hI5VYQF7UoX8BvWNvp48djOjNw/s640/bussonnier.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhS</a>-
+uRcM600iPtsiUaZwqdVU1aiaT37FKDCzgn1OBTOQEY0G8sPxpyfItdy2YfeVtbNaCdmNa8YZG7yMwDACYCZHlBPnFd6gLzOJjBAxt_0hI5VYQF7UoX8BvWNvp48djOjNw/s1600/bussonnier.jpg)</p>
+<p>Python’s interactive shell makes it easy for beginners to learn Python, and
+for all Python programmers to experiment as they develop. However, async
+Python code is practically unusable with the shell. The <cite>await</cite> keyword must
+be used within a coroutine, so a programmer who wants the result of an a
+waitable object must define a coroutine and run an event loop method to
+execute it.</p>
+<p>Matthias Bussonnier presented his work, which integrates <cite>async</cite> and <cite>await</cite>
+into the alternative IPython shell. IPython permits the <cite>await</cite> keyword at the
+top level, so a user can get the results of coroutines or other awaitables in
+the shell without defining a coroutine:</p>
+<blockquote>
+<div><p>In [1]: from asyncio import sleep</p>
+<p>In [2]: await sleep(1)</p>
+<p>In [3]: from aiohttp import ClientSession</p>
+<p>In [4]: s = ClientSession()</p>
+<p>In [5]: response = await s.get(’<a class="reference external" href="https://api.github.com">https://api.github.com</a>’)</p>
+</div></blockquote>
+<p>IPython supports asyncio and other async frameworks such as trio. In the
+future, a plugin system will allow any <cite>async</cite>/<cite>await</cite>-based framework to be
+usable in the shell.
+Bussonnier argued that some of his ideas should be adopted by core Python. If
+asynchronous coding were convenient in the shell, it would be useful for
+educators, and it would remove what he considers the misconception that async
+is hard. Best of all, Python would get ahead of Javascript.</p>
+<p>However, to support <cite>async</cite> and <cite>await</cite> in the shell currently requires some
+unsatisfying hacks. There are subtle issues with local versus global
+variables, background tasks, and docstrings. Bussonnier has filed <a class="reference external" href="https://bugs.python.org/issue34616">issue
+34616, implement “Async exec”</a>, to make
+full async support in the shell possible.</p>
+<p><em>Update:</em> After the Language Summit, Bussonnier and Yury Selivanov updated
+the Python compiler to permit <cite>await</cite>, <cite>async for</cite>, and <cite>async with</cite> as top-
+level syntax in the shell when executed like <cite>python -m asyncio</cite>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>&lt;<a class="reference external" href="https://github.com/python/cpython/pull/13148">https://github.com/python/cpython/pull/13148</a>&gt;</p></li>
+<li><p>&lt;<a class="reference external" href="https://github.com/python/cpython/pull/13472">https://github.com/python/cpython/pull/13472</a>&gt;</p></li>
+<li><p>&lt;<a class="reference external" href="https://github.com/python/cpython/pull/13484">https://github.com/python/cpython/pull/13484</a>&gt;</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="jason-fried">
+<h2>Jason Fried<a class="headerlink" href="#jason-fried" title="Link to this heading">¶</a></h2>
+<section id="asyncio-and-the-case-for-recursion">
+<h3>Asyncio And The Case For Recursion<a class="headerlink" href="#asyncio-and-the-case-for-recursion" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgx5KbCNrvSWwT7sZZz_nP2I4z_gJMco1wiaeilxMouiNjKBOsMDdbDD1cJhYc0RMq6MkVak76K9RBV37GrOQhKQJPpeiIVqm7fO1cHAMEVytGYTwHF4kk5RIEoD2s1vmL5kA/s640/fried-2.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgx5KbCNrvSWwT7sZZz_nP2I4z_gJMco1wiaeilxMouiNjKBOsMDdbDD1cJhYc0RMq6MkVak76K9RBV37GrOQhKQJPpeiIVqm7fO1cHAMEVytGYTwHF4kk5RIEoD2s1vmL5kA/s1600/fried-2.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgx5KbCNrvSWwT7sZZz_nP2I4z_gJMco1wiaeilxMouiNjKBOsMDdbDD1cJhYc0RMq6MkVak76K9RBV37GrOQhKQJPpeiIVqm7fO1cHAMEVytGYTwHF4kk5RIEoD2s1vmL5kA/s1600/fried-2.jpg</a>)</p>
+<p>A typical asyncio application has a single call to <cite>run_until_complete()</cite> near
+the top level of the application, which runs the asyncio event loop for the
+entire application. All code beneath this level must assume that the loop is
+running.</p>
+<p>Facebook engineer Jason Fried presented to the Language Summit a scenario in
+which this application structure fails. Consider an async application that
+contains a mix of async code and blocking calls that are tolerably fast. Deep
+within the call stack of one of these blocking calls, a developer sees an
+opportunity for concurrency, so she adds some async code and executes it with
+<cite>run_until_complete()</cite>. This call raises “RuntimeError: This event loop is
+already running.” As Fried explained, any call to <cite>run_until_complete()</cite> in a
+call chain under async def has this result, but due to modularization and
+unittest mocking in Facebook’s Python architecture, this error can first arise
+late in the development cycle.</p>
+<p>How should this problem be avoided? The asyncio philosophy is to avoid mixture
+by converting all blocking code to asynchronous coroutines, but converting a
+huge codebase all at once is intractable. “It’s a harder problem than moving
+from Python 2 to 3,” he said, “because at least I can go gradually from Python
+2 to 3.”</p>
+<p>Fried suggested a solution for incrementally converting a large application,
+and to allow developers to add asyncio calls anywhere “without fear.” He
+proposed that the asyncio event loop allow recursive calls to
+<cite>run_until_complete()</cite>. If the loop is already running, this call will
+continue running existing tasks along with the new task passed in. Library
+authors could freely use asyncio without caring whether their consumers also
+use asyncio or not. “Yeah sure it’s ugly,” he conceded, “but it does allow you
+to slowly asyncio-ify a distinct code base.”</p>
+<p>Thomas Wouters objected that this proposal would violate many correctness
+properties guaranteed by the current loop logic. Amber Brown concurred. She
+explained that Twisted’s loop prohibits reentrance to ensure that timeouts
+work correctly. One of the core tenets of asynchronous programming is that all
+tasks must cooperate. There is no good solution, she said, for mixing blocking
+and async code.</p>
+</section>
+</section>
+<section id="mark-shannon">
+<h2>Mark Shannon<a class="headerlink" href="#mark-shannon" title="Link to this heading">¶</a></h2>
+<section id="optimising-cpython-or-not">
+<h3>Optimising CPython, Or Not<a class="headerlink" href="#optimising-cpython-or-not" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFo0qU6h0dEdggeEhaS4nt9bxw2UZUji5ivDyXIIvnOZjQSGBIsOwNkhJvg0Lgsx7vd1AivyXdlKhEzQXaekhVm4tNhkGvtUy3-ku-6Z1HGRyMBKcqPoTOjqFitdxEMVF5-w/s640/shannon.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFo0qU6h0dEdggeEhaS4nt9bxw2UZUji5ivDyXIIvnOZjQSGBIsOwNkhJvg0Lgsx7vd1AivyXdlKhEzQXaekhVm4tNhkGvtUy3-ku-6Z1HGRyMBKcqPoTOjqFitdxEMVF5-w/s1600/shannon.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFo0qU6h0dEdggeEhaS4nt9bxw2UZUji5ivDyXIIvnOZjQSGBIsOwNkhJvg0Lgsx7vd1AivyXdlKhEzQXaekhVm4tNhkGvtUy3-ku-6Z1HGRyMBKcqPoTOjqFitdxEMVF5-w/s1600/shannon.jpg</a>)</p>
+<p>“Every few years someone comes along with some exciting new potential for
+speeding up CPython,” began Mark Shannon, “and a year later everyone’s
+forgotten about it.” Some of these optimizations are worth pursuing, however.
+We can identify promising optimizations with a heuristic.</p>
+<p>First, Shannon advised the audience to think in terms of time, not speed. Do
+not measure the number of operations Python can execute in a period; instead,
+measure the amount of time it requires to finish a whole task and divide the
+total time into chunks. As an example, Shannon described a recent proposal on
+the python-dev mailing list for implementing a register-based virtual machine,
+which would store local variables in fixed slots, rather than on a stack as
+the Python VM does today. How much time could such a change save? Shannon
+walked the audience through his thought process, first estimating the cost of
+the Python interpreter’s stack manipulation and guessing how much cheaper a
+register-based VM would be. Shannon estimates that up to 50 percent of
+Python’s runtime is “interpretive overhead,” and a register-based VM might
+reduce that significantly, so it is worth trying. However, only an experiment
+can measure the actual benefit.</p>
+<p>Shannon compared the register-based VM to another optimization,
+“superinstructions.” The technique is to find a common sequence of bytecodes,
+such as the two bytecodes to load None onto the stack and then return it, and
+combine them together into a new bytecode that executes the whole sequence.
+Superinstructions reduce interpretive overhead by spending less time in the
+main loop moving from one bytecode to the next. Shannon suspects this
+technique would beat the register-based optimization.</p>
+<p>In conclusion, Shannon advised the audience that the next time another
+<a class="reference external" href="https://www.python.org/dev/peps/pep-3146/">Unladen Swallow</a> or similar
+project appears, to determine first which part of the interpreter it
+optimizes. If the optimization targets a part of the interpreter that
+represents less than 90% of the total runtime, said Shannon, “it’s pretty much
+doomed to fail.”</p>
+</section>
+</section>
+<section id="lukasz-langa">
+<h2>Łukasz Langa<a class="headerlink" href="#lukasz-langa" title="Link to this heading">¶</a></h2>
+<section id="black-under-github-com-python">
+<h3>Black under github.com/python<a class="headerlink" href="#black-under-github-com-python" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcfs37WpJaY4ViwYim7STeMxU1Eq6bP52Qc4mihKV30wg-7gTe7wpXRvF11wvHAvLVOuU6OJraFL2Shxh6zOfiBVa27rL9gDYCZ7mgLj_ZAQ6HI8vUADtjwYDcgOpYDUd0SQ/s640/langa.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcfs37WpJaY4ViwYim7STeMxU1Eq6bP52Qc4mihKV30wg-7gTe7wpXRvF11wvHAvLVOuU6OJraFL2Shxh6zOfiBVa27rL9gDYCZ7mgLj_ZAQ6HI8vUADtjwYDcgOpYDUd0SQ/s1600/langa.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcfs37WpJaY4ViwYim7STeMxU1Eq6bP52Qc4mihKV30wg-7gTe7wpXRvF11wvHAvLVOuU6OJraFL2Shxh6zOfiBVa27rL9gDYCZ7mgLj_ZAQ6HI8vUADtjwYDcgOpYDUd0SQ/s1600/langa.jpg</a>)</p>
+<p>The past year has been marked by controversy in the Python community, but
+consensus is forming on the most unexpected topic: code formatting. Łukasz
+Langa’s <a class="reference external" href="https://github.com/python/black/">Black</a> code formatter is only a
+year old, but it has been adopted by pytest, attrs, tox, Django, Twisted, and
+numerous other major Python projects. The core developers are enthusiastic
+about Black, too: When Langa introduced himself as its author, the room broke
+into applause.</p>
+<p>Langa proposed moving black from his personal repository to the Python
+organization on GitHub. He said, “My goal for this is to provide a suitable
+default for users who don’t have any preexisting strong opinions on the
+matter.”</p>
+<p>Some core developers dissented, arguing that since Black is already so
+successful, there is no need to move it. Gregory Smith said it is not the core
+team’s role to bless one code formatter over others; he regrets that
+opinionated tools like mypy are in the official organization and he opposes
+adding more. Guido van Rossum suggested moving it to the <a class="reference external" href="https://github.com/PyCQA">Python Code Quality
+Authority</a> organization; Langa responded that
+beginners haven’t heard of that organization and moving Black there would have
+no effect.</p>
+<p><em>Update:</em> Despite some objections at the Language Summit, Black is now in
+the official Python organization on GitHub.</p>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-06-pablo-galindo-salgado-nights-watch-is.html">
+      
+      <span>Pablo Galindo Salgado: The Night’s Watch is Fixing the CIs in the Darkness for You</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-06-python-language-summit-lightning-talks-part-2.html">
+      <span>Python Language Summit Lightning Talks, Part 2</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

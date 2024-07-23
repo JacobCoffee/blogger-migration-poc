@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2022 Python Language Summit: F-Strings in the grammar - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2022-python-language-summit-f-strings-in-the-grammar">
+<h1>The 2022 Python Language Summit: F-Strings in the grammar<a class="headerlink" href="#the-2022-python-language-summit-f-strings-in-the-grammar" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit-f.html">here</a>.</p>
+<p><a class="reference external" href="https://realpython.com/python-f-strings/">Formatted string literals</a>, known
+as “f-strings” for short, were first introduced in Python 3.6 via <a class="reference external" href="https://peps.python.org/pep-0498/">PEP
+498</a>. Since then, they’ve swiftly become
+one of the most popular features of modern Python.</p>
+<p>At <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit_01678898482.html">the 2022 Python Language
+Summit</a>, Pablo Galindo Salgado presented on exciting new
+possibilities for improving the implementation of f-strings by incorporating
+f-string parsing into the grammar of Python itself.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="f-strings-the-current-situation">
+<h2>F-strings: the current situation<a class="headerlink" href="#f-strings-the-current-situation" title="Link to this heading">¶</a></h2>
+<p>Here’s the f-string we all know and love:</p>
+<blockquote>
+<div><p>f”Interpolating an arbitrary expression into a string: {1 + 1}.”</p>
+</div></blockquote>
+<p>At runtime, the expression between the braces will be evaluated (the result’s
+<cite>2</cite>, for those wondering). <cite>str()</cite> will then be called on the result of the
+evaluated expression, and the result of _that_ will then be interpolated into
+the string at the desired place.</p>
+<p>The following diagram summarises the code behind this runtime magic:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-qmK_xOXbhlof7e04ZTSpKQcOoIe4ZYuFTwQzt2t10lEzZrbhkLpuc6nrTlN6hlGBm9724wQj6swRxPSG0ZrleuJbn8UNsepWvdJ3gg2rFWo-dNJMvkPGqkCyDWR6f398kkaHCbW9uxFOF9X5_HAgKJsMWPBnru27a1U5UYCNa5FUS3I/w400-h330/Picture2.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj</a>-
+qmK_xOXbhlof7e04ZTSpKQcOoIe4ZYuFTwQzt2t10lEzZrbhkLpuc6nrTlN6hlGBm9724wQj6swRxPSG0ZrleuJbn8UNsepWvdJ3gg2rFWo-
+dNJMvkPGqkCyDWR6f398kkaHCbW9uxFOF9X5_HAgKJsMWPBnru27a1U5UYCNa5FUS3I/s683/Picture2.png)</p>
+<p>That’s right: the current implementation for f-strings relies on “around 1,400
+lines of manually written parser code in C”. This is _entirely <a href="#id3"><span class="problematic" id="id4">separate_</span></a> to
+the parsing logic that exists elsewhere for deconstructing all other Python
+code.</p>
+<p>According to Salgado, while this code has now been extensively battle-tested,
+it is still ridden with tiny bugs. The complexity of the code here also makes
+it very difficult to make changes to the code without introducing _new_ bugs,
+which in turn makes it hard to work on improving error messages – a <a class="reference external" href="https://docs.python.org/3/whatsnew/3.10.html#better-error-messages">major
+goal of Salgado’s</a> over recent years.</p>
+<p>&gt; “The technical term for this is _not <a href="#id5"><span class="problematic" id="id6">ideal_</span></a> ”
+&gt;
+&gt; – Pablo Galindo Salgado, on the current state of f-string parsing</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="what-the-f">
+<h2>What the <cite>f</cite>?<a class="headerlink" href="#what-the-f" title="Link to this heading">¶</a></h2>
+<p>How do we know that an f-string is an f-string? “As humans,” Salgado noted, we
+know an f-string is an f-string “because the string starts with <cite>f</cite>”.</p>
+<p>Sadly, CPython’s parser is not yet quite as smart. The parser, currently, does
+not have the wherewithal to distinguish f-strings from other strings. Instead,
+when parsing f-strings, the interpreter does the following dance:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXpT-JsqSaT0MGYiFotckz1KWs7EWo7wPSdtb-4iQjhPdDjN5ZPyuRGAvHtNe4Cg8LBNWFqsdnyEOkN6wgDYeQW3zKcbCDCNjgWZwQn_9q4wYANNsON598m93z4oUUDjG_sKOOanjTWaqfk-9TDjVFQ_x2jagKOSkynDBu6PowJLVRl68/w400-h225/Memray%20lightning%20talk.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXpT">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXpT</a>-
+JsqSaT0MGYiFotckz1KWs7EWo7wPSdtb-4iQjhPdDjN5ZPyuRGAvHtNe4Cg8LBNWFqsdnyEOkN6wgDYeQW3zKcbCDCNjgWZwQn_9q4wYANNsON598m93z4oUUDjG_sKOOanjTWaqfk-9TDjVFQ_x2jagKOSkynDBu6PowJLVRl68/s960/Memray%20lightning%20talk.png)</p>
+<p>Since Python 3.9, however, CPython is equipped with a <a class="reference external" href="https://peps.python.org/pep-0617/">shiny new PEG
+parser</a>, which can be taught all sorts of
+advanced and complicated things. Salgado now proposes to move f-string parsing
+logic from the dedicated C file into CPython’s formal grammar, enabling
+f-string parsing to happen at the same time as the parsing for the rest of a
+Python file.</p>
+<p>Salgado, along with others who are working on the project with him, is
+currently working on fixing “89876787698 tiny error message differences”,
+explaining, “This is the hard part. We need feedback – we need to know if it’s
+actually worth doing at this point.”</p>
+<p>Eric V. Smith, the creator of f-strings, and a member of the audience for the
+talk, is a strong supporter of the project. Smith explained that the original
+design had been chosen due to a desire to make life simple for code editor
+tools such as <a class="reference external" href="https://www.redhat.com/en/topics/middleware/what-is-ide">IDEs</a>,
+which might have struggled to parse f-strings if this design had been chosen
+initially. But he had been “surprised”, he said, at how well Salgado’s
+proposal had been received among the authors of these tools when he had
+recently sought feedback on it.</p>
+<p>Smith plans to continue gathering feedback from IDE maintainers over the
+coming months.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="potential-benefits">
+<h2>Potential benefits<a class="headerlink" href="#potential-benefits" title="Link to this heading">¶</a></h2>
+<p>As well as simplifying the code and making it more maintainable, moving
+f-string parsing into the grammar holds a number of exciting (and/or
+horrifying) possibilities. For example, this is just about the maximum level
+of f-string nesting you can currently achieve in Python:</p>
+<blockquote>
+<div><p>f”””a{f’’’b{f”c{f’d {1+2=}’}”}’’’}”””</p>
+</div></blockquote>
+<p>But with f-strings in the grammar… the possibilities are endless.</p>
+<p>On a more serious note, Salgado noted that the following is a common source of
+frustration for Python developers:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="gp">&gt;&gt;&gt; </span><span class="n">my_list_of_strings</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
+</span><span data-line="2"><span class="gp">&gt;&gt;&gt; </span><span class="sa">f</span><span class="s1">&#39;Here is a list: </span><span class="si">{</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">my_list_of_strings</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
+</span><span data-line="3">  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>
+</span><span data-line="4"><span class="w">    </span><span class="sa">f</span><span class="s1">&#39;Here is a list: </span><span class="si">{</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">my_list_of_strings</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span>
+</span><span data-line="5"><span class="w">                                                      </span><span class="pm">^</span>
+</span><span data-line="6"><span class="gr">SyntaxError</span>: <span class="n">f-string expression part cannot include a backslash</span>
+</span></pre></div>
+</div>
+<p>But by having f-strings as part of the grammar, there would no longer be any
+need for this restriction.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="reception">
+<h2>Reception<a class="headerlink" href="#reception" title="Link to this heading">¶</a></h2>
+<p>The proposal was extremely enthusiastically received. “It would be _huge_ if
+we could get syntax errors pointing to the correct place like with normal
+Python code,” commented Eric Snow.</p>
+<p>&gt; I’m all for it.
+&gt;  – Guido van Rossum, Core Developer and creator of Python</p>
+<p>&gt; We are all in agreement. You should just do it.
+&gt;  – Thomas Wouters, Core Developer and Steering Council member</p>
+<p>&gt; You can spend the next ten minutes implementing it.
+&gt;  – Łukasz Langa, Core Developer and CPython Developer-in-Residence</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2022-05-the-2022-python-language-summit-dealing.html">
+      
+      <span>The 2022 Python Language Summit: Dealing with CPython’s issue and PR backlog</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2022-05-the-2022-python-language-summit.html">
+      <span>The 2022 Python Language Summit: Lightning talks</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

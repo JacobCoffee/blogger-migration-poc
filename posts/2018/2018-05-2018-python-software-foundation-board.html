@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>2018 Python Software Foundation Board Election: What is it and how can I learn more? - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="python-software-foundation-board-election-what-is-it-and-how-can-i-learn-more">
+<h1>2018 Python Software Foundation Board Election: What is it and how can I learn more?<a class="headerlink" href="#python-software-foundation-board-election-what-is-it-and-how-can-i-learn-more" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2018/05/2018-python-software-foundation-board.html">here</a>.</p>
+<p>Every year the Python Software Foundation announces an open call for
+nominations for the PSF Board. Following the 2017 PSF members vote, only a
+subset of the entire board’s seats are open. This year there are four seats
+available - three (3) seats each with a three year term and one (1) seat that
+will finish the last two years of a three year term. Nominations for the board
+are open through May 25th, 2018 23:59:59
+<a class="reference external" href="https://en.wikipedia.org/wiki/Anywhere_on_Earth">AoE</a>.</p>
+<section id="who-can-vote-and-how-can-i-vote">
+<h2>Who can vote and how can I vote?<a class="headerlink" href="#who-can-vote-and-how-can-i-vote" title="Link to this heading">¶</a></h2>
+<p>Voting for this year’s PSF Board Directors elections are set to begin on June
+1st, 2018. To vote in the elections you must be registered as a voting member
+of the Python Software Foundation (see the FAQ
+<a class="reference external" href="https://www.python.org/psf/membership/#who-is-allowed-to-vote">here</a>). You
+can register on the <a class="reference external" href="https://www.python.org/psf/membership/">Membership page</a>
+at python.org.</p>
+<ul class="simple">
+<li></li>
+</ul>
+<p>Expectations for board members are outlined on the Python wiki
+<a class="reference external" href="https://wiki.python.org/moin/PythonSoftwareFoundation/DutiesAndResponsibilitiesOfDirectors">here</a>.
+Basic requirements for board members include participation in monthly (remote)
+meetings as well as participation for the 2 to 3 in-person meetings.</p>
+</section>
+<section id="who-can-run-for-the-psf-board-and-how-can-i-nominate-myself-and-or">
+<h2>Who can run for the PSF board and how can I nominate myself and/or<a class="headerlink" href="#who-can-run-for-the-psf-board-and-how-can-i-nominate-myself-and-or" title="Link to this heading">¶</a></h2>
+<p>someone else?</p>
+<p>Anyone can run for a board member, as outlined by the PSF bylaws (reference
+<a class="reference external" href="https://www.python.org/psf/bylaws/">Article V</a>). Candidates can be either
+self-nominated or be nominated by another party. When nominating another
+person, the nomination requires consent of the potinental nominee.</p>
+<p>To enter a nomination the following steps must be completed:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://wiki.python.org/moin/FrontPage?action=newaccount">Create an account</a> for the Python wiki.</p></li>
+<li><p>Request editing privileges for the Python wiki by emailing <a class="reference external" href="mailto:pydotorg-www&#37;&#52;&#48;python&#46;org">pydotorg-www<span>&#64;</span>python<span>&#46;</span>org</a> (see <a class="reference external" href="https://wiki.python.org/moin/FrontPage#use">Editing Pages</a>).</p></li>
+<li><p>Add your name to <a class="reference external" href="https://wiki.python.org/moin/PythonSoftwareFoundation/BoardCandidates2018">2018 candidates page</a>.</p></li>
+</ul>
+</div></blockquote>
+<p>After nominations close, voting will begin on June 1st, 2018. If you wish to
+vote see voting details above. Additionally, PSF Director Thomas Wouters
+shared information about the nomination process on
+<a class="reference external" href="https://twitter.com/Yhg1s/status/996947040306368512">Twitter</a>.</p>
+</section>
+<section id="who-are-the-current-board-members">
+<h2>Who are the current board members?<a class="headerlink" href="#who-are-the-current-board-members" title="Link to this heading">¶</a></h2>
+<p>The current directors are listed on the PSF website
+<a class="reference external" href="https://www.python.org/psf/members/#board-of-directors">here</a>.</p>
+</section>
+<section id="how-can-i-learn-more">
+<h2>How can I learn more?<a class="headerlink" href="#how-can-i-learn-more" title="Link to this heading">¶</a></h2>
+<p>Tomorrow on May 22nd the PSF will have an open Slack channel for 24 hours to
+discuss the election, the PSF, and the responsibilities of the PSF board.
+Current and outgoing directors will be monitoring the channel to respond to
+questions as well as PSF staff. You can join the Slack channel
+<a class="reference external" href="https://join.slack.com/t/psf-board-elections/shared_invite/enQtMzY2Nzc1MjQyNDE2LTcyMDRkNDcxZDRjYTE5ZTRlODNiOWE2NjBhMzBmM2I2ZTY0MTNjMGQ0ZWJiMzg2Y2U1NDNkNjI4MTY0N2Q0Zjk">here</a>.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2018-05-to-egoless-pythonistas-that-makes-space.html">
+      
+      <span>To the Egoless Pythonistas That Makes Space at the Table: A. Jesse Jiryu Davis, Community Service Award Q4 2017 Recipient</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2018-05-pycaribbean-2018.html">
+      <span>PyCaribbean, Come for the Language, Stay for the Culture</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2021 Python Language Summit: The Python Documentation Work Group - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2021-python-language-summit-the-python-documentation-work-group">
+<h1>The 2021 Python Language Summit: The Python Documentation Work Group<a class="headerlink" href="#the-2021-python-language-summit-the-python-documentation-work-group" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit-python.html">here</a>.</p>
+<p><a class="reference external" href="https://twitter.com/mariatta">Mariatta Wijaya</a> and <a class="reference external" href="https://twitter.com/WillingCarol">Carol
+Willing</a> gave a presentation about a new
+documentation work group at the <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit.html">2021 Python Language
+Summit</a>. Last year, Carol Willing and <a class="reference external" href="https://twitter.com/nedbat">Ned
+Batchelder</a> spoke about laying the groundwork for
+this project at the <a class="reference external" href="https://pyfound.blogspot.com/2020/04/the-2020-python-language-summit.html">2020 Python Language
+Summit</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9expolSN-4T-oTFbU7BTs5wrJYRjU8J6AM0HLR_tMAHYndq_myM8-_pnsCh_Q7din42hQvESkaFcqipWNhzXRWckEz1HAOmKjUTwwwMutdHA8C5zAg0nJVvpUJoU8wFGgVUc/s16000/mariatta-carol.png">![Carol Willing and Mariatta
+Wijaya</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9expolSN-4T-oTFbU7BTs5wrJYRjU8J6AM0HLR_tMAHYndq_myM8-_pnsCh_Q7din42hQvESkaFcqipWNhzXRWckEz1HAOmKjUTwwwMutdHA8C5zAg0nJVvpUJoU8wFGgVUc/s500/mariatta">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj9expolSN-4T-oTFbU7BTs5wrJYRjU8J6AM0HLR_tMAHYndq_myM8-_pnsCh_Q7din42hQvESkaFcqipWNhzXRWckEz1HAOmKjUTwwwMutdHA8C5zAg0nJVvpUJoU8wFGgVUc/s500/mariatta</a>-
+carol.png)</p>
+<section id="why-does-python-need-a-documentation-work-group">
+<h2>Why Does Python Need a Documentation Work Group?<a class="headerlink" href="#why-does-python-need-a-documentation-work-group" title="Link to this heading">¶</a></h2>
+<p>The mission of the Python Software Foundation is to advance the Python
+language and grow a diverse, international community of Python programmers so
+that the language can continue to flourish well into the future. However, when
+it comes to documentation, core developers don’t necessarily reflect the
+larger world of Python users. If we can bring together core developers,
+documentarians, and educators, then we can have better documentation that
+serves the needs of the wider community more effectively.</p>
+</section>
+<section id="what-should-the-documentation-work-group-achieve">
+<h2>What Should the Documentation Work Group Achieve?<a class="headerlink" href="#what-should-the-documentation-work-group-achieve" title="Link to this heading">¶</a></h2>
+<p>The work group has two main goals:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Improve documentation content so there’s more documentation aimed at people who are learning the language</p></li>
+<li><p>Modernize documentation themes to make them responsive on mobile so they can better serve users working with limited bandwidth</p></li>
+</ol>
+</div></blockquote>
+<p>Although core developers have sometimes felt a great deal of ownership of
+parts of the documentation, all of the documentation is a community resource.
+As a result, no one person should be responsible for any one part of the
+documentation. If the work group is large enough, then it can serve as an
+editorial board that could work towards consensus.</p>
+<p>The work group will:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Set priorities and projects for the next year</p></li>
+<li><p>Build a larger documentation community and help them feel engaged, connected, and empowered</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="what-will-stay-the-same">
+<h2>What Will Stay the Same?<a class="headerlink" href="#what-will-stay-the-same" title="Link to this heading">¶</a></h2>
+<p>Changes to documentation will still go through the same PR process that is
+described in the dev guide. There will be the same commitment to quality.
+Although there will be new documentation to meet the needs of underserved
+users and topics, the existing docs at
+<a class="reference external" href="http://docs.python.org">docs.python.org</a> and
+<a class="reference external" href="http://devguide.python.org">devguide.python.org</a> will remain.</p>
+</section>
+<section id="what-will-change">
+<h2>What Will Change?<a class="headerlink" href="#what-will-change" title="Link to this heading">¶</a></h2>
+<p>Documentation is a gateway to education. In order for it to be more effective,
+we need broader input from the community. There have already been considerable
+efforts with translation and localization, but it would also be beneficial to
+have a new landing page to help users find the resources they need.</p>
+</section>
+<section id="what-s-next">
+<h2>What’s Next?<a class="headerlink" href="#what-s-next" title="Link to this heading">¶</a></h2>
+<p>The next step is to deal with the logistics of work-group membership. The
+current members are Mariatta Wijaya, Carol Willing, Ned Batchelder, and Julien
+Palard. The charter for the work group states that it can have up to twenty
+members. The application process will be similar to the one that the code of
+conduct work group used. The current members expect applications to come from
+the wider Python community as well as from core developers.</p>
+<p>Once the group has more members, they will hold a monthly meeting that will be
+scheduled to accommodate a variety of time zones. They will discuss docs
+issues, open PRs, the status of projects, achievements, next steps, and more.</p>
+<p>There are also plans for AMA sessions on Discourse so that docs team members
+can answer questions and connect with the wider docs community. In addition,
+the group will reach out to PyLadies and tap into the diverse skill sets of
+their members.</p>
+</section>
+<section id="where-can-you-learn-more">
+<h2>Where Can You Learn More?<a class="headerlink" href="#where-can-you-learn-more" title="Link to this heading">¶</a></h2>
+<p>To learn more, you can check out the Python docs community on:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="https://docs-community.readthedocs.io/en/latest/">Read the Docs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/python/docs-community">GitHub</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2021-05-the-2021-python-language-summit_23.html">
+      
+      <span>The 2021 Python Language Summit: The Challenges of Packaging Python for a Linux Distro</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2021-05-the-2021-python-language-summit-what-is.html">
+      <span>The 2021 Python Language Summit: What Is the stdlib?</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

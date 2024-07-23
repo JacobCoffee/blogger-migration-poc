@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Warehouse: All New PyPI is now in beta - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="warehouse-all-new-pypi-is-now-in-beta">
+<h1>Warehouse: All New PyPI is now in beta<a class="headerlink" href="#warehouse-all-new-pypi-is-now-in-beta" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2018/03/warehouse-all-new-pypi-is-now-in-beta.html">here</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDdnT20o2fMIk-kKfMqaKn1UX-YICGDwKXuO51bg67Q1Q4bl3bavFTItZMmCX5E6Cqz1f3eJ4f8-2Ihl8jwV4L77Lbv8N49coyegcrfgWpNQa4kBpPtDIVu7e2PmQnPE-A8A/s1600/logo-large.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDdnT20o2fMIk">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDdnT20o2fMIk</a>-
+kKfMqaKn1UX-
+YICGDwKXuO51bg67Q1Q4bl3bavFTItZMmCX5E6Cqz1f3eJ4f8-2Ihl8jwV4L77Lbv8N49coyegcrfgWpNQa4kBpPtDIVu7e2PmQnPE-A8A/s1600/logo-
+large.png)</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Context</p></li>
+<li><p>Migrating</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>New PyPI Features</p></li>
+<li><p>Deprecations</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Future Plans</p></li>
+<li><p>Security</p></li>
+<li><p>Please test!</p></li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Workflows</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li><p>IRC/Twitter livechat hours</p></li>
+<li><p>Contact us</p></li>
+</ol>
+</div></blockquote>
+<p>The all new Python Package Index is now in beta at
+<a class="reference external" href="https://pypi.org/">pypi.org</a>. We predict the full switch will happen in April
+2018 (<a class="reference external" href="https://wiki.python.org/psf/WarehouseRoadmap">roadmap</a>), so here’s a
+heads-up about why we’re switching, what’s changed, and what to expect. To get
+an email when the new site replaces the old one, please sign up for <a class="reference external" href="https://mail.python.org/mm3/mailman3/lists/pypi-announce.python.org/">the low-
+traffic PyPI announcements email
+list</a>.</p>
+<section id="context">
+<h2>Context<a class="headerlink" href="#context" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://pypi.python.org/">The legacy PyPI site at pypi.python.org</a> started in
+the early 2000s, before modern web frameworks. The legacy codebase has made it
+hard to maintain and even harder to develop new features, even as past
+maintainers put in tremendous effort to continuously reduce outages.</p>
+<p><a class="reference external" href="http://pypi.org/">The new PyPI at pypi.org</a> (codebase:
+<a class="reference external" href="http://warehouse.readthedocs.io/">Warehouse</a>) looks more modern, and is up-
+to-date under the hood too. A modern web framework (Pyramid), 100% backend
+test coverage, and a Docker-based development environment make it easier for
+current and new developers to maintain and run it and add features.</p>
+<p>Thanks to <a class="reference external" href="https://pyfound.blogspot.com/2017/11/the-psf-awarded-moss-grant-pypi.html">Mozilla’s Open Source Support
+funding</a>, we have designed and added new features, overhauled
+infrastructure, and worked towards redirecting traffic to the new site and
+shutting down the old one. The full switch will include redirecting browser
+and pip install traffic from the old site; then, sometime in late April or
+early May, the legacy site will be entirely shut down.</p>
+</section>
+<section id="migrating">
+<h2>Migrating<a class="headerlink" href="#migrating" title="Link to this heading">¶</a></h2>
+<p>You may not need to change anything right away. Thanks to redirects, your
+sites, services, and tools will probably be able to seamlessly switch to the
+new site.</p>
+<p><em>Users</em> : On Windows and Linux, no change is necessary as long as your
+version of OpenSSL supports TLSv1.2. <cite>pip install</cite> should work as normal.
+macOS/OS X users running version 10.12 or older need to upgrade to <cite>the latest
+`pip</cite> (9.0.3) &lt;<a class="reference external" href="https://pypi.org/project/pip/9.0.3/">https://pypi.org/project/pip/9.0.3/</a>&gt;`_ to connect to PyPI
+securely:</p>
+<p>`
+` `    curl &lt;<a class="reference external" href="https://bootstrap.pypa.io/get-pip.py">https://bootstrap.pypa.io/get-pip.py</a>&gt; | python`</p>
+<p><em>Package maintainers</em> : If you use <cite>setup.py upload</cite> to <a class="reference external" href="https://packaging.python.org/tutorials/distributing-packages/#uploading-your-project-to-pypi">upload
+releases</a>, we recommend you switch to
+<a class="reference external" href="https://pypi.org/project/twine/">Twine</a>. New PyPI takes the same
+username/password as legacy PyPI did. If you have problems, follow <a class="reference external" href="https://packaging.python.org/guides/migrating-to-pypi-org/">the
+packagers’ migration guide</a>.</p>
+<p><em>API users</em> : follow <a class="reference external" href="https://warehouse.readthedocs.io/api-reference/integration-guide/#migrating-to-the-new-pypi">the API users’ migration
+guide</a>.</p>
+<p>If you’re affected by a deprecation (below), you should adapt and migrate by
+early April 2018. For help, come to <a class="reference external" href="https://wiki.python.org/psf/PackagingWG/PyPIBetaAnnouncement#IRC.2FTwitter_livechat_hours">a
+livechat</a>
+or <a class="reference external" href="https://wiki.python.org/psf/PackagingWG/PyPIBetaAnnouncement#Contact_us">contact
+us</a>.
+Sign up for <a href="#id2"><span class="problematic" id="id3">`</span></a>the low-traffic PyPI announcements email
+list &lt;<a class="reference external" href="https://mail.python.org/mm3/mailman3/lists/pypi-announce.python.org/">https://mail.python.org/mm3/mailman3/lists/pypi-announce.python.org/</a>&gt;`_to
+get a heads-up when we have a more precise date.</p>
+<section id="new-pypi-features">
+<h3>New PyPI Features<a class="headerlink" href="#new-pypi-features" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li><p>mobile-responsive UI</p></li>
+<li><p>chronological release history for each project (<a class="reference external" href="https://pypi.org/project/pip/#history">example</a>)</p></li>
+<li><p>easy-to-read project activity journal for project maintainers</p></li>
+<li><p>better search and filtering</p></li>
+<li><p>support for multiple project URLs (e.g., <a class="reference external" href="https://packaging.python.org/tutorials/distributing-packages/#project-urls">for a homepage and a repo</a>)</p></li>
+<li><p><a class="reference external" href="https://dustingram.com/articles/2018/03/16/markdown-descriptions-on-pypi">support for Markdown READMEs for source distributions</a> (<a class="reference external" href="https://github.com/pypa/warehouse/issues/869#issuecomment-374425355">soon</a>: wheels too)</p></li>
+<li><p>user-visible Gravatars and email addresses for maintainers</p></li>
+<li><p>no need to “register” a project before initial upload</p></li>
+<li><p>better accessibility (<a class="reference external" href="https://github.com/pypa/warehouse/labels/accessibility">and more work to come</a>)</p></li>
+<li><p>newer backend infrastructure, supporting new features and a more scalable PyPI</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="deprecations">
+<h3>Deprecations<a class="headerlink" href="#deprecations" title="Link to this heading">¶</a></h3>
+<p>Things that already have gone away (sometimes for policy or spam-fighting
+reasons) include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>uploading via <a class="reference external" href="http://pypi.python.org/">pypi.python.org</a>: <a class="reference external" href="https://mail.python.org/pipermail/distutils-sig/2017-July/030849.html">uploads must go through the new site’s API</a></p></li>
+<li><p>creating a user account on <a class="reference external" href="http://pypi.python.org/">pypi.python.org</a>: <a class="reference external" href="https://status.python.org/incidents/mgjw1g5yjy5j">new user account registration now only on pypi.org</a></p></li>
+<li><p>uploading to <a class="reference external" href="http://pythonhosted.com/">pythonhosted.com</a> documentation hosting (<a class="reference external" href="https://github.com/pypa/warehouse/issues/582">discussion and plans</a>)</p></li>
+<li><p><a class="reference external" href="https://warehouse.readthedocs.io/api-reference/xml-rpc/#changes-to-legacy-api">download counts visible in the API</a>: instead, use <a class="reference external" href="https://packaging.python.org/guides/analyzing-pypi-package-downloads/">the Google BigQuery service</a></p></li>
+<li><p>key management: PyPI no longer has a UI for users to manage GPG or SSH public keys</p></li>
+<li><p>uploading new releases via the web UI: instead, we recommend the command-line tool <a class="reference external" href="http://twine.readthedocs.io/">Twine</a></p></li>
+<li><p>updating release descriptions via the web UI: instead, to update release metadata, you need to upload a new release (<a class="reference external" href="https://mail.python.org/pipermail/distutils-sig/2017-December/031826.html">discussion</a>)</p></li>
+<li><p><a class="reference external" href="https://status.python.org/incidents/mgjw1g5yjy5j">uploading a package without first verifying an email address</a></p></li>
+<li><p><a class="reference external" href="https://mail.python.org/pipermail/distutils-sig/2017-October/031712.html">HTTP access to APIs; now it’s HTTPS-only</a></p></li>
+</ul>
+</div></blockquote>
+<p>Things that will go away once legacy PyPI shuts down:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>GPG/PGP signatures for packages (still visible in the <a class="reference external" href="https://warehouse.readthedocs.io/api-reference/legacy/#simple-project-api">Simple Project API</a> per <a class="reference external" href="https://www.python.org/dev/peps/pep-0503/">PEP 503</a>, but no longer visible in the web UI)</p></li>
+<li><p><a class="reference external" href="https://mail.python.org/pipermail/distutils-sig/2018-January/031855.html">OpenID and Google auth login</a></p></li>
+</ul>
+</div></blockquote>
+<p>Late 2018 or later:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>deprecating the XML-RPC API and <a class="reference external" href="https://github.com/pypa/warehouse/issues?q=is:open+is:issue+label:APIs/feeds">rearchitecting our APIs</a></p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="future-plans">
+<h2>Future plans<a class="headerlink" href="#future-plans" title="Link to this heading">¶</a></h2>
+<p>See <a class="reference external" href="https://github.com/pypa/warehouse/issues">our issue tracker</a>. Includes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>more timely package name takeovers (<a class="reference external" href="https://www.python.org/dev/peps/pep-0541/">PEP 541</a>)</p></li>
+<li><p><a class="reference external" href="https://github.com/pypa/warehouse/issues/996">two-factor authentication</a></p></li>
+<li><p>a <a class="reference external" href="https://github.com/pypa/warehouse/issues/3231">user support ticket system</a></p></li>
+<li><p><a class="reference external" href="https://github.com/pypa/warehouse/issues/1190">change your own username</a></p></li>
+</ul>
+</div></blockquote>
+<p>For updates, please sign up for <a class="reference external" href="https://mail.python.org/mm3/mailman3/lists/pypi-announce.python.org/">the low-traffic PyPI announcements email
+list</a>.</p>
+</section>
+<section id="security">
+<h2>Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h2>
+<p>If you find any potential security vulnerabilities, please <a class="reference external" href="https://pypi.org/security/">follow our
+published security policy</a>. Please don’t report
+security issues in Warehouse via GitHub, IRC, or mailing lists. Instead,
+please directly email the security team.</p>
+</section>
+<section id="please-test">
+<h2>Please test!<a class="headerlink" href="#please-test" title="Link to this heading">¶</a></h2>
+<p>The point of the beta is to find and fix bugs. Please help us. Most of these
+workflows you can test <a class="reference external" href="http://pypi.org/">on pypi.org</a>, using the same login
+as you use on <a class="reference external" href="http://pypi.python.org/">pypi.python.org</a> (legacy PyPI). For
+testing destructive actions, like removing an owner, deleting a project, or
+deleting a release, please use <a class="reference external" href="https://test.pypi.org/">test.pypi.org</a>.</p>
+<section id="workflows">
+<h3>Workflows<a class="headerlink" href="#workflows" title="Link to this heading">¶</a></h3>
+<p>Package users:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Register/confirm a new user</p></li>
+<li><p>Login/logout</p></li>
+<li><p>Reset password</p></li>
+<li><p>Search for projects</p></li>
+<li><p><a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/#installing-from-other-indexes">pip install a package</a></p></li>
+<li><p>Download release files via browser</p></li>
+<li><p>Call JSON, RSS, Simple, and XML-RPC APIs</p></li>
+</ul>
+</div></blockquote>
+<p>Project maintainers:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Add/remove a maintainer</p></li>
+<li><p>Add/remove an owner</p></li>
+<li><p>Transition ownership</p></li>
+<li><p>Remove a project</p></li>
+<li><p>Remove a release</p></li>
+<li><p>View journals for a project</p></li>
+<li><p>View journals for a release</p></li>
+<li><p><a class="reference external" href="https://packaging.python.org/tutorials/distributing-packages/">Upload a new release</a> (source distribution and wheel; <a class="reference external" href="https://packaging.python.org/guides/migrating-to-pypi-org/">upgrade your versions of twine and setuptools</a> first)</p></li>
+<li><p>Confirm display of project description, release history, download files, project links, maintainers, tags, and classifiers (<a class="reference external" href="https://test.pypi.org/project/1234_hello_world/">example</a>)</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="irc-twitter-livechat-hours">
+<h2>IRC/Twitter livechat hours<a class="headerlink" href="#irc-twitter-livechat-hours" title="Link to this heading">¶</a></h2>
+<p>Warehouse developers will be in IRC, in <a class="reference external" href="https://webchat.freenode.net/?channels=#pypa-dev">#pypa-dev on
+Freenode</a>, and on Twitter
+(<a class="reference external" href="https://twitter.com/search?f=tweets&amp;q=#newpypi&amp;src=typd">#newpypi</a>),
+available to talk about problems you run into, or about how to hack on
+Warehouse:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Tuesday, March 27th, <a class="reference external" href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=Warehouse/PyPI+beta+chat&amp;iso=20180327T16&amp;p1=:&amp;ah=1">9am-10am PDT, noon-1pm EDT, 18:00-19:00 CEST, 9:30pm-10:30pm India, 16:00-17:00 UTC</a></p></li>
+<li><p>Friday, March 30th, <a class="reference external" href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=Warehouse/PyPI+beta+live+chat&amp;iso=20180330T14&amp;p1=1440&amp;ah=1">10-11am EDT, 16:00-17:00 CEST, 7:30pm-8:30pm India, 14:00-15:00 UTC</a></p></li>
+<li><p>Tuesday, April 3rd, <a class="reference external" href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=Warehouse/PyPI+beta+livechat&amp;iso=20180403T10&amp;p1=24&amp;ah=1">8am-9am PDT, 11am-noon EDT, 17:00-18:00 CEST, 8:30pm-9:30pm India, 15:00-16:00 UTC</a></p></li>
+<li><p>Thursday, April 5th, <a class="reference external" href="https://www.timeanddate.com/worldclock/fixedtime.html?p1=24&amp;iso=20180405T19&amp;msg=Warehouse/PyPI%20beta%20livechat&amp;ah=1&amp;low=4">5pm-6pm PDT, 8pm-9pm EDT, (April 5th) 8am-9am Manila, (April 5th) 10am-11am Melbourne, (April 5th) 0:00-1:00 UTC</a></p></li>
+</ol>
+</div></blockquote>
+<p>Feel free to drop in! (By participating, you agree to abide by the <a class="reference external" href="https://www.pypa.io/en/latest/code-of-conduct/">PyPA Code
+of Conduct</a>.)</p>
+</section>
+<section id="id9">
+<h2>Contact us<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Security issues: <a class="reference external" href="https://pypi.org/security/">email security &#64; python dot org</a></p></li>
+<li><p>GitHub for all other bug reports &amp; feature requests:&lt;<a class="reference external" href="https://github.com/pypa/warehouse/issues/new">https://github.com/pypa/warehouse/issues/new</a>&gt;</p></li>
+<li><p>IRC: <a class="reference external" href="https://webchat.freenode.net/?channels=#pypa-dev">#pypa-dev on Freenode</a> (someone’s usually there 10am-5pm Central Time on weekdays, or during <a class="reference external" href="https://wiki.python.org/psf/PackagingWG/PyPIBetaAnnouncement#IRC.2FTwitter_livechat_hours">a livechat</a>)</p></li>
+<li><p>Email: <a class="reference external" href="https://groups.google.com/forum/#%21forum/pypa-dev">pypa-dev mailing list</a></p></li>
+</ul>
+</div></blockquote>
+<p>(By participating, you agree to abide by the <a class="reference external" href="https://www.pypa.io/en/latest/code-of-conduct/">PyPA Code of
+Conduct</a>.)</p>
+<p>Thank you for using PyPI!</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1HseUnTUXRtNqvxugEWezvQIw8QS57_r7phqXUhyx9FBvbnbnJFFpro-1YtFJyCwttL3rsB2vKDzltn1M6fq_LgFwiAjHuOjJq2AmlUCcFeEoyRJ_4QRyxAK6_AVRgr3EzQ/s1600/Tobacco_Warehouse_in_Louisville%252C_Kentucky_1906.jpg">![Tobacco Warehouse in Louisville, Kentucky
+1906</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1HseUnTUXRtNqvxugEWezvQIw8QS57_r7phqXUhyx9FBvbnbnJFFpro-1YtFJyCwttL3rsB2vKDzltn1M6fq_LgFwiAjHuOjJq2AmlUCcFeEoyRJ_4QRyxAK6_AVRgr3EzQ/s1600/Tobacco_Warehouse_in_Louisville%252C_Kentucky_1906.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1HseUnTUXRtNqvxugEWezvQIw8QS57_r7phqXUhyx9FBvbnbnJFFpro-1YtFJyCwttL3rsB2vKDzltn1M6fq_LgFwiAjHuOjJq2AmlUCcFeEoyRJ_4QRyxAK6_AVRgr3EzQ/s1600/Tobacco_Warehouse_in_Louisville%252C_Kentucky_1906.jpg</a>)</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2018-02-python-package-maintainers-help-test.html">
+      
+      <span>Python package maintainers, help test the new PyPI!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2018-03-python-developers-survey-2017-results.html">
+      <span>Python Developers Survey 2017 Results: Learn about the community</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

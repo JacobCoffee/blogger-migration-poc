@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Announcing the PSF Diversity and Inclusion Work Group - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="announcing-the-psf-diversity-and-inclusion-work-group">
+<h1>Announcing the PSF Diversity and Inclusion Work Group<a class="headerlink" href="#announcing-the-psf-diversity-and-inclusion-work-group" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2020/12/announcing-psf-diversity-and-inclusion.html">here</a>.</p>
+<p>Python has become one of the most popular programming languages in the world,
+meaning that along with this growth the Python community has continued to
+expand, in every continent around the globe. While this growth has been
+exciting, it has also brought new challenges and opportunities to improve our
+global community. In order to further the PSF’s
+<a class="reference external" href="https://www.python.org/psf/mission/">mission</a> to ‘support and facilitate the
+growth of a diverse and international community of Python programmers’, the
+Python Software Foundation is excited to announce the launch of the` Diversity
+and Inclusion Workgroup &lt;<a class="reference external" href="https://wiki.python.org/psf/DiversityandInclusionWG">https://wiki.python.org/psf/DiversityandInclusionWG</a>&gt;`_
+(hereby referred to as the D&amp;I workgroup). The D&amp;I workgroup will help own
+this important work, as well as provide guidance to the PSF Board of Directors
+in line with this mandate.</p>
+<p>Throughout 2020 the PSF and PSF Board engaged the community in a discussion
+about board election reform. Many members voiced concerns over the lack of
+geographical representation on the Board. Given the prior conversations the
+Board has had about how to better support our international community members
+and the feedback collected throughout 2020, the D&amp;I workgroup was created.
+Ultimately, the D&amp;I workgroup will help advise on how to increase diversity
+and inclusion on a global scale in the Python community. Whether it’s
+supporting international users, improving board representation or increasing
+core development mentorship, this group will proactively engage with the
+community and PSF leadership to achieve this larger goal.</p>
+<p>D&amp;I Workgroup membership</p>
+<p>The D&amp;I workgroup will initially focus on geographical diversity. We are aware
+that diversity and inclusion is multi-faceted and must address issues beyond
+geography. As the workgroup becomes more established, its mandate and
+membership will broaden as well.</p>
+<p>With this purpose in mind, the Board has recruited Python community members
+from every continent - minus Antarctica - in the world. Our members will
+advocate for and provide insights on behalf of their local communities as best
+they can, and the workgroup will be chaired by PSF Director Marlene Mhangami.
+Below is the list of initial members:</p>
+<p>Member List (In Alphabetical Order)</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Anna Ossowski (United Kingdom/Germany)</p></li>
+<li><p>Anthony Shaw (Australia)</p></li>
+<li><p>Boluwaji Akinlade (Nigeria)</p></li>
+<li><p>Christian Heimes (Germany)</p></li>
+<li><p>Cynthia Xin (China)</p></li>
+<li><p>Dustin Ingram (USA)</p></li>
+<li><p>Débora Azevedo (Brazil)</p></li>
+<li><p>Georgi Ker (Thailand)</p></li>
+<li><p>Iqbal Abdullah (Malaysia/Japan)</p></li>
+<li><p>Katia Lira (Mexico)</p></li>
+<li><p>Lorena Mesa (USA)</p></li>
+<li><p>Mannie Young (Ghana)</p></li>
+<li><p>Manuel Kaufmann(Argentina)</p></li>
+<li><p>Mariam Haji (Kenya)</p></li>
+<li><p>Marlene Mhangami (Zimbabwe)</p></li>
+<li><p>Phoebe Chua (Malaysia/USA)</p></li>
+<li><p>Reuven Lerner (Israel)</p></li>
+<li><p>Sara EL-ATEIF (Morocco)</p></li>
+<li><p>Sayantika Banik (India)</p></li>
+<li><p>Tereza Iofciu (Germany)</p></li>
+</ul>
+</div></blockquote>
+<p>Goals of the D&amp;I Workgroup</p>
+<p>The Workgroup will pursue its goals in several ways including:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Communicating and collecting feedback from the Python community to understand how the PSF can better serve and grow a diverse membership.</p></li>
+<li><p>Measuring, evaluating, and sharing the PSF’s progress towards its diversity initiatives on a regular basis</p></li>
+<li><p>Discussing policy, initiatives and grant proposals to recommend to the PSF Board of Directors in line with the group’s purpose.</p></li>
+<li><p>Recruiting members that will advocate for and provide insights on behalf of their local communities and groups.</p></li>
+</ol>
+</div></blockquote>
+<p>We need your help!</p>
+<p>For more details about the D&amp;I workgroup (e.g. how it will function &amp; report
+feedback, values) our full charter is available
+<a class="reference external" href="https://wiki.python.org/psf/DiversityandInclusionWG">here</a>. We are also
+asking for feedback from the community on your thoughts about diversity and
+inclusion. Please take a few minutes to fill out <a class="reference external" href="https://forms.gle/uurCoBz6u6hKb964A">this
+form</a>. The community can expect ongoing
+reports as part of our commitment to transparency. If you would like to reach
+out to the workgroup directly with any questions, ideas, or thoughts please
+email <a class="reference external" href="mailto:diversity-inclusion-wg&#37;&#52;&#48;python&#46;org">diversity-inclusion-wg<span>&#64;</span>python<span>&#46;</span>org</a>. If you would like to become a member of the workgroup, please
+send us an email expressing your interest. We will begin to review new
+applications for membership in the first quarter of 2021.</p>
+<p>We are excited about supporting the global Python community in new and
+creative ways. The D&amp;I workgroup is only able to do this work with the help of
+the Python Software Foundation. Currently, the PSF is running a fundraiser to
+raise $60,000 USD by December 31st. Pythonistas can get discounted offers on
+products and services to level up their Python knowledge, and help the PSF
+raise funds at the same time! Visit the fundraiser <a class="reference external" href="https://www.python.org/psf/donations/2020-q42020-drive/">home
+page</a> to see more
+details or read more on the <a class="reference external" href="https://pyfound.blogspot.com/2020/12/help-psf-raise-60000-usd-by-december.html">blog</a>.</p>
+<p>Thank you for being part of our community!</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2020-12-help-psf-raise-60000-usd-by-december.html">
+      
+      <span>Help the PSF raise $60,000 USD by December 31st!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2020-12-elaine-wong-awarded-psf-community.html">
+      <span>Elaine Wong Awarded the PSF Community Service Award for Q3 2020</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

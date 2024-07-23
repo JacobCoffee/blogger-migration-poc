@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PyPI Now Supports Two-Factor Login via WebAuthn - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="pypi-now-supports-two-factor-login-via-webauthn">
+<h1>PyPI Now Supports Two-Factor Login via WebAuthn<a class="headerlink" href="#pypi-now-supports-two-factor-login-via-webauthn" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/06/pypi-now-supports-two-factor-login-via.html">here</a>.</p>
+<p>To further increase the security of Python package downloads, we’re adding a
+new beta feature to the Python Package Index: WebAuthn support for U2F
+compatible hardware security keys as a two-factor authentication (2FA) login
+security method. This is thanks to a <a class="reference external" href="https://pyfound.blogspot.com/2019/03/commencing-security-accessibility-and.html">grant from the Open Technology
+Fund</a>, coordinated by the <a class="reference external" href="https://wiki.python.org/psf/PackagingWG">Packaging Working
+Group</a> of the <a class="reference external" href="https://www.python.org/psf-landing/">Python Software
+Foundation</a>.</p>
+<p>Last month, we <a class="reference external" href="https://blog.python.org/2019/05/use-two-factor-auth-to-improve-your.html">added the first 2FA
+method</a> for users logging into the canonical Python Package Index at
+<a class="reference external" href="https://pypi.org/">PyPI.org</a> and the test site at
+<a class="reference external" href="https://test.pypi.org/">test.pypi.org</a>. Hundreds of project owners and
+maintainers have now started using that method (generating a code through a
+Time-based One-time Password (TOTP) application) to better secure their
+accounts.</p>
+<p>Starting today, PyPI also supports (in beta) WebAuthn (U2F compatible)
+security keys for a second login factor. A security key (also known as a
+universal second factor, or U2F compatible key) is hardware device that
+communicates via USB, NFC, or Bluetooth. Popular keys include Yubikey, Google
+Titan and Thetis. PyPI supports any <a class="reference external" href="https://fidoalliance.org/specifications/download/">FIDO U2F compatible
+key</a> and follows the
+<a class="reference external" href="https://www.w3.org/TR/webauthn/">WebAuthn standard</a>. Users who have set up
+this second factor will be prompted to use their key (usually by inserting it
+into a USB port and pressing a button) when logging in. (This feature requires
+JavaScript.)</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNgHqMyFZ_mcmNtFyBjqFfJ-T8N7cm6_qZJR1VxS6tIGfwUp0RTwM3AjpBLQnFnRP1zv-AhQWj4pWKKWxt4CehIw53Ao7oXgXbHGbN3U-2eqDpU3IbV-YKaFMaWYtptprqMy0/s400/2fa-u2f-screenshot-june-17-2019.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNgHqMyFZ_mcmNtFyBjqFfJ-T8N7cm6_qZJR1VxS6tIGfwUp0RTwM3AjpBLQnFnRP1zv">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhNgHqMyFZ_mcmNtFyBjqFfJ-T8N7cm6_qZJR1VxS6tIGfwUp0RTwM3AjpBLQnFnRP1zv</a>-
+AhQWj4pWKKWxt4CehIw53Ao7oXgXbHGbN3U-2eqDpU3IbV-
+YKaFMaWYtptprqMy0/s1600/2fa-u2f-screenshot-june-17-2019.png)</p>
+<p>This is a <a class="reference external" href="https://wiki.python.org/psf/WarehousePackageMaintainerTesting">beta
+feature</a> and we
+expect that users will find minor issues over the next few weeks; we ask for
+your bug reports. If you find any potential security vulnerabilities, please
+follow our <a class="reference external" href="https://pypi.org/security/">published security policy</a>. (Please
+don’t report security issues in Warehouse via GitHub, IRC, or mailing lists.
+Instead, please directly email one or more of our maintainers.) If you find an
+issue that is not a security vulnerability, please <a class="reference external" href="https://github.com/pypa/warehouse/issues/new">report it via
+GitHub</a>.</p>
+<p>We encourage project maintainers and owners to log in and <a class="reference external" href="https://pypi.org/manage/account/#two-factor">go to your Account
+Settings to add a second factor</a>.
+This will help improve the security of your PyPI user accounts, and thus
+reduce the risk of vandals, spammers, and thieves gaining account access. If
+you’re not yet comfortable using a beta feature, you can provision a TOTP
+application for your second factor.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3GfHeSEb501PCUZPCgQ2e7hJNd0Hrm301iapUtmEuZUAmU-9WdMmLxs4SYHFNSLSTMufcfOV6ERgvjMAxRxgLD586EjeawJo8OHwvEuBC6TC_BUYCzQFVUGepndDth-1-q5s/s400/2fa-not-enabled-17-june-2019.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3GfHeSEb501PCUZPCgQ2e7hJNd0Hrm301iapUtmEuZUAmU-9WdMmLxs4SYHFNSLSTMufcfOV6ERgvjMAxRxgLD586EjeawJo8OHwvEuBC6TC_BUYCzQFVUGepndDth-1-q5s/s1600/2fa">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3GfHeSEb501PCUZPCgQ2e7hJNd0Hrm301iapUtmEuZUAmU-9WdMmLxs4SYHFNSLSTMufcfOV6ERgvjMAxRxgLD586EjeawJo8OHwvEuBC6TC_BUYCzQFVUGepndDth-1-q5s/s1600/2fa</a>-
+not-enabled-17-june-2019.png)</p>
+<p>You’ll need to verify your primary email address on your Test PyPI and/or PyPI
+accounts before setting up 2FA. You can also do that in <a class="reference external" href="https://pypi.org/manage/account/#account-emails">your Account
+Settings</a>.</p>
+<p>2FA only affects login via the website, which safeguards against malicious
+changes to project ownership, deletion of old releases, and account takeovers.
+Package uploads will continue to work without users providing 2FA codes.</p>
+<p>But that’s just for now. We are working on implementing per-user API keys as
+an alternative form of multifactor authentication in the setuptools/twine/PyPI
+auth flows. These will be application-specific tokens scoped to individual
+users/projects, so that users will be able to use token-based logins to better
+secure uploads. And we’ll move on to working on an advanced audit trail of
+sensitive user actions, plus improvements to accessibility and localization
+for PyPI. More details are in <a class="reference external" href="https://discuss.python.org/t/pypi-security-work-multifactor-auth-progress-help-needed/1042">our progress
+reports</a>.</p>
+<p>Thanks to the <a class="reference external" href="https://www.opentech.fund/">Open Technology Fund</a> for funding
+this work. And please sign up for the <a class="reference external" href="https://mail.python.org/mailman3/lists/pypi-announce.python.org/">PyPI Announcement Mailing
+List</a> for
+future updates.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-06-2019-board-of-directors-election-voting.html">
+      
+      <span>2019 Board of Directors Election - Voting is Open</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-07-the-python-software-foundation-is.html">
+      <span>The Python Software Foundation is looking for bloggers!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

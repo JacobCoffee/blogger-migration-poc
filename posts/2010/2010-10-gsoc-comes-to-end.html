@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>GSoC Comes to an End - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="gsoc-comes-to-an-end">
+<h1>GSoC Comes to an End<a class="headerlink" href="#gsoc-comes-to-an-end" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2010/10/gsoc-comes-to-end.html">here</a>.</p>
+<p>The Python Software Foundation supported many Google Summer of Code
+(<a href="#id1"><span class="problematic" id="id2">`</span></a>GSoC &lt;<a class="reference external" href="http://socghop.appspot.com/gsoc/program/home/google/">http://socghop.appspot.com/gsoc/program/home/google/</a></p>
+<p>gsoc2010&gt;`_) Projects this year by recruiting mentors and supporting projects
+from around the community. As the summer comes to a close, we thought it would
+be a good idea to let you know how things turned out, so we contacted a few of
+the participants to ask them about their experience.</p>
+<section id="pip">
+<h2>pip<a class="headerlink" href="#pip" title="Link to this heading">¶</a></h2>
+<p>Carl Meyer from the <a href="#id3"><span class="problematic" id="id4">`</span></a>pip &lt;<a class="reference external" href="http://hg.io/ianb/pip/wiki/Goo">http://hg.io/ianb/pip/wiki/Goo</a></p>
+<p>gle_Summer_Of_Codeorhttp://pypi.python.org/pypi/pip&gt;`_ project told us that “the
+primary goals for the summer were setting up a continuous integration server
+for pip, speeding up the tests and making them runnable without network
+access, and porting pip to Python 3. The first and last got done fully, the
+middle one mostly done. And Hugo Lopes Tavares closed a number of
+miscellaneous tickets along the way as well.”</p>
+<p>Carl also told us that he enjoyed being a mentor for the project. Hugo went on
+to join Globo.com when GSoC was over and thinks that his experience with GSoC
+helped him get hired.</p>
+</section>
+<section id="rpy2">
+<h2>rpy2<a class="headerlink" href="#rpy2" title="Link to this heading">¶</a></h2>
+<p>Laurent Gautier of the <a href="#id5"><span class="problematic" id="id6">`</span></a>rpy2 &lt;<a class="reference external" href="http://rpy.sourceforge.net/">http://rpy.sourceforge.net/</a></p>
+<p>rpy2.html&gt;`_ project also enjoyed being a mentor. His project was to get rpy2
+compatible with Python 3 on the C-level and to do some custom R graphical
+devices with rpy2. They were able to complete their project.</p>
+</section>
+<section id="ipython">
+<h2>IPython<a class="headerlink" href="#ipython" title="Link to this heading">¶</a></h2>
+<p>Fernando Perez was the mentor for the <a href="#id7"><span class="problematic" id="id8">`</span></a>IPython &lt;<a class="reference external" href="http://githu">http://githu</a></p>
+<p>b.com/omazapa/ipython/&gt;`_ work done by Omar Andrés Zapata Mesa and Gerardo
+Gutierrez. They worked on separate but related projects that dealt with a
+multi-process model of kernel hosting for IPython and some client software
+using the ZeroMQ messaging library.</p>
+<p>You can check out the code at &lt;<a class="reference external" href="http://github.com/omazapa/ipython/">http://github.com/omazapa/ipython/</a>&gt; and `
+<a class="reference external" href="http://github.com/muzgash/ipython/tree/ipythonqt">http://github.com/muzgash/ipython/tree/ipythonqt</a>-
+km &lt;<a class="reference external" href="http://github.com/muzgash/ipython/tree/ipythonqt-km">http://github.com/muzgash/ipython/tree/ipythonqt-km</a>&gt;`_</p>
+</section>
+<section id="sympy">
+<h2>sympy<a class="headerlink" href="#sympy" title="Link to this heading">¶</a></h2>
+<p>The folks at <a href="#id9"><span class="problematic" id="id10">`</span></a>sympy &lt;<a class="reference external" href="http://code.google.com/p/sympy/wiki/G">http://code.google.com/p/sympy/wiki/G</a></p>
+<p>SoC2010&gt;`_ went all out and posted all their GSoC information
+<a class="reference external" href="http://code.google.com/p/sympy/wiki/GSoC2010">online</a>. Their projects are
+well detailed, and they’re very technical. Be brave and read them anyway!</p>
+</section>
+<section id="pygame">
+<h2>PyGame<a class="headerlink" href="#pygame" title="Link to this heading">¶</a></h2>
+<p>Julian Habrock, the student for the <a href="#id11"><span class="problematic" id="id12">`</span></a>PyGame &lt;<a class="reference external" href="http://pygamed">http://pygamed</a></p>
+<p>raw.wordpress.com/&gt;`_ project, <a href="#id13"><span class="problematic" id="id14">`</span></a>posted his work as he did it on a
+blog &lt;<a class="reference external" href="http://pygame">http://pygame</a></p>
+<p>draw.wordpress.com/&gt;`_. He worked on a new draw module for pygame and pygame2
+with mentor, Marcus Von Appen. Julian thought the project was fun and he
+learned how to organize bigger projects and encourages other studentswho have
+the time and motivation to join GSoC next year.</p>
+</section>
+<section id="tell-us-about-your-project">
+<h2>Tell Us About Your Project<a class="headerlink" href="#tell-us-about-your-project" title="Link to this heading">¶</a></h2>
+<p>Let us know what your project did this summer! The Google Summer of Code
+website <a href="#id15"><span class="problematic" id="id16">`</span></a>lists many Python-related
+projects &lt;<a class="reference external" href="http://socghop.appspot.com/gsoc/org/home">http://socghop.appspot.com/gsoc/org/home</a></p>
+<p>/google/gsoc2010/python&gt;`_, but the level of detail online is inconsistent. If
+you would like to let us know what your project accomplished, please send an
+email to mike _at_ pythonlibrary _dot_ org.</p>
+</section>
+<section id="learn-more">
+<h2>Learn More<a class="headerlink" href="#learn-more" title="Link to this heading">¶</a></h2>
+<p>For more information, see the wiki page
+&lt;<a class="reference external" href="http://wiki.python.org/moin/SummerOfCode/2010">http://wiki.python.org/moin/SummerOfCode/2010</a>&gt;.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2010-09-funding-for-pycon-pl10.html">
+      
+      <span>Funding for PyCon PL’10</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2010-10-bug-weekend-nov-20-21.html">
+      <span>Bug weekend Nov. 20-21</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

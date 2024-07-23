@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2021 Python Language Summit: What Is the stdlib? - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2021-python-language-summit-what-is-the-stdlib">
+<h1>The 2021 Python Language Summit: What Is the stdlib?<a class="headerlink" href="#the-2021-python-language-summit-what-is-the-stdlib" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit-what-is.html">here</a>.</p>
+<p><a class="reference external" href="https://twitter.com/brettsky">Brett Cannon</a> gave a presentation at the <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit.html">2021
+Python Language Summit</a> about the standard library in order to start a
+conversation about whether it’s time to write a PEP that more clearly defines
+it.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg52_zbX4rA_ugKyIZA1AAeTunaOhfpLg6kkKwY5ZeVDp49v9JhZXM22ekTrahLRAutnHT0cszZyVN40ZKeVj1xW42-9c67OJKg9fxtju91thi05YgQNa8xdHYuyvMRInB_iB0/s16000/brett-cannon.png">![Brett
+Cannon</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg52_zbX4rA_ugKyIZA1AAeTunaOhfpLg6kkKwY5ZeVDp49v9JhZXM22ekTrahLRAutnHT0cszZyVN40ZKeVj1xW42-9c67OJKg9fxtju91thi05YgQNa8xdHYuyvMRInB_iB0/s500/brett">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg52_zbX4rA_ugKyIZA1AAeTunaOhfpLg6kkKwY5ZeVDp49v9JhZXM22ekTrahLRAutnHT0cszZyVN40ZKeVj1xW42-9c67OJKg9fxtju91thi05YgQNa8xdHYuyvMRInB_iB0/s500/brett</a>-
+cannon.png)</p>
+<section id="what-is-the-stdlib">
+<h2>What Is the stdlib?<a class="headerlink" href="#what-is-the-stdlib" title="Link to this heading">¶</a></h2>
+<p>He succinctly described the stdlib as “a collection of modules that ship with
+CPython (usually).” This was the most accurate definition he could give,
+considering how big it is, how varied its contents are, and how long it has
+been around.</p>
+<p>He didn’t offer an answer to the question about whether or not there should be
+a new informational PEP to define clear goals for the stblib, but he wanted
+core developers to engage with the question. There are a variety of opinions
+on the stdlib, but it could be beneficial to come to some kind of agreement
+about:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>What it should be</p></li>
+<li><p>How to manage it</p></li>
+<li><p>What it should focus on</p></li>
+<li><p>How to decide what will or will not be added to it</p></li>
+</ul>
+</div></blockquote>
+<p>He shared that he semi-regularly sees requests for adding a TOML parser to the
+stdlib. When he considers requests, he asks himself:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Should a module be added?</p></li>
+<li><p>How should such a decision be made?</p></li>
+<li><p>What API should it have?</p></li>
+<li><p>Is there a limit to how big the stdlib should get?</p></li>
+</ul>
+</div></blockquote>
+<p>So far, there haven’t been basic guidelines for answering these kind of
+questions. As a result, decisions have been made on a case-by-case basis.</p>
+</section>
+<section id="how-big-is-the-stdlib">
+<h2>How Big Is the stdlib?<a class="headerlink" href="#how-big-is-the-stdlib" title="Link to this heading">¶</a></h2>
+<p>He did some data digging in March of 2021 and shared <a class="reference external" href="https://github.com/brettcannon/stdlib-stats/">his
+findings</a>. Here are the broad
+strokes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>python -v -S -c pass imports 14 modules.</p></li>
+<li><p>The are 208 top-level modules in the standard library.</p></li>
+<li><p>The ratio of modules to people registered to vote in the last Steering Council election is 2.3, but not all of those people are equally available to help maintain the stdlib.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="what-should-the-stdlib-cover">
+<h2>What Should the stdlib Cover?<a class="headerlink" href="#what-should-the-stdlib-cover" title="Link to this heading">¶</a></h2>
+<p>Some people have suggested that the stdlib should be focused on helping users
+bootstrap pip and no more. Others have said that it should focus on system
+administration or other areas. Considering that there are thirty-one thematic
+groupings in the <a class="reference external" href="https://docs.python.org/3/library/index.html">index</a>, the
+people who maintain the stdlib don’t seem to have come to a collective
+decision either. The groupings cover everything from networking to GUI
+libraries to REPLs and more.</p>
+<p>The stdlib has been around for a long time, and we need to be careful about
+breaking people’s code, so the goal is not to deprecate what is already there
+but to consider guidelines for making additions.</p>
+</section>
+<section id="how-do-we-decide-what-goes-into-the-stdlib">
+<h2>How Do We Decide What Goes Into the stdlib?<a class="headerlink" href="#how-do-we-decide-what-goes-into-the-stdlib" title="Link to this heading">¶</a></h2>
+<p>He compared PEP 603 and graphlib to show how this question has been answered
+in different ways in the past. The goal of PEP 603 was to add the class
+frozenmap to the collections module. However, the graphlib module was only
+ever discussed in an issue and never got a PEP before it was added to the
+stdlib. There is no standardized approach for making these kinds of decisions,
+so he would like to know what approaches core developers think would be most
+appropriate.</p>
+</section>
+<section id="what-is-the-maintenance-cost">
+<h2>What Is the Maintenance Cost?<a class="headerlink" href="#what-is-the-maintenance-cost" title="Link to this heading">¶</a></h2>
+<p>The PR queue is already long, which can be overwhelming for maintainers and
+discouraging for contributors.</p>
+<p>The following modules aren’t used in any of the top 4000 projects:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>mailcap</p></li>
+<li><p>binhex</p></li>
+<li><p>chunk</p></li>
+<li><p>nis</p></li>
+</ul>
+</div></blockquote>
+<p>Seventy-six modules are used in less than 1% of the 4000 most downloaded
+projects on PyPI. That’s over 36% of all the modules in the stdlib. This
+raises some questions:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Do we want to continue to ship these modules?</p></li>
+<li><p>What does this tell us about what the community finds useful in the stdlib?</p></li>
+<li><p>How can that inform future guidelines about what to include in the stdlib?</p></li>
+</ul>
+</div></blockquote>
+<p>Based on the data from March 2021, there were:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>37 modules with no open PRs</p></li>
+<li><p>1,451 PRs involving the stdlib, which made up the bulk of all the PRs</p></li>
+</ul>
+</div></blockquote>
+<p>The module with the highest number of PRs was asyncio, which had only 50.
+That’s only 3% of all of the open PRs at the time.</p>
+<p>The standard library has a significant maintenance cost, but core developers
+can formulate a plan to get the most out of the maintenance that goes into the
+stdlib by deciding what it should focus on. They can discuss these issues and
+work towards resolving them this year.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2021-05-the-2021-python-language-summit-python.html">
+      
+      <span>The 2021 Python Language Summit: The Python Documentation Work Group</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2021-06-the-2021-python-language-summit-what.html">
+      <span>The 2021 Python Language Summit: What Should I Work on as a Core Dev?</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

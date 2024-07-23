@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Python in Nigeria - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2017/08/python-in-nigeria-in-2015-psf-sponsored.html">here</a>.</p>
+<section id="python-in-nigeria">
+<h1><em>Python in Nigeria</em><a class="headerlink" href="#python-in-nigeria" title="Link to this heading">¶</a></h1>
+<p>In 2015, the PSF sponsored the first Python event in Nigeria - the Codesses
+Workshop in Lagos. In 2016, the number of events increased to 13, and there
+have been 28 events funded so far in 2017! What has happened in the last 2 ½
+years to create such a demand for learning Python in this part of the world?</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFgaPsvPBo_lHe76qWJOGNjmMlw9oNcWXpBl78ziTo4SBb8BoTRbguMidynyq_IZiaV-W1LhNDwcLWayqpXBUI1BKludiBgQnUAzvpibeSE8qsKEIXTOBQeW_uLkz0LVGoOw/s200/Aisha+Bello.jpeg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFgaPsvPBo_lHe76qWJOGNjmMlw9oNcWXpBl78ziTo4SBb8BoTRbguMidynyq_IZiaV-W1LhNDwcLWayqpXBUI1BKludiBgQnUAzvpibeSE8qsKEIXTOBQeW_uLkz0LVGoOw/s1600/Aisha+Bello.jpeg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiFgaPsvPBo_lHe76qWJOGNjmMlw9oNcWXpBl78ziTo4SBb8BoTRbguMidynyq_IZiaV-W1LhNDwcLWayqpXBUI1BKludiBgQnUAzvpibeSE8qsKEIXTOBQeW_uLkz0LVGoOw/s1600/Aisha+Bello.jpeg</a>)
+—
+Aisha Bello</p>
+<p>I spoke with Aisha Bello about this. She serves as vice-chair for the Python
+Nigeria community. She has helped co-organize and support a number of Django
+Girls workshops in Namibia and Nigeria, and also co-organizes PyLadies
+Nigeria. Aisha is enthusiastic about the  Python community, with a strong
+desire and passion for social change, women’s tech education and empowerment
+in Africa. She currently works as an Associate Systems Engineer for Cisco
+Systems.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnD_ptTNMWgyxVTkuuaYsZatNJbSGBNrZQKXKMBZQd4RJb2ISZxtPKW2VlkUHgnY4ynfy-cAMBcTj5vjZzlK05oMrdPfIPsHMPchoRAZHSBu-EOJsfh_779wy93O19n9aqAg/s200/ichux+%25281%2529.jpeg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnD_ptTNMWgyxVTkuuaYsZatNJbSGBNrZQKXKMBZQd4RJb2ISZxtPKW2VlkUHgnY4ynfy">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnD_ptTNMWgyxVTkuuaYsZatNJbSGBNrZQKXKMBZQd4RJb2ISZxtPKW2VlkUHgnY4ynfy</a>-
+cAMBcTj5vjZzlK05oMrdPfIPsHMPchoRAZHSBu-
+EOJsfh_779wy93O19n9aqAg/s1600/ichux+%25281%2529.jpeg)
+—
+Chukwudi Nwachukwu</p>
+<p>Sharing his thoughts as well, is Chukwudi Nwachukwu, PSF Board Director, and
+Team Lead Integrations, TechAdvance. He is also a volunteer member of the PSF
+Grants Work Group, helping to review requests from Africa and all over the
+world. He has also been invited to speak at PyCon NG in September. When I
+asked why he’s passionate about Python, he said, “Python is easy on the brain
+and I thank Guido [van Rossum]for such a concept.”</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p><em>Python + Community</em></p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>!`20170407_161417.jpg &lt;<a class="reference external" href="https://lh6.googleusercontent.com/SJeyECUtH5hG8jmZCXFIT-E2sc">https://lh6.googleusercontent.com/SJeyECUtH5hG8jmZCXFIT-E2sc</a>-
+yE3WhDyzm89CjPCFgZzOTZycBEUa-
+WhX7UcM_Qe0LuQEyxfgAfqBxkuoyWc5WHDJ1ykDjFAhf4rpmQ4ZM7kJF1Sbb_qFg4y1Cncj6yha-8k0h&gt;`_
+—
+Smart Girls Project</p>
+<p>According to Aisha, Python is popular in Nigeria because it’s one of the
+easiest ways to learn programming. Knowing how to code opens up many career
+options. The advantages of open source software are becoming more well-known
+in this region, and have allowed the community to grow because they’re not
+tied to any one vendor. She notes: “What we have is community. It means a lot
+to people that there is a common place or forum where they’re not afraid to
+share their struggles and ideas with people with like minds. We took the
+Python language and community and made it our own.”</p>
+<p>**
+<a class="reference external" href="https://lh4.googleusercontent.com/WcIfesVxXXmgWKy30wS8m1Ld8yy5YURCm6MwQuVAB9wZHmcQnmms-7S8JiuT6Ra4yJB4XO25MDSA3vGE98TJIAeCTHEQ0lsfrVlcoZe9nSrLJul_VaZw21Nlp-cQSukNz8PjMhQ9">![33338630346_0664e570ca_o.jpg</a>](<a class="reference external" href="https://lh4.googleusercontent.com/WcIfesVxXXmgWKy30wS8m1Ld8yy5YURCm6MwQuVAB9wZHmcQnmms-7S8JiuT6Ra4yJB4XO25MDSA3vGE98TJIAeCTHEQ0lsfrVlcoZe9nSrLJul_VaZw21Nlp">https://lh4.googleusercontent.com/WcIfesVxXXmgWKy30wS8m1Ld8yy5YURCm6MwQuVAB9wZHmcQnmms-7S8JiuT6Ra4yJB4XO25MDSA3vGE98TJIAeCTHEQ0lsfrVlcoZe9nSrLJul_VaZw21Nlp</a>-
+cQSukNz8PjMhQ9)
+—
+Django Girls Lagos</p>
+<p>Chukwudi believes that “the recent urge for more women to be in the workforce
+of Nigeria through IT has been a huge factor in the growth of Python
+programming. The Federal Government of Nigeria has also keyed into this drive
+by choosing Flask as a framework of choice to be taught in their Npower
+programme.” In addition, Django Girls events nationwide, startup companies
+incorporating Python as part of their stack, and IT companies training people
+to code in Python, have all made Python a leading programming language in
+Nigeria.</p>
+<p><em>Funding for Events</em></p>
+<section id="id5">
+<h2><a href="#id3"><span class="problematic" id="id4">**</span></a><a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<p>Aisha and Chukwudi agree that getting funding for events in Nigeria is
+challenging. Often, it’s startups that come forward to help sponsor events.
+Aisha believes that “By creating more awareness and putting ourselves more out
+there, we’re hopeful things will change. Organizations like Github, the PSF,
+and the Django Software Foundation believe in us, and sponsor our events even
+when no one else will.”</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>Fortunately, the Django Girls Foundation offers help through their
+<a class="reference external" href="https://organize.djangogirls.org/">Organizer’s Manual</a> and a template for how
+to run a workshop: the <a class="reference external" href="https://coach.djangogirls.org/">Coaching Manual</a>.
+These documents provide a framework to help groups get started. Having a
+professional-looking proposal goes a long way toward convincing organizations
+to support these events.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p><em>Positive Outcomes</em></p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>Many of the participants of these workshops have gone into IT careers,
+received internships, become mentors, organized workshops, and are actively
+involved in helping out the community.  Outreach to girls in primary and high
+schools is working too. Girls are learning to program in Python, and most
+importantly, they’re learning how to use the tools to continue in their
+journey toward a career.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>One very real example is what <a class="reference external" href="http://abocoders.org.ng/">Abocoders</a> did in
+collaboration with DjangoGirls in Lagos. Girls who had been displaced from
+their homes due to Bokoharam in the North were able to learn about computers
+and programming. In addition, they each got a refurbished computer to use
+during and after the workshop.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<section id="girlcodersrock-came-out-of-one-of-the-events-an-attendee-of-a-django-girls">
+<h3>GirlCodersRock came out of one of the events. An attendee of a Django Girls<a class="headerlink" href="#girlcodersrock-came-out-of-one-of-the-events-an-attendee-of-a-django-girls" title="Link to this heading">¶</a></h3>
+<p>event in Nigeria is now an intern at TechAdvance, where Chukwudi works. She’s
+now coding Python full time. There are many Python-related jobs being
+advertised right now in Nigeria - Google Nigeria and Upperlink are hiring, and
+Alljobs.ng has 40+ listings. It looks like the trend will continue.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>Chukwudi has seen a large increase in members both on slack channels and
+mailing lists. The community is very excited about the first PyCon Nigeria,
+September 15-16, 2017, in Lagos. It’s the largest gathering for the Python
+community in Nigeria, and is organised by members of the Python Users Nigeria
+Group, a nonprofit organisation dedicated to advancing and promoting the use
+of the Python programming language in the country.</p>
+<ul class="simple">
+<li></li>
+<li></li>
+</ul>
+<p>!`25272297040_37be1b624d_o.jpg &lt;<a class="reference external" href="https://lh3.googleusercontent.com/01T90dX02rcGJs8esynWjJaJngNM8TjBkIIwEe2zU5o8jZmLQRjkt-3rEY_oSWJiPohZgxsPzFBOBs2aEreq2139JfBH8_MrGqy61QPSAC5UN3whbPtPNsTC9cDjsrweRH">https://lh3.googleusercontent.com/01T90dX02rcGJs8esynWjJaJngNM8TjBkIIwEe2zU5o8jZmLQRjkt-3rEY_oSWJiPohZgxsPzFBOBs2aEreq2139JfBH8_MrGqy61QPSAC5UN3whbPtPNsTC9cDjsrweRH</a>-
+Qdtfu&gt;`_
+—
+Django Girls Lagos</p>
+<p>Chukwudi suggested that I speak with a woman he mentors, Hamdalah Adetunji,
+about her road to a career in programming. She explained: “It is all a step
+towards growth and progress, but I hope one day in the near future, I get to
+do more than wish I wasn’t the only female on the team. I hope to mentor women
+to give back the amazing support I have received all through my journey, and
+also let them know they can be anything they want to be as long as they are
+focused and determined.”</p>
+</section>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2017-08-the-ethical-maintainer-community.html">
+      
+      <span>The Ethical Maintainer: Community Service Award Recipient Glyph Lefkowitz</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2017-09-pythonday-mexico-recap-of-inaugural.html">
+      <span>PythonDay Mexico: Recap of the Inaugural PythonDay in Mexico</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

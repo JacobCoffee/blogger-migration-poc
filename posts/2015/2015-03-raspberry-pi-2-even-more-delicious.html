@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Raspberry Pi 2: Even More Delicious! - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="raspberry-pi-2-even-more-delicious">
+<h1>Raspberry Pi 2: Even More Delicious!<a class="headerlink" href="#raspberry-pi-2-even-more-delicious" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/raspberry-pi-2-even-more-delicious.html">here</a>.</p>
+<p>For those of you not familiar with the Raspberry Pi Foundation, this UK based
+educational charity provides fun projects and opportunities for bringing
+coding literacy to students in the UK and to learners all over the world. This
+blog previously featured two of their projects, <a class="reference external" href="http://pyfound.blogspot.com/2015/02/raspbery-pis-in-space-astropi.html">Astro
+Pi</a>
+and <a class="reference external" href="http://pyfound.blogspot.com/2015/03/unicef-pi4learning.html">Unicef’s Pi4Learning</a>. There are many more, including _Piper_  which uses the
+game, _Minecraft_ , to teach electronics to kids, or the use of Raspberry Pis
+on weather balloons to observe and record (from the UK) today’s solar eclipse,
+or _Picademy_ , which teaches programming skills to teachers (for these
+projects and many more, see <a class="reference external" href="http://www.raspberrypi.org/blog/">RPF Blog</a>).</p>
+<p>The one thing these widely-varied projects have in common is that they all
+rely on the high-performing, incredibly affordable, versatile, and fun to use
+_Raspberry <a href="#id2"><span class="problematic" id="id3">Pi_</span></a>! First produced for sale by the RP Foundation in 2011, the
+device has become hugely popular, with over 5 million in use around the world.
+And it just got even better!</p>
+<p>The new Raspberry Pi 2 went on sale in February 2015. The reviews have begun
+pouring in, and the consensus is that it’s truly great!</p>
+<p>Still selling for a mere $35 USD, still the size of a credit card, and of
+course still pre-loaded with Python (along with Scratch, Wolfram Mathematica,
+and much more), the new Raspberry Pi features increased speed and
+functionality over the B and B+ models. With 900MHz, quad-core ARM Cortex-A7
+CPU, and 1 full GB of RAM (over model B+’s 512 MB), it’s been benchmarked at
+speeds of 6 to almost 10 times faster than the first B model (see <a class="reference external" href="http://taoofmac.com/space/blog/2015/02/07/1200">Tao of
+MAC</a>, <a class="reference external" href="http://www.pcworld.com/article/2886260/raspberry-pi-2-review-the-revolutionary-35-micro-pc-supercharged.html">PC
+World</a>).</p>
+<p>Its 4-core processor can run all ARM GNU/Linux distributions and the new Pi is
+fully compatible with the earlier models. In addition, Windows is poised to
+release a version 10 that will work with the Pi, thus increasing its already
+broad appeal and versatility (see <a class="reference external" href="http://www.raspberrypi.org/products/raspberry-pi-2-model-b/">Raspberry Pi
+2</a>).</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzFn88Oh9Oe0GUDbbXvvAqc873eKksv58okfnxB9a9pItiType0sjZMqjyEADOr55efUXTbY3wqxx8kMCW7AzfqRNb_zxrwu5Slj0D1D1IFjSHU-fdy3Z3FiCyQR8BQpo9vtk/s1600/Raspberry+Pi+2.jpeg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzFn88Oh9Oe0GUDbbXvvAqc873eKksv58okfnxB9a9pItiType0sjZMqjyEADOr55efUXTbY3wqxx8kMCW7AzfqRNb_zxrwu5Slj0D1D1IFjSHU">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzFn88Oh9Oe0GUDbbXvvAqc873eKksv58okfnxB9a9pItiType0sjZMqjyEADOr55efUXTbY3wqxx8kMCW7AzfqRNb_zxrwu5Slj0D1D1IFjSHU</a>-
+fdy3Z3FiCyQR8BQpo9vtk/s1600/Raspberry+Pi+2.jpeg)</p>
+<p>photo credit: da.wikipedia.org, under CC license</p>
+<p>Features it retains from the previous Model B+ include 4 USB ports, HDMI,
+Ethernet, Micro SD, Broadcom VideoCore IV Graphics, and Sound Card outputs via
+HDMI and 3.5mm analogue output (see <a class="reference external" href="http://www.pcpro.co.uk/components/1000356/raspberry-pi-2-review-the-pi-you-didnt-know-you-wanted">PC
+Pro</a>).</p>
+<p>Currently the ties between the PSF and the RPF are strong, with many
+Pythonistas using the Raspberry Pi and many Raspberry Pi projects being done
+in Python. We hope more people will take a look at this remarkable tool and
+use it to teach Python, spread programming skills, and put computing power in
+the hands of anyone who wants it.</p>
+<p>_I would love to hear from readers. Please send feedback, comments, or blog
+ideas to me at  <a class="reference external" href="mailto:msushi&#37;&#52;&#48;gnosis&#46;cx">msushi<span>&#64;</span>gnosis<span>&#46;</span>cx</a>._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2015-03-psf-python-job-board-relaunched.html">
+      
+      <span>PSF Python Job Board relaunched !</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2015-03-google-summer-of-code-applications-are.html">
+      <span>Google Summer of Code Applications are open!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>To sublicense or not to sublicense? That is the election. - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="to-sublicense-or-not-to-sublicense-that-is-the-election">
+<h1>To sublicense or not to sublicense? That is the election.<a class="headerlink" href="#to-sublicense-or-not-to-sublicense-that-is-the-election" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/03/to-sublicense-or-not-to-sublicense-that.html">here</a>.</p>
+</section>
+<section id="earlier-this-month-the-psf-opened-an-election-on-two-issues-the-first-was">
+<h1>Earlier this month, the PSF opened an election on two issues: the first was<a class="headerlink" href="#earlier-this-month-the-psf-opened-an-election-on-two-issues-the-first-was" title="Link to this heading">¶</a></h1>
+<p>a straightforward vote on the adoption of new Sponsor Members; the second was
+more experimental: a non-binding vote for the membership to weigh in on a
+complex issue to be decided by the Board. This poll was part of the larger
+project (featured in several recent blog posts, see, for example, <a class="reference external" href="http://pyfound.blogspot.com/2015/03/personal-opinion-i-think-its-always.html">Let’s Make
+Decisions</a> to make the PSF a more inclusive, diverse, and democratic
+organization.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ4xn40IeHJS11J6NrtiNX0uQF9M79YR483sdopDgzjhwOkopObkyO0tBQbB1wLKNIiqDESU2OZPZij2sGNxZRGYPmOYbp4W8QbroWHAcDIzlxgKoyZaJIZ-6MdnuR3CkTENE/s1600/Votomatic.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ4xn40IeHJS11J6NrtiNX0uQF9M79YR483sdopDgzjhwOkopObkyO0tBQbB1wLKNIiqDESU2OZPZij2sGNxZRGYPmOYbp4W8QbroWHAcDIzlxgKoyZaJIZ-6MdnuR3CkTENE/s1600/Votomatic.jpg">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZ4xn40IeHJS11J6NrtiNX0uQF9M79YR483sdopDgzjhwOkopObkyO0tBQbB1wLKNIiqDESU2OZPZij2sGNxZRGYPmOYbp4W8QbroWHAcDIzlxgKoyZaJIZ-6MdnuR3CkTENE/s1600/Votomatic.jpg</a>)</p>
+<p>Source: National Museum of American History. PD-USGOV</p>
+<p>The election was closed yesterday, March 26th. The results can be found at
+<a class="reference external" href="https://vote.python.org/init/default/results/9">Election 9 Results</a> and are
+as follows:</p>
+<p>Sponsor Members, Bloomburg LP, Fastly and Infinite Code were all voted in by
+large margins.</p>
+<p>Sponsor Member Candidates| yes| no| abstain
+—<a href="#id2"><span class="problematic" id="id3">|---|</span></a>—<a href="#id4"><span class="problematic" id="id5">|---
+Bloomberg LP|</span></a> 174| 7| 28
+Fastly| 193| 3| 13
+Infinite Code| 147| 13| 49</p>
+<p>The second issue:</p>
+<p>&gt; The PSF Board of Directors is seeking the collective perspective of PSF
+&gt; Voting Members on the appropriate handling of video recording sublicensing
+&gt; for presentations at PyCon US (see <a class="reference external" href="http://pyfound.blogspot.com/2015/03/membership-vote.html">Membership
+&gt; Vote</a>).</p>
+<p>This poll sought members’ views along two dimensions of the sublicensing
+issue: the entities to whom licenses should be granted; and the timeframe of
+the videos to be licensed.</p>
+<p>The results of the poll were quite divided.</p>
+<p><em>Sublicense entities</em></p>
+<p>Only YouTube (others embedding)| As many mirrors as possible| Only non-
+commercial mirrors
+—<a href="#id6"><span class="problematic" id="id7">|---|</span></a>—
+17| 104| 68</p>
+<p><em>Sublicense timeframe</em></p>
+<p>Prospectively only| Including retroactively| Not applicable
+—<a href="#id8"><span class="problematic" id="id9">|---|</span></a>—
+87| 88| 9</p>
+<p>The PSF wishes to thank everyone who participated. This input of the
+membership is extremely valuable to the PSF, and this was a useful first run
+at use of non-binding polls.</p>
+<p>There will be a lot more discussion around this topic while the Board
+continues to weigh pros and cons prior to making the decision that best
+supports the interests of the membership. Please feel free to comment on this
+Blog, on Twitter, to the PSF (or in the _Hallway <a href="#id10"><span class="problematic" id="id11">Track_</span></a>  in Montreal).</p>
+<p>_I would love to hear from readers. Please send feedback, comments, or blog
+ideas to me at  <a class="reference external" href="mailto:msushi&#37;&#52;&#48;gnosis&#46;cx">msushi<span>&#64;</span>gnosis<span>&#46;</span>cx</a>._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2015-03-world-domination-one-student-at-time.html">
+      
+      <span>World Domination: One Student at a Time!</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2015-03-for-shes-jolly-good-psf-fellow.html">
+      <span>For S/He’s a Jolly Good…The PSF Fellow Recognition Program</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

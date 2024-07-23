@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The Python Language Summit 2024: Should we make pdb better? - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-python-language-summit-2024-should-we-make-pdb-better">
+<h1>The Python Language Summit 2024: Should we make pdb better?<a class="headerlink" href="#the-python-language-summit-2024-should-we-make-pdb-better" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2024/06/python-language-summit-2024-pyrepl-new-pdb.html">here</a>.</p>
+<p>Tian Gao came to the Language Summit 2024 to talk about improving
+<a class="reference external" href="https://docs.python.org/3/library/pdb.html">pdb</a>, short for “Python
+debugger”, a module and command line tool for debugging Python.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcwAFtvp4eyohqY1hi5IaCGZhjtHli8UuGnZsbcxIXojkJa-jtv8tcbGcpKfKT0sj78TdARW7h6lm3McZu1lxcutLw6SQx45ME7UL0mt7mEqkQRIoJBdtowo1QmH8ffA9tMvJH1iGo_qHjkXvuDCFzaoHYl58080Hf_IUiIvJ1igj9-kNxlg/s320/20240515_144421.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcwAFtvp4eyohqY1hi5IaCGZhjtHli8UuGnZsbcxIXojkJa">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjcwAFtvp4eyohqY1hi5IaCGZhjtHli8UuGnZsbcxIXojkJa</a>-
+jtv8tcbGcpKfKT0sj78TdARW7h6lm3McZu1lxcutLw6SQx45ME7UL0mt7mEqkQRIoJBdtowo1QmH8ffA9tMvJH1iGo_qHjkXvuDCFzaoHYl58080Hf_IUiIvJ1igj9-kNxlg/s4000/20240515_144421.jpg)
+—
+Tian Gao presenting on how to improve pdb</p>
+<p>There are not many command-line debugger alternatives to pdb for Python. Tian
+mentioned a few, including PuDB, pdb++, and ipdb, but those alternatives are
+all themselves based on either
+<a class="reference external" href="https://docs.python.org/3/library/pdb.html">pdb</a> or another standard library
+module ‘<a class="reference external" href="https://docs.python.org/3/library/bdb.html">bdb</a>’.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4A1ZLNLEbvfhdtXCqgVcSpmgLAwTxzsJQLRe1pcRi17Cq2qbzDYX5VisUdHjl3oAsuuLT6-0LeVwHdw73iFfa6xOeOqSzep1bSVJdaiMOFcYec_vSqLJWO79rOF8rnV8mS9mi8mDImum7m-uSHGGAAVAweGiKMsBI3Cm0OlEIe40CIdh-5g/s320/Screenshot%20from%202024-06-03%2017-27-48.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4A1ZLNLEbvfhdtXCqgVcSpmgLAwTxzsJQLRe1pcRi17Cq2qbzDYX5VisUdHjl3oAsuuLT6-0LeVwHdw73iFfa6xOeOqSzep1bSVJdaiMOFcYec_vSqLJWO79rOF8rnV8mS9mi8mDImum7m-uSHGGAAVAweGiKMsBI3Cm0OlEIe40CIdh-5g/s1370/Screenshot%20from%202024-06-03%2017-27-48.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4A1ZLNLEbvfhdtXCqgVcSpmgLAwTxzsJQLRe1pcRi17Cq2qbzDYX5VisUdHjl3oAsuuLT6-0LeVwHdw73iFfa6xOeOqSzep1bSVJdaiMOFcYec_vSqLJWO79rOF8rnV8mS9mi8mDImum7m-uSHGGAAVAweGiKMsBI3Cm0OlEIe40CIdh-5g/s1370/Screenshot%20from%202024-06-03%2017-27-48.png</a>)
+—
+pdb is the only “standalone” command-line-based Python debugger</p>
+<p>Tian presented a laundry list of desirable new features that could be added to
+pdb, including:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Showing more lines of code around the current breakpoint.</p></li>
+<li><p>Colors in the terminal, syntax highlighting.</p></li>
+<li><p>Customization, with defaults being safe.</p></li>
+<li><p>Handling of more scenarios (threads, asyncio, bytecode, remote debugging)</p></li>
+</ul>
+</div></blockquote>
+<section id="performance-and-backwards-compatibility">
+<h2>Performance and backwards compatibility<a class="headerlink" href="#performance-and-backwards-compatibility" title="Link to this heading">¶</a></h2>
+<p>The biggest issue according to Tian, which he noted had been discussed in the
+past, was the performance of pdb. “pdb is slow because sys.trace is slow,
+which is something we cannot change”, and the only way forward on making pdb
+faster is to switch to sys.monitoring to avoid triggering unnecessary events.</p>
+<p>Switching to sys.monitoring would give a big boost to performance. According
+to Tian, “setting a breakpoint in your code in the worst case you get a 100x
+slowdown compared to almost zero overhead with sys.monitoring”. Unfortunately,
+switching isn’t so easy, Tian noted there are serious backwards compatibility
+concerns for the standard library module
+<a class="reference external" href="https://docs.python.org/3/library/bdb.html">bdb</a> if pdb were to start using
+sys.monitoring.</p>
+<p>“If we’re not ready to [switch to sys.monitoring] yet, would we ever do this
+in the future?”, Tian asked the group, noting that an alternative is to create
+a third-party library and encourage folks to use that library instead.</p>
+<p>Thomas Wouters started off saying that “bdb is a standard library module and
+it cannot break user code” and cautioned that core developers don’t know who
+is depending on modules. bdb’s interface can’t have backwards incompatible
+changes without long deprecation periods. In Thomas’ mind, “the answer is
+obvious, leave pdb as it is and build something else”.</p>
+<p>Thomas also noted “in the long-term, a debugger in the standard library is
+important” but that development doesn’t need to happen in the standard
+library. Thomas listed the benefits for developing a new debugger outside the
+standard library like being able to publish outside the Python release
+schedule and to use the debugger with older Python versions. Once a debugger
+reaches a certain level of stability it can be added to the standard library
+and potentially replace pdb.</p>
+<p>Tian agreed with Thomas’ proposal in theory, but was concerned that a third-
+party debugger on PyPI wouldn’t see the same levels of adoption compared to
+being in the standard library and thus would struggle to meet a threshold of
+“stability” without a critical mass of users. Or worse yet, maintainers
+wouldn’t be motivated to continue due to a lack of use, resulting in a “dead
+project”. (Some foreshadowing, Steering Council member Emily Morehouse <a class="reference external" href="https://pyfound.blogspot.com/2024/06/python-language-summit-2024-lightning-talks.html">gave a
+lightning talk on this topic</a> later on in the Language Summit)</p>
+<p>Łukasz Langa noted that Python now has support for
+“<a class="reference external" href="https://docs.python.org/3/library/functions.html#breakpoint">breakpoint()</a>”
+and that “what breakpoint() actually does, we can change. We can run another
+debugger if we decide to”, referencing if a better debugger was added in the
+future to CPython that it could be made into a new default for breakpoints.</p>
+<p>Russell Keith-Magee from BeeWare, was interested in what Tian had said about
+remote debugging, noting that “remote debugging is the only way you can debug
+[on mobile platforms]”. Russell would be interested in pdb or a new debugger
+supporting this use-case. Tian noted that unfortunately remote debugging would
+be one of the more difficult features to implement.</p>
+<p>Pablo Galindo Salgado, commenting on existing Python “attach-to-process”
+debuggers, said that the hacks in use today are “extremely unsafe”. Pablo said
+that “we’d need something inside CPython [to be safe], but then you have
+another problem, you have to implement that feature on [all platforms]”. Pablo
+also mentioned that attach-to-process debugging is usually a bad model because
+it can’t be enabled by default for security reasons but “you won’t know when
+you’ll need to debug”.</p>
+<p>Anthony Shaw asked about the scope of the project and was interested in
+whether there could be a framework for debugging in CPython that pdb and
+others could build on. Anthony pointed out that many other debuggers “needed
+to do a bunch of hooks and tricks” to do debugging because it’s “not provided
+out of the box by CPython”.</p>
+<p>Tian responded that “bdb is supposed to do that, but it was written 30 years
+ago so is too old to support new things that a debugger wants”. Others
+mentioned that
+<a class="reference external" href="https://docs.python.org/3/library/sys.monitoring.html">sys.monitoring</a> (new
+in Python 3.12) was meant to be a framework for debuggers to build on.</p>
+<p>Gregory Smith, Steering Council member, said he “wants all of these things”
+and agreed with Thomas to “develop this as much as you can… outside of the
+standard library”, telling Tian that “you’re going to end up in a better state
+that way”. Greg’s primary concern was whether CPython needed to do anything to
+enable Tian’s proposal. He continued, “it sounds like we (CPython) have most
+of what we need, but if we don’t let’s get that planned so we can enable a
+successful separate project before we ship it with Python in the future”.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2024-06-python-language-summit-2024-should-python-adopt-calver.html">
+      
+      <span>The Python Language Summit 2024: Should Python adopt Calendar Versioning?</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2024-06-faq-for-proposed-changes-to-psf-bylaws.html">
+      <span>FAQ for Proposed Changes to PSF Bylaws</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

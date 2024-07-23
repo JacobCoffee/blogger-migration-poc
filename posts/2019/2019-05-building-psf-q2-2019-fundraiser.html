@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Building the PSF: the Q2 2019 Fundraiser - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="building-the-psf-the-q2-2019-fundraiser">
+<h1>Building the PSF: the Q2 2019 Fundraiser<a class="headerlink" href="#building-the-psf-the-q2-2019-fundraiser" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/05/building-psf-q2-2019-fundraiser.html">here</a>.</p>
+<p>Thank you to everyone who has donated to our past fundraisers! Donations,
+memberships, and sponsorships support sprints, meetups, community events,
+Python documentation, fiscal sponsorships, software development, and community
+projects.</p>
+<p>We can’t do any of this without your financial contributions. We’ve just
+launched a <a href="#id1"><span class="problematic" id="id2">`</span></a>new fundraiser</p>
+<blockquote>
+<div><p>&lt;<a class="reference external" href="https://www.python.org/psf/donations/2019-q2-drive/">https://www.python.org/psf/donations/2019-q2-drive/</a>&gt;`_for 2019! Please donate</p>
+</div></blockquote>
+<p>today and help us meet our goal of $60,000 by June 30th!</p>
+<section id="your-donations-have-impact">
+<h2>Your donations have IMPACT!<a class="headerlink" href="#your-donations-have-impact" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>The PSF awarded $118,543 in financial aid to 143 PyCon attendees in 2018</p></li>
+<li><p>$324,000 was paid in grants in 2018 to recipients in 51 different countries</p></li>
+<li><p>Donations and fundraisers resulted in $489,152 of revenue. This represents 15% of our total 2018 revenue.</p></li>
+<li><p>PSF and PyCon sponsors contributed over $1,071K in revenue!</p></li>
+</ul>
+</div></blockquote>
+<p>We understand the need for transparency and hope to help our community and
+stakeholders find necessary information about the PSF in a single place. We’re
+proud to launch our first ever <a class="reference external" href="https://www.python.org/psf/annual-report/2019/">Annual
+Report</a>. 2018 was a year of
+growth for the PSF while still focussing on sustainability for our staff and
+community. We’re excited to share these data points with you!</p>
+<section id="something-new-this-year-the-psf-and-jet-brains">
+<h3>Something new this year - the PSF and Jet Brains!<a class="headerlink" href="#something-new-this-year-the-psf-and-jet-brains" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf0n0g1MUaSnOg5H6mQEsCps6f5gK78x15TEgtGvAqA1vW4YItuQZFCHJ9M8Fg2KxLIimuFyKslSHpv3xwaLk4VraDCPIvyDoNIRferHVGCE-zKR9fP3UP6UQOidbGj2fVlA/s320/PSF_fundraiser_icon_2019.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf0n0g1MUaSnOg5H6mQEsCps6f5gK78x15TEgtGvAqA1vW4YItuQZFCHJ9M8Fg2KxLIimuFyKslSHpv3xwaLk4VraDCPIvyDoNIRferHVGCE">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhf0n0g1MUaSnOg5H6mQEsCps6f5gK78x15TEgtGvAqA1vW4YItuQZFCHJ9M8Fg2KxLIimuFyKslSHpv3xwaLk4VraDCPIvyDoNIRferHVGCE</a>-
+zKR9fP3UP6UQOidbGj2fVlA/s1600/PSF_fundraiser_icon_2019.png)</p>
+<p>This year we’re trying something new. In addition to our regular donation
+drive, we’re partnering with JetBrains to help raise money for the PSF.
+JetBrains PyCharm &amp; the PSF is happy to announce a 30% discount with all
+proceeds going to the Python Software Foundation general fund!</p>
+<p>Please consider becoming a <a class="reference external" href="https://psfmember.org/civicrm/contribute/transact?reset=1&amp;id=26">PSF Supporting
+Member</a>
+today. Or simply make a <a class="reference external" href="https://psfmember.org/civicrm/contribute/transact?reset=1&amp;id=26">one-time or recurring
+donation.</a></p>
+<p>If you’re attending PyCon this year, you can donate at the PSF booth and get
+your choice of a limited edition pin or sticker set!</p>
+</section>
+</section>
+</section>
+<section id="help-spread-the-word-about-our-fundraiser-here-are-some-suggested-tweets">
+<h1>Help spread the word about our fundraiser! Here are some suggested tweets:<a class="headerlink" href="#help-spread-the-word-about-our-fundraiser-here-are-some-suggested-tweets" title="Link to this heading">¶</a></h1>
+<blockquote>
+<div><ul class="simple">
+<li><p>Donate today and help &#64;ThePSF reach their fundraising goal! &lt;<a class="reference external" href="https://www.python.org/psf/donations/2019-q2-drive/">https://www.python.org/psf/donations/2019-q2-drive/</a>&gt; #idonatedtothepsf</p></li>
+<li><p>Your contributions help fund workshops, conferences, and pay meetup fees. The PSF can’t do this without your support. Please consider donating to help us continue to do our work - &lt;<a class="reference external" href="https://www.python.org/psf/donations/2019-q2-drive">https://www.python.org/psf/donations/2019-q2-drive</a>&gt;</p></li>
+<li><p>A Supporting Membership of $99 pays for 6 months of Python meetup subscriptions. Become a member and help us continue our mission!` <a class="reference external" href="https://www.python.org/psf/donations/2019-q2-drive/">https://www.python.org/psf/donations/2019-q2-drive/</a> &lt;<a class="reference external" href="https://www.python.org/psf/donations/2019-q2-drive/">https://www.python.org/psf/donations/2019-q2-drive/</a>&gt;`_.  #idonatedtothepsf</p></li>
+</ul>
+</div></blockquote>
+<hr class="docutils" />
+<p>Thank you for your support!</p>
+<p>The PSF Team</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-04-update-on-python-in-education-proposal.html">
+      
+      <span>Update on the Python in Education Proposal Phase</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-05-paul-ganssle-time-zones-in-standard.html">
+      <span>Paul Ganssle: Time Zones In The Standard Library</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

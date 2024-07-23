@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2021 Python Language Summit: CPython Performance Improvements at Instagram - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2021-python-language-summit-cpython-performance-improvements-at-instagram">
+<h1>The 2021 Python Language Summit: CPython Performance Improvements at Instagram<a class="headerlink" href="#the-2021-python-language-summit-cpython-performance-improvements-at-instagram" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit-cpython.html">here</a>.</p>
+<p><a class="reference external" href="https://twitter.com/DinoViehland">Dino Viehland</a> gave a presentation at the
+<a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit.html">2021 Python Language
+Summit</a> about improvements to CPython’s performance at Instagram.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqqWiC5mKNc6rzGhp-zdhu8z9l4GA7p61c-GLbkdgMzObwqtzn_eZhr8EJM5ZUOfnzdywQB4G1dfqWSs7-6WeQwlvF8fL5r-GXhn2wB7kJWUA_mOoz5pzX-YA2MXxNY3dFKRA/s16000/talk-4-author.png">![Dino
+Viehland</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqqWiC5mKNc6rzGhp">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqqWiC5mKNc6rzGhp</a>-
+zdhu8z9l4GA7p61c-GLbkdgMzObwqtzn_eZhr8EJM5ZUOfnzdywQB4G1dfqWSs7-6WeQwlvF8fL5r-GXhn2wB7kJWUA_mOoz5pzX-
+YA2MXxNY3dFKRA/s320/talk-4-author.png)</p>
+<p><a class="reference external" href="https://github.com/facebookincubator/cinder">Cinder</a> is Instagram’s internal
+performance-oriented production version of CPython 3.8, so all of the
+comparisons in this presentation dealt with Python 3.8. Cinder has a lot of
+performance optimizations, including bytecode inline caching, eager evaluation
+of coroutines, a method-at-a-time JIT, and an experimental bytecode compiler
+that uses type annotations to emit type-specialized bytecode that performs
+better in the JIT.</p>
+<section id="successful-improvements">
+<h2>Successful Improvements<a class="headerlink" href="#successful-improvements" title="Link to this heading">¶</a></h2>
+<p>Instagram did a lot of work with asynchronous I/O. One big change was sending
+and receiving values without raising StopIteration. Raising all of those
+exceptions was a huge source of overhead. On simple benchmarks, this was 1.6
+times faster, but it was also a 5% win in production. These changes have been
+upstreamed to Python 3.10 (bpo-41756 &amp; bpo-42085).</p>
+<p>Instagram also made another change to asynchronous I/O that hasn’t been
+upstreamed yet: eager evaluation. Often, in their workload, if they await a
+call to a function, then it can run and immediately complete. If the call
+completes without blocking, then they don’t have to create a coroutine object.
+Instead, a wait handle is returned. (One singleton instance is used, as the
+handle is immediately consumed.)</p>
+<p>They used the new <a class="reference external" href="https://www.python.org/dev/peps/pep-0590/">vectorcall</a> API
+to do this work, so they have a new flag to show that a call is being awaited
+at the call site. In addition to having functions check this flag, they also
+have asyncio.gather() check the flag. This avoids overhead for task creation
+and scheduling. These changes led to a 3% win in production and haven’t been
+upstreamed yet, but there have been discussions.</p>
+<p>Another big change is inline caching for byte code, which they call shadow
+byte code. Although Python 3.10 has some inline caching as well, Instagram
+took a somewhat different approach. In Instagram’s implementation, hot methods
+get a complete copy of the byte code and caches. As the function executes,
+they replace the opcodes in that copy with a hidden copy that’s more specific.
+This resulted in a 5% win in production.</p>
+<p>Dino Viehland also spoke about dictionary watchers, which haven’t been
+upstreamed to CPython. Dictionary watchers provide updates to globals for
+builtins when they are modified. Instagram achieved this by reusing the
+existing version tag in dictionaries to mark dictionaries that are being
+watched. They took the low bit from that, so now whenever they need to bump
+the dictionary version, they bump it by two. This led to an additional 5% win
+when combined with shadow byte code.</p>
+<p>Instagram made targeted optimizations as well. The CPython documentation
+mentions that assigning to __builtins__ is a CPython implementation detail.
+But it’s an unusual one, because when you assign to it, it may not be
+respected immediately. For example, if you’re using the same globals, then you
+use the existing builtins. Instagram made that always point to the fixed
+builtins dictionary, which led to a 1% win in production.</p>
+<p>They also made some small changes to PyType_Lookup that were upstreamed and
+will be in Python 3.10. You can check bpo-43452 to learn more. In addition,
+Instagram worked on ThreadState lookup avoidance and prefetching variables
+before they’re loaded, but frame creation is still expensive.</p>
+</section>
+<section id="experimental-work">
+<h2>Experimental Work<a class="headerlink" href="#experimental-work" title="Link to this heading">¶</a></h2>
+<p>Instagram has tried some experimental changes as well. One big one was the
+JIT. They have a custom method at a time JIT. There is nearly full coverage
+for all of the opcodes. They do have some unsupported opcodes, but they are
+rare and not used in methods, such as IMPORT_STAR. There are a couple of
+intermediate representations. The front end lowers to an HIR where they do an
+SSA and have a ref count insertion pass as well as other optimization passes.
+After they go though the HIR level, they lower it to an LIR, which is closer
+to x64.</p>
+<p>Another experimental idea is something they call static Python. It provides
+similar performance gains as MyPyC or Cython, but it works at runtime and has
+no extra compile steps. It starts with a new source loader that loads files
+marked with import __static__, and it supports cross module compilation across
+different source files. There are also new byte codes such as INVOKE_FUNCTION
+and LOAD_FIELD that can be bound tightly at runtime. It uses normal <a class="reference external" href="https://www.python.org/dev/peps/pep-0484/">PEP
+484</a> annotations.</p>
+<p>InterOp needs to enforce types at the boundaries between untyped Python and
+static Python. If you call a typed function, then you might get a TypeError.
+Static Python has a whole new static compiler that uses the regular Python ast
+module and is based on the Python 2.x compiler package.</p>
+<p>In addition, Pyro is an unannounced, experimental, from-scratch implementation
+that reuses the standard library. The main differences between Pyro and
+CPython are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Compacting garbage collection</p></li>
+<li><p>Tagged pointers</p></li>
+<li><p>Hidden classes</p></li>
+</ul>
+</div></blockquote>
+<p>The C API is emulated for the <a class="reference external" href="https://www.python.org/dev/peps/pep-0384/">PEP
+384</a> subset for supporting C
+extensions.</p>
+</section>
+<section id="performance-results">
+<h2>Performance Results<a class="headerlink" href="#performance-results" title="Link to this heading">¶</a></h2>
+<p>Production improvements are difficult to measure because changes have been
+incremental over time, but they are estimated at between 20% and 30% overall.
+When Instagram was benchmarking, they used CPython 3.8 as the baseline and
+compared** Cinder, Cinder with the JIT, and Cinder JIT noframe, which
+Instagram is not yet using in production but wants to move towards so they
+won’t have to create Python frame objects for jitted code.</p>
+<p>Cinder had good results on a large set of benchmarks and a 4x return on
+richards but did worse with others, particularly 2to3, python_startup, and
+python_startup_no_site. This was probably because they JIT every single
+function when it’s invoked the first time. They haven’t yet made the changes
+to JIT a function when it becomes hot. They also haven’t yet tested
+comparisons with Pypy.</p>
+<p>Cinder is open source, so you can check out the
+<a class="reference external" href="https://github.com/facebookincubator/cinder">repo</a> yourself.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2021-05-the-2021-python-language-summit_16.html">
+      
+      <span>The 2021 Python Language Summit: Progress on Running Multiple Python Interpreters in Parallel in the Same Process</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2021-05-the-2021-python-language-summit-making.html">
+      <span>The 2021 Python Language Summit: Making CPython Faster</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

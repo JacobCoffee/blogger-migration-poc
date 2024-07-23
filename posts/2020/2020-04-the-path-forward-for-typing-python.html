@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The path forward for typing - Python Language Summit 2020 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-path-forward-for-typing-python-language-summit-2020">
+<h1>The path forward for typing - Python Language Summit 2020<a class="headerlink" href="#the-path-forward-for-typing-python-language-summit-2020" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2020/04/the-path-forward-for-typing-python.html">here</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqoC9n44SfaRHHwADcoqTJleTQvJIGr6zFfN9hyphenhyphenqojUqRVLmqxIFkVOCqDsNdHdSMX7FDKH6XJStnP98qzdjDlUPys6Mu52glSa58wq3nQbdT1ESgWWhRYRRXfa5Ad07dLJQ/s1600/guido-headshot-2019.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqoC9n44SfaRHHwADcoqTJleTQvJIGr6zFfN9hyphenhyphenqojUqRVLmqxIFkVOCqDsNdHdSMX7FDKH6XJStnP98qzdjDlUPys6Mu52glSa58wq3nQbdT1ESgWWhRYRRXfa5Ad07dLJQ/s1600/guido">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgqoC9n44SfaRHHwADcoqTJleTQvJIGr6zFfN9hyphenhyphenqojUqRVLmqxIFkVOCqDsNdHdSMX7FDKH6XJStnP98qzdjDlUPys6Mu52glSa58wq3nQbdT1ESgWWhRYRRXfa5Ad07dLJQ/s1600/guido</a>-
+headshot-2019.jpg)</p>
+<p>“There are a _lot_ of PEPs about typing!” said Guido van Rossum at the
+Language Summit. Since 2014 there have been ten PEPs approved for Python’s
+type-checking features. Two of them have been approved already this year: the
+relatively “esoteric” <a class="reference external" href="https://www.python.org/dev/peps/pep-0613/">PEP 613: Explicit Type
+Aliases</a>, and another that will
+have widespread impact, <a class="reference external" href="https://www.python.org/dev/peps/pep-0585/">PEP 585: Type Hinting Generics In Standard
+Collections</a>, written by Łukasz
+Langa and mainly implemented by Van Rossum. Thanks to this PEP, types which
+had been defined like <cite>List[int]</cite> can now be spelled <cite>list[int]</cite>, with a
+lowercase “L”. As Van Rossum told the Python Language Summit, “We want to
+avoid a world where users have to remember, ‘Here I have to use a capital-L
+<cite>List</cite> and here I use a lowercase-L <cite>list</cite>.’”</p>
+<p><a class="reference external" href="https://pyfound.blogspot.com/2020/04/the-2020-python-language-summit.html">Read more 2020 Python Language Summit
+coverage</a>.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>A “generic” is a type that can be parameterized with other types. Generics are
+usually container types. Since Python 3.5, the <cite>typing</cite> module has provided
+“type aliases” like <cite>List</cite>, which can be parametrized with the type of values
+it contains, like <cite>List[str]</cite> in this type-annotated function definition:</p>
+<blockquote>
+<div><p>from typing import List
+def greet_all(names: List[str]) -&gt; None:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>for name in names:</dt><dd><p>print(“Hello”, name)</p>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+<p>Van Rossum showed the Summit the following code, demonstrating that the
+ordinary built-in <cite>list</cite> and <cite>dict</cite> classes can now be used as generics for
+type annotations:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
+</span><span data-line="2"><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span>
+</span><span data-line="3"><span class="go">list[int]</span>
+</span><span data-line="4"><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">__origin__</span>
+</span><span data-line="5"><span class="go">&lt;class &#39;list&#39;&gt;</span>
+</span><span data-line="6"><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="o">.</span><span class="n">__args__</span>
+</span><span data-line="7"><span class="go">(&lt;class &#39;int&#39;&gt;,)</span>
+</span><span data-line="8"><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</span><span data-line="9"><span class="go">[1, 2, 3]</span>
+</span><span data-line="10"><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">TypeVar</span><span class="p">;</span> <span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s2">&quot;T&quot;</span><span class="p">)</span>
+</span><span data-line="11"><span class="gp">&gt;&gt;&gt; </span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">T</span><span class="p">][</span><span class="nb">int</span><span class="p">]</span>
+</span><span data-line="12"><span class="go">Dict[str, int]</span>
+</span></pre></div>
+</div>
+<p>The syntax <cite>list[int]</cite> is enabled by implementing
+<a href="#id2"><span class="problematic" id="id3">``</span></a>__class_getitem__ &lt;<a class="reference external" href="https://docs.python.org/3.8/reference/datamodel.html#object.__class_getitem__">https://docs.python.org/3.8/reference/datamodel.html#object.__class_getitem__</a>&gt;`_`
+on <cite>list</cite>. The built-in containers such as <cite>tuple</cite>, <cite>dict</cite>, <cite>list</cite> and <cite>set</cite>
+are supported, along with some standard library containers and abstract base
+classes, including <cite>collections.deque</cite>, <cite>collections.abc.Iterable</cite>,
+<cite>queue.Queue</cite>, and <cite>re.Pattern</cite>. The effect for everyday coders is mainly a
+matter of spelling, yet as Van Rossum said, “It’s probably going to affect
+everyone’s code, or everyone will encounter code like this.” Fewer users will
+have to import type aliases such as <cite>List</cite> from the
+<a href="#id4"><span class="problematic" id="id5">``</span></a>typing &lt;<a class="reference external" href="https://docs.python.org/3.8/library/typing.html">https://docs.python.org/3.8/library/typing.html</a>&gt;`_` module; it will be
+required only for advanced annotations. Van Rossum asked the Summit, “How much
+of this do we want to make built in?”</p>
+<p>Python’s approach to type-checking is to add type _annotations_ in the source
+code, but to check types neither during compilation nor at runtime. Instead,
+programmers use a separate type-checker (such as <a class="reference external" href="http://mypy-lang.org/">mypy</a>
+or <a class="reference external" href="https://www.jetbrains.com/pycharm/">PyCharm</a>). The new PEP 585 type
+annotations are the same: they do no checking at all, so “nonsense”
+annotations like <cite>list[str, str]</cite> are permitted. It is the type checker’s job
+to reject them.</p>
+<p>Annotations are not completely free at runtime, however: by default an
+annotation like <cite>List[int]</cite> is evaluated to create a type object when it is
+encountered, usually at module-load time. This can noticeably hurt startup
+times for big type-annotated programs. <a class="reference external" href="https://www.python.org/dev/peps/pep-0563/">PEP 563 Postponed Evaluation of
+Annotations</a> was introduced in
+Python 3.7 to solve this problem: type annotations are saved as strings, and
+evaluated only when a type checker such as mypy requests it. This optimization
+is currently guarded behind <cite>from __future__ import annotations</cite>. Van Rossum
+asked whether postponed evaluation should become the default in Python 3.9,
+which will be released imminently, or 3.10.</p>
+<p>Also in Python 3.10 will be <a class="reference external" href="https://www.python.org/dev/peps/pep-0604/">PEP 604</a>, which permits the current <cite>Union[t1, t2]</cite> annotation to be spelled as <cite>t1 | t2</cite>, using the vertical bar to express a union of types. The PEP’s scope might expand to add syntax that even programs without type annotations would enjoy. For example, <cite>isinstance(x, (t1, t2))</cite> could be written <cite>isinstance(x, t1 | t2)</cite>, and an exception handler could be written like <cite>except t1 | t2</cite>.</p>
+<p>Yury Selivanov noted that <cite>typing.Optional[t]</cite> could be replaced with <cite>t | None</cite>, and asked whether it could be shortened further as <cite>t?</cite>. “Every year,” replied Van Rossum, “there’s another feature that people want to use the question mark for.” In his opinion, <cite>t | None</cite> is convenient enough, and another syntax would be redundant. (Although the new PEG parser would make it easy to implement.)</p>
+<p>Stéphane Wirtel asked if Python would ever have exception annotations.
+“Ouch!” said Van Rossum. The consensus is that Java’s checked exceptions were
+a bad idea, and would probably be bad in Python too. “I don’t think I have the
+stomach for that.”</p>
+<p>The standard library and most PyPI packages have no type annotations. Type-
+hinted “package stubs” for this code are hosted in the
+<a class="reference external" href="https://github.com/python/typeshed">typeshed</a> repository, but storing all
+those stubs in a monolithic distribution doesn’t scale, and the problem will
+grow worse. In a <a class="reference external" href="https://github.com/python/typeshed/issues/2491#issuecomment-611607557">GitHub issue
+thread</a>,
+Jukka Lehtosalo predicted that in two years, stubs for third-party packages
+will outnumber those for the standard library, and in five years, typeshed
+will include more than 1000 third-party packages. As Van Rossum told the
+Language Summit, Lehtosalo’s proposal will split typeshed into separate
+distributions so users can easily download just the stubs they need,
+consistent with <a class="reference external" href="https://www.python.org/dev/peps/pep-0561/">PEP 561</a>.</p>
+<p>Brett Cannon asked whether the standard library’s annotations should be
+shipped with Python, either as stub files or in the code itself. Van Rossum
+said new stdlib code should be written with annotations inline, but old code
+includes optimizations and strange legacy behaviors that defy static typing.
+Currently mypy does not analyze standard library code because “it assumes that
+the standard library is full of untyped shit,” it looks in typeshed instead.
+If indigenous type annotations grew in the standard library, the core team
+would have to coordinate with type checker authors to manage the change.</p>
+<p>Van Rossum offered an update on mypy. He admitted he hadn’t been active on
+mypy recently, and “my former colleagues at Dropbox have not been able to make
+as much progress as we did in the past.” Support for NumPy is stalled. The
+same goes for decorators, although once <a class="reference external" href="https://www.python.org/dev/peps/pep-0612/">PEP
+612</a> is approved it will provide a
+prerequisite for decorator support in mypy. Raymond Hettinger asked if mypy
+development needs funding. Michael Sullivan, a mypy contributor from Dropbox,
+replied that Dropbox considers mypy mostly complete, and has moved on to
+projects like their Python 3 migration. Van Rossum said funding could help.
+Personally he has “moved on to retirement.” The Python static typing mailing
+list is quieter than Van Rossum would like, <a class="reference external" href="https://mail.python.org/mailman3/lists/typing-sig.python.org/">interested people should
+join</a>.</p>
+<p>There’s better news about
+<a class="reference external" href="https://github.com/python/mypy/tree/master/mypyc">mypyc</a>, an experimental
+project to translate type-annotated Python into C. The translator’s main use
+for now is converting mypy to C for speed. There is work in progress to allow
+a mix of Python and Python-translated-to-C in the same program, and to write
+documentation. The mypyc project expects a <a class="reference external" href="https://summerofcode.withgoogle.com/">Google Summer of
+Code</a> student this summer.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2020-04-the-2020-python-language-summit.html">
+      
+      <span>The 2020 Python Language Summit</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2020-04-all-strings-become-f-strings-python.html">
+      <span>Should All Strings Become f-strings? - Python Language Summit 2020</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BBC Micro:bit successfully launched! - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="bbc-micro-bit-successfully-launched">
+<h1>BBC Micro:bit successfully  launched!<a class="headerlink" href="#bbc-micro-bit-successfully-launched" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2015/07/bbc-microbit-successfully-launched.html">here</a>.</p>
+<p>July 7, 2015 BBC Microbit</p>
+<p>Last March, I wrote about a terrific educational project taking place in the
+UK, with which the PSF is proud to be involved (see <a class="reference external" href="http://pyfound.blogspot.com/2015/03/bbc-launches-microbit.html">PSF
+Blogpost</a>). I
+am very happy to report today that the BBC micro:bit project has successfully
+launched!</p>
+<p>The BBC micro:bit release is part of the BBC’s “Make it Digital” initiative,
+whose purpose is to prepare a generation for the challenges of a tech-driven
+world. The project is a collaboration of 29 partners from industry, education,
+and government.</p>
+<p>&gt; Key partners include ARM, Microsoft, Samsung, Barclays, Freescale,
+&gt; Element14, Lancaster University, Nordic Semiconductor, Technology Will Save
+&gt; Us, ScienceScope and the Wellcome Trust.</p>
+<p>At the beginning of the school term this September, every year-7 UK student
+(11-12 years old) will be given a BBC micro:bit computer. Designed to inspire
+creativity, the BBC micro:bit is pocket-sized, versatile, and, most
+importantly, easy to use:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsVDNcZyVJzLXMTTqWeyY0IGLei93vlS0E6ErvS4g27VL8W5YVgs0l57gCKS66lkc8dXBaUct23e6L2PGx1xFEjSPFWFl-cSB6W54ijUdTLOXtarWM7IpXb7jWr-G9guZuv-4/s320/3-BACK.JPG">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsVDNcZyVJzLXMTTqWeyY0IGLei93vlS0E6ErvS4g27VL8W5YVgs0l57gCKS66lkc8dXBaUct23e6L2PGx1xFEjSPFWFl">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsVDNcZyVJzLXMTTqWeyY0IGLei93vlS0E6ErvS4g27VL8W5YVgs0l57gCKS66lkc8dXBaUct23e6L2PGx1xFEjSPFWFl</a>-
+cSB6W54ijUdTLOXtarWM7IpXb7jWr-G9guZuv-4/s1600/3-BACK.JPG)</p>
+<p>&gt; Something simple can be coded in seconds – like lighting up its LEDs or
+&gt; displaying a pattern – with no prior knowledge of computing. All that’s
+&gt; needed is imagination and creativity.</p>
+<p>The idea, according to Sinead Rocks, head of BBC Learning, is to make using
+computers creatively as natural to children as using crayons to experiment
+with coloring.</p>
+<p>The micro:bit can be programmed via web-based editors capable of using several
+programming languages, including Python, Javascript, C++, Microsoft Touch
+Develop, and Blocks (a visual language). The user can then save her program,
+run it in a simulator, and retrieve it any time to load it onto the BBC
+micro:bit.</p>
+<p>In addition to internet connectivity, the device can also connect, via five
+I/O rings as well as Bluetooth, to other computers and devices, including
+Raspberry Pis, Arduinos, Kanos, robots, and motors. When connected, it can be
+powered off another device, or it can run on its own battery. The micro:bit
+also features a compass and an accelerometer.</p>
+<p>BBC Learning, along with the project’s partners, are providing educational
+resources and tutorials aligned with school curriculum, in an effort to ensure
+that teachers are ready when the micro:bits are distributed to students. With
+open-sourced specs and plans for a non-profit to oversee further educational
+use of the device, the micro:bit’s initial reach is sure to grow. Commercial
+development of the device is anticipated by the end of 2015.</p>
+<p>The PSF is eager to seize this opportunity to further the use of Python and to
+increase programming literacy. According to the BBC,</p>
+<p>&gt; The Python Software Foundation will be working with the BBC micro:bit to
+&gt; provide a code editor that will help to teach children the Python
+&gt; programming language. They will be working with the Python development
+&gt; community to produce resources and activities that children can build using
+&gt; Python.</p>
+<p>I urge Python developers to volunteer for this effort and to get involved in
+this wonderful educational initiative. You can read more about this project
+at: <a class="reference external" href="http://www.bbc.co.uk/mediacentre/mediapacks/microbit">BBC micro:bit</a> and
+<a class="reference external" href="http://www.bbc.co.uk/blogs/aboutthebbc/entries/39ad813f-9863-403f-8b7f-63ebdd5a7569">BBC
+Learning</a>.</p>
+<p>_I would love to hear from readers. Please send feedback, comments, or blog
+ideas to me at  <a class="reference external" href="mailto:msushi&#37;&#52;&#48;gnosis&#46;cx">msushi<span>&#64;</span>gnosis<span>&#46;</span>cx</a>._</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2015-07-pycon-singapore.html">
+      
+      <span>PyCon Singapore</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2015-07-correction-to-microbit-post-no-internal.html">
+      <span>Correction to Micro:bit post: no internal battery!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

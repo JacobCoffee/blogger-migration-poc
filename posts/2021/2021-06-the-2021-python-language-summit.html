@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2021 Python Language Summit: Lightning Talks, Round 2 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2021-python-language-summit-lightning-talks-round-2">
+<h1>The 2021 Python Language Summit: Lightning Talks, Round 2<a class="headerlink" href="#the-2021-python-language-summit-lightning-talks-round-2" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2021/06/the-2021-python-language-summit.html">here</a>.</p>
+<p>The second day of the <a class="reference external" href="https://pyfound.blogspot.com/2021/05/the-2021-python-language-summit.html">2021 Python Language
+Summit</a> finished with a series of lightning talks from Ronny
+Pfannschmidt, Pablo Galindo, Batuhan Taskaya, Luciano Ramalho, Jason R.
+Coombs, Mark Shannon, and Tobias Kohn.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgU9WT62lZPx02g25RSuH116DEDeTqEl8ZViuyOGdZ8yr6NJujE5Y5drxTv2nli76dOxMq6nEPA_0uI679ybVvbgDNXZOSjEtgadSDqRdgY398G4z-eUW5H-e6dxRYDDwV4Dh4/s16000/lightning-2.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgU9WT62lZPx02g25RSuH116DEDeTqEl8ZViuyOGdZ8yr6NJujE5Y5drxTv2nli76dOxMq6nEPA_0uI679ybVvbgDNXZOSjEtgadSDqRdgY398G4z-eUW5H-e6dxRYDDwV4Dh4/s500/lightning-2.png">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgU9WT62lZPx02g25RSuH116DEDeTqEl8ZViuyOGdZ8yr6NJujE5Y5drxTv2nli76dOxMq6nEPA_0uI679ybVvbgDNXZOSjEtgadSDqRdgY398G4z-eUW5H-e6dxRYDDwV4Dh4/s500/lightning-2.png</a>)</p>
+<section id="annotated-assertions-debugging-with-joy">
+<h2>Annotated Assertions: Debugging With Joy<a class="headerlink" href="#annotated-assertions-debugging-with-joy" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://twitter.com/ossronny">Ronny Pfannschmidt</a> spoke about annotated
+assertions. He is a pytest maintainer and loves approachable debugging.</p>
+<p>He compared assertions in unittest with assertions in pytest. He remarked that
+mistakes have been made in the past and are still being made today. Before
+pytest 2.1, pytest would reinterpret assertions, which was bad for side
+effects. Today, pytest deals with side effects by handling all of the
+variables, collecting them, and showing them to you.</p>
+<p>Here’s what he would like to see in Python:</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrj2nKP-mFDt4ON0odkBN8DKQTfKI82aFEDTQ5-7T39ZEbQTvjDXWTi4yOkHqD6ZVTX1CRzHId9camiA_nY3MGfXe24G8MoJkVUYNRdhH9UJ8FaZ-CJjKWlSOg_PsD6_n7Ars/s16000/lightning-2-1.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrj2nKP">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhrj2nKP</a>-
+mFDt4ON0odkBN8DKQTfKI82aFEDTQ5-7T39ZEbQTvjDXWTi4yOkHqD6ZVTX1CRzHId9camiA_nY3MGfXe24G8MoJkVUYNRdhH9UJ8FaZ-
+CJjKWlSOg_PsD6_n7Ars/s500/lightning-2-1.png)</p>
+<p>Here’s what he’d like to do:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Create a PEP or have a PEP sponsor</p></li>
+<li><p>Open the implementation of pytest to a wider audience</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="pep-657-fine-grained-error-locations-in-tracebacks">
+<h2>PEP 657: Fine-Grained Error Locations in Tracebacks<a class="headerlink" href="#pep-657-fine-grained-error-locations-in-tracebacks" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt><a class="reference external" href="https://twitter.com/pyblogsal">Pablo Galindo</a> and <a href="#id3"><span class="problematic" id="id4">`</span></a>Batuhan</dt><dd><p>&lt;<a class="reference external" href="https://twitter.com/isidentical">https://twitter.com/isidentical</a>&gt;`_`Taskaya &lt;<a class="reference external" href="https://twitter.com/isidentical">https://twitter.com/isidentical</a>&gt;`_</p>
+</dd>
+</dl>
+<p>shared their thoughts on what they want to do and what they don’t want to do
+with <a class="reference external" href="https://www.python.org/dev/peps/pep-0657/">PEP 657</a>. The goal of this
+PEP is to improve the debugging experience by making the information in
+tracebacks more specific. It would also help with code coverage tools because
+it would allow expression-level coverage rather than just line-level coverage.
+<a class="reference external" href="https://openjdk.java.net/jeps/358">JEP 358</a> has already accomplished
+something similar.</p>
+<p>The speakers want to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Keep maintenance costs low</p></li>
+<li><p>Keep the size small without overcomplicating the compiler</p></li>
+<li><p>Provide an API for tools to consume</p></li>
+<li><p>Provide an opt-out mechanism</p></li>
+</ul>
+</div></blockquote>
+<p>They want to avoid:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Adding a new set of .pyc files</p></li>
+<li><p>Adding a new debugging info file format</p></li>
+<li><p>Having a large number of new flags to customize</p></li>
+<li><p>Implementing in memory/size encoding</p></li>
+<li><p>Complicating the compiler too much</p></li>
+<li><p>Providing more than one opt-out mechanism</p></li>
+<li><p>Having manual metadata propagation</p></li>
+</ul>
+</div></blockquote>
+<p>For the opt-out mechanism, there will be two ways to deactivate the feature:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p><em>Environment variable:</em> PYNODEBUGRANGES</p></li>
+</ol>
+</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">**</span></a></p>
+<blockquote>
+<div><ol class="arabic simple" start="2">
+<li><p><em>Command line option:</em> -Xnodebugranges</p></li>
+</ol>
+</div></blockquote>
+</section>
+<section id="who-speaks-for-mort-on-python-dev">
+<h2>Who Speaks for Mort on python-dev?<a class="headerlink" href="#who-speaks-for-mort-on-python-dev" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://twitter.com/ramalhoorg">L &lt;https://twitter.com/ramalhoorg&gt;`_`uciano
+Ramalho</a> explained that Mort, Elvis, and
+Einstein are names for personas that have been used within Microsoft to
+understand the needs of users:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Mort</em> is an opportunistic developer who like to create quick solutions for immediate problems. He focuses on productivity and learns as needed.</p></li>
+<li><p><em>Elvis</em> is a pragmatic programmer who likes to create long-lasting solutions. He learns while working on solutions.</p></li>
+<li><p><em>Einstein</em> is a paranoid programmer who likes to create the most efficient solution to a problem. He typically learns before working on the solution.</p></li>
+</ul>
+</div></blockquote>
+<p>Users of Python can be organized into similar groups with distinct needs.
+Since Einsteins may not clearly understand the needs of Morts and Elvises,
+Luciano Ramalho suggested that it may be time to recruit core users to speak
+for the Python users who aren’t also core developers.</p>
+</section>
+<section id="annotations-as-transforms">
+<h2>Annotations as Transforms<a class="headerlink" href="#annotations-as-transforms" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://twitter.com/jaraco">Jason R. Coombs</a> shared his thoughts on
+designating transformation functions to be applied to parameters and return
+values. He had originally been inspired by the simplicity and power of
+decorators, and his idea could in theory be applied with decorators today.
+However, he determined that it would be more elegant to use annotations.</p>
+<p>Using this approach would have advantages:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Elegant, simple declaration of intended behavior</p></li>
+<li><p>Clear separation of concerns</p></li>
+<li><p>Avoiding rewriting variables in the scope</p></li>
+<li><p>Easy reuse of transformations</p></li>
+<li><p>Explicit type transformation</p></li>
+</ul>
+</div></blockquote>
+<p>However, there would also be challenges:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Compatibility:</em> Although older versions of Python don’t have this functionality, you could implement a compatibility shim.</p></li>
+<li><p><em>Ambiguity between types and transforms:</em> In order to address this concern, you could potentially:
+* Require transforming functions to be explicitly created
+* Provide a wrapping helper to specify that a type is used as a transform (e.g. -&gt; transform(str))
+* Provide a wrapper helper or explicit types for nontransforming type declarations (e.g. Int or strict(int))</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="tiers-of-execution-making-cpython-execute-efficiently">
+<h2>Tiers of Execution: Making CPython Execute Efficiently<a class="headerlink" href="#tiers-of-execution-making-cpython-execute-efficiently" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://github.com/markshannon">Mark Shannon</a> started by defining <a class="reference external" href="https://github.com/markshannon/faster-cpython/blob/master/tiers.md">four tiers
+of execution</a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><em>Tier 0:</em> The slowest tier, with minimal memory usage and low startup time*</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><ul>
+<li><p><em>Tier 1:</em> Primary interpreter, the adaptive, specializing interpreter</p></li>
+<li><p><em>Tier 2:</em> Small region, lightweight JIT</p></li>
+<li><p><em>Tier 3:</em> Large region, heavyweight JIT</p></li>
+</ul>
+</li>
+</ul>
+<p>The higher a tier, the hotter the code that it will execute. Today, CPython is
+at tier 0.3. It’s a compromise between memory use and speed but isn’t
+optimized for either. He said that tier 0 could be considered for Python 3.11
+or later. It could:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Minimize startup time and memory use at the expense of execution speed</p></li>
+<li><p>Support a full set of features, including sys.settrace</p></li>
+<li><p>Be able to execute from a .pyc file that is mmapped and immutable</p></li>
+</ul>
+</div></blockquote>
+<p>Tier 1 is planned for Python 3.11:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Adaptive, specializing interpreter (<a class="reference external" href="https://www.python.org/dev/peps/pep-0659/">PEP 659</a>)</p></li>
+<li><p>Possible lack of support for some features, such as sys.settrace</p></li>
+</ul>
+</div></blockquote>
+<p>Tiers 2 and 3 are entirely hypothetical at the moment and would involve JIT
+compilers. They maybe be more like LuaJIT than JVM.</p>
+<p>Switching between tiers can be expensive, but the goal is to make it cheaper
+by having the same in-memory data layout for all tiers. In order to support
+all of Python, we will need to switch between tiers often. Each tier should be
+maintained mostly independently for open-source development. The performance
+cost won’t be high if the memory layout is designed carefully.</p>
+</section>
+<section id="running-parallel-python-code-in-the-browser">
+<h2>Running Parallel Python Code in the Browser<a class="headerlink" href="#running-parallel-python-code-in-the-browser" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://tobiaskohn.ch/">Tobias Kohn</a> has been working on
+<a class="reference external" href="https://tpython.tobiaskohn.ch/">TPython</a>, a new Python implementation that
+works in the browser. His objectives were to do multiprocessing in the
+browser, not block the UI, and use native JavaScript libraries.</p>
+<p>Because JavaScript has a single thread event queue that contains even I/O and
+garbage collection, as long as your current thread is running, nothing else
+can happen while your current task is running. You can use web workers with
+messages in each of the web worker’s event queues, but those messages won’t
+become visible until the event queue gets to them.</p>
+<p>You could suspend the current task and let everything in the event queue
+happen so that the message can be processed and then resume your task later
+on. To do that, you could use the bytecode in Python 3.6+ because the frame
+already has an index into the bytecode and captures state, to a certain
+extent. However, some bytecode instructions are too complex. _add_ can execute
+arbitrary Python code, fail, call _radd_, and execute other Python code. The
+standard bytecode is insufficient.</p>
+<p>He’s currently using an MPI interface for parallel processing. There is:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Early-stage multiprocessing support</p></li>
+<li><p>A NumPy-like interface for JavaScript typed arrays</p></li>
+<li><p>No blocking or freezing of the browser’s UI</p></li>
+</ul>
+</div></blockquote>
+<p>It runs on unmodified CPython 3.6+ bytecode.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2021-06-the-2021-python-language-summit-fuzzing.html">
+      
+      <span>The 2021 Python Language Summit: Fuzzing and Testing Python With Properties</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2021-06-update-on-python-software-foundation.html">
+      <span>Update on the Python Software Foundation Executive Director</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

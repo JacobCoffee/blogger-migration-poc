@@ -1,0 +1,227 @@
+.. post:: 2019-05-29
+   :tags: post, pypi, legacy-blogger
+   :author: Python Software Foundation
+   :category: Legacy
+   :location: World
+   :language: en
+
+2018 in review!
+===============
+
+*This was originally posted on blogger* `here <https://pyfound.blogspot.com/2019/01/2018-in-review.html>`_.
+
+  
+Happy New Year from the PSF! We’d like to highlight some of our activities
+from 2018 and update the community on the initiatives we are working on.  
+
+  
+
+PyCon 2018
+~~~~~~~~~~
+
+  
+
+PyCon 2018 was held in Cleveland, Ohio, US. The conference brought together
+3,389 attendees from 41 countries. We awarded $118,543 in financial aid to 143
+attendees. In addition to financial aid, the conference continues to offer
+childcare for attendees, a newcomer orientation, a PyLadies lunch, and many
+more events.  
+  
+Registration is now open for PyCon 2019:
+<https://pycon.blogspot.com/2018/11/pycon-2019-registration-is-open.html>`
+ <https://pycon.blogspot.com/2018/11/pycon-2019-registration-is-open.html>`_.
+
+  
+
+Community Support
+~~~~~~~~~~~~~~~~~
+
+  
+
+We initiated a Python Software Foundation *Meetups Pro network* at the end
+of the year, which supports 37 meetups in 8 countries and further expansion
+planned. The Sponsorship model allows the PSF to invite existing groups to the
+Meetup Pro network. The organizers no longer pay for the meetup subscription
+once they become part of the PSF network. This initiative will save
+approximately 32 hours of PSF staff time and 21 hours of meetup organizer
+time.
+
+  
+To help with transparency, the *PSF launched its first newsletter* in
+December! If you’d like to receive our next edition, subscribe here:
+<https://www.python.org/psf/newsletter/>. You can read our first edition here:
+<https://mailchi.mp/53049c7e2d8b/python-software-foundation-q4-newsletter>  
+
+  
+
+This year we *formalized our fiscal sponsorship program* to better support
+mission related projects. The PSF has signed fiscal sponsorship agreements
+with 8 groups including Pallets (Flask), PhillyPUG, PuPPy, PyCascades,
+PyHawaii, PyMNtos, PyArkansas, and the Python San Diego User Group. Through
+this effort, the PSF is able to support these projects by handling their
+accounting and admin work so the projects can concentrate on furthering their
+goals.  
+
+  
+
+Python Package Index
+~~~~~~~~~~~~~~~~~~~~
+
+  
+
+Thanks to a generous award from the `Mozilla Open Source Support
+program <https://www.mozilla.org/en-US/moss/>`_, the all new `Python Package
+Index <https://pypi.org/>`_ based on the `warehouse
+codebase <https://github.com/pypa/warehouse>`_ rollout was completed in April of
+2018.  
+
+  
+
+If you are interested in what the Packaging Group is currently working on,
+check out their RFP for security and accessibility development:
+<http://pyfound.blogspot.com/2018/12/upcoming-pypi-improvements-
+for-2019.html>.
+
+  
+
+Grants
+~~~~~~
+
+  
+
+The Python Ambassador program helps further the PSF's mission with the help of
+local Pythonistas.  The goal is to perform local outreach and introduce Python
+to areas where it may not exist yet. In March 2018, the board approved
+expanding our *Python Ambassador program to include East Africa*. Kato
+Joshua and the Afrodjango Initiative have been doing great outreach in
+universities in Uganda, Rwanda, and Kenya.
+
+  
+
+In a general overview, $324,000 was paid in grants last year to recipients in
+51 different countries. We awarded $59,804 more in grants in 2018 than 2017.
+That's a 22.6% increase for global community support.  
+  
+Here is a chart showing the global grant distribution in 2018:  
+
+![](https://lh3.googleusercontent.com/i0gecl1zagCJYKGaxYKPugXzZD_ocRIoDBtVc5EBbmlnDfXz67Eq-3e3KrQvfDkI
+--k2jf8Walx8nMA4Ax_kF4lRSojPdpbEIDNLGjLM8Qv_lY8fzcHJfaRYp4Gjqed6d97S6n5U)
+
+
+
+
+PSF Staff
+~~~~~~~~~
+
+  
+
+In June Ernest W. Durbin III was hired as Director of Infrastructure. Ernest
+will be evaluating and strengthening internal systems, supporting and
+improving community infrastructure, and developing programs that benefit the
+Python community worldwide.  
+  
+In September, the PSF hired Jackie Augustine as Event Manager. Jackie will be
+working with the team on all facets of PyCon and managing several community
+resources for regional conferences.  
+  
+It is with great pleasure that we announce that Ewa Jodlowska will be the
+PSF's first Executive Director, starting January 1, 2019. Given her years of
+dedicated service to the PSF from event manager to her current position as
+Director of Operations, we can think of no one more qualified to fill this
+role as the PSF continues to grow and develop.*  
+**  
+*  
+
+Community Recognition
+~~~~~~~~~~~~~~~~~~~~~
+
+  
+
+Through out 2018, we presented several awards to recognize those that go above
+and beyond in our community. This year we gave out several Community Service
+Awards, a Distinguished Service Award, and a Frank Willison Memorial Award. To
+find out more about our awards or how to nominate someone for a Community
+Service Award, check out: <https://www.python.org/community/awards/>.
+
+  
+
+Community Service Awards
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Chukwudi Nwachukwu* was recognized for his contribution to spreading the
+growth of Python to the Nigerian community and his dedication and research to
+the PSF grants work group.  
+  
+*Mario Corchero* was awarded a CSA for his leadership of the organization of
+PyConES, PyLondinium, and the PyCon Charlas track in 2018. His work has been
+instrumental in promoting the use of Python and fostering Python communities
+in Spain, Latin America, and the UK.  
+  
+We also honored our *Job Board volunteers: Jon Clements, Melanie Jutras, Rhys
+Yorke, Martijn Pieters, Patrice Neff, and Marc-Andre Lemburg* , who have
+spent many hours reviewing and managing the hundreds of job postings submitted
+on an annual basis  
+  
+*Mariatta Wijaya* was an awardee for her contributions to CPython, her
+efforts to improve the workflow of the Python core team, and her work to
+increase diversity in our community. In addition, her work as co-chair of
+PyCascades helps spread the growth of Python  
+  
+*Alex Gaynor* received an award for his contributions to the Python and
+Django Communities and the Python Software Foundation. Alex previously served
+as a PSF Director in 2015-2016. He currently serves as an Infrastructure Staff
+member and contributes to legacy PyPI and the next generation warehouse and
+has helped legacy warehouse in security (disabling unsupported OpenID) and
+cutting bandwidth costs by compressing 404 images.  
+  
+
+2018 Distinguished Service Award
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The 2018 Distinguished Service Award was presented to Marc-Andre Lemburg for
+his significant contributions to Python as a core developer, EuroPython chair,
+PSF board member, and board member of the EuroPython Society.  
+
+  
+
+2018 Frank Willison Memorial Award
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The `Frank Willison Memorial
+Award <https://www.python.org/community/awards/frank-willison/>`_ for
+Contributions to the Python Community was awarded to Audrey Roy Greenfeld and
+Daniel Roy Greenfeld for their contributions to the development of Python and
+the global Python community through their speaking, teaching, and writing.  
+
+  
+
+Donations and Sponsorships
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  
+
+We'd like to thank all of our donors and sponsors that continue to support our
+mission! Donations and fundraisers resulted in $489,152 of revenue. This
+represents 15% of total 2018 revenue. PSF and PyCon sponsors contributed over
+$1,071K in revenue!
+
+  
+
+This year we welcomed 17 new sponsors in 2018 including our first Principal
+Sponsors, Facebook and Capital One. Thank you for your very generous support.
+
+  
+
+  
+We welcome your thoughts on how you’d like to see our Foundation involved in
+Python’s ecosystem and are always interested in hearing from you. `Email
+us <mailto:psf-staff@python.org>`_!  
+  
+We wish you a very successful 2019!  
+  
+Ewa Jodlowska  
+Executive Director  
+  
+Betsy Waliszewski  
+Sponsor Coordinator
+

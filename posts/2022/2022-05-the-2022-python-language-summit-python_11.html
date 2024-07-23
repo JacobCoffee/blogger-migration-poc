@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>The 2022 Python Language Summit: Python without the GIL - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="the-2022-python-language-summit-python-without-the-gil">
+<h1>The 2022 Python Language Summit: Python without the GIL<a class="headerlink" href="#the-2022-python-language-summit-python-without-the-gil" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2022/05/the-2022-python-language-summit-python_11.html">here</a>.</p>
+<p>If you peruse the archives of language-summit blogs, you’ll find that one
+theme comes up <a class="reference external" href="https://lwn.net/Articles/689548/">again</a>
+<a class="reference external" href="https://lwn.net/Articles/723514/">and</a>
+<a class="reference external" href="https://lwn.net/Articles/754577/">again</a>: the dream of Python without the
+GIL. Continuing this venerable tradition, Sam Gross kicked off <cite>the 2022
+Language Summit  &lt;https://pyfound.blogspot.com/2022/05/the-2022-python-
+language-summit_01678898482.html&gt;`_by giving the attendees an update on `nogil</cite>,
+a project that took the Python community by storm when it was first announced
+in October 2021.</p>
+<p>The GIL, or <a class="reference external" href="https://realpython.com/python-gil/">“Global Interpreter Lock”</a>,
+is the key feature of Python that prevents true concurrency between threads.
+This is another way of saying that it makes it difficult to do multiple tasks
+simultaneously while only running a single Python process. Previously the main
+cheerleader for removing the GIL was Larry Hastings, with his famous
+“Gilectomy” project. The Gilectomy project was ultimately abandoned due to the
+fact that it made single-threaded Python code significantly slower. But after
+seeing Gross’s proof-of-concept fork in October, Hastings wrote in <a class="reference external" href="https://mail.python.org/archives/list/python-dev&#64;python.org/message/CCGH6COYQGCAFZWD32ROUOHRSE4BUL3P/">an email
+to the python-dev mailing list</a>:</p>
+<p>&gt; Sam contacted me privately some time ago to pick my brain a little. But
+&gt; honestly, Sam didn’t need any help–he’d already taken the project further
+&gt; than I’d ever taken the Gilectomy.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<section id="the-current-status-of-nogil">
+<h2>The current status of <cite>nogil</cite><a class="headerlink" href="#the-current-status-of-nogil" title="Link to this heading">¶</a></h2>
+<p>Since releasing his <a class="reference external" href="https://github.com/colesbury/nogil">proof-of-concept
+fork</a> in October – based on an alpha
+version of Python 3.9 – Gross stated that he’d been working to rebase the
+<cite>nogil</cite> changes onto 3.9.10.</p>
+<p>3.9 had been chosen as a target for now, as reaching a level of early adoption
+was important in order to judge whether the project as a whole would be
+viable. Early adopters would not be able to use the project effectively if
+third-party packages didn’t work when using <cite>nogil</cite>. There is still much
+broader support for Python 3.9 among third-party packages than for Python
+3.10, and so Python 3.9 still made more sense as a base branch for now rather
+than 3.10 or <cite>main</cite>.</p>
+<p>Gross’s other update was that he had made a change in his approach with regard
+to thread safety. In order to make Python work effectively without the GIL, a
+lot of code needs to have new locks added to it in order to ensure that it is
+still thread-safe. Adding new locks to existing code, however, can be very
+difficult, as there is potential for large slowdowns in some areas. Gross’s
+solution had been to invent a new kind of lock, one that is “more Gilly”.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="the-proposal">
+<h2>The proposal<a class="headerlink" href="#the-proposal" title="Link to this heading">¶</a></h2>
+<p>Gross came to the Summit with a proposal: to introduce a new compiler flag in
+Python 3.12 that would disable the GIL.</p>
+<p>This is a slight change to Gross’s initial proposal from October, where he
+brought up the idea of a runtime flag. A compiler flag, however, reduces the
+risk inherent in the proposal: “You have more of a way to back out.”
+Additionally, using a compiler flag avoids thorny issues concerning
+preservation of <a class="reference external" href="https://docs.python.org/3/c-api/stable.html#stable-application-binary-interface">C ABI</a> stability. “You can’t do it with a runtime
+flag,” Gross explained, “But there’s precedent for changing the ABI behind a
+compiler flag”.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="reception">
+<h2>Reception<a class="headerlink" href="#reception" title="Link to this heading">¶</a></h2>
+<p>Gross’s proposal was greeted with a mix of excitement and robust questioning
+from the assembled core developers.</p>
+<p>Carol Willing queried whether it might make more sense for <cite>nogil</cite> to carry on
+as a separate fork of CPython, rather than for Gross to aim to merge his work
+into the <cite>main</cite> branch of CPython itself. Gross, however, responded that this
+“was not a path to success”.</p>
+<p>&gt; “A lot of the value of Python is the ecosystem, not just the language…
+&gt; CPython really leads the way in terms of the community moving as a block.
+&gt;
+&gt; “Removing the GIL is a _really_ transformative step. Most Python programs
+&gt; just don’t use threads at the moment if they want to run on multiple cores.
+&gt; If <cite>nogil</cite> is to be a success, the community as a whole has to buy into it.”
+&gt;
+&gt; – Sam Gross</p>
+<p>Samuel Colvin, maintainer of <cite>the  &lt;https://pydantic-
+docs.helpmanual.io&gt;`_``pydantic &lt;https://pydantic-docs.helpmanual.io&gt;`_`</cite>
+library &lt;<a class="reference external" href="https://pydantic-docs.helpmanual.io">https://pydantic-docs.helpmanual.io</a>&gt;`_, expressed disappointment that
+the new proposal was for a compiler flag, rather than a runtime flag. “I can’t
+help thinking that the level of adoption would be massively higher” if it was
+possible to change the setting from within Python, Colvin commented.</p>
+<p>There was some degree of disagreement as to what the path forward from here
+should be. Gross appeared to be seeking a high-level decision about whether
+<cite>nogil</cite> was a viable way forward. The core developers in attendance, however,
+were reluctant to give an answer without knowing the low-level costs. “We need
+to lay out a plan of _how_ to proceed,” remarked Pablo Galindo Salgado. “Just
+creating a PR with 20,000 lines of code changed is infeasible.”</p>
+<p>Barry Warsaw and Itamar Ostricher both asked Gross about the impact <cite>nogil</cite>
+could have on third-party libraries if they wanted to support the new mode.
+Gross responded that the impact on many libraries would be minimal – no impact
+at all to a library like <a href="#id2"><span class="problematic" id="id3">``</span></a>scikit-learn &lt;<a class="reference external" href="https://scikit-learn.org/stable/">https://scikit-learn.org/stable/</a>&gt;`_`,
+and perhaps only 15 lines of code for <a href="#id4"><span class="problematic" id="id5">``</span></a>numpy &lt;<a class="reference external" href="https://numpy.org">https://numpy.org</a>&gt;`_`. Gross had
+received considerable interest from scientific libraries, he said, so was
+confident that the pressure to build separate C extensions to support <cite>nogil</cite>
+mode would not be unduly burdensome. Carol Willing encouraged Gross to attend
+scientific-computing conferences, to gather more feedback from that community.</p>
+<p>There was also a large amount of concern from the attendees about the impact
+the introduction of <cite>nogil</cite> could have on CPython development. Some worried
+that introducing <cite>nogil</cite> mode could mean that the number of tests run in CI
+would have to double. Others worried that the maintenance burden would
+significantly increase if two separate versions of CPython were supported
+simultaneously: one with the GIL, and one without.</p>
+<p>Overall, there was still a large amount of excitement and curiosity about
+<cite>nogil</cite> mode from the attendees. However, significant questions remain
+unresolved regarding the next steps for the project.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2022-05-the-2022-python-language-summit-python.html">
+      
+      <span>The 2022 Python Language Summit: Python in the browser</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2022-05-the-2022-python-language-summit_60.html">
+      <span>The 2022 Python Language Summit: Upstreaming optimisations from Cinder</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

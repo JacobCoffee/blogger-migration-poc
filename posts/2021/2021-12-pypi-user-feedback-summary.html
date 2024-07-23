@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>PyPI User Feedback Summary - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="pypi-user-feedback-summary">
+<h1>PyPI User Feedback Summary<a class="headerlink" href="#pypi-user-feedback-summary" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2021/12/pypi-user-feedback-summary.html">here</a>.</p>
+<p>The PSF conducted a series of three surveys to identify key user requirements
+that have not been addressed so far. We used this round of surveys to engage
+with the PyPI community and understand ways to support community needs better.
+This post summarizes the feedback we have received and key decisions we have
+made based on the feedback.</p>
+<section id="purpose-of-the-surveys">
+<h2>Purpose of the surveys<a class="headerlink" href="#purpose-of-the-surveys" title="Link to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Identify one feature or group of features that would be most useful for users who are part of a corporate or community project</p></li>
+<li><p>Identify features that can offered to companies on a subscription basis, and community projects at no cost</p></li>
+</ul>
+</div></blockquote>
+<p>First Survey</p>
+<p>The <a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLScBMtuf6kIQo6OVPmKPgCA3MPFhtrX1UvqrlZA3fAvbvPU7Hg/viewform">first
+survey</a>
+was a general survey where PyPI users were invited to submit features they
+would like PyPI to offer. This survey was targeted at users who used PyPI as a
+team in their corporate or community project. We also asked permission from
+survey respondents if we could contact them for more detailed feedback.</p>
+<p>Figure 1: Most requested features from the first survey</p>
+<p>![](<a class="reference external" href="https://lh3.googleusercontent.com/CcAu">https://lh3.googleusercontent.com/CcAu</a>-
+YpBse_dEviBsOg_UTqjjdOEwiwIl2OVedhaeb8tzyqiPGAr7M9V4eisWj_tQeYrbw-3hrs9dUGFq_ffM1m9BaqfXViOfJ7NSioNEN7-uuOmBjem_vaXNY3qO_DRYJJzLxXx=w544-h304)</p>
+<p>The first survey received 35 valid responses. Out of this, 12 responses were
+for community projects. As seen in Figure 1, the most requested feature was
+private packages. At second place, both organization accounts and namespace
+support had the same number of requests. Other feature requests are listed
+<a class="reference external" href="https://docs.google.com/spreadsheets/d/1GeG_dORA1j60PqRDO0AELLQIaoUuST9bITuYoX0yffU/edit?usp=sharing">here</a>.</p>
+<p>Second Survey</p>
+<p>Based on the feedback we received in the first survey, we invited respondents
+for short interviews. 11 respondents agreed to meet us. At this interview, we
+asked PyPI users to expand on previously shared feedback. We wanted to know
+more about problems they faced when using PyPI as a team. We also wanted to
+know how they used other package managers and which features were most useful
+in these packaging managers. Of the 11 respondents, 5 respondents represented
+community projects.</p>
+<p>Figure 2: Most requested features in the second survey</p>
+<p>![](<a class="reference external" href="https://lh5.googleusercontent.com/c3w3T1lTlOCsBKUTLhBBmC8YSBJXLBqRzTCcP8gl4fdhahh1vpy6YRWvq8GKR2a_XMeflcRMx0F-4ihXkN1-HaYPAzBjaad71-9sYg8Z-gYPrw7A580BgjLhCcOy4-vaTzSo2aIf=w538-h385">https://lh5.googleusercontent.com/c3w3T1lTlOCsBKUTLhBBmC8YSBJXLBqRzTCcP8gl4fdhahh1vpy6YRWvq8GKR2a_XMeflcRMx0F-4ihXkN1-HaYPAzBjaad71-9sYg8Z-gYPrw7A580BgjLhCcOy4-vaTzSo2aIf=w538-h385</a>)</p>
+<p>As seen in Figure 2, the most requested feature was organization accounts.
+Other features such as namespace support and private packages were also
+requested more than once. One common theme that emerged was how useful PyPI is
+for many teams in different organizations and projects. Other packaging
+managers such as npm and NuGet were also mentioned to indicate superior
+features when it comes to managing multiple packages and teams, namespace
+support and private packages. The minutes of the meetings are available
+<a class="reference external" href="https://docs.google.com/document/d/1RVmVYMTIRK7ce4NlxlgzxOJtYu_FvmGq2wvfi-IfWHc/edit?usp=sharing">here</a>. The minutes of one meeting cannot be shared publicly.</p>
+<p>Third Survey</p>
+<p>From the second survey, it was clear that features like organization accounts
+and namespace support would be most useful to users in a team. This team could
+represent an organization or community project. To confirm this finding, we
+held another
+<a class="reference external" href="https://docs.google.com/forms/d/e/1FAIpQLSfuDRH_KucxqHIYWVIMQJS_r6JFGMR0rNWn0KQ4bgMXsTlxhQ/viewform?usp=sf_link">poll</a>
+asking users to choose between the three features- organization/team accounts,
+namespace support and private packages.</p>
+<p>Figure 3: Most requested features in the third survey</p>
+<p>![](<a class="reference external" href="https://lh6.googleusercontent.com/kTUQQluDaiJtm8YUauq3o-Gp75r2kVaHFPF05MZnihOiAUFpbzjR7-krGY9qQUzKybWNzjc_c91kFowkKiVr9WChThatqsYiEqXBf9FMbSHHpr">https://lh6.googleusercontent.com/kTUQQluDaiJtm8YUauq3o-Gp75r2kVaHFPF05MZnihOiAUFpbzjR7-krGY9qQUzKybWNzjc_c91kFowkKiVr9WChThatqsYiEqXBf9FMbSHHpr</a>-
+RNQfoc5Hzeq9fL_NLEehs8_RD=w545-h385)</p>
+<p>There were 160 responses from the PyPI community. From Figure 3, it can be
+seen that namespace support was the most requested feature with 64 requests.
+There were 42 requests for organization accounts and 54 requests for private
+packages. Other requested features are listed
+<a class="reference external" href="https://docs.google.com/spreadsheets/d/1GeG_dORA1j60PqRDO0AELLQIaoUuST9bITuYoX0yffU/edit?usp=sharing">here</a>.</p>
+<p>We also asked users to share where they got to know about the poll. 81 users
+saw the poll on Twitter. Another 27 users saw the poll on discuss.python.org
+and 23 users found the poll in the PSF newsletter. A total of 29 users saw the
+poll on other outlets such as PyCoder’s weekly, RealPython newsletter, company
+Slack channel.</p>
+<p>Key Decisions</p>
+<p>From the three surveys, it was observed that organizations accounts, namespace
+support and private packages were the three most important features for users.
+There were multiple requests for these three features. Based on the feedback
+we have received so far, we have made these key decisions-</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The PSF will develop organization accounts in the first phase of development. Any feature targeted at organization or community projects will require organization accounts to manage the feature. Hence, it makes sense to develop organization accounts first. This feature will allow organizations to manage multiple users and multiple packages.</p></li>
+<li><p>Organizations accounts will be offered on a subscription basis. Private organizations will be charged a fixed amount while community projects will avail this feature free of cost.</p></li>
+</ul>
+</div></blockquote>
+<p>Next Steps</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Develop the project roadmap for organization account feature. This roadmap will be shared with the community once the Packaging Working Group reviews and approves it.</p></li>
+<li><p>Develop and share RfP for organization account feature on PyPI. We will invite developers to build this feature on a contract basis.</p></li>
+<li><p>Work with the PyPI community to scope out the namespace support feature. We will invite users to share their feedback to define the requirements, functionalities and behaviour. Once the organization account feature has been developed and delivered, we will develop the namespace support feature.</p></li>
+<li><p>Engage with the PyPI community to identify more features that can be offered to organizations and community projects.</p></li>
+</ul>
+</div></blockquote>
+<p>Thank you for reading this post in its entirety. If you have questions or if
+you would like to discuss this further, please use this
+<a class="reference external" href="https://discuss.python.org/t/pypi-user-feedback-summary/12440">thread</a>. To
+reach a large part of the community, please RT this
+<a class="reference external" href="https://twitter.com/pypi/status/1468994112447819786">tweet</a>.</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2021-12-a-message-from-psfs-outgoing-executive.html">
+      
+      <span>A message from the PSF’s outgoing Executive Director</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2021-12-georgi-ker-awarded-psf-community.html">
+      <span>Georgi Ker Awarded the PSF Community Service Award for Q4 2020</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

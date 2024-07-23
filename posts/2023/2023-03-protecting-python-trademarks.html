@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Protecting the Python Trademarks - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="protecting-the-python-trademarks">
+<h1>Protecting the Python Trademarks<a class="headerlink" href="#protecting-the-python-trademarks" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2023/03/protecting-python-trademarks.html">here</a>.</p>
+<section id="who-is-the-trademarks-working-group">
+<h2>Who is the Trademarks Working Group?<a class="headerlink" href="#who-is-the-trademarks-working-group" title="Link to this heading">¶</a></h2>
+<p>The Python Software Foundation Trademarks Working Group was created by the PSF
+Board of Directors to  monitor and authorize (or prohibit) use of trademarks
+held by the PSF.  The WG—initially dubbed committee—was created in 2008, and
+has been co-chaired by me since 2010, adding Marc-André Lemburg in 2013.
+We’ve had a variety of other members over the years, with Iqbal Abdullah being
+a wonderful and helpful member of the WG for the last couple years.</p>
+<p>You can write to us any time at on the <a class="reference external" href="mailto:psf-trademarks&#37;&#52;&#48;python&#46;org">Trademarks WG mailing
+list</a>.  If you ever want to use one of our
+marks, please do write to us.  Even for those uses that are completely non-
+contentious, we’d rather quickly approve them and have a record in the mailing
+list archives than just not know about the use (the archive is not public,
+however, since legal issues, even potential litigation, are sometimes
+discussed).</p>
+<p>We would welcome participation by more Python community members (being a PSF
+member is not strictly required, just an interest in helping Python maintain
+its branding).  Helping with the working group is a pretty small time
+commitment, but as with many volunteer efforts, folks often drift away from
+such efforts over the course of years.  By all means contact us if you have an
+interest in trademarks and an hour or two a week to spend helping us in these
+discussions.</p>
+<p>Our Goals</p>
+<p>The PSF holds registered trademarks in a large number of
+jurisdictions—incrementally increasing in number over the years—and “use
+trademarks” worldwide.  Obviously, legal regimes around intellectual property,
+and trademarks specifically, vary somewhat around the world; for the most part
+trademarks serve a similar purpose everywhere though.</p>
+<p>We don’t want the brand and reputation of Python to be used in a deceptive
+manner. However, Python being free and open source software (FOSS), and the
+PSF being devoted to such freedom, the licensing policy adopted by the PSF is
+very liberal and serves the purpose of promoting the use and knowledge of
+Python rather than trying to obtain commercial advantage (as many for-profit
+product marks are used).</p>
+<p>Let’s go back to what marks the PSF maintains.  The name “Python” is a
+_wordmark_  that is registered in many places.  Nominative use of the name is
+always permitted when it is used to describe the Python programming language.
+In contexts such as books devoted to the language or about associated
+libraries, tools, etc. we ask publishers to include a small notice in the
+front matter that mentions the PSF trademark.  We have an <a class="reference external" href="https://www.python.org/psf/trademarks/">official usage
+policy</a> and a <a class="reference external" href="https://www.python.org/psf/trademarks-faq/">Frequently Asked
+Questions</a> that detail permitted
+usage, with the FAQ having more examples and a less formal tone (probably best
+to start with the FAQ if you have questions).</p>
+<p>Similarly, the names “PyCon” and “PyLadies” are also wordmarks of the PSF. The
+policies around use of <a class="reference external" href="https://www.python.org/psf/trademarks/pycon/">PyCon</a>
+and of <a class="reference external" href="https://kit.pyladies.com/en/latest/misc/trademark.html">PyLadies</a> are
+each a little bit different from the Python wordmark, since they serve
+different purposes.  Essentially, we want to make sure that when those names
+are used, they maintain an identity and advance the goals for which the marks
+were created.  The PyLadies wordmark is monitored and authorized by the
+<a class="reference external" href="mailto:info&#37;&#52;&#48;pyladies&#46;com">PyLadies leadership</a> rather than the Trademarks WG,
+so email to them is the best place to ask questions of them.</p>
+<p><a class="reference external" href="https://www.python.org/static/community_logos/python-logo.png">![</a>](<a class="reference external" href="https://www.python.org/static/community_logos/python-logo.png">https://www.python.org/static/community_logos/python-logo.png</a>)</p>
+</section>
+<section id="trademarks-are-tricky">
+<h2>Trademarks are Tricky<a class="headerlink" href="#trademarks-are-tricky" title="Link to this heading">¶</a></h2>
+<p>The trickiest part of what we do on the Working Group is approve use of the
+“two-snakes” <a class="reference external" href="https://www.python.org/community/logos/">Python logo</a>.  A great
+many really wonderful Python-related user groups, conferences, software
+projects, publications, blogs, and other efforts that do a great job of
+promoting Python, understandably don’t understand the arcana of trademark law.
+In particular, the rules we need to maintain about _derived <a href="#id2"><span class="problematic" id="id3">logos_</span></a>  can feel
+obscure and counter-intuitive in the FOSS world.</p>
+<p>The key issue is that <em>trademark is not copyright</em>.  For people familiar
+with copyleft and software freedom, it feels like the right to create derived
+products should be as little restricted as possible, perhaps not at all. While
+I endorse that wholeheartedly for copyright, that’s not how trademarks
+work—nor, I believe, how they _should <a href="#id4"><span class="problematic" id="id5">work_</span></a>.  Trademark is instead a kind of
+consumer protection, it’s a way of saying that a particular thing is what it
+purports to be.  In a way, a trademark is like a signature or a seal (whether
+a physical or a digital version of such); it’s a testament to authenticity of
+a thing.</p>
+<p>Apart from my particular philosophical attitudes about trademarks, the laws
+around them have a specific concept of <em>dilution</em>  wherein merely
+_permitting_  a use that makes a mark less distinct can remove the protection
+altogether.  Specifically, it means that if the PSF allows groups to make
+completely well-meaning, and often even beautiful, changes to the shape of the
+two-snakes logo, we could wind up losing the ability to stop malicious actors
+from misbranding their non-Python things with the logo.  To be clear, many
+derived logos are absolutely permissible, and the FAQ discusses what
+distinguishes permissible and impermissible derivations (and what can be
+“inspired by but not derived from”).</p>
+<p>Happily, all the good actors we’ve dealt with, in my 15 years working on this,
+have come to understand the concerns of the PSF, and have modified their
+customized logos in ways that allow us to authorize them.  It’s slightly
+unfortunate that a few others have slipped through simply because the WG never
+knew they existed until they were already in use, but we’ve worked with those
+groups (largely conferences and user groups, sometimes software projects) to
+fix things going forward.  It’s a little bit of politics, a little bit of
+professionalism, but mostly it’s just reaching out to the truly wonderful
+people who make up our worldwide Python community.</p>
+<p>David Mertz (<a class="reference external" href="mailto:mertz&#37;&#52;&#48;gnosis&#46;cx">mertz<span>&#64;</span>gnosis<span>&#46;</span>cx</a>)</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2023-02-the-case-for-second-developer-in.html">
+      
+      <span>The Case for a Second Developer-in-Residence for Python</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2023-04-the-eus-proposed-cra-law-may-have.html">
+      <span>The EU’s Proposed CRA Law May Have Unintended Consequences for the Python Ecosystem</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

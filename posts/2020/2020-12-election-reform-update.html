@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Election Reform Community Update - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="election-reform-community-update">
+<h1>Election Reform Community Update<a class="headerlink" href="#election-reform-community-update" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2020/12/election-reform-update.html">here</a>.</p>
+<p><a class="reference external" href="https://discuss.python.org/t/psf-board-election-reform/4527">This past June</a>,
+the PSF Board of Directors opened a discussion to solicit feedback on the
+topic of election reform. The discussion was a lively one and touched on the
+following topics:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>PSF Director term limits</p></li>
+<li><p>PSF Board geographic makeup</p></li>
+<li><p>PSF Board employer limits</p></li>
+<li><p>PSF membership diversification</p></li>
+<li><p>Revamping PSF membership levels</p></li>
+<li><p>General discussion on election procedures, ballot, and voting</p></li>
+</ul>
+</div></blockquote>
+<p>Over the course of the last few months, the PSF Board has discussed these
+topics to identify opportunities for both short-term and long-term reform.</p>
+<section id="short-term-reform-psf-director-term-limits-and-employer-limits">
+<h2>Short-term reform: PSF Director Term Limits and Employer Limits<a class="headerlink" href="#short-term-reform-psf-director-term-limits-and-employer-limits" title="Link to this heading">¶</a></h2>
+<p>The Board is discussing bylaw changes that we will introduce to the community
+for comment around February 2021. These bylaw changes would investigate PSF
+Director term limits as well as PSF Board employer limits. We believe that
+these changes can have an immediate impact on the makeup of the Board, and
+depending on the community’s feedback, could be decided by the next public
+vote in 2021.</p>
+</section>
+<section id="longer-term-reform-diversifying-the-psf-board-and-voting-membership">
+<h2>Longer-term reform: Diversifying the PSF Board and voting membership<a class="headerlink" href="#longer-term-reform-diversifying-the-psf-board-and-voting-membership" title="Link to this heading">¶</a></h2>
+<p>Two efforts are well underway to address longer-term reform to help diversify
+the PSF Board as well as the voting membership: the Diversity and Inclusion
+Workgroup and the Community Leadership Council.</p>
+<p>In 2016, when staggered 3-year terms were introduced for PSF Directors, a
+significant motivating factor for this resided in the need to continue to
+promote the sustainability of the PSF. High board turnover every year
+minimized the contributions any one Director could make as onboarding and
+becoming familiar with the duties of a Director can take a few months.
+Additionally annual turnover was a significant burden to the PSF staff.
+Together these both impacted the ability of the PSF to fulfill its larger
+mission.</p>
+<p>In this same vein, the PSF is implementing the creation of a Community
+Leadership Council (CLC) to help promote the sustainability of the PSF as well
+as to increase the global outreach of the PSF.</p>
+<p>The goal for the CLC is to start in 2021 and the proposed final format will be
+discussed in the January 2021 PSF Board meeting. The CLC will offer members
+opportunities for leadership development. Of particular importance,
+recruitment for the CLC will heavily focus on regional representation where
+the PSF Board is currently lacking. To assist with the execution of the CLC,
+the PSF will be seeking the expertise of the newly founded Diversity and
+Inclusion (D&amp;I) Workgroup led by PSF Director Marlene Mhangami.</p>
+<p>The PSF recently <a class="reference external" href="http://pyfound.blogspot.com/2020/12/announcing-psf-diversity-and-inclusion.html">published a blog post announcing the D&amp;I
+Workgroup</a> to the community. In short, we believe that the collective
+expertise of the D&amp;I Workgroup will greatly help the PSF in its ongoing
+efforts to promote diversity and inclusion in the community.</p>
+</section>
+<section id="takeaways-and-next-steps">
+<h2>Takeaways and Next Steps<a class="headerlink" href="#takeaways-and-next-steps" title="Link to this heading">¶</a></h2>
+<p>A forthcoming update on the timeline for the CLC will be published on the PSF
+blog in early to mid 2021. Reports will also be made available from the D&amp;I
+Workgroup in the monthly PSF Board
+<a class="reference external" href="https://www.python.org/psf/records/board/minutes/">minutes</a>. Should anyone
+wish to collaborate or provide feedback to the D&amp;I workgroup you can contact
+<cite>diversity-inclusion-wg&#64;python.org</cite>.</p>
+<p>As for other next steps, the PSF Board is committed to continuing to have open
+and transparent discussions about issues that relate to our mission. We will
+continue to host open discussions on our Python discuss page. We will
+additionally host virtual PSF member meetings in early 2021 that are
+accessible for all timezones (e.g. one meeting for Americas/Europe/Africa time
+zones, one meeting for Eastern and Asia/Oceania/Australia time zones). When
+the times and dates for those virtual meetings have been decided, we will post
+them to the blog.</p>
+<p>Lastly, the PSF in the continuation of our mission has an end of year
+fundraiser where we are actively working to offset the financial setbacks from
+the global pandemic. Please consider <a class="reference external" href="bit.ly/psf-q4">donating</a>, any size
+donation welcome! Some of the PSF Directors (myself included!) are running
+<a class="reference external" href="matcher.pyfound.org">matching campaigns too</a>.</p>
+<p>We thank the community for weighing in and providing this crucial feedback as
+we continue to evaluate mechanisms for how to best fulfill the PSF mission. We
+send our best wishes to you all for a safe end of 2020, and a safe start of
+2021!</p>
+</section>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2020-12-virtual-python-core-developer-sprint.html">
+      
+      <span>Virtual Python Core Developer Sprint 2020</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="../2021/2021-01-2020-in-review.html">
+      <span>2020 in Review</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

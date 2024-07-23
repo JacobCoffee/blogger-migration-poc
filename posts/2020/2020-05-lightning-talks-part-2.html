@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lightning Talks Part 2 - Python Language Summit 2020 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="lightning-talks-part-2-python-language-summit-2020">
+<h1>Lightning Talks Part 2 - Python Language Summit 2020<a class="headerlink" href="#lightning-talks-part-2-python-language-summit-2020" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2020/05/lightning-talks-part-2.html">here</a>.</p>
+<section id="zac-hatfield-dodds">
+<h2>Zac Hatfield-Dodds<a class="headerlink" href="#zac-hatfield-dodds" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="teaching-python-with-errors">
+<h1>Teaching Python with Errors<a class="headerlink" href="#teaching-python-with-errors" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzfrfmuNHaIQAPZr-IBb22-lBGRbwDo8s-W03maxq0XpC5pFmBwWpqygwDmcw0sliGeiAuD_fspjd_Lh5K3MCWWUGkSXdzPiBA_oTwgczSK8ZayiVMnSSVwekwGJ6mky3Jrg/s1600/zac-profile.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzfrfmuNHaIQAPZr">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjzfrfmuNHaIQAPZr</a>-
+IBb22-lBGRbwDo8s-W03maxq0XpC5pFmBwWpqygwDmcw0sliGeiAuD_fspjd_Lh5K3MCWWUGkSXdzPiBA_oTwgczSK8ZayiVMnSSVwekwGJ6mky3Jrg/s1600/zac-
+profile.jpg)
+When a new coder begins learning Python, the first Python feature they usually
+see is <cite>SyntaxError</cite>. In Zac Hatfield-Dodds’s experience, novices meet these
+errors practically as soon as they start typing, and they will spend most of
+their time over the following months struggling with them. Since experienced
+programmers rarely encounter syntax errors and easily fix them, the core team
+has not built very good tooling for them, and the <a class="reference external" href="https://docs.python.org/3/tutorial/errors.html#syntax-errors">official Python
+tutorial</a>
+doesn’t cover errors until Section 8. In any case, documentation is not the
+place to fix novices’ user experience, since they don’t know where to look for
+help. The only place to fix it is in CPython.</p>
+<p><a class="reference external" href="https://pyfound.blogspot.com/2020/04/the-2020-python-language-summit.html">Read more 2020 Python Language Summit
+coverage</a>.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><cite>SyntaxError</cite> does little to help a beginner. It directs their attention to
+the spot _after_ the token that caused the error. In this example from the
+tutorial, the caret points at the last letter of <cite>print</cite>, but the coder’s
+mistake was omitting a colon after <cite>True</cite>:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="gp">&gt;&gt;&gt; </span><span class="k">while</span> <span class="kc">True</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span>
+</span><span data-line="2">  File <span class="nb">&quot;&amp;lt;stdin&gt;&quot;</span>, line <span class="m">1</span>
+</span><span data-line="3"><span class="w">    </span><span class="k">while</span> <span class="kc">True</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world&#39;</span><span class="p">)</span>
+</span><span data-line="4"><span class="w">                   </span><span class="pm">^</span>
+</span><span data-line="5"><span class="gr">SyntaxError</span>: <span class="n">invalid syntax</span>
+</span></pre></div>
+</div>
+<p>Hatfield-Dodds proposed more precise errors that tell users about mismatched
+parentheses, unterminated string literals, missing commas and colons, and so
+on. Pablo Galindo Salgado said, via Zoom chat, that Python 3.8 has improved
+some error messages, for example:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span data-line="1"><span class="gp">&gt;&gt;&gt; </span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="p">))</span>
+</span><span data-line="2">  File <span class="nb">&quot;&amp;lt;stdin&gt;&quot;</span>, line <span class="m">1</span>
+</span><span data-line="3"><span class="w">    </span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">3</span><span class="o">+</span><span class="mi">4</span><span class="p">))</span>
+</span><span data-line="4"><span class="w">           </span><span class="pm">^</span>
+</span><span data-line="5"><span class="gr">SyntaxError</span>: <span class="n">unmatched &#39;)&#39;</span>
+</span></pre></div>
+</div>
+<p>The <a class="reference external" href="https://pyfound.blogspot.com/2020/04/replacing-cpythons-parser-python.html">new parser for 3.9</a> might improve error messages further, although in
+the short term <a class="reference external" href="https://github.com/we-like-parsers/cpython/issues/84">it requires more work just to bring it to parity with the
+current parser</a>.</p>
+<p>Hatfield-Dodds suggested CPython could implement “did you mean…” for both
+SyntaxErrors and NameErrors, by fuzzily searching for replacements for typos.
+Incremental improvements to SyntaxError could be funded by educational
+institutions, he guessed, and would make a good project for contributors from
+outside the core team, if the core developers are willing to guide them. “I
+care a lot about this,” said Hatfield-Dodds, and paused to let out a big
+exhale. “If people’s first exposure to errors in Python is an error that tells
+them what the problem is and how to fix it, we might even convince them to
+read error messages in the future, which would be magical.”</p>
+<section id="jim-baker">
+<h2>Jim Baker<a class="headerlink" href="#jim-baker" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="state-of-jython">
+<h1>State of Jython<a class="headerlink" href="#state-of-jython" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNCNkHYRKTdyhRVkQLZ0Awqsx-i4-Bv95TqK2xG13cfAaOiM0EqrydDP_XI3AM_ZihhZ-tiz0grjsfNP5xUk45yqNhd5Bef_KVwHzGY-M8rbpXT5EO9mVDQqr7mOTd_mJyng/s1600/jim-baker-speaker-photo.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNCNkHYRKTdyhRVkQLZ0Awqsx-i4-Bv95TqK2xG13cfAaOiM0EqrydDP_XI3AM_ZihhZ">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNCNkHYRKTdyhRVkQLZ0Awqsx-i4-Bv95TqK2xG13cfAaOiM0EqrydDP_XI3AM_ZihhZ</a>-
+tiz0grjsfNP5xUk45yqNhd5Bef_KVwHzGY-M8rbpXT5EO9mVDQqr7mOTd_mJyng/s1600/jim-
+baker-speaker-photo.jpg)
+“We are not dead yet!” said Jim Baker to the Language Summit. He admitted that
+“this is something I’ve said many times about Jython in the past.” The project
+is certainly behind CPython—it has just published a bugfix release of 2.7, and
+Python 3 support is far off—but it is making progress nevertheless. “And
+again,” said Baker, “our apologies.”</p>
+<p>Jython’s previous bugfix release was nearly two years ago; the main topics of
+the latest version, Jython 2.7.2, were an overhaul Jython’s PyJavaType
+objects, and solutions to deep race conditions. Baker said there is still an
+active user base for Jython based on the response to Jython’s recent betas,
+but “capacity in the project is low.” The project is currently led by Jeff
+Allen with two other regular contributors, none devoted to Jython full-time.
+Emeritus developers chip in occasionally. Baker hopes there will be more
+interest once Jython 3 ships, but he wrote in his slides, “the journey is
+unpredictable and resources are few.”</p>
+<p>There are several Python 3 implementations on the JVM, but none is ready to
+use. Isaiah Peng made <a class="reference external" href="https://github.com/jython/jython3/tree/py3k">a solo attempt at implementing Jython
+3</a> in 2016-2017. It is too late
+now to resume this work, because Peng’s branch didn’t pull changes from the
+main Jython repository and they have now diverged too far. Baker said Jython
+should copy ideas from this prototype and credit Peng’s work. Since 2016, Jeff
+Allen has been writing the <a class="reference external" href="https://the-very-slow-jython-project.readthedocs.io/en/latest/">Very Slow Jython Project</a>, “a project to re-think
+implementation choices in the Jython core, through the gradual, narrated
+evolution of a toy implementation.” Independently of the Jython team, Oracle
+is actively building <a class="reference external" href="https://github.com/graalvm/graalpython">an experimental Python 3
+implementation</a> on the Graal
+(pronounced “grail”) JVM. “It’s fantastic,” said Baker, but unlike Jython “it
+doesn’t do this beautiful subclassing of Java classes with Python classes.”</p>
+<p>The plan for Jython is to target the Python 3.8 language, including type
+hints. Baker has prototyped <a class="reference external" href="http://github.com/jimbaker/jstubgen">code to generate Python type hints from Java
+classes</a>. The team will overhaul the core
+implementation using modern Java features, and continue to emphasize Jython’s
+strengths: convenient integration with Java libraries, speed equal to CPython
+or better, and high concurrency (unlike CPython). Baker speculated that Jython
+3.8’s asyncio module could be built on the high-performance
+<a class="reference external" href="https://netty.io/">Netty</a> library. He hopes that the new
+<a class="reference external" href="https://pyfound.blogspot.com/2020/04/hpy-future-proof-way-of-extending.html">HPy</a> API will take off, because it would simplify supporting C
+extensions from Jython.</p>
+<section id="eric-holscher">
+<h2>Eric Holscher<a class="headerlink" href="#eric-holscher" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="read-the-docs-features-of-interest">
+<h1>Read the Docs features of interest<a class="headerlink" href="#read-the-docs-features-of-interest" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgASoLf3u_iQj-2OETnvH8rgpxsmGZC808ecjV-9bGD4E_z0a5kIF1PY6R7rQm05RzqIWTKaSjEAB2qYZT52SzUoEzEuPhooMkTvzhzpTx0DaKHMAFHTJpJgoBcCinWmdivzQ/s1600/eric-holscher.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgASoLf3u_iQj-2OETnvH8rgpxsmGZC808ecjV-9bGD4E_z0a5kIF1PY6R7rQm05RzqIWTKaSjEAB2qYZT52SzUoEzEuPhooMkTvzhzpTx0DaKHMAFHTJpJgoBcCinWmdivzQ/s1600/eric">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgASoLf3u_iQj-2OETnvH8rgpxsmGZC808ecjV-9bGD4E_z0a5kIF1PY6R7rQm05RzqIWTKaSjEAB2qYZT52SzUoEzEuPhooMkTvzhzpTx0DaKHMAFHTJpJgoBcCinWmdivzQ/s1600/eric</a>-
+holscher.png)
+Holscher’s presentation was an advertisement for nifty additions to
+<a class="reference external" href="https://readthedocs.org/">ReadTheDocs</a>, and an enticement to move CPython’s
+documentation there.</p>
+<p>ReadTheDocs recently added the <a class="reference external" href="https://sphinx-hoverxref.readthedocs.io/en/latest/">hoverxref</a> feature; when a reader hovers their
+cursor over a link in a documentation page, a tooltip shows the content of the
+linked section. Holscher has <a class="reference external" href="https://cpython-ericholscher.readthedocs.io/en/sphinx-hoverxref/whatsnew/3.9.html">forked the CPython docs</a> to host
+them on ReadTheDocs and demonstrate this feature’s
+utility.`![ &lt;<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfUeGaUlWgB5rFFSrGh1Httr9H_ElJFBV4LZsw41sla5SfsyIeo8IZSZXOJdTDfCuWIB3V6juOXhclfISq54KDm5oFM3LzybCbv5EGaFBvt4_aYRGpqgtDtcDMCLIeC4VQPQ/s1600/hover">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfUeGaUlWgB5rFFSrGh1Httr9H_ElJFBV4LZsw41sla5SfsyIeo8IZSZXOJdTDfCuWIB3V6juOXhclfISq54KDm5oFM3LzybCbv5EGaFBvt4_aYRGpqgtDtcDMCLIeC4VQPQ/s1600/hover</a>-
+xref-
+cpython.png&gt;`_](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfUeGaUlWgB5rFFSrGh1Httr9H_ElJFBV4LZsw41sla5SfsyIeo8IZSZXOJdTDfCuWIB3V6juOXhclfISq54KDm5oFM3LzybCbv5EGaFBvt4_aYRGpqgtDtcDMCLIeC4VQPQ/s1600/hover">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfUeGaUlWgB5rFFSrGh1Httr9H_ElJFBV4LZsw41sla5SfsyIeo8IZSZXOJdTDfCuWIB3V6juOXhclfISq54KDm5oFM3LzybCbv5EGaFBvt4_aYRGpqgtDtcDMCLIeC4VQPQ/s1600/hover</a>-
+xref-cpython.png)
+ReadTheDocs also has nicer pull request integration than the CPython
+repository does. Currently, when contributors offer pull requests to CPython,
+the patched documentation is available for download as a zip archive of HTML
+files. ReadTheDocs goes one better; <a class="reference external" href="https://blog.readthedocs.com/building-docs-for-pull-requests/">its PR builder publishes the patched docs
+to the web for review</a>. Search engines are blocked from indexing these docs, and each page
+displays a warning that it was created from a pull request. (After the Summit,
+at the core developers’ request, the ReadTheDocs team enabled this feature for
+pull requests to the <a class="reference external" href="https://github.com/python/devguide">Python Developer
+Guide</a>, which is hosted on ReadTheDocs.)</p>
+<p>Finally, Holscher claimed that ReadTheDocs’s text search is better than what
+CPython uses, which is generated by <a class="reference external" href="http://sphinx-doc.org/">Sphinx</a>.
+ReadTheDocs’s search results include direct links to pages’ subsections, and
+they provide <a class="reference external" href="https://blog.readthedocs.com/improved-search-and-search-as-you-type/">search-as-you-type</a>.</p>
+<p>Sanyam Khurana commented via Zoom chat, “This looks very promising and
+amazing!” Pablo Galindo Salgado suggested hosting the PEPs on ReadTheDocs as
+well.</p>
+<p>“Some of this is beta,” said Holscher. Nevertheless, it’s exciting to consider
+how much better the reader experience would be if CPython migrated. He argued
+that CPython should benefit from future improvements in ReadTheDocs, and
+ReadTheDocs should benefit from the attention of CPython developers. “We’ve
+talked about this in the past, there were blockers,” he said, but the
+ReadTheDocs team has now addressed them.</p>
+<section id="mariatta-wijaya">
+<h2>Mariatta Wijaya<a class="headerlink" href="#mariatta-wijaya" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="make-your-life-happier-with-zapier">
+<h1>Make your life happier (with Zapier)<a class="headerlink" href="#make-your-life-happier-with-zapier" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpm-cqyS3pccke5A33eSlaokWKqssoo2DtBYlpJvr3EVmB3YzdGhAGKA6VXs03xHGFmmYBdbE5XR7JtGJ-VEqMVYAfpC4-Lx-QqgaNWzhjBy7Kznzlyy-0jjeW3woNUlcYow/s1600/wijaya.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpm">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpm</a>-
+cqyS3pccke5A33eSlaokWKqssoo2DtBYlpJvr3EVmB3YzdGhAGKA6VXs03xHGFmmYBdbE5XR7JtGJ-
+VEqMVYAfpC4-Lx-QqgaNWzhjBy7Kznzlyy-0jjeW3woNUlcYow/s1600/wijaya.jpg)
+“I want you all to do more automation in your lives,” said Mariatta Wijaya.
+She acknowledged that Zapier is her employer, but her intention was pure. “I
+know you’re volunteering for open source. You should use more automation and
+save time.”</p>
+<p>For a demonstration, Wijaya showed the Zapier workflow she had used to invite
+attendees to the Language Summit. “You all received calendar invites for this
+event,” she said. “I did not send them by going to Google Calendar.” Instead,
+she collected names and email addresses in a Google spreadsheet. For each
+attendee, once she obtained a recording waiver and consent to the code of
+conduct, she put a “y” in the attendee’s row in the spreadsheet. Her
+<a class="reference external" href="https://zapier.com/learn/getting-started-guide/what-is-zapier/">Zap</a> then
+sent the invite automatically.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEjTsihzfHVD3mHbxViB-X3bzSiIMwuo3vUKfxmaQ6Tpa_05l0XUpqYCSC5rtsO-ecvCBTINp70OH9PnvTHo7k7IqAciCjuMBrHeCSfId5wZQkFIGAxpFkqVNAjexTHWK_tA/s1600/zapier.png">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEjTsihzfHVD3mHbxViB-X3bzSiIMwuo3vUKfxmaQ6Tpa_05l0XUpqYCSC5rtsO">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEjTsihzfHVD3mHbxViB-X3bzSiIMwuo3vUKfxmaQ6Tpa_05l0XUpqYCSC5rtsO</a>-
+ecvCBTINp70OH9PnvTHo7k7IqAciCjuMBrHeCSfId5wZQkFIGAxpFkqVNAjexTHWK_tA/s1600/zapier.png)
+Earlier in the summit, some core developers had complained about <a class="reference external" href="https://pyfound.blogspot.com/2020/05/core-workflow-updates-python-language.html">the firehose
+of Discourse emails</a>. Zapier has a Discourse integration that can
+manage this torrent. A user can create a “Zap” that takes new Discourse
+messages, filters them according to keywords or other attributes the user
+chooses, then triggers an email, Slack notification, or some other action.
+Wijaya also described how Zapier automates onboarding new PyLadies organizers.</p>
+</section>
+<section id="conclusion">
+<h1>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h1>
+<p>“Well, we made it,” said Łukasz Langa at the end of the second day of the
+videoconference. “I’m sorry it was not what a real Python Language Summit
+could have been, but I hope it was better than nothing.” His co-organizer
+Mariatta Wijaya congratulated attendees from all over the globe for staying
+up. “I know this is past bed time for many of you.” It was 8pm Pacific Time,
+the middle of the night for attendees in Europe and Africa, and the morning of
+the next day in Asia. She thanked the PSF and PyCon staff, and MongoDB for
+sponsoring the Summit.</p>
+<p>Victor Stinner added, “Thanks TCP/IP for making this possible.”</p>
+<p>Sumana Harihareswara said, “This was real to me.”</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2020-05-capital-one-lessons-from-adopting.html">
+      
+      <span>Capital One - Lessons From Adopting Python as a Team</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2020-06-2020-python-software-foundation-board.html">
+      <span>2020 Python Software Foundation Board of Directors Election Results</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

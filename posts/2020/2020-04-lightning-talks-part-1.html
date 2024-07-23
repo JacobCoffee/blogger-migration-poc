@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lightning Talks Part 1 - Python Language Summit 2020 - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="lightning-talks-part-1-python-language-summit-2020">
+<h1>Lightning Talks Part 1 - Python Language Summit 2020<a class="headerlink" href="#lightning-talks-part-1-python-language-summit-2020" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2020/04/lightning-talks-part-1.html">here</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigrdUbEgJgVDmnOPtQJ_G_t5RHXIWNOBc9XENxkES5nQh3-TpHFZ89eW_LP3tAfAENJvt9OV3j2ib6JUB4NzF_Yz_0trMO1Y8gl6izl-3VuEIvm8zGl69KJ5G3zUlvpY4Myw/s1600/sumana-and-eric-snow.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigrdUbEgJgVDmnOPtQJ_G_t5RHXIWNOBc9XENxkES5nQh3-TpHFZ89eW_LP3tAfAENJvt9OV3j2ib6JUB4NzF_Yz_0trMO1Y8gl6izl-3VuEIvm8zGl69KJ5G3zUlvpY4Myw/s1600/sumana">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigrdUbEgJgVDmnOPtQJ_G_t5RHXIWNOBc9XENxkES5nQh3-TpHFZ89eW_LP3tAfAENJvt9OV3j2ib6JUB4NzF_Yz_0trMO1Y8gl6izl-3VuEIvm8zGl69KJ5G3zUlvpY4Myw/s1600/sumana</a>-
+and-eric-snow.jpg)</p>
+<section id="sumana-harihareswara">
+<h2>Sumana Harihareswara<a class="headerlink" href="#sumana-harihareswara" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="what-do-you-need-from-pip-pypi-and-packaging">
+<h1>What do you need from pip, PyPI, and packaging?<a class="headerlink" href="#what-do-you-need-from-pip-pypi-and-packaging" title="Link to this heading">¶</a></h1>
+<p>Python packaging has seen relatively quick development in recent years as a
+result of increased funding; most famously the new
+<a class="reference external" href="https://pypi.org/">PyPI.org</a> website was launched in 2018. The current work
+in progress includes <a class="reference external" href="https://pyfound.blogspot.com/2018/12/upcoming-pypi-improvements-for-2019.html">malware
+detection</a> and <a class="reference external" href="https://www.python.org/dev/peps/pep-0458/">signed
+packages</a> on PyPI, a new dependency
+resolver for pip, and a revamp of virtualenv. Much of this work is funded by
+grants from companies. (<a class="reference external" href="https://wiki.python.org/psf/Fundable%20Packaging%20Improvements">Details on the Working Group
+page</a>.)
+Sumana Harihareswara from the <a class="reference external" href="https://wiki.python.org/psf/PackagingWG">Packaging Working
+Group</a> is a prolific grant proposal
+writer; she <a class="reference external" href="https://www.harihareswara.net/need-from-pip.pdf">presented ideas for further
+development</a>.</p>
+<p><a class="reference external" href="https://pyfound.blogspot.com/2020/04/the-2020-python-language-summit.html">Read more 2020 Python Language Summit
+coverage</a>.</p>
+<ul class="simple">
+<li><ul>
+<li><ul>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Python packaging ideas for the future include:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Better specifications, toolchain, and services for building distributions</p></li>
+<li><p>Robust interoperability testing</p></li>
+<li><p>Revamp PyPI API</p></li>
+<li><p>Make setuptools the reference implementation of the distutils API</p></li>
+<li><p>Provide more standardized editable installations</p></li>
+<li><p>Add support for pyproject.toml as a way to configure setuptools</p></li>
+<li><p><a class="reference external" href="https://github.com/pypa/packaging-problems/issues/25">Create &amp; maintain a generic wheel-builder</a></p></li>
+<li><p><a class="reference external" href="https://www.python.org/dev/peps/pep-0480/">PEP 480: secure the developer-to-user supply chain</a></p></li>
+<li><p><a class="reference external" href="https://discuss.python.org/t/pep-600-future-manylinux-platform-tags-for-portable-linux-built-distributions/2414/">Implement perennial manylinux (PEP 600)</a></p></li>
+</ul>
+</div></blockquote>
+<p>Harihareswara solicited packaging ideas from the audience to inform the
+<a class="reference external" href="https://www.pypa.io/en/latest/roadmap/">Python Packaging Authority roadmap</a>
+and the <a class="reference external" href="https://wiki.python.org/psf/Fundable%20Packaging%20Improvements">Fundable Packaging
+Improvements</a>
+page, asked them to add their complaints to the <a class="reference external" href="https://github.com/pypa/packaging-problems/issues">packaging problems
+list</a>, and requested help
+writing grant proposals.</p>
+<p>Since Harihareswara had listed a <a class="reference external" href="https://discuss.python.org/t/virtualenv-20-0-0-beta1-is-available/3077">revamp of
+virtualenv</a> among the works in progress, Barry Warsaw wondered what
+advantages virtualenv has over venv, which is now built in to all supported
+Python versions. Bernat Gabor, who maintains virtualenv, answered that
+virtualenv is faster, provides a richer API for tools built on it, and serves
+as a laboratory for ideas that might be merged into venv.</p>
+<p>Ernest W. Durbin III provided a status update on malware checking: the
+<a class="reference external" href="https://warehouse.readthedocs.io/development/malware-checks/">framework is in place</a> but only two checks have been implemented, “mainly for
+demonstration.” He has invited security researchers to implement more checks.</p>
+<p>David Mertz asked whether pip’s new dependency resolver would be able to
+resolve dependency conflicts. Paul Moore said he is still researching what
+users want pip to do in the case of conflicts, and what solutions are provided
+by resolver algorithms. The new resolver is about to be released, but it is
+still alpha-level and will be turned off by default.</p>
+<section id="eric-snow">
+<h2>Eric Snow<a class="headerlink" href="#eric-snow" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="a-retrospective-on-my-multi-core-python-project">
+<h1>A Retrospective on My “Multi-Core Python” Project<a class="headerlink" href="#a-retrospective-on-my-multi-core-python-project" title="Link to this heading">¶</a></h1>
+<p>Of all the schemes for freeing CPython from the Global Interpreter Lock, the
+frontrunner is Eric Snow’s plan to give each subinterpreter its own lock. He
+<a class="reference external" href="https://mail.python.org/pipermail/python-ideas/2015-June/034177.html">proposed the idea in 2015</a>, began discussing and prototyping the idea
+intensely, and burned out the next year. “I was trying to do too much on my
+own,” said Snow. In 2017 he resumed development, this time with dozens of
+collaborators, and <a class="reference external" href="https://www.python.org/dev/peps/pep-0554/">wrote PEP 554 to expose subinterpreters to pure Python
+programs</a>, which will ease testing
+for the multi-core project. <a class="reference external" href="https://lwn.net/Articles/754162/">He presented his progress to the Language Summit
+in 2018</a> and in a <a class="reference external" href="https://www.youtube.com/watch?v=7RlqbHCCVyc">2019 PyCon
+talk</a>. His <a class="reference external" href="https://talkpython.fm/episodes/show/225/can-subinterpreters-free-us-from-pythons-gil">TalkPython
+interview</a> last year was especially effective at drawing attention
+to the project.</p>
+<p>Snow’s immediate blocker is PEP 554’s acceptance and implementation, but much
+work remains after that. He told the 2020 Language Summit, “I’ve just been
+chugging along, little by little. Lots of _little_ pieces to get this project
+done!” Hard problems include passing data safely between subinterpreters, the
+“grind” of removing all the global variables, and reaching the actual goal:
+creating a distinct GIL per subinterpreter. Snow predicts the split GIL won’t
+land in Python 3.9, but “3.10 for sure.”</p>
+<p>Snow thanked a large list of contributors, many of them outside the core
+developer team.</p>
+<p>Kyle Stanley asked whether daemon threads should be still be allowed in
+subinterpreters or not. (Victor Stinner <a class="reference external" href="https://bugs.python.org/issue37266">tried to ban
+them</a> but had to revert his change.) Snow
+replied that daemon threads in subinterpreters lead to many finalization
+problems, and their use should be discouraged, but removing them entirely has
+proven too disruptive for the core team to accomplish any time soon.</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2020-04-hpy-future-proof-way-of-extending.html">
+      
+      <span>HPy: a future-proof way of extending Python? - Python Language Summit 2020</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2020-04-replacing-cpythons-parser-python.html">
+      <span>Replacing CPython’s parser - Python Language Summit 2020</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

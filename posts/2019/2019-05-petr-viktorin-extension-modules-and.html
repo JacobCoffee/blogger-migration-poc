@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" data-accent-color="indigo" data-content_root="../../">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Petr Viktorin: Extension Modules And Subinterpreters - Python Blog</title><link rel="shortcut icon" href="../../_static/badge.svg"/><link rel="index" title="Index" href="../../genindex.html" /><link rel="search" title="Search" href="../../search.html" /><script>
+    function setColorMode(t){let e=document.documentElement;e.setAttribute("data-color-mode",t);let a=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches,s=t;"auto"===t&&(s=a?"dark":"light"),"light"===s?(e.classList.remove("dark"),e.classList.add("light")):(e.classList.remove("light"),e.classList.add("dark"))}
+    setColorMode(localStorage._theme||"auto");
+  </script><link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=397bb51e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/shibuya.css?v=301e5329" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link media="print" rel="stylesheet" type="text/css" href="../../_static/print.css?v=20ff2c19" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sy-f-text: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+  --sy-f-heading: "Inter", var(--sy-f-sys), var(--sy-f-cjk), sans-serif;
+}
+</style>
+    
+
+
+
+</head>
+<body><div class="sy-head">
+  <div class="sy-head-blur"></div>
+  <div class="sy-head-inner sy-container mx-auto">
+    <a class="sy-head-brand" href="/">
+      <img class="light-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <img class="dark-logo" src="../../_static/badge.svg" alt="Python Blog" height="28" loading="lazy" />
+      <strong>Python Blog</strong>
+    </a>
+    <div class="sy-head-nav" id="HeadNav">
+      <nav class="sy-head-links"><ul><li class="link"><a href="../../index.html">Home</a></li>
+      <li class="link"><button type="button">
+            <span>Community</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/dev/">
+                <span>Contributing</span>
+                <small>Learn how to contribute to the Python project</small>
+              </a></li><li><a href="https://policies.python.org/python.org/code-of-conduct/">
+                <span>Code of Conduct</span>
+                <small>Review the etiquette for interacting with the Python community</small>
+              </a></li><li><a href="https://www.python.org/dev/security/">
+                <span>Security</span>
+                <small>Overview of PSFs's security protocols</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>About</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://www.python.org/psf-landing/">
+                <span>Python Software Foundation</span>
+                <small>Details about the PSF</small>
+              </a></li><li><a href="https://www.python.org/downloads/">
+                <span>Releases</span>
+                <small>Explore the latest Python releases</small>
+              </a></li></ul>
+      </li>
+      <li class="link"><button type="button">
+            <span>Help</span>
+            <i class="i-lucide chevron-down"></i>
+          </button>
+        <ul><li><a href="https://discord.gg/python">
+                <span>Discord Help Forum</span>
+                <small>Dedicated Discord help forum</small>
+              </a></li><li><a href="https://discuss.python.org/">
+                <span>Board Discussions</span>
+                <small>Board Discussions</small>
+              </a></li></ul>
+      </li><li class="link">
+          <a href="https://github.com/sponsors/python">
+            <span>Sponsor</span></a>
+        </li></ul></nav>
+      <div class="sy-head-extra flex items-center print:hidden"><form class="searchbox flex items-center" action="../../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <kbd>/</kbd>
+</form><div class="sy-head-socials"></div></div>
+    </div>
+    <div class="sy-head-actions flex items-center shrink-0 print:hidden"><button class="js-theme theme-switch flex items-center"
+data-aria-auto="Switch to light color mode"
+data-aria-light="Switch to dark color mode"
+data-aria-dark="Switch to auto color mode">
+<i class="i-lucide theme-icon"></i>
+</button><button class="md:hidden flex items-center js-menu" aria-label="Menu" type="button" aria-controls="HeadNav" aria-expanded="false">
+        <div class="hamburger">
+          <span class="hamburger_1"></span>
+          <span class="hamburger_2 -translate-x-2"></span>
+          <span class="hamburger_3 -translate-x-1"></span>
+        </div>
+      </button>
+    </div>
+  </div>
+</div><div class="sy-container mx-auto body">
+    <main class="sy-content mx-auto pt-12 px-6 xl:px-12 break-words">
+      <article class="yue" role="main">
+        
+<section id="petr-viktorin-extension-modules-and-subinterpreters">
+<h1>Petr Viktorin: Extension Modules And Subinterpreters<a class="headerlink" href="#petr-viktorin-extension-modules-and-subinterpreters" title="Link to this heading">¶</a></h1>
+<p><em>This was originally posted on blogger</em> <a class="reference external" href="https://pyfound.blogspot.com/2019/05/petr-viktorin-extension-modules-and.html">here</a>.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMA-u9-iK07aAEVCQWQ3J9EBkURU0xr1kVHKo2K1I0gJXjvcEDkije1FAWE84JUunKr1-3uMsfeJIqq2C1jh_1KZmkLO7Y6yxIcGXgfDORy7Dj0br85lHzRP1-qujnzx3usA/s640/petr-viktorin-2.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMA-u9-iK07aAEVCQWQ3J9EBkURU0xr1kVHKo2K1I0gJXjvcEDkije1FAWE84JUunKr1-3uMsfeJIqq2C1jh_1KZmkLO7Y6yxIcGXgfDORy7Dj0br85lHzRP1-qujnzx3usA/s1600/petr">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMA-u9-iK07aAEVCQWQ3J9EBkURU0xr1kVHKo2K1I0gJXjvcEDkije1FAWE84JUunKr1-3uMsfeJIqq2C1jh_1KZmkLO7Y6yxIcGXgfDORy7Dj0br85lHzRP1-qujnzx3usA/s1600/petr</a>-
+viktorin-2.jpg)When a Python subinterpreter loads an extension module written
+in C, it tends to unwittingly share state with other subinterpreters that have
+loaded the same module, unless that module is written very carefully. Petr
+Viktorin addressed the Python Language Summit to describe the problem in
+detail and propose a cleaner isolation of subinterpreters.</p>
+<p><a class="reference external" href="https://pyfound.blogspot.com/2019/05/the-2019-python-language-summit.html">Read more 2019 Python Language Summit
+coverage</a>.</p>
+</section>
+<section id="python-based-libraries-use-subinterpreters-for-isolation">
+<h1>Python-Based Libraries Use Subinterpreters For Isolation<a class="headerlink" href="#python-based-libraries-use-subinterpreters-for-isolation" title="Link to this heading">¶</a></h1>
+<p>Python can run several interpreter instances in a single process, keeping each
+subinterpreter relatively isolated from the others. There are two ways this
+feature could be used in the future, but both require improvements to Python.
+First, Python could achieve parallelism by giving each subinterpreter its own
+Global Interpreter Lock (GIL) and passing messages between them; Eric Snow has
+proposed this use of subinterpreters in <a class="reference external" href="https://www.python.org/dev/peps/pep-0554/#concurrency">PEP
+554</a>.</p>
+<p>Another scenario is when libraries happen to use Python as part of their
+implementation. Viktorin described, for example, a simulation library that
+uses Python and NumPy internally, or a chat library that uses Python and
+asyncio. It should be possible for one application to load multiple libraries
+such as this, each of which uses a Python interpreter, without cross-
+contamination. This use case was the subject of Viktorin’s presentation. The
+problem, he said, is that “CPython is not ready for this,” because it does not
+properly manage global state.</p>
+</section>
+<section id="there-are-many-kinds-of-global-state">
+<h1>There Are Many Kinds Of Global State<a class="headerlink" href="#there-are-many-kinds-of-global-state" title="Link to this heading">¶</a></h1>
+<p>Viktorin described a hierarchy, or perhaps a tree, of kinds of global state in
+an interpreter.</p>
+<p><em>Process state:</em> For example, open file descriptors.</p>
+<p><em>Runtime state:</em> The Python memory allocator’s data structures, and the GIL
+(until PEP 554).</p>
+<p><em>Interpreter state:</em> The contents of the “builtins” module and the dict of
+all imported modules.</p>
+<p><em>Thread state:</em> Thread locals like asyncio’s current event loop; fortunately
+this is per-interpreter.</p>
+<p><em>Context state:</em> Implicit state such as
+<a href="#id2"><span class="problematic" id="id3">``</span></a>decimal.context &lt;<a class="reference external" href="https://docs.python.org/2/library/decimal.html#decimal.localcontext">https://docs.python.org/2/library/decimal.html#decimal.localcontext</a>&gt;`_`.</p>
+<p><em>Module state:</em> Python variables declared at file scope or with the “global”
+keyword, which in fact creates module-local state.</p>
+<p><a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwPHkCe37FjTDRYbReAshFlCSfasU8RLxwkroNH_A9322MQ9IWkute6v3YjcXFyIMgSulr_rkqShiGFozsxHBbo1ZTjrYbA4zNM8aHD88tqoYYN-McVcUtei0Ik1UE4sBXMg/s640/petr-viktorin-1.jpg">![</a>](<a class="reference external" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwPHkCe37FjTDRYbReAshFlCSfasU8RLxwkroNH_A9322MQ9IWkute6v3YjcXFyIMgSulr_rkqShiGFozsxHBbo1ZTjrYbA4zNM8aHD88tqoYYN">https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwPHkCe37FjTDRYbReAshFlCSfasU8RLxwkroNH_A9322MQ9IWkute6v3YjcXFyIMgSulr_rkqShiGFozsxHBbo1ZTjrYbA4zNM8aHD88tqoYYN</a>-
+McVcUtei0Ik1UE4sBXMg/s1600/petr-viktorin-1.jpg)</p>
+</section>
+<section id="module-state-behaves-surprisingly">
+<h1>Module State Behaves Surprisingly<a class="headerlink" href="#module-state-behaves-surprisingly" title="Link to this heading">¶</a></h1>
+<p>With a series of examples, Viktorin demonstrated the subtle behavior of
+module-level state.</p>
+<p>To begin with a non-surprising example, a pure-Python module’s state is
+recreated by re-importing it:</p>
+<blockquote>
+<div><p>import enum
+old_enum = enum
+del sys.modules[‘enum’]
+import enum
+old_enum == enum  # False</p>
+</div></blockquote>
+<p>But surprisingly, a C extension module only _appears_ to be recreated when it
+is re-imported:</p>
+<blockquote>
+<div><p>import _sqlite3
+old_sqlite3 = _sqlite3
+del sys.modules[‘_sqlite3’]
+import _sqlite3
+old_sqlite3 == _sqlite3 # False</p>
+</div></blockquote>
+<p>The last line seems to show that the two modules are distinct, but as Viktorin
+said, “This is a lie.” The module’s initialization is not re-run, and the
+_contents_ of the two modules are shared:</p>
+<p><cite>old_sqlite3.Error is _sqlite3.Error # True</cite></p>
+<p>It is far too easy to contaminate other subinterpreters with these shared
+contents—in effect, a C extension’s module state is therefore a process global
+state.</p>
+</section>
+<section id="modules-must-be-rewritten-thoughtfully">
+<h1>Modules Must Be Rewritten Thoughtfully<a class="headerlink" href="#modules-must-be-rewritten-thoughtfully" title="Link to this heading">¶</a></h1>
+<p>C extensions written in <a class="reference external" href="https://www.python.org/dev/peps/pep-3121/">the new
+style</a> avoid this problem with
+subinterpreters. Not all C extensions in the standard library are updated yet;
+Christian Heimes commented that the <cite>ssl</cite> module must be ported to the new
+style of initialization. Although it is simple to find modules that must be
+ported, the actual porting requires thought. Coders must meticulously
+distinguish among different kinds of global state. C static variables are
+process globals, <cite>PyState_FindModule</cite> returns an interpreter-global reference
+to a module, and <cite>PyModule_GetState</cite> returns module-local state. Each nugget
+of module data must be deliberately placed at one of the levels in the
+hierarchy.</p>
+<p>As an example of how tricky this is, Viktorin pointed out a bug in the <cite>csv</cite>
+module. If it is imported twice, exception-handling breaks:</p>
+<blockquote>
+<div><p>import _csv
+old_csv = _csv
+del sys.modules[‘_csv’]
+import _csv
+try:</p>
+<blockquote>
+<div><p># Pass an invalid array to reader(): should be a string, not 1.
+list(old_csv.reader([1]))</p>
+</div></blockquote>
+<dl class="simple">
+<dt>except old_csv.Error:</dt><dd><p># The exception clause should catch the error but doesn’t.
+pass</p>
+</dd>
+</dl>
+</div></blockquote>
+<p>The` old_csv.reader` function ought to raise an instance of` old_csv.Error`,
+which would match the <cite>except</cite> clause. In fact, the <cite>csv</cite> module has a bug.
+When it is re-imported it overwrites interpreter-level state, including the
+<cite>_csv.Error</cite> type, instead of keeping its state at the module-local level.</p>
+<p>Audience members agreed this was a bug, but Viktorin insists that this
+particular bug is merely a symptom of a larger problem: it is too hard to
+write properly isolated extension modules. <a class="reference external" href="https://www.python.org/dev/peps/pep-0573/">Viktorin and three coauthors have
+proposed PEP 573</a> to ease this
+problem, with special attention to exception types.</p>
+<p>Viktorin advised all module authors to keep state at the module level. He
+recognized that this is not always possible: for example, the Python standard
+library’s <cite>readline</cite> module wraps the C <cite>readline</cite> library, which has global
+hooks. These are necessarily process-global state. He asked the audience, how
+should this scenario be handled? Should <cite>readline</cite> error if it is imported in
+more than one subinterpreter? He said, “There’s some thinking to do.” In any
+case, CPython needs a good default.</p>
+<p>The correct way to code a C extension is to use module-local state, and that
+should be the most obvious place to store state from C. It seems to Viktorin
+that the newest style APIs do emphasize module-local state as he desires, but
+they are not yet well-known.</p>
+<p>Further reading:</p>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0384/">PEP 384</a> (3.2): Defining a Stable
+ABI</p>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0489/">PEP 489</a> (3.5): Multi-phase
+extension module initialization</p>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0554/#concurrency">PEP 554</a> (3.9):
+Multiple Interpreters in the Stdlib</p>
+<p><a class="reference external" href="https://www.python.org/dev/peps/pep-0573/">PEP 573</a> (3.9): Module State
+Access from C Extension Methods</p>
+<p>Not a PEP yet: <a class="reference external" href="https://mail.python.org/archives/list/capi-sig&#64;python.org/message/B2VDVLABM4RQ4ATEJXFZYWEGTBZPUBKW/">CPython C API Design
+Guidelines</a> (layers &amp; rings)</p>
+</section>
+
+<div class="section ablog__blog_comments">
+  
+  
+
+
+<div class="section ablog__prev-next">
+  <span class="ablog__prev">
+    
+    
+    Previous:
+    
+    <a href="2019-05-scott-shawcroft-history-of-circuitpython.html">
+      
+      <span>Scott Shawcroft: History of CircuitPython</span>
+    </a>
+    
+  </span>
+  <span class="ablog__spacer">&nbsp;</span>
+  <span class="ablog__next">
+    
+    
+    Next:
+    
+    <a href="2019-05-mariatta-wijaya-lets-use-github-issues.html">
+      <span>Mariatta Wijaya: Let’s Use GitHub Issues Already!</span>
+      
+    </a>
+    
+  </span>
+</div>
+
+  
+  
+</div>
+
+      </article>
+      
+    </main>
+  </div><footer class="sy-foot">
+  <div class="sy-foot-inner sy-container mx-auto">
+    <div class="sy-foot-reserved md:flex justify-between items-center">
+      <div class="sy-foot-copyright"><p>2024, Python Software Foundation</p>
+  
+  <p>
+    Made with
+    
+    <a href="https://www.sphinx-doc.org/">Sphinx</a> and
+    
+    <a href="https://shibuya.lepture.com">Shibuya theme</a>.
+  </p>
+</div>
+      <div class="sy-foot-socials"></div>
+    </div>
+  </div>
+</footer>
+      <script src="../../_static/documentation_options.js?v=8a448e45"></script>
+      <script src="../../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script src="../../_static/shibuya.js?v=3cc430e2"></script></body>
+</html>

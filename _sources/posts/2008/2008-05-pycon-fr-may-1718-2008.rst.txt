@@ -1,0 +1,20 @@
+.. post:: 2008-05-07
+   :tags: france, pycon, post, legacy-blogger
+   :author: Python Software Foundation
+   :category: Legacy
+   :location: World
+   :language: en
+
+PyCon FR: May 17/18, 2008
+=========================
+
+*This was originally posted on blogger* `here <https://pyfound.blogspot.com/2008/05/pycon-fr-may-1718-2008.html>`_.
+
+PyCon FR is to be held at the `Cité des sciences et de la
+Villette <http://fr.pycon.org/presentation>`_ in Paris. This is the second
+national Python Conference in France. There is an interesting and varied
+program, which you can see in English `on Tarek Ziadé's
+blog <http://tarekziade.wordpress.com/2008/05/07/pycon-fr-is-coming-up-ask-
+the-program>`_. We wish our French cousins bonne chance and look forward to
+seeing the sessions written up by enthusiastic delegates.
+
