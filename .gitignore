@@ -1,0 +1,4 @@
+.venv
+out/
+docs/_build/
+export.xml
