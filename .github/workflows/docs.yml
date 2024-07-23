@@ -30,7 +30,7 @@ jobs:
 
       - name: Build docs
         run: |
-          sphinx-build -b html . build/html -a -j auto --keep-going
+          sphinx-build -b html . docs/_build/html -a -j auto --keep-going
 
 #       - name: Rename generated index.html
 #         run: |
