@@ -1,0 +1,58 @@
+.. post:: 2021-01-12
+   :tags: post, legacy-blogger
+   :author: Python Software Foundation
+   :category: Legacy
+   :location: World
+   :language: en
+
+2020 in Review
+==============
+
+*This was originally posted on blogger* `here <https://pyfound.blogspot.com/2021/01/2020-in-review.html>`_.
+
+`![Image of someone holding a lit
+sparkler <https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguTSRhasb_iP-6chu18LmgkEcuy3pCwLox7I9my4kLQONV1XEqpu8kBsG4BOPJpOih6BNI7ry02ecappDeRVJhcqj8qS1LxTSbaZ-8bPXxNISaMcB6NA1R529NhzlfjiUDWxc/w320-h213/photo-1477738224882-4eba549a81ea.jpeg>`_](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguTSRhasb_iP-6chu18LmgkEcuy3pCwLox7I9my4kLQONV1XEqpu8kBsG4BOPJpOih6BNI7ry02ecappDeRVJhcqj8qS1LxTSbaZ-8bPXxNISaMcB6NA1R529NhzlfjiUDWxc/s1080/photo-1477738224882-4eba549a81ea.jpeg)
+
+The beginning of 2020 was paving a new way for the PSF to support its
+community. The PSF Board Directors strategically planned to devote funding to
+Python's core and to hiring staff. We expected a healthy revenue from PyCon US
+2020 and had big plans for it!
+
+As the pandemic hit and `PyCon US 2020 in Pittsburgh was
+cancelled <https://pycon.blogspot.com/2020/03/pycon-us-2020-in-
+pittsburgh.html>`_, we had to shift our strategic plan and so much more. The PSF
+quickly had to reassess its programs, plans, and rebuild.
+
+But we've had our fill of bad news! Instead of highlighting the negative
+impacts of 2020 (we touch on that
+`here <https://www.python.org/psf/sponsorship-new/#impact>`_), let's take a look
+at all the positivity we witnessed and experienced within the Python community
+throughout 2020.
+
+  * Our community supported the PSF through PyCon 2020's cancellation by helping us raise more than $500,000 in donations from event sponsors and registrants when we announced the cancellation. 
+  * Our staff reacted quickly to provide as much content as possible in lieu of the in-person event, online. Talks and tutorials are all `available <https://pycon-archive.python.org/2020/online/>`_!
+  * The PSF board and staff focused on `geographical diversity amongst the board and members <https://pyfound.blogspot.com/2020/06/2020-python-software-foundation-board_26.html>`_, which eventually led to the creation of the `Diversity and Inclusion Work Group <https://pyfound.blogspot.com/2020/12/announcing-psf-diversity-and-inclusion.html>`_. Board members `released an update <https://pyfound.blogspot.com/2020/12/election-reform-update.html>`_ on additional work at the end of December.
+  * The PSF approved a `Funding Work Group <https://pyfound.blogspot.com/2020/07/announcing-psf-project-funding-working.html>`_ to help our community seek out external grants for their own projects.
+  * Even though the PSF had to pause its international Grants Program over the summer, it was `re-launched in September <https://pyfound.blogspot.com/2020/09/the-python-software-foundation-re-opens.html>`_! 
+  * pip 20.3 was released, which features the new dependency revolver. This work was funded through grants the PSF received from `MOSS and CZI <https://pyfound.blogspot.com/2019/12/moss-czi-support-pip.html>`_.   
+
+  * The Python core developers and PSF worked together to bring the first ever Python Virtual Core Developer Sprints and Language Summit. Read about the Sprints `here <https://pyfound.blogspot.com/2020/12/virtual-python-core-developer-sprint.html>`_ and there are several articles published about the Summit `here <https://pyfound.blogspot.com/2020/04/the-2020-python-language-summit.html>`_!
+  * Implementation of `The Update Framework <https://theupdateframework.io>`_ is underway for PyPI to help secure downloads for users thanks to `Facebook Research <https://research.fb.com>`_. Our publicly auditable `key generation ceremony <https://archive.org/details/python-20-package-20-index-20-20-python-20-software-20-foundation-27s-20-tuf-20k>`_ was performed at the end of October.
+  * `PyCon US 2021 was announced <https://us.pycon.org/2021/>`_ and it will be held virtually! `Call for proposals <https://us.pycon.org/2021/speaking/>`_ is open until February 12, 2021.
+  * The PSF launched a `new sponsorship program <https://www.python.org/psf/sponsorship-new/#sponsor>`_ to offer impactful benefits to sponsors and bring in funding for PyPI and core Python maintenance/improvements.  
+
+  * The PSF hosted an end-of-the-year fundraiser, which was extremely successful. As of Jan 12, it brought in $130,000!
+  * The Python Software Foundation Meetup Pro Network grew to include 83 groups and over 120,000 members.
+  * Our membership grew! Over two dozen `Fellow members <https://www.python.org/psf/fellows/>`_ were voted in, 159 contributing/managing members self-certified, 184 new supporting members signed up!
+  * The PSF awarded `Community Service Awards to 6 amazing volunteers <https://www.python.org/community/awards/psf-awards/>`_ (two more will be announced this month for Q4!)
+
+Our staff and volunteers have their work cut out for them in 2021. In addition
+to hiring a Director of Resource Development, we will be hiring a Developer-
+in-Residence to assist core development (expect an announcement soon!), and we
+will be forming a Community Leadership Council. Thank you to all volunteers,
+donors, and sponsors for allowing us to continue our work.
+
+  
+
+We wish everyone a very healthy and happy 2021!
+
